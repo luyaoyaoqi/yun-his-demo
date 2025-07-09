@@ -1,5 +1,5 @@
 <template>
-  <el-select v-model="value" placeholder="Select" style="width: 240px;margin-top: 80px;" @visible-change="handleVisibleChange">
+  <el-select v-model="value" placeholder="Select" style="width: 240px;" @visible-change="handleVisibleChange">
     <div class="el-select-dropdown__wrap">
       <div class="table-header">
         <span style="width: 120px">商品名称</span>

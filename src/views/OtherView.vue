@@ -111,6 +111,39 @@ const cities = [
       note: '',
     }
   },
+  {
+    label: '阿莫西林胶囊5',
+    value: '阿莫西林胶囊5',
+    detail: {
+      specs: '10g*1盒/盒',
+      inventory: 100,
+      unit: '盒',
+      product: '唐山红星药业有限责任公司',
+      note: '',
+    }
+  },
+  {
+    label: '阿莫西林胶囊6',
+    value: '阿莫西林胶囊6',
+    detail: {
+      specs: '10g*1盒/盒',
+      inventory: 100,
+      unit: '盒',
+      product: '唐山红星药业有限责任公司',
+      note: '',
+    }
+  },
+  {
+    label: '阿莫西林胶囊7',
+    value: '阿莫西林胶囊7',
+    detail: {
+      specs: '10g*1盒/盒',
+      inventory: 100,
+      unit: '盒',
+      product: '唐山红星药业有限责任公司',
+      note: '',
+    }
+  },
 ]
 
 </script>

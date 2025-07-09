@@ -1,7 +1,7 @@
 <!-- AutoTooltip.vue -->
 <template>
     <template v-if="isOverflow">
-        <el-tooltip :content="content" :placement="placement" :effect="effect">
+        <el-tooltip :content="content" v-bind="tooltipOptions">
             <span :style="textStyle">{{ content }}</span>
         </el-tooltip>
     </template>
@@ -18,14 +18,19 @@ const props = defineProps<{
     placement?: string
     effect?: string
     textStyle?: Record<string, any>
+    tooltipOptions?: Record<string, any>
 }>()
 
 const textRef = ref<HTMLSpanElement | null>(null)
 const isOverflow = ref(false)
 
 // 设置默认值
-const placement = computed(() => props.placement || 'top')
-const effect = computed(() => props.effect || 'dark')
+const tooltipOptions = computed(() => ({
+    placement: 'top',
+    effect: 'dark',
+    showAfter: 400,
+    ...props.tooltipOptions
+}))
 
 const textStyle = computed(() => ({
     display: 'inline-block',

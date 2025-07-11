@@ -1,4 +1,4 @@
-<!-- AutoTooltip.vue -->
+<!-- TextTooltip.vue -->
 <template>
     <template v-if="isOverflow">
         <el-tooltip :content="content" v-bind="tooltipOptions">

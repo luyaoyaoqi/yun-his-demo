@@ -1,6 +1,6 @@
 <template>
     <el-input-number v-model="currentValue" v-bind="inputNumberOptions" @change="handleComponentChange"
-        @blur="handleBlur" @focus="handleFocus">
+        @blur="handleBlur" @focus="handleFocus" ref="inputRef">
         <template #prefix>
             <slot name="prefix" />
         </template>
@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch, defineProps, defineEmits } from 'vue'
+import { ref, computed, watch, defineProps, defineEmits, defineExpose, onMounted } from 'vue'
 
 const props = defineProps({
     modelValue: {
@@ -43,9 +43,9 @@ const emits = defineEmits([
 ])
 
 const currentValue = ref(props.modelValue)
+const inputRef = ref<InstanceType<any> | null>(null)
 
 // 计算属性，合并输入框的配置
-// 这里可以添加更多的默认配置
 const inputNumberOptions = computed(() => ({
     min: 0,
     max: 10,
@@ -85,8 +85,19 @@ const handleFocus = (event: FocusEvent) => {
     emits('focus', event)
 }
 
+// 暴露方法
+defineExpose({
+    focus: () => {
+        inputRef.value?.focus()
+    },
+    blur: () => {
+        inputRef.value?.blur()
+    }
+})
+
 // 监听外部值变化
 watch(() => props.modelValue, (newVal) => {
     currentValue.value = newVal
 })
+
 </script>

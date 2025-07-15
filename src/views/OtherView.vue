@@ -10,19 +10,19 @@
       </div>
       <el-option v-for="item in cities" :key="item.label" :label="item.label" :value="item.value">
         <span style="width: 120px">
-          <AutoTooltip :content="item.value" ref="tooltipRefs1"/>
+          <TextTooltip :content="item.value" ref="tooltipRefs1"/>
         </span>
         <span style="width: 100px">
-          <AutoTooltip :content="item.detail.specs" ref="tooltipRefs2"/>
+          <TextTooltip :content="item.detail.specs" ref="tooltipRefs2"/>
         </span>
         <span style="width: 70px;text-align: right;">
-          <AutoTooltip :content="item.detail.inventory+item.detail.unit" ref="tooltipRefs3"/>
+          <TextTooltip :content="item.detail.inventory+item.detail.unit" ref="tooltipRefs3"/>
         </span>
         <span style="width: 140px">
-          <AutoTooltip :content="item.detail.product" ref="tooltipRefs4"/>
+          <TextTooltip :content="item.detail.product" ref="tooltipRefs4"/>
         </span>
         <span style="width: 100px">
-          <AutoTooltip :content="item.detail.note" ref="tooltipRefs5" />
+          <TextTooltip :content="item.detail.note" ref="tooltipRefs5" />
         </span>
       </el-option>
     </div>
@@ -32,21 +32,21 @@
 
 <script lang="ts" setup>
 import { nextTick, ref } from 'vue'
-import AutoTooltip from '@/components/AutoTooltip.vue'
+import TextTooltip from '@/components/TextTooltip.vue'
 
 
 const value = ref('')
-// 用 ref 数组存储所有 AutoTooltip 实例
-const tooltipRefs1 = ref<InstanceType<typeof AutoTooltip>[]>([])
-const tooltipRefs2 = ref<InstanceType<typeof AutoTooltip>[]>([])
-const tooltipRefs3 = ref<InstanceType<typeof AutoTooltip>[]>([])
-const tooltipRefs4 = ref<InstanceType<typeof AutoTooltip>[]>([])
-const tooltipRefs5 = ref<InstanceType<typeof AutoTooltip>[]>([])
+// 用 ref 数组存储所有 TextTooltip 实例
+const tooltipRefs1 = ref<InstanceType<typeof TextTooltip>[]>([])
+const tooltipRefs2 = ref<InstanceType<typeof TextTooltip>[]>([])
+const tooltipRefs3 = ref<InstanceType<typeof TextTooltip>[]>([])
+const tooltipRefs4 = ref<InstanceType<typeof TextTooltip>[]>([])
+const tooltipRefs5 = ref<InstanceType<typeof TextTooltip>[]>([])
 
 // 监听下拉框显示/隐藏状态
 const handleVisibleChange = (visible: boolean) => {
   if (visible) {
-    // 下拉框打开时，手动触发所有 AutoTooltip 重新计算宽度
+    // 下拉框打开时，手动触发所有 TextTooltip 重新计算宽度
     nextTick(() => {
       tooltipRefs1.value.forEach(tooltip => {
         tooltip?.checkOverflow()

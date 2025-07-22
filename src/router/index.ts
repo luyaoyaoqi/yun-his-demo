@@ -33,6 +33,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/InputView.vue'),
     },
+    {
+      path: '/calendar',
+      name: 'calendar',
+      // route level code-splitting
+      // this generates a separate chunk (Input.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/CalendarView.vue'),
+    },
   ],
 })
 

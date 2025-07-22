@@ -2,26 +2,30 @@
 import './index.css';
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </script>
 
 <template>
-  <header>
-    <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
+  <el-config-provider :locale="zhCn">
+    <header>
+      <!-- <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" /> -->
 
-    <div class="wrapper">
-      <!-- <HelloWorld msg="You did it!" /> -->
+      <div class="wrapper">
+        <!-- <HelloWorld msg="You did it!" /> -->
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/other">Other</RouterLink>
-        <RouterLink to="/input">Input</RouterLink>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <RouterView />
-  </main>
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+          <RouterLink to="/other">Other</RouterLink>
+          <RouterLink to="/input">Input</RouterLink>
+          <RouterLink to="/calendar">Calendar</RouterLink>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <RouterView />
+    </main>
+  </el-config-provider>
 </template>
 
 <style scoped>
@@ -61,12 +65,11 @@ nav a:first-of-type {
   border: 0;
 }
 
-main{
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: 24px;
 }
-
 </style>

@@ -19,6 +19,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
           <RouterLink to="/other">Other</RouterLink>
           <RouterLink to="/input">Input</RouterLink>
           <RouterLink to="/calendar">Calendar</RouterLink>
+          <RouterLink to="/timePicker">TimePicker</RouterLink>
         </nav>
       </div>
     </header>

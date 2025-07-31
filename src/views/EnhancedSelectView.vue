@@ -1,51 +1,26 @@
 <template>
-  <el-select 
-    v-model="value" 
-    placeholder="Select" 
-    style="width: 240px" 
-    ref="selectRef"
-    @visible-change="handleVisibleChange" 
-    :fit-input-width="false"
-    :filter-method="filterOptions"
-  >
+  <el-select v-model="value" placeholder="Select" style="width: 240px" ref="selectRef"
+    @visible-change="handleVisibleChange" :fit-input-width="false" :filter-method="filterOptions">
     <template #header>
-      <el-input 
-        ref="inputRef" 
-        v-model="input" 
-        placeholder="Please input to filter" 
-        @keydown.up.stop.prevent="handleKeyUp"
-        @keydown.down.stop.prevent="handleKeyDown" 
-        @input="handleInputChange"
-      />
+      <el-input ref="inputRef" v-model="input" placeholder="Please input to filter"
+        @keydown.up.stop.prevent="handleKeyUp" @keydown.down.stop.prevent="handleKeyDown"
+        @keydown.esc.stop.prevent="handleEsc" @keydown.enter.stop.prevent="selectOption"
+        @keydown.delete.stop="deletePrevTag" @input="handleInputChange" />
     </template>
     <div class="el-select-dropdown__wrap">
       <div class="left">
         <template v-for="group in groupOptions" :key="group.value">
-          <el-button 
-            v-if="groupValue === group.value" 
-            type="primary"
-            @click="handleGroupChange(group.value)"
-          >
+          <el-button v-if="groupValue === group.value" type="primary" @click="handleGroupChange(group.value)">
             {{ group.label }}
           </el-button>
-          <el-button 
-            v-else 
-            text 
-            bg 
-            @click="handleGroupChange(group.value)"
-          >
+          <el-button v-else text bg @click="handleGroupChange(group.value)">
             {{ group.label }}
           </el-button>
         </template>
       </div>
       <div class="right">
-        <el-option 
-          v-for="item in filteredOptions" 
-          :key="item.value" 
-          :label="item.label" 
-          :value="item.value"
-          @click="handleOptionClick(item)"
-        >
+        <el-option v-for="item in filteredOptions" :key="item.value" :label="item.label" :value="item.value"
+          @click="handleOptionClick(item)">
           <div class="option-item">
             <span style="float: left">{{ item.label }}</span>
             <span style="
@@ -105,7 +80,7 @@ const groupOptions: GroupItem[] = [
   {
     label: 'Group1',
     value: 'group1',
-    options: [...baseOptions].filter(item => ['Option1', 'Option2', 'Option3','Option4', 'Option5', 'Option6'].includes(item.value))
+    options: [...baseOptions].filter(item => ['Option1', 'Option2', 'Option3', 'Option4', 'Option5', 'Option6'].includes(item.value))
   },
   {
     label: 'Group2',
@@ -130,10 +105,10 @@ const filteredOptions = computed(() => {
   if (!input.value) {
     return currentGroupOptions.value
   }
-  
+
   const searchStr = input.value.toLowerCase()
-  return currentGroupOptions.value.filter(item => 
-    item.label.toLowerCase().includes(searchStr) || 
+  return currentGroupOptions.value.filter(item =>
+    item.label.toLowerCase().includes(searchStr) ||
     item.value.toLowerCase().includes(searchStr)
   )
 })
@@ -145,6 +120,18 @@ const inputRef = ref<InstanceType<any> | null>(null)
 // 处理键盘上键事件
 const handleKeyUp = (event: KeyboardEvent) => {
   selectRef.value?.navigateOptions('prev')
+}
+
+const handleEsc = () => {
+   selectRef.value?.handleEsc()
+}
+
+const deletePrevTag = () => {
+   selectRef.value?.deletePrevTag()
+}
+
+const selectOption = () => {
+   selectRef.value?.selectOption()
 }
 
 // 处理键盘下键事件
@@ -199,7 +186,7 @@ const handleVisibleChange = (visible: boolean) => {
 // 过滤选项的方法（供el-select使用）
 const filterOptions = (query: string, option: any) => {
   return option.label.toLowerCase().includes(query.toLowerCase()) ||
-         option.value.toLowerCase().includes(query.toLowerCase())
+    option.value.toLowerCase().includes(query.toLowerCase())
 }
 
 onMounted(() => {

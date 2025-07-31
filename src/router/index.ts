@@ -18,12 +18,12 @@ const router = createRouter({
       component: () => import('../views/AboutView.vue'),
     },
     {
-      path: '/other',
-      name: 'other',
+      path: '/select',
+      name: 'select',
       // route level code-splitting
-      // this generates a separate chunk (Other.[hash].js) for this route
+      // this generates a separate chunk (Select.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/OtherView.vue'),
+      component: () => import('../views/SelectView.vue'),
     },
     {
       path: '/input',
@@ -48,6 +48,14 @@ const router = createRouter({
       // this generates a separate chunk (Input.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/TimePicker.vue'),
+    },
+    {
+      path: '/enhancedSelect',
+      name: 'enhancedSelect',
+      // route level code-splitting
+      // this generates a separate chunk (Input.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/EnhancedSelectView.vue'),
     },
   ],
 })

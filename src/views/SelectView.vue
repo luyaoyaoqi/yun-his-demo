@@ -1,6 +1,7 @@
 <template>
-  <el-select v-model="value" placeholder="Select" style="width: 240px;" @visible-change="handleVisibleChange">
-    <div class="el-select-dropdown__wrap">
+  <el-select v-model="value" placeholder="Select" style="width: 240px;" @visible-change="handleVisibleChange"
+    popper-class="custom-dropdown" :show-arrow="false" filterable>
+    <template #header>
       <div class="table-header">
         <span style="width: 120px">商品名称</span>
         <span style="width: 100px">规格</span>
@@ -8,18 +9,20 @@
         <span style="width: 140px">生产厂家</span>
         <span style="width: 100px">备注</span>
       </div>
+    </template>
+    <div class="el-select-dropdown__wrap">
       <el-option v-for="item in cities" :key="item.label" :label="item.label" :value="item.value">
         <span style="width: 120px">
-          <TextTooltip :content="item.value" ref="tooltipRefs1"/>
+          <TextTooltip :content="item.value" ref="tooltipRefs1" />
         </span>
         <span style="width: 100px">
-          <TextTooltip :content="item.detail.specs" ref="tooltipRefs2"/>
+          <TextTooltip :content="item.detail.specs" ref="tooltipRefs2" />
         </span>
         <span style="width: 70px;text-align: right;">
-          <TextTooltip :content="item.detail.inventory+item.detail.unit" ref="tooltipRefs3"/>
+          <TextTooltip :content="item.detail.inventory + item.detail.unit" ref="tooltipRefs3" />
         </span>
         <span style="width: 140px">
-          <TextTooltip :content="item.detail.product" ref="tooltipRefs4"/>
+          <TextTooltip :content="item.detail.product" ref="tooltipRefs4" />
         </span>
         <span style="width: 100px">
           <TextTooltip :content="item.detail.note" ref="tooltipRefs5" />
@@ -144,28 +147,49 @@ const cities = [
       note: '',
     }
   },
+  {
+    label: '阿莫西林胶囊7',
+    value: '阿莫西林胶囊7',
+    detail: {
+      specs: '10g*1盒/盒',
+      inventory: 100,
+      unit: '盒',
+      product: '唐山红星药业有限责任公司',
+      note: '',
+    }
+  },
 ]
 
 </script>
+
+  <style lang="less">
+  .custom-dropdown {
+    .el-select-dropdown__header {
+      padding: 0;
+    }
+  }
+  </style>
+
 <style lang="less" scoped>
+.table-header {
+  display: flex;
+  padding: 0px 20px;
+  height: 32px;
+  align-items: center;
+  border-bottom: 1px solid var(--el-border-color);
+  background-color: var(--el-fill-color-light);
+  font-size: 12px;
+  color: var(--el-text-color-secondary);
+  gap: 12px;
+
+}
+
 .el-select-dropdown__wrap {
   // width: 800px;
   display: flex;
 
   flex-direction: column;
 
-  .table-header {
-    display: flex;
-    padding: 0px 20px;
-    height: 32px;
-    align-items: center;
-    border-bottom: 1px solid var(--el-border-color);
-    background-color: var(--el-fill-color-light);
-    font-size: 12px;
-    color: var(--el-text-color-secondary);
-    gap: 12px;
-
-  }
 
   .el-select-dropdown__item {
     display: flex;

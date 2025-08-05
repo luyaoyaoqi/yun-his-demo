@@ -65,6 +65,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/DialogView.vue'),
     },
+    {
+      path: '/print',
+      name: 'print',
+      // route level code-splitting
+      // this generates a separate chunk (Input.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/printView.vue'),
+    },
   ],
 })
 

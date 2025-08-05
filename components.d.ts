@@ -55,6 +55,7 @@ declare module 'vue' {
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MdInputNumber: typeof import('./src/components/MdInputNumber.vue')['default']
     PrecisionInputNumber: typeof import('./src/components/PrecisionInputNumber.vue')['default']
+    PrintPage: typeof import('./src/components/printPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SelectSearch: typeof import('./src/components/SelectSearch.vue')['default']

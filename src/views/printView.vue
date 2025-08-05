@@ -1,5 +1,8 @@
 <template>
-    <PrintPage paperSize="a4">
+    <div class="print-editor-box">
+        <el-button @click="handlePrint">打印</el-button>
+    </div>
+    <PrintPage paperSize="a4" orientation="portrait" containerPaddingStyle="padding: 12mm;">
         <!-- 页眉内容 -->
         <template #header>
             <h1>{{ data.title }}</h1>
@@ -90,4 +93,15 @@ const data = reactive({
         { name: '商品30', price: 3000 }
     ]
 });
+
+const handlePrint = () => {
+    window.print();
+};
 </script>
+<style lang="less" scoped> 
+.print-editor-box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+</style>

@@ -10,6 +10,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AutoTooltip: typeof import('./src/components/AutoTooltip.vue')['default']
     Calendar: typeof import('./src/components/Calendar.vue')['default']
+    ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
     ElCascader: typeof import('element-plus/es')['ElCascader']
@@ -55,6 +56,8 @@ declare module 'vue' {
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MdInputNumber: typeof import('./src/components/MdInputNumber.vue')['default']
     PrecisionInputNumber: typeof import('./src/components/PrecisionInputNumber.vue')['default']
+    PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']
+    PrintMedicalTemplate: typeof import('./src/components/print/PrintMedicalTemplate.vue')['default']
     PrintPage: typeof import('./src/components/printPage.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

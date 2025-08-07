@@ -71,7 +71,15 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (Input.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/printView.vue'),
+      component: () => import('../views/PrintView.vue'),
+    },
+    {
+      path: '/autoComplete',
+      name: 'autoComplete',
+      // route level code-splitting
+      // this generates a separate chunk (Input.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/AutoCompleteView.vue'),
     },
   ],
 })

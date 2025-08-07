@@ -30,7 +30,7 @@ const props = defineProps({
         type: String,
         default: 'a4',
         validator: (value: string) => {
-            return ['a4', 'a5'].includes(value);
+            return ['a4', 'a5', 'b6', 'letter'].includes(value);
         }
     },
     // 纸张方向：横向或纵向
@@ -42,7 +42,7 @@ const props = defineProps({
         }
     }
     // 页面边距，打印设置中设置无边距，通过内部控制边距
-    ,containerPaddingStyle: {
+    , containerPaddingStyle: {
         type: String,
         default: 'padding: 10mm;'
     }

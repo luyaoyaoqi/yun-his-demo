@@ -1,12 +1,12 @@
 <template>
-    <PrintContainer 
-        :paperSize="paperSize" 
-        :orientation="orientation" 
-        :containerPaddingStyle="containerPaddingStyle">
+    <PrintContainer :paperSize="paperSize" :orientation="orientation" :containerPaddingStyle="containerPaddingStyle">
         <!-- 页眉内容 -->
         <template #header>
-            <h1>{{ data.title }}</h1>
-            <hr />
+            <div class="flex justify-between items-center mb-4">
+                <div>01</div>
+                <div>02</div>
+                <div>03</div>
+            </div>
         </template>
 
         <!-- 主内容 -->
@@ -111,8 +111,8 @@ const data = reactive({
 });
 </script>
 
-<style lang="less" scoped> 
-.print-editor-box{
+<style lang="less" scoped>
+.print-editor-box {
     display: flex;
     justify-content: center;
     margin-bottom: 24px;

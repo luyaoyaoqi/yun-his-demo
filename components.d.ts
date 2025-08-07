@@ -16,6 +16,7 @@ declare module 'vue' {
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
     ElCascader: typeof import('element-plus/es')['ElCascader']
     ElCascaderPanel: typeof import('element-plus/es')['ElCascaderPanel']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElCheckboxButton: typeof import('element-plus/es')['ElCheckboxButton']
     ElCheckboxGroup: typeof import('element-plus/es')['ElCheckboxGroup']
     ElCol: typeof import('element-plus/es')['ElCol']

@@ -171,10 +171,13 @@ onMounted(() => {
 <style lang="less" scoped>
 .print-view {
     all: initial;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: fit-content;
 
     .print-container {
         position: relative;
-        margin-bottom: 16px;
         // padding: 10mm 10mm;
         background-color: white;
         box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);

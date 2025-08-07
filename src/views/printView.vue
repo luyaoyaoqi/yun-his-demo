@@ -1,8 +1,8 @@
 <template>
     <div class="print-container">
         <div class="print-content">
-            <PrintMedicalTemplate2 :paperSize="printSetting.paperSize" :orientation="printSetting.orientation"
-                :containerPaddingStyle="printSetting.containerPaddingStyle" />
+            <PrintMedicalTemplate2 ref="printRef" :paperSize="printSetting.paperSize"
+                :orientation="printSetting.orientation" :containerPaddingStyle="printSetting.containerPaddingStyle" />
         </div>
         <div class="print-editor-box">
             <el-form>
@@ -27,17 +27,20 @@
                         @change="updatePaddingStyle" />
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="handlePrint" size="small">打印</el-button>
+                    <el-button type="primary" @click="createPrintPage" size="small">生成打印页</el-button>
                     <el-button @click="resetSettings" size="small">重置</el-button>
                 </el-form-item>
             </el-form>
         </div>
-
+        <el-dialog v-model="dialogIframeVisible" title="打印预览" width="80%" align-center>
+            <iframe class="iframe-container" :srcdoc="printPage" />
+        </el-dialog>
     </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref } from 'vue';
+const printRef = ref<HTMLDivElement>();
 
 const paddingDefault = 5;
 const printDefaultSetting = {
@@ -69,9 +72,46 @@ const resetSettings = () => {
     paddingValue.value = 5;
 };
 
-// 打印处理
-const handlePrint = () => {
-    // window.print();
+// 打印模板处理
+const dialogIframeVisible = ref(false)
+const printPage = ref('')
+const createPrintPage = () => {
+    //@ts-ignore
+    // console.log(printRef.value.$el.outerHTML)
+    const printDom = printRef.value.$el.outerHTML
+    //@ts-ignore
+    const printStyle1 = document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]').outerHTML
+    // console.log(document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]').outerHTML)
+    //@ts-ignore
+    const printStyle2 = document.querySelector('style[data-vite-dev-id*="PrintMedicalTemplate2.vue"]').outerHTML
+    // console.log(document.querySelector('style[data-vite-dev-id*="PrintMedicalTemplate2.vue"]').outerHTML)
+    printPage.value = `
+        <!DOCTYPE html>
+        <html lang="zh-CN">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+            <title>打印预览</title>
+            <style>
+                *, *::before, *::after {
+                    box-sizing: border-box;
+                    margin: 0;
+                }
+                .print-container{
+                    margin-left: auto;
+                    margin-right: auto; 
+                }
+            </style>
+            ${printStyle1}
+            ${printStyle2}
+            </head>
+        <body>
+            ${printDom}
+        </body>
+        </html>
+    `
+    console.log(printPage.value)
+    dialogIframeVisible.value = true
 };
 </script>
 
@@ -106,5 +146,10 @@ const handlePrint = () => {
         flex-direction: column;
 
     }
+}
+
+.iframe-container {
+    width: 100%;
+    height: calc(100vh - 200px);
 }
 </style>

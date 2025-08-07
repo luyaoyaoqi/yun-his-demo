@@ -40,7 +40,7 @@ const props = defineProps({
     },
     containerPaddingStyle: {
         type: String,
-        default: 'padding: 12mm;'
+        default: 'padding: 5mm;'
     }
 });
 

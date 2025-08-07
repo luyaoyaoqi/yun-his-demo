@@ -21,7 +21,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, defineProps, watch } from 'vue';
+import { ref, onMounted, nextTick, defineProps, watch, useSlots } from 'vue';
+
+const slots = useSlots();
 
 // 定义组件属性
 const props = defineProps({
@@ -44,7 +46,7 @@ const props = defineProps({
     // 页面边距，打印设置中设置无边距，通过内部控制边距
     , containerPaddingStyle: {
         type: String,
-        default: 'padding: 10mm;'
+        default: 'padding: 5mm;'
     }
 });
 
@@ -142,11 +144,22 @@ const handlePagination = () => {
 
 // 监听纸张大小和方向变化，重新分页
 watch(
-    () => [props.paperSize, props.orientation],
+    () => [props.paperSize, props.orientation, props.containerPaddingStyle],
     () => {
         handlePagination();
     },
     { deep: true }
+);
+
+// 监听插槽内容变化
+watch(
+    () => [
+        slots.main ? slots.main().length : 0,
+    ],
+    () => {
+        handlePagination();
+    },
+    { flush: 'post' } // 在 DOM 更新后执行
 );
 
 onMounted(() => {
@@ -157,9 +170,9 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .print-view {
+    all: initial;
+
     .print-container {
-        font-size: 12pt;
-        color: black;
         position: relative;
         margin-bottom: 16px;
         // padding: 10mm 10mm;
@@ -170,6 +183,7 @@ onMounted(() => {
         //默认尺寸
         width: 148mm;
         height: 210mm;
+        line-height: 1.2;
 
         // 纵向尺寸
         &.a5.portrait {

@@ -45,19 +45,21 @@
 </template>
 
 <script lang="ts" setup>
-import PrintMedicalTemplate from '@/components/print/PrintMedicalTemplate.vue';
 import { reactive, ref } from 'vue';
 import { Printer } from '@element-plus/icons-vue';
 
-// 打印设置
-const printSetting = reactive({
+const paddingDefault = 5;
+const printDefaultSetting = {
     paperSize: 'a5',
     orientation: 'portrait',
-    containerPaddingStyle: 'padding: 12mm;'
-});
+    containerPaddingStyle: `padding: ${paddingDefault}mm;`
+};
+
+// 打印设置
+const printSetting = reactive(printDefaultSetting);
 
 // 边距值（用于滑块）
-const paddingValue = ref(12);
+const paddingValue = ref(paddingDefault);
 
 // 更新边距样式
 const updatePaddingStyle = (value: number) => {
@@ -66,10 +68,10 @@ const updatePaddingStyle = (value: number) => {
 
 // 重置设置
 const resetSettings = () => {
-    printSetting.paperSize = 'a5';
-    printSetting.orientation = 'portrait';
-    paddingValue.value = 12;
-    printSetting.containerPaddingStyle = 'padding: 12mm;';
+    printSetting.paperSize = printDefaultSetting.paperSize;
+    printSetting.orientation = printDefaultSetting.orientation;
+    printSetting.containerPaddingStyle = printDefaultSetting.containerPaddingStyle;
+    paddingValue.value = 5;
 };
 
 // 打印处理

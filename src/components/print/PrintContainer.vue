@@ -241,12 +241,4 @@ onMounted(() => {
         }
     }
 }
-
-@media print {
-    .print-view {
-        .print-container {
-            margin-bottom: 0 !important;
-        }
-    }
-}
 </style>

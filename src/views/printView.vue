@@ -27,7 +27,7 @@
                         @change="updatePaddingStyle" />
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="createPrintPage" size="small">生成打印页</el-button>
+                    <el-button type="primary" @click="createPrintPage2" size="small">生成打印页</el-button>
                     <el-button @click="resetSettings" size="small">重置</el-button>
                 </el-form-item>
             </el-form>
@@ -110,9 +110,71 @@ const createPrintPage = () => {
         </body>
         </html>
     `
-    console.log(printPage.value)
+    // console.log(printPage.value)
     dialogIframeVisible.value = true
 };
+
+
+
+const createPrintPage2 = () => {
+    //@ts-ignore
+    const printElement = printRef.value.$el;
+
+    // 获取所有子元素（即所有页面）
+    const pageElements = Array.from(printElement.children);
+
+    //@ts-ignore
+    const printStyle1 = document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]').outerHTML
+    //@ts-ignore
+    const printStyle2 = document.querySelector('style[data-vite-dev-id*="PrintMedicalTemplate2.vue"]').outerHTML
+
+    // 为每个子页面创建独立的新窗口
+    pageElements.forEach((pageElement, index) => {
+        const singlePageContent = `
+            <!DOCTYPE html>
+            <html lang="zh-CN">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+                <title>打印预览 - 第${index + 1}页</title>
+                <style>
+                    *, *::before, *::after {
+                        box-sizing: border-box;
+                        margin: 0;
+                    }
+                    body {
+                        display: flex;
+                        justify-content: center;
+                        padding: 0;
+                    }
+                    .print-container{
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                </style>
+                ${printStyle1}
+                ${printStyle2}
+            </head>
+            <body>
+                ${pageElement.outerHTML}
+            </body>
+            </html>
+        `;
+
+        // 为每一页打开新窗口
+        setTimeout(() => {
+            const printWindow = window.open('', `_blank`);
+            if (printWindow) {
+                printWindow.document.write(singlePageContent);
+                printWindow.document.close();
+            } else {
+                console.error(`无法打开第${index + 1}页的新窗口，请检查浏览器弹窗权限设置`);
+            }
+        }, 100 * index); // 添加延迟以避免浏览器阻止多个弹窗
+    });
+};
+
+
 </script>
 
 <style lang="less" scoped>

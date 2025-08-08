@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import './index.css';
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </script>
 

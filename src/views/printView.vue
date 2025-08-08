@@ -121,7 +121,7 @@ const createPrintPage2 = () => {
     const printElement = printRef.value.$el;
 
     // 获取所有子元素（即所有页面）
-    const pageElements = Array.from(printElement.children);
+    const pageElements = Array.from(printElement.children) as HTMLElement[];
 
     //@ts-ignore
     const printStyle1 = document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]').outerHTML

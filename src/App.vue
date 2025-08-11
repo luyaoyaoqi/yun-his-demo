@@ -22,6 +22,7 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
           <RouterLink to="/dialog">Dialog</RouterLink>
           <RouterLink to="/print">Print</RouterLink>
           <RouterLink to="/autoComplete">AutoComplete</RouterLink>
+          <RouterLink to="/form">Form</RouterLink>
         </nav>
       </div>
     </header>

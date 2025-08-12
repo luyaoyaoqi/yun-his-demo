@@ -4,7 +4,7 @@
         <template #header>
             <div class="header">
                 <h1>工作室病历单</h1>
-                <hr />
+                <div class="line"></div>
             </div>
 
         </template>
@@ -17,7 +17,7 @@
                 <p><span class="lable">性别: </span>女</p>
                 <p><span class="lable">病历号:</span>123456</p>
             </div>
-            <hr />
+            <div class="line"></div>
             <div class="content-info">
                 <p><span class="lable">主诉: </span>下腹痛，便血，结肠炎</p>
             </div>
@@ -85,7 +85,7 @@
 
         <!-- 页脚内容 -->
         <template #footer>
-            <hr />
+            <div class="line"></div>
             <div class="print-footer">
                 <p><span class="lable"></span>医生签名: 张医生</p>
                 <p><span class="lable"></span>门诊日期: 2024-03-21</p>
@@ -115,12 +115,14 @@ const props = defineProps({
 .print-editor-box {
     display: flex;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 18pt;
 }
 
-hr {
+.line {
     width: 100%;
-    margin: 16px 0;
+    height: 1pt;
+    background-color: black;
+    margin: 12pt 0;
 }
 
 .header {
@@ -129,7 +131,7 @@ hr {
     align-items: center;
 
     h1 {
-        font-size: 20px;
+        font-size: 15pt;
         font-weight: bold;
     }
 
@@ -140,12 +142,12 @@ hr {
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
-    gap: 16px 0;
-    font-size: 14px;
-    margin-bottom: 16px;
+    font-size: 11pt;
+    margin-bottom: -12pt;
 
     p {
         flex: 0 0 33.33%;
+        margin-bottom: 16pt;
     }
 }
 
@@ -153,8 +155,8 @@ hr {
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
+    margin-bottom: 12pt;
+    font-size: 11pt;
 
     p {
         flex: 0 0 100%
@@ -164,6 +166,6 @@ hr {
 .print-footer {
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 11pt;
 }
 </style>

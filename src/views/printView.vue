@@ -127,8 +127,6 @@ const createPrintPage = () => {
                         margin: 0;
                     }
                     body {
-                        display: flex;
-                        justify-content: center;
                         padding: 0;
                         overflow: hidden;
                     }
@@ -208,9 +206,71 @@ const handleOrientationChange = () => {
 }
 
 //打印
-const print = () => { 
+const print = () => {
+    // 检查是否已引入C-Lodop
+    if (!(window as any).getCLodop) {
+        // 动态引入C-Lodop
+        const script = document.createElement('script');
+        script.src = 'http://localhost:8000/CLodopfuncs.js?priority=1';
+        script.onload = () => {
+            setupAndPrint();
+        };
+        document.head.appendChild(script);
+    } else {
+        setupAndPrint();
+    }
 }
+// 设置并执行打印
+const setupAndPrint = () => {
+    const LODOP = (window as any).getCLodop();
+    if (!LODOP) {
+        console.error('未能获取C-Lodop对象');
+        return;
+    }
 
+    // 初始化打印任务
+    LODOP.PRINT_INIT("打印预览");
+    
+    // 根据当前设置配置纸张
+    const paperSizeMap: Record<string, { width: number; height: number; name: string }> = {
+        'a4': { width: 210, height: 297, name: 'A4' },
+        'a5': { width: 148, height: 210, name: 'A5' },
+        'b6': { width: 125, height: 176, name: 'B6' },
+        'letter': { width: 216, height: 279, name: 'Letter' }
+    };
+
+    const paper = paperSizeMap[printSetting.paperSize];
+    if (paper) {
+        if (printSetting.orientation === 'landscape') {
+            // 横向
+            LODOP.SET_PRINT_PAGESIZE(2, `${paper.width}mm`, `${paper.height}mm`, paper.name);
+        } else {
+            // 纵向
+            LODOP.SET_PRINT_PAGESIZE(1, `${paper.width}mm`, `${paper.height}mm`, paper.name);
+        }
+    }
+
+    // 添加打印内容 - 从 iframe 中获取
+    const iframes = document.querySelectorAll('iframe');
+
+    iframes.forEach((iframe, index) => {
+        if (index > 0) {
+            LODOP.NewPage();
+        }
+        // 从 iframe 中获取内容
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
+        if (iframeDocument) {
+            // 获取整个 iframe 的 HTML 内容
+            const htmlContent = iframeDocument.documentElement.outerHTML;
+            console.log(htmlContent)
+            // 添加HTML内容
+            LODOP.ADD_PRINT_HTM("0mm", "0mm", "100%", "100%", htmlContent);
+        }
+    });
+
+    // 打印预览
+    LODOP.PREVIEW();
+};
 </script>
 
 <style lang="less" scoped>
@@ -252,7 +312,7 @@ const print = () => {
     overflow: auto;
 
     .single-iframe {
-        width: 100%;
+        width: auto;
         height: auto;
         margin-bottom: 20px;
         box-sizing: content-box;

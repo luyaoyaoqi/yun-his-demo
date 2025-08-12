@@ -175,13 +175,13 @@ onMounted(() => {
     flex-direction: column;
     gap: 16px;
     height: fit-content;
+    visibility: hidden;
 }
 
 .print-container {
     position: relative;
     // padding: 10mm 10mm;
     background-color: white;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-direction: column;
     //默认尺寸

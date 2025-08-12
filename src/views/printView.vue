@@ -1,7 +1,7 @@
 <template>
     <div class="print-container">
         <div class="print-content">
-            <PrintMedicalTemplate2 ref="printRef" :paperSize="printSetting.paperSize"
+            <component :is="printTemplateComponent" ref="printRef" :paperSize="printSetting.paperSize"
                 :orientation="printSetting.orientation" :containerPaddingStyle="printSetting.containerPaddingStyle" />
         </div>
         <div class="iframe-content" ref="iframeContent" v-if="printPages.length > 0">
@@ -31,7 +31,7 @@
                         @change="updatePaddingStyle" />
                 </el-form-item>
                 <el-form-item>
-                    <el-button type="primary" @click="createPrintPage" size="small">打印弹窗</el-button>
+                    <el-button type="primary" @click="print" size="small">打印</el-button>
                     <el-button @click="resetSettings" size="small">重置</el-button>
                 </el-form-item>
             </el-form>
@@ -40,7 +40,9 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, nextTick, onMounted } from 'vue';
+import { reactive, ref, nextTick, onMounted, computed } from 'vue';
+import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
+
 const printRef = ref<HTMLDivElement>();
 
 const paddingDefault = 5;
@@ -59,6 +61,18 @@ const printSetting = reactive({
 
 // 边距值（用于滑块）
 const paddingValue = ref(paddingDefault);
+
+// 当前选中的模板
+const selectedTemplate = ref('');
+
+// 动态组件计算属性
+const printTemplateComponent = computed(() => {
+    // 可以根据需要添加更多模板组件
+    const components: Record<string, any> = {
+        PrintMedicalTemplate2
+    };
+    return components[selectedTemplate.value] || null;
+});
 
 // 更新边距样式
 const updatePaddingStyle = (value: number) => {
@@ -93,7 +107,7 @@ const createPrintPage = () => {
     //@ts-ignore
     const printStyle1 = document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]')?.outerHTML || '';
     //@ts-ignore
-    const printStyle2 = document.querySelector('style[data-vite-dev-id*="PrintMedicalTemplate2.vue"]')?.outerHTML || '';
+    const printStyle2 = document.querySelector(`style[data-vite-dev-id*="${selectedTemplate.value}.vue"]`)?.outerHTML || '';
 
     // 清空之前的页面
     printPages.value = [];
@@ -135,21 +149,34 @@ const createPrintPage = () => {
         printPages.value.push(singlePageContent);
     });
     let iframeHeight: number = 0;
+    let iframeWidth: number = 0;
 
     // dialogIframeVisible.value = true
 
     nextTick(() => {
-
         document.querySelectorAll('iframe').forEach(iframe => {
             iframe.onload = () => {
-                iframeHeight = iframe.contentWindow?.document.body.scrollHeight || 0
-                iframe.style.height = `${iframeHeight}px`
-
                 //对iframeContent进行显示缩放
+                //恢复默认缩放
                 iframeContent.value!.style.zoom = '1'
-                if (iframeHeight > iframeContent.value!.offsetHeight) {
-                    const ratio = (iframeContent.value!.offsetHeight - 20) / iframeHeight;
-                    iframeContent.value!.style.zoom = ratio.toFixed(2).toString()
+
+                //设置ifrmae的宽高
+                iframeHeight = iframe.contentWindow?.document.body.scrollHeight || 0
+                iframeWidth = iframe.contentWindow?.document.body.scrollWidth || 0
+
+                // 计算高度和宽度的缩放比例，20、40是临时调整，根据实际需求调整
+                iframe.style.height = `${iframeHeight}px`
+                iframe.style.width = `${iframeWidth}px`
+                const containerWidth = iframeContent.value!.offsetWidth;
+                const containerHeight = iframeContent.value!.offsetHeight;
+                const heightRatio = containerHeight > 0 ? (containerHeight - 20) / iframeHeight : 1;
+                const widthRatio = containerWidth > 0 ? (containerWidth - 40) / iframeWidth : 1;
+
+                // 取两者的最小值作为最终缩放比例
+                const finalRatio = Math.min(heightRatio, widthRatio);
+
+                if (finalRatio < 1) {
+                    iframeContent.value!.style.zoom = finalRatio.toFixed(2).toString()
                 }
 
             }
@@ -157,9 +184,13 @@ const createPrintPage = () => {
     })
 };
 onMounted(() => {
+    selectedTemplate.value = 'PrintMedicalTemplate2'
+
     // 创建打印页面
     nextTick(() => {
-        createPrintPage()
+        setTimeout(() => {
+            createPrintPage()
+        }, 100)
     })
 });
 
@@ -176,6 +207,9 @@ const handleOrientationChange = () => {
     }, 100)
 }
 
+//打印
+const print = () => { 
+}
 
 </script>
 

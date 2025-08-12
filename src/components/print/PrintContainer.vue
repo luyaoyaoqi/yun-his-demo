@@ -185,50 +185,50 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     //默认尺寸
-    width: 148mm;
-    height: 210mm;
+    width: 138mm;
+    height: 200mm;
     line-height: 1.2;
 
     // 纵向尺寸
     &.a5.portrait {
-        width: 148mm;
-        height: 210mm;
+        width: 138mm;
+        height: 200mm;
     }
 
     &.a4.portrait {
-        width: 210mm;
-        height: 297mm;
+        width: 200mm;
+        height: 287mm;
     }
 
     &.b6.portrait {
-        width: 125mm;
-        height: 176mm;
+        width: 115mm;
+        height: 166mm;
     }
 
     &.letter.portrait {
-        width: 216mm;
-        height: 279mm;
+        width: 206mm;
+        height: 269mm;
     }
 
     // 横向尺寸（宽高互换）
     &.a5.landscape {
-        width: 210mm;
-        height: 148mm;
+        width: 190mm;
+        height: 128mm;
     }
 
     &.a4.landscape {
-        width: 297mm;
-        height: 210mm;
+        width: 287mm;
+        height: 200mm;
     }
 
     &.b6.landscape {
-        width: 176mm;
-        height: 125mm;
+        width: 166mm;
+        height: 115mm;
     }
 
     &.letter.landscape {
-        width: 279mm;
-        height: 216mm;
+        width: 269mm;
+        height: 206mm;
     }
 
     .print-header {

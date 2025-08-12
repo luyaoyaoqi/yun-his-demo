@@ -27,7 +27,7 @@
                 </el-form-item>
 
                 <el-form-item label="边距" label-width="80px" label-position="left">
-                    <el-input-number v-model="paddingValue" :min="0" :max="50" :step="1" size="small"
+                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1" size="small"
                         @change="updatePaddingStyle" />
                 </el-form-item>
                 <el-form-item>
@@ -49,7 +49,7 @@ const paddingDefault = 5;
 const printDefaultSetting = {
     paperSize: 'a5',
     orientation: 'portrait',
-    containerPaddingStyle: `padding: ${paddingDefault}mm;`
+    containerPaddingStyle: `padding: 0mm;`
 };
 
 // 打印设置
@@ -76,7 +76,7 @@ const printTemplateComponent = computed(() => {
 
 // 更新边距样式
 const updatePaddingStyle = (value: number) => {
-    printSetting.containerPaddingStyle = `padding: ${value}mm;`;
+    printSetting.containerPaddingStyle = `padding: ${value - paddingDefault}mm;`;
     setTimeout(() => {
         createPrintPage()
     }, 100)
@@ -146,8 +146,7 @@ const createPrintPage = () => {
         `;
         printPages.value.push(singlePageContent);
     });
-    let iframeHeight: number = 0;
-    let iframeWidth: number = 0;
+
 
     // dialogIframeVisible.value = true
 
@@ -159,16 +158,18 @@ const createPrintPage = () => {
                 iframeContent.value!.style.zoom = '1'
 
                 //设置ifrmae的宽高
-                iframeHeight = iframe.contentWindow?.document.body.scrollHeight || 0
-                iframeWidth = iframe.contentWindow?.document.body.scrollWidth || 0
+                //设置ifrmae的宽高
+                const containerElement = iframe.contentWindow?.document.body.querySelector('.print-container');
+                const iframeHeight = (containerElement as HTMLElement)?.offsetHeight || 0;
+                const iframeWidth = (containerElement as HTMLElement)?.offsetWidth || 0;
 
-                // 计算高度和宽度的缩放比例，20、40是临时调整，根据实际需求调整
+                // 计算高度和宽度的缩放比例，20、60是临时调整，根据实际需求调整
                 iframe.style.height = `${iframeHeight}px`
                 iframe.style.width = `${iframeWidth}px`
                 const containerWidth = iframeContent.value!.offsetWidth;
                 const containerHeight = iframeContent.value!.offsetHeight;
                 const heightRatio = containerHeight > 0 ? (containerHeight - 20) / iframeHeight : 1;
-                const widthRatio = containerWidth > 0 ? (containerWidth - 40) / iframeWidth : 1;
+                const widthRatio = containerWidth > 0 ? (containerWidth - 80) / iframeWidth : 1;
 
                 // 取两者的最小值作为最终缩放比例
                 const finalRatio = Math.min(heightRatio, widthRatio);
@@ -228,9 +229,6 @@ const setupAndPrint = () => {
         return;
     }
 
-    // 初始化打印任务
-    LODOP.PRINT_INIT("打印预览");
-    
     // 根据当前设置配置纸张
     const paperSizeMap: Record<string, { width: number; height: number; name: string }> = {
         'a4': { width: 210, height: 297, name: 'A4' },
@@ -238,8 +236,11 @@ const setupAndPrint = () => {
         'b6': { width: 125, height: 176, name: 'B6' },
         'letter': { width: 216, height: 279, name: 'Letter' }
     };
-
     const paper = paperSizeMap[printSetting.paperSize];
+
+    // 初始化打印任务
+    LODOP.PRINT_INIT(0, `${paper.width}mm`, `${paper.height}mm`, "打印预览");
+
     if (paper) {
         if (printSetting.orientation === 'landscape') {
             // 横向
@@ -249,6 +250,8 @@ const setupAndPrint = () => {
             LODOP.SET_PRINT_PAGESIZE(1, `${paper.width}mm`, `${paper.height}mm`, paper.name);
         }
     }
+    // 核心：开启整宽适配
+    LODOP.SET_PRINT_MODE("FULL_PAGE", true);
 
     // 添加打印内容 - 从 iframe 中获取
     const iframes = document.querySelectorAll('iframe');
@@ -262,14 +265,19 @@ const setupAndPrint = () => {
         if (iframeDocument) {
             // 获取整个 iframe 的 HTML 内容
             const htmlContent = iframeDocument.documentElement.outerHTML;
-            console.log(htmlContent)
             // 添加HTML内容
-            LODOP.ADD_PRINT_HTM("0mm", "0mm", "100%", "100%", htmlContent);
+            LODOP.ADD_PRINT_HTM(0, 0, "100%", "100%", htmlContent);
         }
     });
 
+    // 开启全页缩放
+    LODOP.SET_PRINT_MODE("KEEP_ASPECT_RATIO", true);
+
     // 打印预览
-    LODOP.PREVIEW();
+    // LODOP.PREVIEW();
+
+    // 打印
+     LODOP.PRINT();
 };
 </script>
 
@@ -317,6 +325,8 @@ const setupAndPrint = () => {
         margin-bottom: 20px;
         box-sizing: content-box;
         flex: 0 0 auto;
+        padding: 5mm;
+        background: white;
     }
 
 }

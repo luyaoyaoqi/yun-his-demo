@@ -9,8 +9,14 @@
         </div>
         <div class="print-editor-box">
             <el-form>
+                <el-form-item label="打印模板" label-width="80px" label-position="left">
+                    <el-select v-model="selectedTemplate" placeholder="选择模板"
+                        @change="handlePaperSizeChange">
+                        <el-option label="示例模板1" value="PrintMedicalTemplate2" />
+                    </el-select>
+                </el-form-item>
                 <el-form-item label="纸张大小" label-width="80px" label-position="left">
-                    <el-select v-model="printSetting.paperSize" placeholder="选择纸张大小" size="small"
+                    <el-select v-model="printSetting.paperSize" placeholder="选择纸张大小"
                         @change="handlePaperSizeChange">
                         <el-option label="A4" value="a4" />
                         <el-option label="A5" value="a5" />
@@ -20,19 +26,19 @@
                 </el-form-item>
 
                 <el-form-item label="方向" label-width="80px" label-position="left">
-                    <el-radio-group v-model="printSetting.orientation" size="small" @change="handleOrientationChange">
+                    <el-radio-group v-model="printSetting.orientation" @change="handleOrientationChange">
                         <el-radio-button label="纵向" value="portrait" />
                         <el-radio-button label="横向" value="landscape" />
                     </el-radio-group>
                 </el-form-item>
 
                 <el-form-item label="边距" label-width="80px" label-position="left">
-                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1" size="small"
+                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1"
                         @change="updatePaddingStyle" />
                 </el-form-item>
 
                 <el-form-item label="打印机" label-width="80px" label-position="left">
-                    <el-select v-model="selectedPrinter" placeholder="选择打印机" size="small">
+                    <el-select v-model="selectedPrinter" placeholder="选择打印机">
                         <el-option v-for="printer in printerList" :key="printer.name" :label="printer.name"
                             :value="printer.name">
                             <span>{{ printer.name }}</span>
@@ -47,9 +53,9 @@
                 </el-form-item>
 
                 <el-form-item>
-                    <el-button type="primary" @click="print" size="small">确定</el-button>
-                    <el-button @click="resetSettings" size="small">重置</el-button>
-                    <el-button @click="exportHTML" size="small">导出</el-button>
+                    <el-button type="primary" @click="print">打印任务</el-button>
+                    <el-button @click="resetSettings">重置</el-button>
+                    <el-button @click="exportHTML">导出HTML</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -112,7 +118,7 @@ const printSetting = reactive({
 const paddingValue = ref(paddingDefault);
 
 // 当前选中的模板
-const selectedTemplate = ref('');
+const selectedTemplate = ref('PrintMedicalTemplate2');
 
 // 打印机选择相关
 const selectedPrinter = ref('');

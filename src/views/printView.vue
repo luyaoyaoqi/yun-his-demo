@@ -49,6 +49,7 @@
                 <el-form-item>
                     <el-button type="primary" @click="print" size="small">确定</el-button>
                     <el-button @click="resetSettings" size="small">重置</el-button>
+                    <el-button @click="exportHTML" size="small">导出</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -439,6 +440,29 @@ const setupAndPrint = () => {
     } else {
         LODOP.PRINT();
     }
+};
+
+// 导出HTML功能
+const exportHTML = () => {
+    if (printPages.value.length === 0) {
+        console.warn('没有可导出的内容');
+        return;
+    }
+
+    // 创建一个包含所有页面的HTML文件
+    const allPagesHTML = printPages.value
+    allPagesHTML.forEach(pageHTML => {
+        // 创建下载链接
+        const blob = new Blob([pageHTML], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `打印内容_${new Date().getTime()}.html`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    })
 };
 </script>
 

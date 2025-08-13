@@ -111,11 +111,6 @@ const props = defineProps({
 </script>
 
 <style lang="less" scoped>
-.print-editor-box {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 18pt;
-}
 
 .line {
     width: 100%;

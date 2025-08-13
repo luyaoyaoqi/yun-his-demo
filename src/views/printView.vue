@@ -33,16 +33,17 @@
 
                 <el-form-item label="打印机" label-width="80px" label-position="left">
                     <el-select v-model="selectedPrinter" placeholder="选择打印机" size="small">
-                        <el-option 
-                            v-for="printer in printerList" 
-                            :key="printer.name" 
-                            :label="printer.name" 
-                            :value="printer.name" />
+                        <el-option v-for="printer in printerList" :key="printer.name" :label="printer.name"
+                            :value="printer.name">
+                            <span>{{ printer.name }}</span>
+                            <el-tag v-if="printer.isPhysical" size="mini" type="warning"
+                                style="margin-left: 10px;">打印机</el-tag>
+                        </el-option>
                     </el-select>
                 </el-form-item>
 
                 <el-form-item label="打印控制" label-width="80px" label-position="left">
-                   <el-switch v-model="isPreview" active-text="预览" inactive-text="打印" />
+                    <el-switch v-model="isPreview" active-text="预览" inactive-text="打印" />
                 </el-form-item>
 
                 <el-form-item>
@@ -60,13 +61,23 @@ import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue'
 
 // 类型定义
 interface PaperSize {
-  width: number;
-  height: number;
-  name: string;
+    width: number;
+    height: number;
+    name: string;
+}
+
+interface BleedArea {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
 }
 
 interface PrinterInfo {
-  name: string;
+    name: string;
+    isPhysical: boolean; // 是否是真实打印机
+    defaultPaperSize?: string; // 默认纸张大小
+    bleedArea?: BleedArea; // 不可打印区域（出血区域）
 }
 
 // 引用
@@ -128,7 +139,7 @@ const resetSettings = () => {
     printSetting.orientation = printDefaultSetting.orientation;
     printSetting.containerPaddingStyle = printDefaultSetting.containerPaddingStyle;
     paddingValue.value = paddingDefault;
-    
+
     // 更新打印页面
     setTimeout(createPrintPage, 100);
 };
@@ -136,10 +147,10 @@ const resetSettings = () => {
 // 打印模板处理
 const createPrintPage = () => {
     if (!printRef.value) return;
-    
+
     // @ts-ignore
     const printElement = printRef.value.$el as HTMLElement;
-    
+
     // 获取所有子元素（即所有页面）
     const pageElements = Array.from(printElement.children) as HTMLElement[];
 
@@ -190,7 +201,7 @@ const createPrintPage = () => {
             iframe.onload = () => {
                 // 对iframeContent进行显示缩放
                 if (!iframeContent.value) return;
-                
+
                 // 恢复默认缩放
                 iframeContent.value.style.zoom = '1';
 
@@ -202,7 +213,7 @@ const createPrintPage = () => {
                 // 设置iframe尺寸
                 iframe.style.height = `${iframeHeight}px`;
                 iframe.style.width = `${iframeWidth}px`;
-                
+
                 // 计算缩放比例
                 const containerWidth = iframeContent.value.offsetWidth;
                 const containerHeight = iframeContent.value.offsetHeight;
@@ -266,15 +277,39 @@ const loadPrinters = () => {
         // 获取打印机数量
         const printerCount = LODOP.GET_PRINTER_COUNT();
 
-        // 遍历获取所有打印机名称
+        // 遍历获取所有打印机名称及相关信息
         for (let i = 0; i < printerCount; i++) {
             const printerName = LODOP.GET_PRINTER_NAME(i);
-            printerList.value.push({ name: printerName });
+
+
+            // 判断是否是真实打印机（基于名称特征）
+            // 这里只是一个示例判断逻辑，实际应用中可能需要更复杂的判断
+            const isPhysical = !(
+                printerName.includes('PDF') ||
+                printerName.includes('XPS') ||
+                printerName.includes('Fax') ||
+                printerName.includes('虚拟') ||
+                printerName.includes('Virtual') ||
+                printerName.includes('Microsoft Print to PDF') ||
+                printerName.includes('Adobe') ||
+                printerName.includes('Send to')
+            );
+
+            // 构造打印机信息对象
+            const printerInfo: PrinterInfo = {
+                name: printerName,
+                isPhysical: isPhysical,
+                // 实际应用中可以从LODOP获取更多打印机详细信息
+                defaultPaperSize: undefined,
+                bleedArea: undefined
+            };
+
+            printerList.value.push(printerInfo);
         }
 
         // 设置默认打印机
         if (printerList.value.length > 0 && !selectedPrinter.value) {
-            selectedPrinter.value = printerList.value[0].name;
+            selectedPrinter.value = printerList.value.filter(item => item.isPhysical)[0].name || printerList.value[0].name;
         }
     } catch (error) {
         console.error('获取打印机列表失败:', error);
@@ -284,7 +319,7 @@ const loadPrinters = () => {
 // 生命周期钩子
 onMounted(() => {
     selectedTemplate.value = 'PrintMedicalTemplate2';
-    
+
     // 获取打印机列表
     getPrinterList();
 
@@ -324,7 +359,7 @@ const setupAndPrint = () => {
     }
 
     const paper = paperSizeMap[printSetting.paperSize];
-    
+
     // 初始化打印任务
     LODOP.PRINT_INITA(0, 0, `${paper.width}mm`, `${paper.height}mm`, "打印任务");
 
@@ -343,7 +378,7 @@ const setupAndPrint = () => {
             LODOP.SET_PRINT_PAGESIZE(1, `${paper.width}mm`, `${paper.height}mm`, paper.name);
         }
     }
-    
+
     // 核心：开启整宽适配
     LODOP.SET_PRINT_MODE("FULL_PAGE", true);
 
@@ -354,7 +389,7 @@ const setupAndPrint = () => {
         if (index > 0) {
             LODOP.NewPage();
         }
-        
+
         // 从 iframe 中获取内容
         const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
         if (iframeDocument) {

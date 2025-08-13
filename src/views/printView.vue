@@ -54,7 +54,6 @@
 <script lang="ts" setup>
 import { reactive, ref, nextTick, onMounted, computed } from 'vue';
 import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
-import { el } from 'element-plus/es/locales.mjs';
 
 const printRef = ref<HTMLDivElement>();
 

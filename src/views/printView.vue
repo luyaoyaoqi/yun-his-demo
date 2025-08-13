@@ -42,7 +42,7 @@
                         <el-option v-for="printer in printerList" :key="printer.name" :label="printer.name"
                             :value="printer.name">
                             <span>{{ printer.name }}</span>
-                            <el-tag v-if="printer.isPhysical" size="mini" type="warning"
+                            <el-tag v-if="printer.isPhysical" size="small" type="warning"
                                 style="margin-left: 10px;">打印机</el-tag>
                         </el-option>
                     </el-select>

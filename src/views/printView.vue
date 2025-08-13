@@ -190,9 +190,13 @@ const createPrintPage = () => {
         // 移除样式中的 scoped 标识选择器
         if (cleanPrintStyle1) {
             cleanPrintStyle1 = cleanPrintStyle1.replace(/\[data-v-[a-f0-9]+\]/g, '');
+            // 移除 data-vite-dev-id 属性
+            cleanPrintStyle1 = cleanPrintStyle1.replace(/data-vite-dev-id="[^"]*"/g, '');
         }
         if (cleanPrintStyle2) {
             cleanPrintStyle2 = cleanPrintStyle2.replace(/\[data-v-[a-f0-9]+\]/g, '');
+            // 移除 data-vite-dev-id 属性
+            cleanPrintStyle2 = cleanPrintStyle2.replace(/data-vite-dev-id="[^"]*"/g, '');
         }
 
         const singlePageContent = `

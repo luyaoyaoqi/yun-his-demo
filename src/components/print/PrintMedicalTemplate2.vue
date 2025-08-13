@@ -4,9 +4,8 @@
         <template #header>
             <div class="header">
                 <h1>工作室病历单</h1>
-                <div class="line"></div>
             </div>
-
+            <div class="line"></div>
         </template>
 
         <!-- 主内容 -->
@@ -86,7 +85,7 @@
         <!-- 页脚内容 -->
         <template #footer>
             <div class="line"></div>
-            <div class="print-footer">
+            <div class="footer">
                 <p><span class="lable"></span>医生签名: 张医生</p>
                 <p><span class="lable"></span>门诊日期: 2024-03-21</p>
             </div>
@@ -163,7 +162,7 @@ const props = defineProps({
     }
 }
 
-.print-footer {
+.footer {
     display: flex;
     justify-content: space-between;
     font-size: 11pt;

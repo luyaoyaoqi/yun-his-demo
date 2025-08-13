@@ -164,6 +164,36 @@ const createPrintPage = () => {
 
     // 为每个子页面创建独立的内容
     pageElements.forEach((pageElement, index) => {
+        // 创建一个清理后的元素副本
+        const cleanPageElement = pageElement.cloneNode(true) as HTMLElement;
+
+        // 移除所有 data-v- 开头的属性
+        const allElements = [cleanPageElement, ...Array.from(cleanPageElement.querySelectorAll('*'))];
+        allElements.forEach(element => {
+            if (element instanceof HTMLElement) {
+                // 获取元素的所有属性
+                const attributes = Array.from(element.attributes);
+                attributes.forEach(attr => {
+                    // 如果属性名以 data-v- 开头，则移除
+                    if (attr.name.startsWith('data-v-')) {
+                        element.removeAttribute(attr.name);
+                    }
+                });
+            }
+        });
+
+        // 清理样式中的 data-v- 标识
+        let cleanPrintStyle1 = printStyle1;
+        let cleanPrintStyle2 = printStyle2;
+
+        // 移除样式中的 scoped 标识选择器
+        if (cleanPrintStyle1) {
+            cleanPrintStyle1 = cleanPrintStyle1.replace(/\[data-v-[a-f0-9]+\]/g, '');
+        }
+        if (cleanPrintStyle2) {
+            cleanPrintStyle2 = cleanPrintStyle2.replace(/\[data-v-[a-f0-9]+\]/g, '');
+        }
+
         const singlePageContent = `
             <!DOCTYPE html>
             <html lang="zh-CN">
@@ -185,11 +215,11 @@ const createPrintPage = () => {
                         margin-right: auto;
                     }
                 </style>
-                ${printStyle1}
-                ${printStyle2}
+                ${cleanPrintStyle1}
+                ${cleanPrintStyle2}
             </head>
             <body>
-                ${pageElement.outerHTML}
+                ${cleanPageElement.outerHTML}
             </body>
             </html>
         `;

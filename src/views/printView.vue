@@ -95,7 +95,7 @@ const printPages = ref<string[]>([]);
 // 常量
 const paddingDefault = 5;
 const printDefaultSetting = {
-    paperSize: 'a5',
+    paperSize: 'a4',
     orientation: 'portrait',
     containerPaddingStyle: `padding: 0mm;`
 };

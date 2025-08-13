@@ -57,7 +57,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, nextTick, onMounted, computed } from 'vue';
+import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watch, watchEffect } from 'vue';
 import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
 
 // 类型定义
@@ -351,7 +351,9 @@ const loadPrinters = () => {
     }
 };
 
-// 生命周期钩子
+// 使用 watchEffect 监听 printRef 和其内容的变化
+let observer: MutationObserver | null = null;
+
 onMounted(() => {
     selectedTemplate.value = 'PrintMedicalTemplate2';
 
@@ -362,6 +364,41 @@ onMounted(() => {
     nextTick(() => {
         setTimeout(createPrintPage, 100);
     });
+});
+
+watchEffect(() => {
+    if (printRef.value) {
+        // 断开之前的监听器
+        if (observer) {
+            observer.disconnect();
+        }
+
+        nextTick(() => {
+            // @ts-ignore
+            const printElement = printRef.value.$el as HTMLElement;
+            if (printElement) {
+                observer = new MutationObserver(() => {
+                    // 组件内容发生变化时重新生成打印页面
+                    setTimeout(createPrintPage, 100);
+                });
+
+                observer.observe(printElement, {
+                    childList: true,
+                    subtree: true,
+                    attributes: true,
+                    characterData: true
+                });
+            }
+        });
+    }
+});
+
+// 在组件卸载时断开监听
+onUnmounted(() => {
+    if (observer) {
+        observer.disconnect();
+        observer = null;
+    }
 });
 
 // 纸张大小变更处理

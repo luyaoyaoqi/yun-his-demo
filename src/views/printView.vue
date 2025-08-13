@@ -30,8 +30,20 @@
                     <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1" size="small"
                         @change="updatePaddingStyle" />
                 </el-form-item>
+
+                <el-form-item label="打印机" label-width="80px" label-position="left">
+                    <el-select v-model="selectedPrinter" placeholder="选择打印机" size="small">
+                        <el-option v-for="printer in printerList" :key="printer.name" :label="printer.name"
+                            :value="printer.name" />
+                    </el-select>
+                </el-form-item>
+
+                <el-form-item label="打印控制" label-width="80px" label-position="left">
+                   <el-switch v-model="isPreview" active-text="预览" inactive-text="打印" />
+                </el-form-item>
+
                 <el-form-item>
-                    <el-button type="primary" @click="print" size="small">打印</el-button>
+                    <el-button type="primary" @click="print" size="small">确定</el-button>
                     <el-button @click="resetSettings" size="small">重置</el-button>
                 </el-form-item>
             </el-form>
@@ -42,6 +54,7 @@
 <script lang="ts" setup>
 import { reactive, ref, nextTick, onMounted, computed } from 'vue';
 import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
+import { el } from 'element-plus/es/locales.mjs';
 
 const printRef = ref<HTMLDivElement>();
 
@@ -64,6 +77,10 @@ const paddingValue = ref(paddingDefault);
 
 // 当前选中的模板
 const selectedTemplate = ref('');
+
+// 打印机选择相关
+const selectedPrinter = ref('');
+const printerList = ref<{ name: string }[]>([]);
 
 // 动态组件计算属性
 const printTemplateComponent = computed(() => {
@@ -182,8 +199,79 @@ const createPrintPage = () => {
         })
     })
 };
+
+// 获取打印机列表
+const getPrinterList = () => {
+    // 检查是否已引入C-Lodop
+    if (!(window as any).getCLodop) {
+        // 动态引入C-Lodop
+        loadCLodop(() => {
+            loadPrinters();
+        });
+    } else {
+        loadPrinters();
+    }
+};
+
+// 加载CLodop
+const loadCLodop = (callback: () => void) => {
+    // 检查是否已经添加了脚本
+    if (document.querySelector('script[src="http://localhost:8000/CLodopfuncs.js?priority=1"]')) {
+        // 如果已经添加了脚本，等待其加载完成
+        const checkCLodop = setInterval(() => {
+            if ((window as any).getCLodop) {
+                clearInterval(checkCLodop);
+                callback();
+            }
+        }, 100);
+        return;
+    }
+
+    // 动态引入C-Lodop
+    const script = document.createElement('script');
+    script.src = 'http://localhost:8000/CLodopfuncs.js?priority=1';
+    script.onload = () => {
+        callback();
+    };
+    document.head.appendChild(script);
+};
+
+// 加载打印机列表
+const loadPrinters = () => {
+    try {
+        const LODOP = (window as any).getCLodop();
+        if (!LODOP) {
+            console.warn('未能获取C-Lodop对象');
+            return;
+        }
+
+        // 清空打印机列表
+        printerList.value = [];
+
+        // 获取打印机数量
+        const printerCount = LODOP.GET_PRINTER_COUNT();
+
+        // 遍历获取所有打印机名称
+        for (let i = 0; i < printerCount; i++) {
+            const printerName = LODOP.GET_PRINTER_NAME(i);
+            printerList.value.push({ name: printerName });
+        }
+
+        // 设置默认打印机
+        if (printerList.value.length > 0 && !selectedPrinter.value) {
+            // 使用第一个打印机作为默认打印机
+            selectedPrinter.value = printerList.value[0].name;
+        }
+    } catch (error) {
+        console.error('获取打印机列表失败:', error);
+    }
+};
+
 onMounted(() => {
     selectedTemplate.value = 'PrintMedicalTemplate2'
+
+    // 获取打印机列表
+    getPrinterList();
 
     // 创建打印页面
     nextTick(() => {
@@ -206,21 +294,20 @@ const handleOrientationChange = () => {
     }, 100)
 }
 
+const isPreview = ref(true)
 //打印
 const print = () => {
     // 检查是否已引入C-Lodop
     if (!(window as any).getCLodop) {
         // 动态引入C-Lodop
-        const script = document.createElement('script');
-        script.src = 'http://localhost:8000/CLodopfuncs.js?priority=1';
-        script.onload = () => {
+        loadCLodop(() => {
             setupAndPrint();
-        };
-        document.head.appendChild(script);
+        });
     } else {
         setupAndPrint();
     }
 }
+
 // 设置并执行打印
 const setupAndPrint = () => {
     const LODOP = (window as any).getCLodop();
@@ -239,7 +326,12 @@ const setupAndPrint = () => {
     const paper = paperSizeMap[printSetting.paperSize];
 
     // 初始化打印任务
-    LODOP.PRINT_INIT(0, `${paper.width}mm`, `${paper.height}mm`, "打印预览");
+    LODOP.PRINT_INITA(0, 0, `${paper.width}mm`, `${paper.height}mm`, "打印预览");
+
+    // 设置打印机
+    if (selectedPrinter.value) {
+        LODOP.SET_PRINTER_INDEX(selectedPrinter.value);
+    }
 
     if (paper) {
         if (printSetting.orientation === 'landscape') {
@@ -274,10 +366,12 @@ const setupAndPrint = () => {
     LODOP.SET_PRINT_MODE("KEEP_ASPECT_RATIO", true);
 
     // 打印预览
-    // LODOP.PREVIEW();
+    if (isPreview.value) {
+        LODOP.PREVIEW();
 
-    // 打印
-     LODOP.PRINT();
+    } else {
+        LODOP.PRINT();
+    }
 };
 </script>
 

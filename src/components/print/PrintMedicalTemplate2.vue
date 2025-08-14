@@ -73,6 +73,10 @@
                 )。使用方法：内服
             </div>
             <div class="content-info">
+                中药3: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳 6克。7剂(每剂分2次服用
+                )。使用方法：内服
+            </div>
+            <div class="content-info">
                 成药3: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
             </div>
             <div class="content-info">
@@ -112,7 +116,7 @@ const props = defineProps({
 </script>
 
 <style lang="less" scoped>
-@import './print.less';
+@import './style/print.less';
 
 
 .header {

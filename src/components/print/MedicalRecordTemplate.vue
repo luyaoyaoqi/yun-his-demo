@@ -4,91 +4,99 @@
         <!-- 页眉内容 -->
         <template #header>
             <div class="header">
-                <h1>工作室病历单2</h1>
+                <div class="left-qr-box">
+                    <img src="./image/qr1.png" alt="条码"></img>
+                </div>
+                <div class="middle-box">
+                    <div class="h1">上海脉景工作室</div>
+                    <div class="h2">门诊病历</div>
+                </div>
+                <div class="right-qr-box">
+                    <img src="./image/qr2.png" alt="二维码"></img>
+                </div>
+            </div>
+            <div class="patient-info">
+                <div class="des item">姓名: 张三 32岁 女</div>
+                <div class="des item">诊号: 0009292 初诊</div>
+                <div class="des item">日期: 2021-12-15</div>
+            </div>
+            <div class="line"></div>
+            <div class="patient-info">
+                <div class="des item">科室: 内科</div>
+                <div class="des item">费别: 市医保(普通)职工</div>
+                <div class="des item">手机: 13900000000</div>
+                <div class="des item">身份证: 50000000000000000X</div>
+                <div class="des item">个人编号: TK1203163</div>
+                <div class="des item">医保号: SG4348591</div>
+                <div class="des item">档案号: 000881</div>
+                <div class="des item">出生日期: 1999-12-15</div>
+                <div class="des item">体重: 45kg</div>
+                <div class="des item">婚否: 未婚</div>
+                <div class="des item">民族: 汉族</div>
+                <div class="des item">职业: 职员</div>
+                <div class="des item">地址: 四川省成都市高新区交子大道</div>
             </div>
             <div class="line"></div>
         </template>
 
         <!-- 主内容 -->
         <template #main>
-            <div class="patient-info">
-                <p class="item">姓名: 张三</p>
-                <p class="item">年龄: 32岁</p>
-                <p class="item">性别: 女</p>
-                <p class="item">病历号:123456</p>
+            <div class="clinic-info item">
+                <div class="label">主 诉</div>
+                <div>:&nbsp;</div>
+                <div class="des">咳嗽，夜咳，咽痛，咽干</div>
             </div>
-            <div class="line"></div>
-            <div class="content-info">
-                主诉: 下腹痛，便血，结肠炎
+            <div class="clinic-info item">
+                <div class="label">现 病 史</div>
+                <div>:&nbsp;</div>
+                <div class="des">无</div>
             </div>
-            <div class="content-info">
-                现病史: 便溏，左下腹疼，屁多，下腹胀，易饿，溃疡性结肠炎
+            <div class="clinic-info item">
+                <div class="label">既 往 史</div>
+                <div>:&nbsp;</div>
+                <div class="des">既往体健</div>
             </div>
-            <div class="content-info">
-                体格检查: 面色明亮，有神，浓眉，双眼皮，舌色淡白，舌苔白，舌质胖，舌苔润，舌质齿痕
+            <div class="clinic-info item">
+                <div class="label">体 格 检 查</div>
+                <div>:&nbsp;</div>
+                <div class="des"></div>
             </div>
-            <div class="content-info">
-                辅助检查:
+            <div class="drug-info item">
+                <div class="des">超敏C反应蛋白测定</div>
+                <div class="right-des">共一次</div>
             </div>
-            <div class="content-info">
-                中医诊断:
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">三位一体单次</div>
+                <div class="right-des">每天1次，1天，共1次</div>
             </div>
-            <div class="content-info">
-                证型:
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">四季抗病毒合剂(120ml/瓶)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
-            <div class="content-info">
-                治法:
+            <div class="drug-info item">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
-            <div class="content-info">
-                西医诊断:
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
-            <div class="content-info">
-                中药1: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
-                6克。7剂(每剂分2次服用 )。使用方法：内服
+            <div class="drug-info">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
-            <div class="content-info">
-                成药1: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
-            </div>
-            <div class="content-info">
-                注意事项1:
-            </div>
-            <div class="content-info">
-                复诊时间1:
-            </div>
-            <div class="content-info">
-                中药2: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
-                6克。7剂(每剂分2次服用 )。使用方法：内服
-            </div>
-            <div class="content-info">
-                成药2: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
-            </div>
-            <div class="content-info">
-                注意事项2:
-            </div>
-            <div class="content-info">
-                复诊时间2:
-            </div>
-            <div class="content-info">
-                中药3: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳 6克。7剂(每剂分2次服用
-                )。使用方法：内服
-            </div>
-            <div class="content-info">
-                成药3: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
-            </div>
-            <div class="content-info">
-                注意事项3:
-            </div>
-            <div class="content-info">
-                复诊时间3:
-            </div>
+
         </template>
 
         <!-- 页脚内容 -->
         <template #footer>
             <div class="line"></div>
             <div class="footer">
-                <p>医生签名: 张医生</p>
-                <p>门诊日期: 2024-03-21</p>
+                <div>医生签名: 张医生</div>
+                <div>门诊日期: 2024-03-21</div>
             </div>
         </template>
     </PrintContainer>
@@ -112,46 +120,114 @@ const props = defineProps({
 </script>
 
 <style lang="less" scoped>
-@import './print.less';
+@import './style/print.less';
 
 
 .header {
     display: flex;
-    flex-direction: column;
-    align-items: center;
 
-    h1 {
-        font-size: 15pt;
-        font-weight: bold;
+    .left-qr-box {
+
+        img {
+            width: 100pt;
+            height: auto;
+        }
     }
 
+    .right-qr-box {
+
+        img {
+            width: 64pt;
+            height: 64pt;
+        }
+    }
+
+    .middle-box {
+        flex: 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .h1 {
+            font-size: 15pt;
+            font-weight: 400;
+        }
+
+        .h2 {
+            font-size: 14pt;
+            margin-top: 8pt;
+        }
+    }
 
 }
 
 .patient-info {
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
-    font-size: 11pt;
-    margin-bottom: -12pt;
+    margin-top: 8pt;
+    margin-bottom: -8pt;
+    margin-right: -8pt;
 
-    .item {
-        flex: 0 0 33.33%;
-        margin-bottom: 16pt;
+    .des {
+        flex: 1 auto;
+        margin-right: 8pt;
+        margin-bottom: 8px;
+        word-break: break-all;
+
+
+        &:nth-child(3n+1) {
+            flex-basis: calc(40% - 12pt);
+        }
+
+        &:nth-child(3n+2) {
+            flex-basis: calc(32% - 12pt);
+
+        }
+
+        &:nth-child(3n) {
+            flex-basis: calc(28% - 12pt);
+            margin-right: 0;
+        }
     }
 }
 
-.content-info {
+.clinic-info {
     display: flex;
-    // flex-direction: column;
-    flex-wrap: wrap;
-    margin-bottom: 12pt;
-    font-size: 11pt;
+    margin-bottom: 8pt;
+
+    .label {
+        font-weight: 600;
+        width: 50pt;
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
+    }
+
+    .des {
+        flex: 1 auto;
+    }
+
+    .right-des {
+        flex: 0 0 auto;
+    }
+}
+
+.drug-info {
+    display: flex;
+    margin-bottom: 8pt;
+
+    .des {
+        flex: 1 auto;
+    }
+
+    .right-des {
+        flex: 0 0 auto;
+    }
 }
 
 .footer {
     display: flex;
     justify-content: space-between;
-    font-size: 11pt;
 }
 </style>

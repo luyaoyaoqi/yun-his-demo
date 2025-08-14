@@ -1,5 +1,6 @@
 <template>
-    <PrintContainer :paperSize="props.paperSize" :orientation="props.orientation" :containerPaddingStyle="props.containerPaddingStyle">
+    <PrintContainer :paperSize="props.paperSize" :orientation="props.orientation"
+        :containerPaddingStyle="props.containerPaddingStyle">
         <!-- 页眉内容 -->
         <template #header>
             <div class="header">
@@ -11,74 +12,74 @@
         <!-- 主内容 -->
         <template #main>
             <div class="patient-info">
-                <p>姓名: 张三</p>
-                <p>年龄: 32岁</p>
-                <p>性别: 女</p>
-                <p>病历号:123456</p>
+                <p class="item">姓名: 张三</p>
+                <p class="item">年龄: 32岁</p>
+                <p class="item">性别: 女</p>
+                <p class="item">病历号:123456</p>
             </div>
             <div class="line"></div>
             <div class="content-info">
-                <p>主诉: 下腹痛，便血，结肠炎</p>
+                主诉: 下腹痛，便血，结肠炎
             </div>
             <div class="content-info">
-                <p>现病史: 便溏，左下腹疼，屁多，下腹胀，易饿，溃疡性结肠炎</p>
+                现病史: 便溏，左下腹疼，屁多，下腹胀，易饿，溃疡性结肠炎
             </div>
             <div class="content-info">
-                <p>体格检查: 面色明亮，有神，浓眉，双眼皮，舌色淡白，舌苔白，舌质胖，舌苔润，舌质齿痕</p>
+                体格检查: 面色明亮，有神，浓眉，双眼皮，舌色淡白，舌苔白，舌质胖，舌苔润，舌质齿痕
             </div>
             <div class="content-info">
-                <p>辅助检查: </p>
+                辅助检查:
             </div>
             <div class="content-info">
-                <p>中医诊断: </p>
+                中医诊断:
             </div>
             <div class="content-info">
-                <p>证型: </p>
+                证型:
             </div>
             <div class="content-info">
-                <p>治法: </p>
+                治法:
             </div>
             <div class="content-info">
-                <p>西医诊断: </p>
+                西医诊断:
             </div>
             <div class="content-info">
-                <p>中药1: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
-                    6克。7剂(每剂分2次服用 )。使用方法：内服</p>
+                中药1: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
+                6克。7剂(每剂分2次服用 )。使用方法：内服
             </div>
             <div class="content-info">
-                <p>成药1: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天</p>
+                成药1: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
             </div>
             <div class="content-info">
-                <p>注意事项1: </p>
+                注意事项1:
             </div>
             <div class="content-info">
-                <p>复诊时间1: </p>
+                复诊时间1:
             </div>
             <div class="content-info">
-                <p>中药2: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
-                    6克。7剂(每剂分2次服用 )。使用方法：内服</p>
+                中药2: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳
+                6克。7剂(每剂分2次服用 )。使用方法：内服
             </div>
             <div class="content-info">
-                <p>成药2: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天</p>
+                成药2: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
             </div>
             <div class="content-info">
-                <p>注意事项2: </p>
+                注意事项2:
             </div>
             <div class="content-info">
-                <p>复诊时间2: </p>
+                复诊时间2:
             </div>
             <div class="content-info">
-                <p>中药3: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳 6克。7剂(每剂分2次服用
-                    )。使用方法：内服</p>
+                中药3: 炙甘草 6克，姜半夏 15克，大枣 20克，干姜9克，桂枝 10克，厚 朴 10克，黄连 6克，人参15克 ，枳壳 6克。7剂(每剂分2次服用
+                )。使用方法：内服
             </div>
             <div class="content-info">
-                <p>成药3: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天</p>
+                成药3: 桔贝合剂 X 1用法用量: 舌下含服，每周三次，每次1.1粒，3天
             </div>
             <div class="content-info">
-                <p>注意事项3: </p>
+                注意事项3:
             </div>
             <div class="content-info">
-                <p>复诊时间3: </p>
+                复诊时间3:
             </div>
         </template>
 
@@ -103,7 +104,7 @@ const props = defineProps({
     orientation: {
         type: String
     },
-    containerPaddingStyle: { 
+    containerPaddingStyle: {
         type: String
     }
 });
@@ -111,7 +112,6 @@ const props = defineProps({
 </script>
 
 <style lang="less" scoped>
-
 .line {
     width: 100%;
     height: 1pt;
@@ -139,7 +139,7 @@ const props = defineProps({
     font-size: 11pt;
     margin-bottom: -12pt;
 
-    p {
+    .item {
         flex: 0 0 33.33%;
         margin-bottom: 16pt;
     }
@@ -151,10 +151,6 @@ const props = defineProps({
     flex-wrap: wrap;
     margin-bottom: 12pt;
     font-size: 11pt;
-
-    p {
-        flex: 0 0 100%
-    }
 }
 
 .footer {

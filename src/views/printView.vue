@@ -184,15 +184,15 @@ const createPrintPage = () => {
                     }
                 });
 
-                // 如果dom包含子集，则给dom添加data-field=" "这个属性字段，class="print-header""print-main""print-footer"这几个除外
-                const excludedClasses = ['print-header', 'print-main', 'print-footer'];
+                // 根据内容是否不为空，是否包含class ="item" ，来添加data-field属性
                 const elementClasses = Array.from(element.classList);
-                const hasExcludedClass = excludedClasses.some(cls => elementClasses.includes(cls));
+                const hasItemClass = elementClasses.includes('item');
 
                 // 检查元素内容是否不为空（包括文本内容和子元素）
-                const hasContent = element.children.length > 0 || (element.textContent && element.textContent.trim() !== '');
+                const hasContent = element.children.length == 0 && (element.textContent && element.textContent.trim() !== '');
 
-                if (hasContent && !hasExcludedClass) {
+                // 如果元素包含'item'类或者内容不为空，则添加data-field属性
+                if (hasItemClass || hasContent) {
                     element.setAttribute('data-field', ' ');
                 }
             }

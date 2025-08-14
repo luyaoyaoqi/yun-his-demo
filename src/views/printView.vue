@@ -159,9 +159,9 @@ const createPrintPage = () => {
     const pageElements = Array.from(printElement.children) as HTMLElement[];
 
     // @ts-ignore
-    const printStyle1 = document.querySelector('style[data-vite-dev-id*="PrintContainer.vue"]')?.outerHTML || '';
+    const printStyle1 = Array.from(document.querySelectorAll('style[data-vite-dev-id*="PrintContainer.vue"]')).map(el => el.outerHTML).join('\n') || '';
     // @ts-ignore
-    const printStyle2 = document.querySelector(`style[data-vite-dev-id*="${selectedTemplate.value}.vue"]`)?.outerHTML || '';
+    const printStyle2 = Array.from(document.querySelectorAll(`style[data-vite-dev-id*="${selectedTemplate.value}.vue"]`)).map(el => el.outerHTML).join('\n') || '';
 
     // 清空之前的页面
     printPages.value = [];

@@ -112,6 +112,8 @@ const props = defineProps({
 </script>
 
 <style lang="less" scoped>
+@import './print.less';
+
 .line {
     width: 100%;
     height: 1pt;

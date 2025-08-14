@@ -11,7 +11,8 @@
             <el-form>
                 <el-form-item label="打印模板" label-width="80px" label-position="left">
                     <el-select v-model="selectedTemplate" placeholder="选择模板" @change="handlePaperSizeChange">
-                        <el-option label="示例模板1" value="PrintMedicalTemplate2" />
+                        <el-option v-for="option in selectedTemplateOption" :label="option.label" :value="option.value"
+                            :key="option.value" />
                     </el-select>
                 </el-form-item>
                 <el-form-item label="纸张大小" label-width="80px" label-position="left">
@@ -61,7 +62,19 @@
 
 <script lang="ts" setup>
 import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watchEffect } from 'vue';
+
+//引入模板
 import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
+import MedicalRecordTemplate from '@/components/print/MedicalRecordTemplate.vue';
+
+const selectedTemplateOption = [
+    { label: '示例模板', value: 'PrintMedicalTemplate2' },
+    { label: '病历模板', value: 'MedicalRecordTemplate' }
+]
+const printTemplateGroup = {
+    PrintMedicalTemplate2,
+    MedicalRecordTemplate
+}
 
 // 类型定义
 interface PaperSize {
@@ -114,19 +127,18 @@ const printSetting = reactive({
 // 边距值（用于滑块）
 const paddingValue = ref(paddingDefault);
 
-// 当前选中的模板
-const selectedTemplate = ref('PrintMedicalTemplate2');
-
 // 打印机选择相关
 const selectedPrinter = ref('');
 const printerList = ref<PrinterInfo[]>([]);
 const isPreview = ref(true);
 
+
+// 当前选中的模板
+const selectedTemplate = ref('PrintMedicalTemplate2');
+
 // 动态组件计算属性
 const printTemplateComponent = computed(() => {
-    const components: Record<string, any> = {
-        PrintMedicalTemplate2
-    };
+    const components: Record<string, any> = printTemplateGroup
     return components[selectedTemplate.value] || null;
 });
 

@@ -61,6 +61,7 @@ declare module 'vue' {
     MacInputNumber: typeof import('./src/components/MacInputNumber.vue')['default']
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MdInputNumber: typeof import('./src/components/MdInputNumber.vue')['default']
+    MedicalRecordTemplate: typeof import('./src/components/print/MedicalRecordTemplate.vue')['default']
     PrecisionInputNumber: typeof import('./src/components/PrecisionInputNumber.vue')['default']
     PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']
     PrintMedicalTemplate: typeof import('./src/components/print/PrintMedicalTemplate.vue')['default']

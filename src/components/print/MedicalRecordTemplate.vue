@@ -4,7 +4,7 @@
         <!-- 页眉内容 -->
         <template #header>
             <div class="header">
-                <h1>工作室病历单</h1>
+                <h1>工作室病历单2</h1>
             </div>
             <div class="line"></div>
         </template>

@@ -593,8 +593,8 @@ const exportHTML = () => {
         flex-direction: column;
         align-items: center;
         overflow: auto;
-        visibility: hidden;
-        width: 0;
+        // visibility: hidden;
+        // width: 0;
     }
 
     .print-editor-box {

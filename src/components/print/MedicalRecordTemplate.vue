@@ -88,6 +88,37 @@
                 <div class="des">小柴胡颗粒(10g*10包/盒)</div>
                 <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="drug-info">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="drug-info">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="line dashed"></div>
+            <div class="drug-info item">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="drug-info">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
+            <div class="drug-info">
+                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
+                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            </div>
 
         </template>
 
@@ -125,6 +156,8 @@ const props = defineProps({
 
 .header {
     display: flex;
+    font-size: 10pt;
+    font-weight: 300;
 
     .left-qr-box {
 
@@ -168,6 +201,8 @@ const props = defineProps({
     margin-top: 8pt;
     margin-bottom: -8pt;
     margin-right: -8pt;
+    font-size: 10pt;
+    font-weight: 300;
 
     .des {
         flex: 1 auto;
@@ -195,6 +230,8 @@ const props = defineProps({
 .clinic-info {
     display: flex;
     margin-bottom: 8pt;
+    font-size: 10pt;
+    font-weight: 300;
 
     .label {
         font-weight: 600;
@@ -216,6 +253,8 @@ const props = defineProps({
 .drug-info {
     display: flex;
     margin-bottom: 8pt;
+    font-size: 10pt;
+    font-weight: 300;
 
     .des {
         flex: 1 auto;
@@ -227,6 +266,8 @@ const props = defineProps({
 }
 
 .footer {
+    font-size: 10pt;
+    font-weight: 300;
     display: flex;
     justify-content: space-between;
 }

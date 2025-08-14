@@ -183,6 +183,18 @@ const createPrintPage = () => {
                         element.removeAttribute(attr.name);
                     }
                 });
+
+                // 如果dom包含子集，则给dom添加data-field=" "这个属性字段，class="print-header""print-main""print-footer"这几个除外
+                const excludedClasses = ['print-header', 'print-main', 'print-footer'];
+                const elementClasses = Array.from(element.classList);
+                const hasExcludedClass = excludedClasses.some(cls => elementClasses.includes(cls));
+
+                // 检查元素内容是否不为空（包括文本内容和子元素）
+                const hasContent = element.children.length > 0 || (element.textContent && element.textContent.trim() !== '');
+
+                if (hasContent && !hasExcludedClass) {
+                    element.setAttribute('data-field', ' ');
+                }
             }
         });
 
@@ -356,7 +368,7 @@ const loadPrinters = () => {
 
 // 使用 watchEffect 监听 printRef 和其内容的变化
 let observer: MutationObserver | null = null;
-let styleObservers: MutationObserver[]  = [];
+let styleObservers: MutationObserver[] = [];
 
 onMounted(() => {
     selectedTemplate.value = 'PrintMedicalTemplate2';
@@ -422,7 +434,7 @@ watchEffect(() => {
                                     characterDataOldValue: true
                                 });
 
-                            
+
                                 styleObservers.push(styleObserver);
                             } catch (observeError) {
                                 console.warn('Failed to observe style element:', observeError);

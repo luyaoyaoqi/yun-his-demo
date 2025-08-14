@@ -10,14 +10,12 @@
         <div class="print-editor-box">
             <el-form>
                 <el-form-item label="打印模板" label-width="80px" label-position="left">
-                    <el-select v-model="selectedTemplate" placeholder="选择模板"
-                        @change="handlePaperSizeChange">
+                    <el-select v-model="selectedTemplate" placeholder="选择模板" @change="handlePaperSizeChange">
                         <el-option label="示例模板1" value="PrintMedicalTemplate2" />
                     </el-select>
                 </el-form-item>
                 <el-form-item label="纸张大小" label-width="80px" label-position="left">
-                    <el-select v-model="printSetting.paperSize" placeholder="选择纸张大小"
-                        @change="handlePaperSizeChange">
+                    <el-select v-model="printSetting.paperSize" placeholder="选择纸张大小" @change="handlePaperSizeChange">
                         <el-option label="A4" value="a4" />
                         <el-option label="A5" value="a5" />
                         <el-option label="B6" value="b6" />
@@ -33,8 +31,7 @@
                 </el-form-item>
 
                 <el-form-item label="边距" label-width="80px" label-position="left">
-                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1"
-                        @change="updatePaddingStyle" />
+                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1" @change="updatePaddingStyle" />
                 </el-form-item>
 
                 <el-form-item label="打印机" label-width="80px" label-position="left">
@@ -63,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watch, watchEffect } from 'vue';
+import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watchEffect } from 'vue';
 import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
 
 // 类型定义
@@ -359,6 +356,7 @@ const loadPrinters = () => {
 
 // 使用 watchEffect 监听 printRef 和其内容的变化
 let observer: MutationObserver | null = null;
+let styleObservers: MutationObserver[]  = [];
 
 onMounted(() => {
     selectedTemplate.value = 'PrintMedicalTemplate2';
@@ -379,6 +377,12 @@ watchEffect(() => {
             observer.disconnect();
         }
 
+        // 断开所有样式观察器
+        if (styleObservers) {
+            styleObservers.forEach(obs => obs.disconnect());
+            styleObservers = [];
+        }
+
         nextTick(() => {
             // @ts-ignore
             const printElement = printRef.value.$el as HTMLElement;
@@ -388,12 +392,46 @@ watchEffect(() => {
                     setTimeout(createPrintPage, 100);
                 });
 
+                // 监听组件DOM变化
                 observer.observe(printElement, {
                     childList: true,
                     subtree: true,
                     attributes: true,
-                    characterData: true
+                    attributeFilter: ['style', 'class'],
+                    attributeOldValue: true,
+                    characterData: true,
+                    characterDataOldValue: true
                 });
+
+                // 监听所有相关的组件样式标签变化
+                try {
+                    const styleElements = document.querySelectorAll(`style[data-vite-dev-id*="${selectedTemplate.value}"]`);
+                    if (styleElements.length > 0) {
+                        styleObservers = [];
+
+                        styleElements.forEach(styleElement => {
+                            try {
+                                const styleObserver = new MutationObserver(() => {
+                                    setTimeout(createPrintPage, 100);
+                                });
+
+                                styleObserver.observe(styleElement, {
+                                    childList: true,
+                                    subtree: true,
+                                    characterData: true,
+                                    characterDataOldValue: true
+                                });
+
+                            
+                                styleObservers.push(styleObserver);
+                            } catch (observeError) {
+                                console.warn('Failed to observe style element:', observeError);
+                            }
+                        });
+                    }
+                } catch (queryError) {
+                    console.warn('Failed to query style elements:', queryError);
+                }
             }
         });
     }
@@ -405,6 +443,11 @@ onUnmounted(() => {
         observer.disconnect();
         observer = null;
     }
+    // 断开所有样式观察器的连接
+    styleObservers.forEach(styleObserver => {
+        styleObserver.disconnect();
+    });
+    styleObservers = [];
 });
 
 // 纸张大小变更处理

@@ -74,16 +74,14 @@
             <div class="patent-medicine-item">
                 <div class="medicine-name">四季抗病毒合剂(120ml/瓶)</div>
                 <div class="medicine-quantity">×1瓶</div>
-                <div class="medicine-dosage">每次5ml</div>
-                <div class="medicine-frequency">每天1次</div>
+                <div class="medicine-dosage">每次5ml 每天1次</div>
                 <div class="medicine-method">口服</div>
                 <div class="medicine-duration">1天</div>
             </div>
             <div class="patent-medicine-item">
                 <div class="medicine-name">小柴胡颗粒(10g*10包/盒)</div>
                 <div class="medicine-quantity">×1瓶</div>
-                <div class="medicine-dosage">每次5ml</div>
-                <div class="medicine-frequency">每天1次</div>
+                <div class="medicine-dosage">每次5ml 每天1次</div>
                 <div class="medicine-method">口服</div>
                 <div class="medicine-duration">1天</div>
             </div>
@@ -115,7 +113,7 @@
                 <div class="medicine-item">连翘6g</div>
                 <div class="medicine-item">桔梗6g</div>
                 <div class="medicine-item">白术6g</div>
-                <div class="medicine-summary">共2剂，煎服，1日1剂1日3次每次150ml,饭后1小时服用</div>
+                <div class="medicine-summary">共2剂，煎服，1日1剂 1日3次 每次150ml，饭后1小时服用</div>
             </div>
             <div class="divider dashed"></div>
             <div class="advice-section">
@@ -303,7 +301,6 @@ const props = defineProps({
 
     .medicine-quantity,
     .medicine-dosage,
-    .medicine-frequency,
     .medicine-method,
     .medicine-duration {
         flex: 0 0 auto;

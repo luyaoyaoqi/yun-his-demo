@@ -42,6 +42,7 @@
         <!-- 主内容 -->
         <template #main>
             <div class="clinic-item">
+                <!-- label之间必须加空格，否咋打印不生效 -->
                 <div class="item-label">主 诉</div>
                 <div class="item-separator">:&nbsp;</div>
                 <div class="item-content">咳嗽，夜咳，咽痛，咽干</div>
@@ -57,7 +58,7 @@
                 <div class="item-content">既往体健</div>
             </div>
             <div class="clinic-item">
-                <div class="item-label">处置</div>
+                <div class="item-label">处 置</div>
                 <div class="item-separator">:&nbsp;</div>
                 <div class="item-content"></div>
             </div>
@@ -117,7 +118,7 @@
             </div>
             <div class="divider dashed"></div>
             <div class="advice-section">
-                <div class="advice-label">医嘱</div>
+                <div class="advice-label">医 嘱</div>
                 <div class="advice-separator">:&nbsp;</div>
                 <div class="advice-content">
                     <div class="advice-item">1.多喝水，保持身体充足水分</div>
@@ -140,7 +141,7 @@
                 <div class="doctor-info">
                     <div class="info-item">医生：胡青牛</div>
                     <div class="info-item">金额：0.00</div>
-                    <div class="info-item">打印时间：2025-08-1511:11:07</div>
+                    <div class="info-item">打印时间：2025-08-15 11:11:07</div>
                 </div>
                 <div class="footer-note">
                     <div class="note-content">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
@@ -378,7 +379,11 @@ const props = defineProps({
     font-weight: 400;
 
     .advice-label {
-        flex: 0 auto;
+        font-weight: 600;
+        width: 50pt;
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
     }
 
     .advice-separator {

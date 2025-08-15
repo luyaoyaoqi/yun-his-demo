@@ -196,15 +196,18 @@ const createPrintPage = () => {
                     }
                 });
 
-                // 根据内容是否不为空，是否包含class ="item" ，来添加data-field属性
-                const elementClasses = Array.from(element.classList);
-                const hasItemClass = elementClasses.includes('item');
+               // 根据内容是否不为空，是否包含class ="item" ，来添加data-field属性
+                // const elementClasses = Array.from(element.classList);
+                // const hasItemClass = elementClasses.includes('item');
+                // 改为检查class字段是否包含'item'
+                const classAttribute = element.getAttribute('class') || '';
+                const containsItemClass = classAttribute.includes('item');
 
                 // 检查元素内容是否不为空（包括文本内容和子元素）
                 const hasContent = element.children.length == 0 && (element.textContent && element.textContent.trim() !== '');
 
                 // 如果元素包含'item'类或者内容不为空，则添加data-field属性
-                if (hasItemClass || hasContent) {
+                if (containsItemClass || hasContent) {
                     element.setAttribute('data-field', ' ');
                 }
             }

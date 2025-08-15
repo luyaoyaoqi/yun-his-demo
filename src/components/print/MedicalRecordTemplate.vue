@@ -80,12 +80,50 @@
                 <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
             <div class="line dashed"></div>
-            <div class="drug-info item">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
+            <div class="cure-infos item">
+                <div class="left-group">
+                    <div class="cure-info item">
+                        <div class="des">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
+                        <div class="nub-des">×1瓶</div>
+                        <div class="nub-des">250ml</div>
+                    </div>
+                    <div class="cure-info item">
+                        <div class="des">克林霉素磷酸酯注射液0.3g*2ml/支</div>
+                        <div class="nub-des">×1瓶</div>
+                        <div class="nub-des">250ml</div>
+                    </div>
+                </div>
+                <div class="right-bracket">
+                </div>
+                <div class="right-des">每天1次1天<br />静脉滴注60滴/分钟</div>
             </div>
-           
-            
+            <div class="line dashed"></div>
+            <div class="chinese-drug-info item">
+                <div class="des item">桔梗6g</div>
+                <div class="des item">黄芩6g</div>
+                <div class="des item">知母6g</div>
+                <div class="des item">赤芍6g</div>
+                <div class="des item">玄参6g</div>
+                <div class="des item">连翘6g</div>
+                <div class="des item">桔梗6g</div>
+                <div class="des item">白术6g</div>
+                <div class="botttom-des">共2剂，煎服，1日1剂1日3次每次150ml,饭后1小时服用</div>
+            </div>
+            <div class="line dashed"></div>
+            <div class="advice-info">
+                <div class="label">医嘱</div>
+                <div>:&nbsp;</div>
+                <div class="right-group">
+                    <div class="des item">1.多喝水，保持身体充足水分</div>
+                    <div class="des item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div>
+                </div>
+            </div>
+            <div class="empty-info">
+                <div class="line dashed"></div>
+                <div class="des">以下空白</div>
+                <div class="line dashed"></div>
+            </div>
+
 
         </template>
 
@@ -93,8 +131,19 @@
         <template #footer>
             <div class="line"></div>
             <div class="footer">
-                <div>医生签名: 张医生</div>
-                <div>门诊日期: 2024-03-21</div>
+                <div class="doctor-info">
+                    <div class="des item">医生：胡青牛</div>
+                    <div class="des item">金额：0.00</div>
+                    <div class="des item">打印时间：2025-08-1511:11:07</div>
+                </div>
+                <div class="bottom-info">
+                    <div class="des">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
+                    <div class="right-group">
+                        <div class="des">电话：13882100001</div>
+                        <div class="des">地址：惠民佳苑北路东南侧西部</div>
+                        
+                        </div>
+                </div>
             </div>
         </template>
     </PrintContainer>
@@ -124,12 +173,13 @@ const props = defineProps({
 .header {
     display: flex;
     font-size: 10pt;
+    line-height: 1;
     font-weight: 300;
 
     .left-qr-box {
 
         img {
-            width: 100pt;
+            width: 80pt;
             height: auto;
         }
     }
@@ -137,8 +187,8 @@ const props = defineProps({
     .right-qr-box {
 
         img {
-            width: 64pt;
-            height: 64pt;
+            width: 48pt;
+            height: 48pt;
         }
     }
 
@@ -155,7 +205,7 @@ const props = defineProps({
         }
 
         .h2 {
-            font-size: 14pt;
+            font-size: 13pt;
             margin-top: 8pt;
         }
     }
@@ -168,12 +218,13 @@ const props = defineProps({
     margin-top: 8pt;
     margin-bottom: -8pt;
     font-size: 10pt;
+    line-height: 1;
     font-weight: 300;
 
     .des {
         flex: 1 auto;
         margin-right: 8pt;
-        margin-bottom: 8px;
+        margin-bottom: 8pt;
         word-break: break-all;
 
 
@@ -197,6 +248,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
+    line-height: 1;
     font-weight: 300;
 
     .label {
@@ -220,6 +272,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
+    line-height: 1;
     font-weight: 300;
 
     .des {
@@ -231,10 +284,149 @@ const props = defineProps({
     }
 }
 
-.footer {
-    font-size: 10pt;
-    font-weight: 300;
+.cure-infos {
     display: flex;
-    justify-content: space-between;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+    line-height: 1;
+    font-weight: 300;
+
+    .left-group {
+        flex-direction: column;
+        flex: 1 auto;
+        margin-bottom: -8pt;
+
+        .cure-info {
+            display: flex;
+            margin-bottom: 8pt;
+
+            .des {
+                flex: 1 auto;
+            }
+
+            .nub-des {
+                flex: 0 40pt;
+                text-align: right;
+            }
+        }
+    }
+
+    .right-bracket {
+        display: inline-block;
+        flex: 0 0 2pt;
+        border: 1px solid#888;
+        border-left: none;
+        margin: 8px;
+    }
+
+
+    .right-des {
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+
+}
+
+.chinese-drug-info {
+    display: flex;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+    line-height: 1;
+    font-weight: 300;
+    flex-wrap: wrap;
+
+    .des {
+        flex: 1 25%;
+        margin-bottom: 8pt;
+    }
+
+    .bottom-des {
+        flex: 1 0 100%;
+    }
+}
+
+.advice-info {
+    display: flex;
+    margin-bottom: 8pt;
+    font-size: 10pt;
+    line-height: 1;
+    font-weight: 300;
+
+    .right-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1 auto;
+        margin-bottom: -8pt;
+
+        .des {
+            flex: 1 auto;
+            margin-bottom: 8pt;
+        }
+
+    }
+
+}
+
+.empty-info {
+    display: flex;
+    margin-top: 8pt;
+    font-size: 8pt;
+    line-height: 1;
+    font-weight: 300;
+    justify-content: center;
+    align-items: center;
+
+    .line {
+        flex: 0 0 40pt;
+    }
+}
+
+
+.footer {
+    display: flex;
+    font-size: 10pt;
+    line-height: 1;
+    font-weight: 300;
+    flex-direction: column;
+
+    .doctor-info {
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 10pt;
+        line-height: 1;
+        font-weight: 300;
+
+        .des {
+            flex: 1 auto;
+            margin-right: 8pt;
+            margin-bottom: 8pt;
+            word-break: break-all;
+            flex-basis: calc(28% - 12pt);
+
+            &:nth-child(3n) {
+                flex-basis: calc(40% - 12pt);
+                margin-right: 0;
+            }
+
+        }
+    }
+
+    .bottom-info {
+        display: flex;
+        font-size: 8pt;
+        line-height: 1;
+        font-weight: 300;
+        justify-content: space-between;
+
+        .des {
+            flex: 0 48%;
+            word-break: break-all;
+        }
+        .right-group{
+            text-align: right;
+        }
+    }
 }
 </style>

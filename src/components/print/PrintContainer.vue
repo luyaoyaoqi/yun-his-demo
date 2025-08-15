@@ -101,7 +101,7 @@ const handlePagination = () => {
         const templateMain = printContainerTemplate.querySelector('.print-main');
         const templateHeader = printContainerTemplate.querySelector('.print-header');
         const templateFooter = printContainerTemplate.querySelector('.print-footer');
-        
+
         if (templateMain) templateMain.innerHTML = '';
         if (templateHeader) templateHeader.innerHTML = '';
         if (templateFooter) templateFooter.innerHTML = '';
@@ -123,23 +123,23 @@ const handlePagination = () => {
             if (!currentPage) {
                 currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
                 currentMain = currentPage.querySelector('.print-main') as HTMLElement;
-                
+
                 // 填充页眉和页脚内容
                 const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
                 const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
-                
+
                 if (currentHeader) {
                     originalHeaderContent.value.forEach(node => {
                         currentHeader.appendChild(node.cloneNode(true));
                     });
                 }
-                
+
                 if (currentFooter) {
                     originalFooterContent.value.forEach(node => {
                         currentFooter.appendChild(node.cloneNode(true));
                     });
                 }
-                
+
                 printViewElement.value?.appendChild(currentPage);
             }
 
@@ -155,17 +155,17 @@ const handlePagination = () => {
                     // 创建新页面
                     currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
                     currentMain = currentPage.querySelector('.print-main') as HTMLElement;
-                    
+
                     // 填充页眉和页脚内容
                     const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
                     const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
-                    
+
                     if (currentHeader) {
                         originalHeaderContent.value.forEach(node => {
                             currentHeader.appendChild(node.cloneNode(true));
                         });
                     }
-                    
+
                     if (currentFooter) {
                         originalFooterContent.value.forEach(node => {
                             currentFooter.appendChild(node.cloneNode(true));
@@ -181,17 +181,17 @@ const handlePagination = () => {
                     // 创建新页面
                     currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
                     currentMain = currentPage.querySelector('.print-main') as HTMLElement;
-                    
+
                     // 填充页眉和页脚内容
                     const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
                     const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
-                    
+
                     if (currentHeader) {
                         originalHeaderContent.value.forEach(node => {
                             currentHeader.appendChild(node.cloneNode(true));
                         });
                     }
-                    
+
                     if (currentFooter) {
                         originalFooterContent.value.forEach(node => {
                             currentFooter.appendChild(node.cloneNode(true));
@@ -230,9 +230,66 @@ watch(
     { flush: 'post', deep: true } // 在 DOM 更新后执行，并深度监听
 );
 
+// 监听 DOM 样式变化
+let styleObserver: MutationObserver | null = null;
+
 onMounted(() => {
     // 第一次加载时执行分页
     handlePagination();
+
+    // 创建一个观察器来监听样式变化
+    if (printViewElement.value) {
+        styleObserver = new MutationObserver((mutations) => {
+            let shouldRepaginate = false;
+
+            // 检查是否有影响布局的变更
+            for (const mutation of mutations) {
+                if (mutation.type === 'attributes' &&
+                    (mutation.attributeName === 'style' || mutation.attributeName === 'class')) {
+                    shouldRepaginate = true;
+                    break;
+                }
+                if (mutation.type === 'childList') {
+                    shouldRepaginate = true;
+                    break;
+                }
+                if (mutation.type === 'characterData') {
+                    shouldRepaginate = true;
+                    break;
+                }
+            }
+
+            if (shouldRepaginate) {
+                // 延迟执行重新分页，避免过于频繁的计算
+                setTimeout(() => {
+                    handlePagination();
+                }, 0);
+            }
+        });
+
+        // 开始观察
+        styleObserver.observe(printViewElement.value, {
+            attributes: true,
+            attributeFilter: ['style', 'class'],
+            childList: true,
+            subtree: true,
+            characterData: true
+        });
+    }
+});
+
+// 组件卸载时断开观察器
+const stopObserving = () => {
+    if (styleObserver) {
+        styleObserver.disconnect();
+        styleObserver = null;
+    }
+};
+
+// 在组件卸载前断开观察器
+import { onBeforeUnmount } from 'vue';
+onBeforeUnmount(() => {
+    stopObserving();
 });
 </script>
 

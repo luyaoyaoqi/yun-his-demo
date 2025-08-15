@@ -171,7 +171,7 @@ const createPrintPage = () => {
     const pageElements = Array.from(printElement.children).slice(1) as HTMLElement[];
 
     // @ts-ignore
-    const printStyle1 = Array.from(document.querySelectorAll('style[data-vite-dev-id*="PrintContainer.vue"]')).map(el => el.outerHTML).join('\n') || '';
+    const printStyle1 = Array.from(document.querySelectorAll('style[data-vite-dev-id*="PrintContainer.vue"]')).slice(1).map(el => el.outerHTML).join('\n') || '';
     // @ts-ignore
     const printStyle2 = Array.from(document.querySelectorAll(`style[data-vite-dev-id*="${selectedTemplate.value}.vue"]`)).map(el => el.outerHTML).join('\n') || '';
 
@@ -196,20 +196,20 @@ const createPrintPage = () => {
                     }
                 });
 
-               // 根据内容是否不为空，是否包含class ="item" ，来添加data-field属性
-                // const elementClasses = Array.from(element.classList);
-                // const hasItemClass = elementClasses.includes('item');
-                // 改为检查class字段是否包含'item'
-                const classAttribute = element.getAttribute('class') || '';
-                const containsItemClass = classAttribute.includes('item');
+                // // 根据内容是否不为空，是否包含class ="item" ，来添加data-field属性
+                // // const elementClasses = Array.from(element.classList);
+                // // const hasItemClass = elementClasses.includes('item');
+                // // 改为检查class字段是否包含'item'
+                // const classAttribute = element.getAttribute('class') || '';
+                // const containsItemClass = classAttribute.includes('item');
 
-                // 检查元素内容是否不为空（包括文本内容和子元素）
-                const hasContent = element.children.length == 0 && (element.textContent && element.textContent.trim() !== '');
+                // // 检查元素内容是否不为空（包括文本内容和子元素）
+                // const hasContent = element.children.length == 0 && (element.textContent && element.textContent.trim() !== '');
 
-                // 如果元素包含'item'类或者内容不为空，则添加data-field属性
-                if (containsItemClass || hasContent) {
-                    element.setAttribute('data-field', ' ');
-                }
+                // // 如果元素包含'item'类或者内容不为空，则添加data-field属性
+                // if (containsItemClass || hasContent) {
+                //     element.setAttribute('data-field', ' ');
+                // }
             }
         });
 
@@ -229,6 +229,7 @@ const createPrintPage = () => {
             cleanPrintStyle2 = cleanPrintStyle2.replace(/data-vite-dev-id="[^"]*"/g, '');
         }
 
+
         const singlePageContent = `
             <!DOCTYPE html>
             <html lang="zh-CN">
@@ -236,21 +237,7 @@ const createPrintPage = () => {
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">                
                 <title>打印预览 - 第${index + 1}页</title>
-                <style>
-                    *, *::before, *::after {
-                        box-sizing: border-box;
-                        margin: 0;
-                    }
-                    body {
-                        padding: 0;
-                        overflow: hidden;
-                        font-family: Microsoft YaHei,微软雅黑;
-                    }
-                    .print-container{
-                        margin-left: auto;
-                        margin-right: auto;
-                    }
-                </style>
+                
                 ${cleanPrintStyle1}
                 ${cleanPrintStyle2}
             </head>
@@ -272,7 +259,7 @@ const createPrintPage = () => {
                 iframeContent.value.style.zoom = '1';
 
                 // 设置iframe的宽高
-                const containerElement = iframe.contentWindow?.document.body.querySelector('.print-container') as HTMLElement;
+                const containerElement = iframe.contentWindow?.document.body.firstElementChild as HTMLElement;
                 const iframeHeight = containerElement?.offsetHeight || 0;
                 const iframeWidth = containerElement?.offsetWidth || 0;
 
@@ -511,6 +498,7 @@ const setupAndPrint = () => {
 
     // 初始化打印任务
     LODOP.PRINT_INITA(0, 0, `${paper.width}mm`, `${paper.height}mm`, "打印任务");
+    console.log('打印任务已初始化', `${paper.width}mm`, `${paper.height}mm`);
 
     // 设置打印机
     if (selectedPrinter.value) {

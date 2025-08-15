@@ -6,7 +6,7 @@
             <div class="header">
                 <h1>工作室病历单</h1>
             </div>
-            <div class="line"></div>
+            <div class="divider"></div>
         </template>
 
         <!-- 主内容 -->
@@ -17,7 +17,7 @@
                 <p class="item">性别: 女</p>
                 <p class="item">病历号:123456</p>
             </div>
-            <div class="line"></div>
+            <div class="divider"></div>
             <div class="content-info">
                 主诉: 下腹痛，便血，结肠炎
             </div>
@@ -89,7 +89,7 @@
 
         <!-- 页脚内容 -->
         <template #footer>
-            <div class="line"></div>
+            <div class="divider"></div>
             <div class="footer">
                 <p>医生签名: 张医生</p>
                 <p>门诊日期: 2024-03-21</p>

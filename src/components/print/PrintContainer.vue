@@ -1,7 +1,7 @@
 <template>
     <div class="print-view" ref="printViewElement">
         <!-- 初始页面容器（作为模板） -->
-        <div class="print-container" :class="[paperSize, orientation]" :style="containerPaddingStyle">
+        <div class="mj-print-page" :class="[paperSize, orientation]" :style="containerPaddingStyle">
             <!-- 页眉插槽 -->
             <div class="print-header">
                 <slot name="header"></slot>
@@ -97,7 +97,7 @@ const handlePagination = () => {
         // 创建页面模板（克隆原始容器）
         const printContainerTemplate = printContainerFirstPage.cloneNode(true) as HTMLElement;
         // 确保克隆的模板包含正确的类名（纸张大小和方向）
-        printContainerTemplate.className = `print-container ${props.paperSize} ${props.orientation}`;
+        printContainerTemplate.className = `mj-print-page ${props.paperSize} ${props.orientation}`;
         const templateMain = printContainerTemplate.querySelector('.print-main');
         const templateHeader = printContainerTemplate.querySelector('.print-header');
         const templateFooter = printContainerTemplate.querySelector('.print-footer');
@@ -275,6 +275,7 @@ onMounted(() => {
 });
 </script>
 
+<!-- 此样式不进入打印模板 -->
 <style lang="less" scoped>
 .print-view {
     all: initial;
@@ -284,8 +285,21 @@ onMounted(() => {
     height: fit-content;
     // visibility: hidden;
 }
+</style>
 
-.print-container {
+<style lang="less" scoped>
+
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Microsoft YaHei, 微软雅黑;
+}
+
+mj-hidden {
+    display: none !important;
+}
+
+.mj-print-page {
     position: relative;
     // padding: 10mm 10mm;
     background-color: white;
@@ -294,6 +308,8 @@ onMounted(() => {
     //默认尺寸
     width: 138mm;
     height: 200mm;
+    //默认边距
+    padding: 0mm;
 
     // 纵向尺寸
     &.a5.portrait {

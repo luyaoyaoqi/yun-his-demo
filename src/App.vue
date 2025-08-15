@@ -33,7 +33,6 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
 </template>
 
 <style scoped>
-
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -52,7 +51,8 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: var(--el-color-primary);
+  font-weight: bold;
 }
 
 nav a.router-link-exact-active:hover {

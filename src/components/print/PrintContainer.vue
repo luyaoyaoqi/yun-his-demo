@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, defineProps, watch, useSlots } from 'vue';
+import { ref, onMounted, nextTick, defineProps, watch, useSlots, watchEffect } from 'vue';
 
 const slots = useSlots();
 
@@ -229,6 +229,45 @@ watch(
     },
     { flush: 'post', deep: true } // 在 DOM 更新后执行，并深度监听
 );
+
+watchEffect((onCleanup) => {
+
+    // 创建MutationObserver监测style元素的变化
+    const observer = new MutationObserver((mutations) => {
+        // 监测到变化时执行分页逻辑
+        // 过滤掉来自node_modules的style元素变化
+        const hasRelevantChange = mutations.some(mutation => {
+            // 检查被修改的节点是否是目标style元素
+            if (mutation.target instanceof HTMLStyleElement) {
+                return !mutation.target.dataset.viteDevId?.includes('node_modules');
+            }
+            // 检查新增/删除的节点中是否有目标style元素
+            return Array.from(mutation.addedNodes).some(node =>
+                node instanceof HTMLStyleElement && !node.dataset.viteDevId?.includes('node_modules')
+            ) || Array.from(mutation.removedNodes).some(node =>
+                node instanceof HTMLStyleElement && !node.dataset.viteDevId?.includes('node_modules')
+            );
+        });
+
+        if (hasRelevantChange) {
+            handlePagination();
+        }
+    });
+
+    // 监听整个文档中style元素的变化（包括添加/删除/内容修改）
+    observer.observe(document.head, {
+        childList: true, // 监测子节点变化（添加/删除style元素）
+        subtree: true,   // 监测所有子树（包括嵌套在其他元素中的style）
+        characterData: true, // 监测文本内容变化
+        attributes: true,    // 监测属性变化（如data-vite-dev-id）
+        attributeFilter: ['data-vite-dev-id'] // 只监测指定属性
+    });
+
+    // 组件卸载时停止监听
+    onCleanup(() => {
+        observer.disconnect();
+    });
+});
 
 onMounted(() => {
     // 第一次加载时执行分页

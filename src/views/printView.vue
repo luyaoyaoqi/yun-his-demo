@@ -244,6 +244,7 @@ const createPrintPage = () => {
                     body {
                         padding: 0;
                         overflow: hidden;
+                        font-family: Microsoft YaHei,微软雅黑;
                     }
                     .print-container{
                         margin-left: auto;

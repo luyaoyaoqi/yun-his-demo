@@ -173,7 +173,7 @@ const props = defineProps({
 .header {
     display: flex;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
 
     .left-qr-box {
@@ -218,7 +218,7 @@ const props = defineProps({
     margin-top: 8pt;
     margin-bottom: -8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
 
     .des {
@@ -248,7 +248,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
 
     .label {
@@ -272,7 +272,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
 
     .des {
@@ -288,7 +288,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
 
     .left-group {
@@ -333,7 +333,7 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
     flex-wrap: wrap;
 
@@ -351,18 +351,17 @@ const props = defineProps({
     display: flex;
     margin-bottom: 8pt;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.2;
     font-weight: 300;
 
     .right-group {
         display: flex;
         flex-direction: column;
         flex: 1 auto;
-        margin-bottom: -8pt;
 
         .des {
             flex: 1 auto;
-            margin-bottom: 8pt;
+            margin-bottom: 4pt;
         }
 
     }
@@ -373,7 +372,7 @@ const props = defineProps({
     display: flex;
     margin-top: 8pt;
     font-size: 8pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
     justify-content: center;
     align-items: center;
@@ -387,7 +386,7 @@ const props = defineProps({
 .footer {
     display: flex;
     font-size: 10pt;
-    line-height: 1;
+    line-height: 1.1;
     font-weight: 300;
     flex-direction: column;
 
@@ -395,7 +394,7 @@ const props = defineProps({
         display: flex;
         flex-wrap: wrap;
         font-size: 10pt;
-        line-height: 1;
+        line-height: 1.1;
         font-weight: 300;
 
         .des {
@@ -416,7 +415,7 @@ const props = defineProps({
     .bottom-info {
         display: flex;
         font-size: 8pt;
-        line-height: 1;
+        line-height: 1.1;
         font-weight: 300;
         justify-content: space-between;
 

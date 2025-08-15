@@ -173,7 +173,7 @@ const props = defineProps({
 .header {
     display: flex;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
 
     .left-qr-box {
@@ -206,7 +206,7 @@ const props = defineProps({
 
         .h2 {
             font-size: 13pt;
-            margin-top: 8pt;
+            margin-top: 6pt;
         }
     }
 
@@ -215,16 +215,16 @@ const props = defineProps({
 .patient-info {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 8pt;
-    margin-bottom: -8pt;
+    margin-top: 6pt;
+    margin-bottom: -6pt;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
 
     .des {
         flex: 1 auto;
-        margin-right: 8pt;
-        margin-bottom: 8pt;
+        margin-right: 6pt;
+        margin-bottom: 6pt;
         word-break: break-all;
 
 
@@ -246,9 +246,9 @@ const props = defineProps({
 
 .clinic-info {
     display: flex;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
 
     .label {
@@ -270,9 +270,9 @@ const props = defineProps({
 
 .drug-info {
     display: flex;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
 
     .des {
@@ -286,19 +286,19 @@ const props = defineProps({
 
 .cure-infos {
     display: flex;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
 
     .left-group {
         flex-direction: column;
         flex: 1 auto;
-        margin-bottom: -8pt;
+        margin-bottom: -6pt;
 
         .cure-info {
             display: flex;
-            margin-bottom: 8pt;
+            margin-bottom: 6pt;
 
             .des {
                 flex: 1 auto;
@@ -316,7 +316,7 @@ const props = defineProps({
         flex: 0 0 2pt;
         border: 1px solid#888;
         border-left: none;
-        margin: 8px;
+        margin: 6px;
     }
 
 
@@ -331,15 +331,15 @@ const props = defineProps({
 
 .chinese-drug-info {
     display: flex;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
     flex-wrap: wrap;
 
     .des {
         flex: 1 25%;
-        margin-bottom: 8pt;
+        margin-bottom: 6pt;
     }
 
     .bottom-des {
@@ -349,7 +349,7 @@ const props = defineProps({
 
 .advice-info {
     display: flex;
-    margin-bottom: 8pt;
+    margin-bottom: 6pt;
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 300;
@@ -370,9 +370,9 @@ const props = defineProps({
 
 .empty-info {
     display: flex;
-    margin-top: 8pt;
+    margin-top: 6pt;
     font-size: 8pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
     justify-content: center;
     align-items: center;
@@ -386,7 +386,7 @@ const props = defineProps({
 .footer {
     display: flex;
     font-size: 10pt;
-    line-height: 1.1;
+    line-height: 1.2;
     font-weight: 300;
     flex-direction: column;
 
@@ -394,13 +394,13 @@ const props = defineProps({
         display: flex;
         flex-wrap: wrap;
         font-size: 10pt;
-        line-height: 1.1;
+        line-height: 1.2;
         font-weight: 300;
 
         .des {
             flex: 1 auto;
-            margin-right: 8pt;
-            margin-bottom: 8pt;
+            margin-right: 6pt;
+            margin-bottom: 6pt;
             word-break: break-all;
             flex-basis: calc(28% - 12pt);
 
@@ -415,7 +415,7 @@ const props = defineProps({
     .bottom-info {
         display: flex;
         font-size: 8pt;
-        line-height: 1.1;
+        line-height: 1.2;
         font-weight: 300;
         justify-content: space-between;
 

@@ -380,7 +380,7 @@ const loadPrinters = () => {
 
 // 使用 watchEffect 监听 printRef 和其内容的变化
 let observer: MutationObserver | null = null;
-let styleObservers: MutationObserver[] = [];
+// let styleObservers: MutationObserver[] = [];
 
 onMounted(() => {
     selectedTemplate.value = 'MedicalRecordTemplate';
@@ -401,11 +401,11 @@ watchEffect(() => {
             observer.disconnect();
         }
 
-        // 断开所有样式观察器
-        if (styleObservers) {
-            styleObservers.forEach(obs => obs.disconnect());
-            styleObservers = [];
-        }
+        // // 断开所有样式观察器
+        // if (styleObservers) {
+        //     styleObservers.forEach(obs => obs.disconnect());
+        //     styleObservers = [];
+        // }
 
         nextTick(() => {
             // @ts-ignore
@@ -428,34 +428,34 @@ watchEffect(() => {
                 });
 
                 // 监听所有相关的组件样式标签变化
-                try {
-                    const styleElements = document.querySelectorAll(`style[data-vite-dev-id*="${selectedTemplate.value}"]`);
-                    if (styleElements.length > 0) {
-                        styleObservers = [];
+                // try {
+                //     const styleElements = document.querySelectorAll(`style[data-vite-dev-id*="${selectedTemplate.value}"]`);
+                //     if (styleElements.length > 0) {
+                //         styleObservers = [];
 
-                        styleElements.forEach(styleElement => {
-                            try {
-                                const styleObserver = new MutationObserver(() => {
-                                    setTimeout(createPrintPage, 100);
-                                });
+                //         styleElements.forEach(styleElement => {
+                //             try {
+                //                 const styleObserver = new MutationObserver(() => {
+                //                     setTimeout(createPrintPage, 100);
+                //                 });
 
-                                styleObserver.observe(styleElement, {
-                                    childList: true,
-                                    subtree: true,
-                                    characterData: true,
-                                    characterDataOldValue: true
-                                });
+                //                 styleObserver.observe(styleElement, {
+                //                     childList: true,
+                //                     subtree: true,
+                //                     characterData: true,
+                //                     characterDataOldValue: true
+                //                 });
 
 
-                                styleObservers.push(styleObserver);
-                            } catch (observeError) {
-                                console.warn('Failed to observe style element:', observeError);
-                            }
-                        });
-                    }
-                } catch (queryError) {
-                    console.warn('Failed to query style elements:', queryError);
-                }
+                //                 styleObservers.push(styleObserver);
+                //             } catch (observeError) {
+                //                 console.warn('Failed to observe style element:', observeError);
+                //             }
+                //         });
+                //     }
+                // } catch (queryError) {
+                //     console.warn('Failed to query style elements:', queryError);
+                // }
             }
         });
     }
@@ -467,11 +467,11 @@ onUnmounted(() => {
         observer.disconnect();
         observer = null;
     }
-    // 断开所有样式观察器的连接
-    styleObservers.forEach(styleObserver => {
-        styleObserver.disconnect();
-    });
-    styleObservers = [];
+    // // 断开所有样式观察器的连接
+    // styleObservers.forEach(styleObserver => {
+    //     styleObserver.disconnect();
+    // });
+    // styleObservers = [];
 });
 
 // 纸张大小变更处理

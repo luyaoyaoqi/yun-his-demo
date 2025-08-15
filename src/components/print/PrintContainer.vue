@@ -52,7 +52,9 @@ const props = defineProps({
 
 const printViewElement = ref<HTMLElement | null>(null);
 // 保存原始内容用于重新分页
+const originalHeaderContent = ref<Node[]>([]);
 const originalMainContent = ref<Node[]>([]);
+const originalFooterContent = ref<Node[]>([]);
 
 // 判断是否需要分页
 const isPaginationNeeded = (element: HTMLElement, offsetTop: number): boolean => {
@@ -65,7 +67,7 @@ const handlePagination = () => {
     nextTick(() => {
         if (!printViewElement.value) return;
 
-        // 清除现有分页（保留第一个页面作为基础）
+        // 清除现有分页（只保留第一个原始页面）
         const allPages = Array.from(printViewElement.value.children);
         allPages.slice(1).forEach(page => page.remove());
 
@@ -77,6 +79,7 @@ const handlePagination = () => {
         }
 
         // 获取主要内容和页脚元素
+        const headerElement = printContainerFirstPage.querySelector('.print-header') as HTMLElement | null;
         const mainElement = printContainerFirstPage.querySelector('.print-main') as HTMLElement | null;
         const footerElement = printContainerFirstPage.querySelector('.print-footer') as HTMLElement | null;
         const footerElementOffsetTop = footerElement?.offsetTop;
@@ -86,56 +89,119 @@ const handlePagination = () => {
             return;
         }
 
-        // 保存原始内容（第一次执行时）
-        if (originalMainContent.value.length === 0) {
-            originalMainContent.value = Array.from(mainElement.childNodes);
-        } else {
-            // 不是第一次执行，恢复原始内容
-            mainElement.innerHTML = '';
-            originalMainContent.value.forEach(node => {
-                mainElement!.appendChild(node.cloneNode(true));
-            });
-        }
-
-        // 保存所有需要分页的子元素
-        const allElements = Array.from(mainElement.children);
-        // 清空第一页的主内容区，准备重新分配内容
-        mainElement.innerHTML = '';
+        // 保存原始内容（每次执行时都更新）
+        originalHeaderContent.value = headerElement ? Array.from(headerElement.childNodes) : [];
+        originalMainContent.value = Array.from(mainElement.childNodes);
+        originalFooterContent.value = footerElement ? Array.from(footerElement.childNodes) : [];
 
         // 创建页面模板（克隆原始容器）
         const printContainerTemplate = printContainerFirstPage.cloneNode(true) as HTMLElement;
         // 确保克隆的模板包含正确的类名（纸张大小和方向）
         printContainerTemplate.className = `print-container ${props.paperSize} ${props.orientation}`;
-        printContainerTemplate.querySelector('.print-main')!.innerHTML = '';
+        const templateMain = printContainerTemplate.querySelector('.print-main');
+        const templateHeader = printContainerTemplate.querySelector('.print-header');
+        const templateFooter = printContainerTemplate.querySelector('.print-footer');
+        
+        if (templateMain) templateMain.innerHTML = '';
+        if (templateHeader) templateHeader.innerHTML = '';
+        if (templateFooter) templateFooter.innerHTML = '';
 
-        // 当前处理的页面和主内容区
-        let currentPage = printContainerFirstPage;
-        let currentMain = mainElement;
+        // 保存所有需要分页的子元素
+        const allElements = Array.from(originalMainContent.value)
+            .filter(node => node instanceof HTMLElement)
+            .map(node => (node as HTMLElement).cloneNode(true));
+
+        // 当前处理的页面和主内容区（从新创建的页面开始）
+        let currentPage: HTMLElement | null = null;
+        let currentMain: HTMLElement | null = null;
 
         // 遍历所有元素，分配到各个页面
         for (const element of allElements) {
             if (!(element instanceof HTMLElement)) continue;
 
-            // 先尝试添加到当前页
-            currentMain.appendChild(element);
+            // 如果还没有页面，创建第一个分页页面
+            if (!currentPage) {
+                currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
+                currentMain = currentPage.querySelector('.print-main') as HTMLElement;
+                
+                // 填充页眉和页脚内容
+                const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
+                const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
+                
+                if (currentHeader) {
+                    originalHeaderContent.value.forEach(node => {
+                        currentHeader.appendChild(node.cloneNode(true));
+                    });
+                }
+                
+                if (currentFooter) {
+                    originalFooterContent.value.forEach(node => {
+                        currentFooter.appendChild(node.cloneNode(true));
+                    });
+                }
+                
+                printViewElement.value?.appendChild(currentPage);
+            }
+
+            // 添加元素到当前页面
+            currentMain!.appendChild(element);
 
             // 检查是否需要分页
             if (isPaginationNeeded(element, footerElementOffsetTop)) {
                 // 需要分页，将最后一个元素从当前页移除
-                currentMain.removeChild(element);
+                if (currentMain!.children.length > 1) {
+                    currentMain!.removeChild(element);
 
-                // 创建新页面
-                const newPage = printContainerTemplate.cloneNode(true) as HTMLElement;
-                const newMain = newPage.querySelector('.print-main') as HTMLElement | null;
+                    // 创建新页面
+                    currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
+                    currentMain = currentPage.querySelector('.print-main') as HTMLElement;
+                    
+                    // 填充页眉和页脚内容
+                    const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
+                    const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
+                    
+                    if (currentHeader) {
+                        originalHeaderContent.value.forEach(node => {
+                            currentHeader.appendChild(node.cloneNode(true));
+                        });
+                    }
+                    
+                    if (currentFooter) {
+                        originalFooterContent.value.forEach(node => {
+                            currentFooter.appendChild(node.cloneNode(true));
+                        });
+                    }
 
-                if (newMain) {
                     // 将元素添加到新页面
-                    newMain.appendChild(element);
+                    currentMain!.appendChild(element);
                     // 将新页面添加到打印视图
-                    printViewElement.value?.appendChild(newPage);
-                    // 更新当前页面和主内容区引用
-                    currentPage = newPage;
-                    currentMain = newMain;
+                    printViewElement.value?.appendChild(currentPage);
+                } else {
+                    // 如果当前页只有一个元素，但仍然超出范围，则需要创建新页面
+                    // 创建新页面
+                    currentPage = printContainerTemplate.cloneNode(true) as HTMLElement;
+                    currentMain = currentPage.querySelector('.print-main') as HTMLElement;
+                    
+                    // 填充页眉和页脚内容
+                    const currentHeader = currentPage.querySelector('.print-header') as HTMLElement;
+                    const currentFooter = currentPage.querySelector('.print-footer') as HTMLElement;
+                    
+                    if (currentHeader) {
+                        originalHeaderContent.value.forEach(node => {
+                            currentHeader.appendChild(node.cloneNode(true));
+                        });
+                    }
+                    
+                    if (currentFooter) {
+                        originalFooterContent.value.forEach(node => {
+                            currentFooter.appendChild(node.cloneNode(true));
+                        });
+                    }
+
+                    // 将元素添加到新页面
+                    currentMain!.appendChild(element);
+                    // 将新页面添加到打印视图
+                    printViewElement.value?.appendChild(currentPage);
                 }
             }
         }
@@ -154,12 +220,14 @@ watch(
 // 监听插槽内容变化
 watch(
     () => [
-        slots.main ? slots.main().length : 0,
+        slots.header ? slots.header() : null,
+        slots.main ? slots.main() : null,
+        slots.footer ? slots.footer() : null
     ],
     () => {
         handlePagination();
     },
-    { flush: 'post' } // 在 DOM 更新后执行
+    { flush: 'post', deep: true } // 在 DOM 更新后执行，并深度监听
 );
 
 onMounted(() => {
@@ -175,7 +243,7 @@ onMounted(() => {
     flex-direction: column;
     gap: 16px;
     height: fit-content;
-    visibility: hidden;
+    // visibility: hidden;
 }
 
 .print-container {
@@ -187,7 +255,6 @@ onMounted(() => {
     //默认尺寸
     width: 138mm;
     height: 200mm;
-    line-height: 1.2;
 
     // 纵向尺寸
     &.a5.portrait {

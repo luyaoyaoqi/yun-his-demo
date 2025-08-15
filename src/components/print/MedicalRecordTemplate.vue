@@ -84,41 +84,8 @@
                 <div class="des">小柴胡颗粒(10g*10包/盒)</div>
                 <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
             </div>
-            <div class="drug-info">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="line dashed"></div>
-            <div class="drug-info item">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="drug-info">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="line dashed"></div>
-            <div class="drug-info item">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="drug-info">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="line dashed"></div>
-            <div class="drug-info item">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="drug-info">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
-            <div class="drug-info">
-                <div class="des">小柴胡颗粒(10g*10包/盒)</div>
-                <div class="right-des">×1瓶每次5ml每天1次口服1天</div>
-            </div>
+           
+            
 
         </template>
 
@@ -200,7 +167,6 @@ const props = defineProps({
     flex-wrap: wrap;
     margin-top: 8pt;
     margin-bottom: -8pt;
-    margin-right: -8pt;
     font-size: 10pt;
     font-weight: 300;
 

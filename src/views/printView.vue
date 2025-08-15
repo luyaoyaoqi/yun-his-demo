@@ -105,7 +105,7 @@ const printPages = ref<string[]>([]);
 // 常量
 const paddingDefault = 5;
 const printDefaultSetting = {
-    paperSize: 'a4',
+    paperSize: 'a5',
     orientation: 'portrait',
     containerPaddingStyle: `padding: 0mm;`
 };
@@ -168,7 +168,7 @@ const createPrintPage = () => {
     const printElement = printRef.value.$el as HTMLElement;
 
     // 获取所有子元素（即所有页面）
-    const pageElements = Array.from(printElement.children) as HTMLElement[];
+    const pageElements = Array.from(printElement.children).slice(1) as HTMLElement[];
 
     // @ts-ignore
     const printStyle1 = Array.from(document.querySelectorAll('style[data-vite-dev-id*="PrintContainer.vue"]')).map(el => el.outerHTML).join('\n') || '';
@@ -383,7 +383,7 @@ let observer: MutationObserver | null = null;
 let styleObservers: MutationObserver[] = [];
 
 onMounted(() => {
-    selectedTemplate.value = 'PrintMedicalTemplate2';
+    selectedTemplate.value = 'MedicalRecordTemplate';
 
     // 获取打印机列表
     getPrinterList();
@@ -593,8 +593,8 @@ const exportHTML = () => {
         flex-direction: column;
         align-items: center;
         overflow: auto;
-        // visibility: hidden;
-        // width: 0;
+        visibility: hidden;
+        width: 0;
     }
 
     .print-editor-box {

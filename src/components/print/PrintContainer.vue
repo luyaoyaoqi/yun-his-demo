@@ -46,7 +46,7 @@ const props = defineProps({
     // 页面边距，打印设置中设置无边距，通过内部控制边距
     , containerPaddingStyle: {
         type: String,
-        default: 'padding: 5mm;'
+        default: 'padding: 0mm;'
     }
 });
 
@@ -299,9 +299,9 @@ mj-hidden {
     display: none !important;
 }
 
+// 模板大小不包含不可打印区域5mm,预览补充相应边距,配置边距显示最小为5mm
 .mj-print-page {
     position: relative;
-    // padding: 10mm 10mm;
     background-color: white;
     display: flex;
     flex-direction: column;

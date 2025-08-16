@@ -362,7 +362,7 @@ const loadPrinters = () => {
 
         // 设置默认打印机
         if (printerList.value.length > 0 && !selectedPrinter.value) {
-            selectedPrinter.value = printerList.value.filter(item => item.isPhysical)[0].name || printerList.value[0].name;
+            selectedPrinter.value = printerList.value.filter(item => item.isPhysical)[0]?.name || printerList.value[0].name;
         }
     } catch (error) {
         console.error('获取打印机列表失败:', error);

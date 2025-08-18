@@ -11,3 +11,143 @@
         border-bottom: 1px dashed #888;
     }
 }
+
+
+.header {
+    display: flex;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 300;
+
+    .header-qr-left {
+        img {
+            width: 80pt;
+            height: auto;
+        }
+    }
+
+    .header-qr-right {
+        img {
+            width: 48pt;
+            height: 48pt;
+        }
+    }
+
+    .header-title {
+        flex: 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .title-main {
+            font-size: 15pt;
+            font-weight: 400;
+        }
+
+        .title-sub {
+            font-size: 13pt;
+            margin-top: 6pt;
+        }
+    }
+
+}
+
+.patient-basic-info,
+.patient-detail-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 6pt;
+    margin-bottom: -6pt;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 300;
+
+    .info-item {
+        flex: 1 auto;
+        margin-right: 6pt;
+        margin-bottom: 6pt;
+        word-break: break-all;
+
+
+        &:nth-child(3n+1) {
+            flex-basis: calc(40% - 12pt);
+        }
+
+        &:nth-child(3n+2) {
+            flex-basis: calc(34% - 12pt);
+        }
+
+        &:nth-child(3n) {
+            flex-basis: calc(26% - 12pt);
+            margin-right: 0;
+        }
+    }
+}
+
+.blank-section {
+    display: flex;
+    margin-top: 6pt;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+
+    .divider {
+        flex: 0 0 40pt;
+    }
+
+    .blank-text {
+        margin: 0 8pt;
+    }
+}
+
+.footer {
+    display: flex;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 400;
+    flex-direction: column;
+
+    .doctor-info {
+        display: flex;
+        justify-content: space-between;
+
+        .info-item {
+            flex: 0 auto;
+            margin-right: 6pt;
+            margin-bottom: 6pt;
+            word-break: break-all;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+        }
+    }
+
+    .footer-note {
+        display: flex;
+        font-size: 9pt;
+        justify-content: space-between;
+
+        .note-content {
+            flex: 1 0 48%;
+            word-break: break-all;
+        }
+
+        .contact-info {
+            flex: 1 0 48%;
+            text-align: right;
+
+            .contact-item {
+                margin-bottom: 2pt;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

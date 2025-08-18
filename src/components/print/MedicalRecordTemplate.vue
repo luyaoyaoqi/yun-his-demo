@@ -344,7 +344,7 @@ const props = defineProps({
     padding-top: 6pt;
 
     .medicine-item {
-        flex: 1 25%;
+        flex: 0 25%;
         margin-bottom: 6pt;
     }
 

@@ -380,7 +380,7 @@ let observer: MutationObserver | null = null;
 // let styleObservers: MutationObserver[] = [];
 
 onMounted(() => {
-    selectedTemplate.value = 'MedicalRecordTemplate';
+    selectedTemplate.value = 'ChineseMedicineTemplate';
 
     // 获取打印机列表
     getPrinterList();

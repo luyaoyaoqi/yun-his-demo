@@ -4,25 +4,29 @@
         <!-- 页眉内容 -->
         <template #header>
             <div class="header">
-                <div class="header-qr-left" data-field="barcode">
-                    <img src="./image/qr1.png" alt="条码"></img>
+                <div class="header-left">
+                    <div class="qr-code" data-field="barcode">
+                        <img src="./image/qr1.png" alt="条码"></img>
+                    </div>
                 </div>
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
-                    <div class="title-sub" data-field="documentTitle">门诊病历</div>
+                    <div class="title-sub" data-field="documentTitle">中药处方</div>
                 </div>
-                <div class="header-qr-right" data-field="qrcode">
-                    <img src="./image/qr2.png" alt="二维码"></img>
+                <div class="header-right">
+                    <div class="qr-code" data-field="qrcode">
+                        <img src="./image/qr2.png" alt="二维码"></img>
+                    </div>
                 </div>
             </div>
             <div class="patient-basic-info">
-                <div class="info-item" data-field="patientInfoVisible">姓名： <span data-field="patientName">张三</span>
-                    <span data-field="age">32岁</span> <span data-field="gender">女</span>
+                <div class="info-item" data-field="patientInfoVisible">姓名：<span data-field="patientName">张三</span>
+                    <span data-field="age">32岁</span><span data-field="gender">女</span>
                 </div>
                 <div class="info-item" data-field="medicalRecordCodeVisible">诊号：<span
-                        data-field="medicalRecordCode">0009292</span> <span data-field="visitType">初诊</span>
+                        data-field="medicalRecordCode">0009292</span><span data-field="visitType">初诊</span>
                 </div>
-                <div class="info-item" data-field="appointmentDateVisible">日期: <span
+                <div class="info-item" data-field="appointmentDateVisible">日期：<span
                         data-field="appointmentDate">2021-12-15</span></div>
             </div>
             <div class="divider"></div>

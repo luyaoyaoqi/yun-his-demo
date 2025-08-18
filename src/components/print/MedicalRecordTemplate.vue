@@ -101,27 +101,6 @@
                         <div class="treatment-dosage">250ml</div>
                     </div>
                     <div class="treatment-item">
-                        <div class="treatment-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
-                        <div class="treatment-quantity">×1瓶</div>
-                        <div class="treatment-dosage">250ml</div>
-                    </div>
-                    <div class="treatment-item">
-                        <div class="treatment-name">克林霉素磷酸酯注射液0.3g*2ml/支</div>
-                        <div class="treatment-quantity">×1瓶</div>
-                        <div class="treatment-dosage">250ml</div>
-                    </div>
-                </div>
-                <div class="treatment-bracket"></div>
-                <div class="treatment-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
-            </div>
-            <div class="treatment-section-item" data-field="infusionList">
-                <div class="treatment-group">
-                    <div class="treatment-item">
-                        <div class="treatment-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
-                        <div class="treatment-quantity">×1瓶</div>
-                        <div class="treatment-dosage">250ml</div>
-                    </div>
-                    <div class="treatment-item">
                         <div class="treatment-name">克林霉素磷酸酯注射液0.3g*2ml/支</div>
                         <div class="treatment-quantity">×1瓶</div>
                         <div class="treatment-dosage">250ml</div>

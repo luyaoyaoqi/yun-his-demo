@@ -4,14 +4,14 @@
         <!-- 页眉内容 -->
         <template #header>
             <div class="header">
-                <div class="header-qr-left" data-field="barcodeVisible">
+                <div class="header-qr-left" data-field="barcode">
                     <img src="./image/qr1.png" alt="条码"></img>
                 </div>
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
                     <div class="title-sub" data-field="documentTitle">门诊病历</div>
                 </div>
-                <div class="header-qr-right" data-field="qrcodeVisible">
+                <div class="header-qr-right" data-field="qrcode">
                     <img src="./image/qr2.png" alt="二维码"></img>
                 </div>
             </div>
@@ -57,34 +57,32 @@
             <div class="clinic-item">
                 <!-- label之间必须加空格，否咋打印不生效 -->
                 <div class="item-label" data-field="chiefComplaintVisible">主 诉</div>
-                <div class="item-separator">:&nbsp;</div>
+                <div class="item-separator">：</div>
                 <div class="item-content" data-field="chiefComplaint">咳嗽，夜咳，咽痛，咽干</div>
             </div>
             <div class="clinic-item" data-field="presentHistoryVisible">
                 <div class="item-label">现 病 史</div>
-                <div class="item-separator">:&nbsp;</div>
+                <div class="item-separator">：</div>
                 <div class="item-content" data-field="presentHistory">无</div>
             </div>
             <div class="clinic-item" data-field="pastHistoryVisible">
                 <div class="item-label">既 往 史</div>
-                <div class="item-separator">:&nbsp;</div>
+                <div class="item-separator">：</div>
                 <div class="item-content" data-field="pastHistory">既往体健</div>
             </div>
             <div class="clinic-item" data-field="treatmentVisible">
                 <div class="item-label">处 置</div>
-                <div class="item-separator">:&nbsp;</div>
+                <div class="item-separator">：</div>
                 <div class="item-content" data-field="treatment"></div>
             </div>
             <div class="inspect-item" data-field="inspectionList">
                 <div class="inspect-name">超敏C反应蛋白测定</div>
                 <div class="inspect-instruction">共一次</div>
             </div>
-            <div class="divider dashed"></div>
-            <div class="inspect-item" data-field="treatmentMethodList">
+            <div class="treatment-method-item" data-field="treatmentMethodList">
                 <div class="inspect-name">三位一体单次</div>
                 <div class="inspect-instruction">每天1次，1天，共1次</div>
             </div>
-            <div class="divider dashed"></div>
             <div class="patent-medicine-item" data-field="cpmList">
                 <div class="medicine-name">四季抗病毒合剂(120ml/瓶)</div>
                 <div class="medicine-quantity">×1瓶</div>
@@ -95,7 +93,27 @@
                 <div class="medicine-quantity">×1瓶</div>
                 <div class="medicine-dosage">每次5ml 每天1次</div>
             </div>
-            <div class="divider dashed"></div>
+            <div class="treatment-section-item" data-field="infusionList">
+                <div class="treatment-group">
+                    <div class="treatment-item">
+                        <div class="treatment-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
+                        <div class="treatment-quantity">×1瓶</div>
+                        <div class="treatment-dosage">250ml</div>
+                    </div>
+                    <div class="treatment-item">
+                        <div class="treatment-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
+                        <div class="treatment-quantity">×1瓶</div>
+                        <div class="treatment-dosage">250ml</div>
+                    </div>
+                    <div class="treatment-item">
+                        <div class="treatment-name">克林霉素磷酸酯注射液0.3g*2ml/支</div>
+                        <div class="treatment-quantity">×1瓶</div>
+                        <div class="treatment-dosage">250ml</div>
+                    </div>
+                </div>
+                <div class="treatment-bracket"></div>
+                <div class="treatment-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
+            </div>
             <div class="treatment-section-item" data-field="infusionList">
                 <div class="treatment-group">
                     <div class="treatment-item">
@@ -112,7 +130,6 @@
                 <div class="treatment-bracket"></div>
                 <div class="treatment-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
             </div>
-            <div class="divider dashed"></div>
             <div class="chinese-medicine-section-item" data-field="tcmList">
                 <div class="medicine-item">桔梗6g</div>
                 <div class="medicine-item">黄芩6g</div>
@@ -124,10 +141,9 @@
                 <div class="medicine-item">白术6g</div>
                 <div class="medicine-summary" data-field="usage">共2剂，煎服，1日1剂 1日3次 每次150ml，饭后1小时服用</div>
             </div>
-            <div class="divider dashed"></div>
             <div class="advice-section" data-field="medicalOrdersVisible">
                 <div class="advice-label">医 嘱</div>
-                <div class="advice-separator">:&nbsp;</div>
+                <div class="advice-separator">：</div>
                 <div class="advice-content" data-field="medicalOrders">
                     <div class="advice-item">1.多喝水，保持身体充足水分</div>
                     <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div>
@@ -209,6 +225,11 @@ const props = defineProps({
     .item-separator {
         flex: 0 0 auto;
     }
+
+    &+div {
+        border-top: none;
+        padding-top: 0;
+    }
 }
 
 .inspect-item {
@@ -217,6 +238,36 @@ const props = defineProps({
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
+
+    &+& {
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .inspect-name {
+        flex: 1 auto;
+    }
+
+    .inspect-instruction {
+        flex: 0 0 auto;
+    }
+}
+
+.treatment-method-item {
+    display: flex;
+    margin-bottom: 6pt;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 400;
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
+
+    &+& {
+        border-top: none;
+        padding-top: 0;
+    }
 
     .inspect-name {
         flex: 1 auto;
@@ -233,6 +284,13 @@ const props = defineProps({
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
+
+    &+& {
+        border-top: none;
+        padding-top: 0;
+    }
 
     .medicine-name {
         flex: 1 auto;
@@ -251,6 +309,13 @@ const props = defineProps({
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
+
+    &+& {
+        border-top: none;
+        padding-top: 0;
+    }
 
     .treatment-group {
         flex-direction: column;
@@ -296,11 +361,8 @@ const props = defineProps({
     font-weight: 400;
     flex-wrap: wrap;
     margin: 6pt 0;
-
-    &+.chinese-medicine-section-item {
-        border-top: 1px dashed #888;
-        padding-top: 6pt;
-    }
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
 
     .medicine-item {
         flex: 1 25%;
@@ -318,6 +380,8 @@ const props = defineProps({
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
+    border-top: 1px dashed #888;
+    padding-top: 6pt;
 
     .advice-label {
         font-weight: 600;

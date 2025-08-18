@@ -288,7 +288,6 @@ onMounted(() => {
 </style>
 
 <style lang="less" scoped>
-
 body {
     margin: 0;
     overflow: hidden;
@@ -360,6 +359,11 @@ mj-hidden {
     .print-main {
         flex: 1 1 auto;
         overflow: hidden;
+
+        &:deep(div:first-child) {
+            padding-top: 0;
+            border-top: none;
+        }
     }
 
     .print-footer {

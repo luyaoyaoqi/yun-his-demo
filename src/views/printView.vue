@@ -64,15 +64,15 @@
 import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watchEffect } from 'vue';
 
 //引入模板
-import PrintMedicalTemplate2 from '@/components/print/PrintMedicalTemplate2.vue';
+import ChineseMedicineTemplate from '@/components/print/ChineseMedicineTemplate.vue';
 import MedicalRecordTemplate from '@/components/print/MedicalRecordTemplate.vue';
 
 const selectedTemplateOption = [
-    { label: '示例模板', value: 'PrintMedicalTemplate2' },
+    { label: '中药处方模板', value: 'ChineseMedicineTemplate' },
     { label: '病历模板', value: 'MedicalRecordTemplate' }
 ]
 const printTemplateGroup = {
-    PrintMedicalTemplate2,
+    ChineseMedicineTemplate,
     MedicalRecordTemplate
 }
 
@@ -134,7 +134,7 @@ const isPreview = ref(true);
 
 
 // 当前选中的模板
-const selectedTemplate = ref('PrintMedicalTemplate2');
+const selectedTemplate = ref('');
 
 // 动态组件计算属性
 const printTemplateComponent = computed(() => {
@@ -166,6 +166,12 @@ const createPrintPage = () => {
 
     // @ts-ignore
     const printElement = printRef.value.$el as HTMLElement;
+
+    // 添加检查确保printElement存在且有子元素
+    if (!printElement || !printElement.children) {
+        console.warn('Print element is not available or has no children');
+        return;
+    }
 
     // 获取所有子元素（即所有页面）
     const pageElements = Array.from(printElement.children).slice(1) as HTMLElement[];

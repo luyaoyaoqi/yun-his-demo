@@ -577,7 +577,7 @@ const exportHTML = () => {
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
         const localTimeString = `${year}${month}${day}-${hours}${minutes}${seconds}`;
-        link.download = `打印内容_${localTimeString}.html`;
+        link.download = `${selectedTemplate.value}_${localTimeString}.html`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

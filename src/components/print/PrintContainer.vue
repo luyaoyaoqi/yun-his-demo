@@ -294,7 +294,7 @@ body {
     font-family: Microsoft YaHei, 微软雅黑;
 }
 
-mj-hidden {
+.mj-hidden {
     display: none !important;
 }
 

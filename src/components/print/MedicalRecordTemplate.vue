@@ -50,8 +50,9 @@
                 <div class="info-item" data-field="nationalityVisible">民族: <span data-field="nationality">汉族</span>
                 </div>
                 <div class="info-item" data-field="jobVisible">职业: <span data-field="job">职员</span></div>
-                <div class="info-item" data-field="addressVisible">地址: <span
+                <div class="info-item extended" data-field="addressVisible">地址: <span
                         data-field="address">上海市闵行区申昆路1999号2号705</span></div>
+                <div class="info-item"></div>
             </div>
             <div class="divider"></div>
         </template>
@@ -79,13 +80,13 @@
                 <div class="item-separator">：</div>
                 <div class="item-content" data-field="treatment"></div>
             </div>
-            <div class="inspect-item" data-field="inspectionList">
-                <div class="inspect-name">超敏C反应蛋白测定</div>
-                <div class="inspect-instruction">共一次</div>
+            <div class="treatment-item" data-field="treatmentList">
+                <div class="treatment-name">超敏C反应蛋白测定</div>
+                <div class="treatment-instruction">共一次</div>
             </div>
-            <div class="treatment-method-item" data-field="treatmentMethodList">
-                <div class="inspect-name">三位一体单次</div>
-                <div class="inspect-instruction">每天1次，1天，共1次</div>
+            <div class="treatment-item" data-field="treatmentList">
+                <div class="treatment-name">三位一体单次</div>
+                <div class="treatment-instruction">每天1次，1天，共1次</div>
             </div>
             <div class="patent-medicine-item" data-field="cpmList">
                 <div class="medicine-name">四季抗病毒合剂(120ml/瓶)</div>
@@ -97,21 +98,21 @@
                 <div class="medicine-quantity">×1瓶</div>
                 <div class="medicine-dosage">每次5ml 每天1次</div>
             </div>
-            <div class="treatment-section-item" data-field="infusionList">
-                <div class="treatment-group">
-                    <div class="treatment-item">
-                        <div class="treatment-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
-                        <div class="treatment-quantity">×1瓶</div>
+            <div class="infusion-section-item" data-field="infusionList">
+                <div class="infusion-group">
+                    <div class="infusion-item">
+                        <div class="infusion-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
+                        <div class="infusion-quantity">×1瓶</div>
                         <div class="treatment-dosage">250ml</div>
                     </div>
-                    <div class="treatment-item">
-                        <div class="treatment-name">克林霉素磷酸酯注射液0.3g*2ml/支</div>
-                        <div class="treatment-quantity">×1瓶</div>
-                        <div class="treatment-dosage">250ml</div>
+                    <div class="infusion-item">
+                        <div class="infusion-name">克林霉素磷酸酯注射液0.3g*2ml/支</div>
+                        <div class="infusion-quantity">×1瓶</div>
+                        <div class="infusion-dosage">250ml</div>
                     </div>
                 </div>
-                <div class="treatment-bracket"></div>
-                <div class="treatment-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
+                <div class="infusion-bracket"></div>
+                <div class="infusion-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
             </div>
             <div class="chinese-medicine-section-item" data-field="tcmList">
                 <div class="medicine-item">桔梗6g</div>
@@ -215,7 +216,7 @@ const props = defineProps({
     }
 }
 
-.inspect-item {
+.treatment-item {
     display: flex;
     margin-bottom: 6pt;
     font-size: 10pt;
@@ -224,42 +225,15 @@ const props = defineProps({
     border-top: 1px dashed #888;
     padding-top: 6pt;
 
-    &+& {
-        border-top: none;
-        padding-top: 0;
-    }
-
-    .inspect-name {
+    .treatment-name {
         flex: 1 auto;
     }
 
-    .inspect-instruction {
+    .treatment-instruction {
         flex: 0 0 auto;
     }
 }
 
-.treatment-method-item {
-    display: flex;
-    margin-bottom: 6pt;
-    font-size: 10pt;
-    line-height: 1.2;
-    font-weight: 400;
-    border-top: 1px dashed #888;
-    padding-top: 6pt;
-
-    &+& {
-        border-top: none;
-        padding-top: 0;
-    }
-
-    .inspect-name {
-        flex: 1 auto;
-    }
-
-    .inspect-instruction {
-        flex: 0 0 auto;
-    }
-}
 
 .patent-medicine-item {
     display: flex;
@@ -286,7 +260,7 @@ const props = defineProps({
     }
 }
 
-.treatment-section-item {
+.infusion-section-item {
     display: flex;
     margin-bottom: 6pt;
     font-size: 10pt;
@@ -300,28 +274,28 @@ const props = defineProps({
         padding-top: 0;
     }
 
-    .treatment-group {
+    .infusion-group {
         flex-direction: column;
         flex: 1 auto;
         margin-bottom: -6pt;
 
-        .treatment-item {
+        .infusion-item {
             display: flex;
             margin-bottom: 6pt;
 
-            .treatment-name {
+            .infusion-name {
                 flex: 1 auto;
             }
 
-            .treatment-quantity,
-            .treatment-dosage {
+            .infusion-quantity,
+            .infusion-dosage {
                 flex: 0 0 auto;
                 margin-left: 6px;
             }
         }
     }
 
-    .treatment-bracket {
+    .infusion-bracket {
         display: inline-block;
         flex: 0 0 2pt;
         border: 1px solid#888;
@@ -330,7 +304,7 @@ const props = defineProps({
     }
 
 
-    .treatment-instruction {
+    .infusion-instruction {
         flex: 0 0 auto;
         display: flex;
         align-items: center;

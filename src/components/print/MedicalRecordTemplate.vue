@@ -21,7 +21,7 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item" data-field="patientInfoVisible">姓名：<span data-field="patientName">张三</span>
-                    <span data-field="age">32岁</span><span data-field="gender">女</span>
+                    <span data-field="patientAge">32岁</span><span data-field="patientGender">女</span>
                 </div>
                 <div class="info-item" data-field="medicalRecordCodeVisible">诊号：<span
                         data-field="medicalRecordCode">0009292</span><span data-field="visitType">初诊</span>

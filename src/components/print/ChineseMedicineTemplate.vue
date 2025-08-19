@@ -8,10 +8,10 @@
                     <div class="qr-code" data-field="barcode">
                         <img src="./image/qr1.png" alt="条码"></img>
                     </div>
-                    <div class="left-info">
-                        <div class="info-item">加工</div>
-                        <div class="info-item">快递</div>
-                        <div class="info-item">中西成药房</div>
+                    <div class="service">
+                        <div class="service-item">加工</div>
+                        <div class="service-item">快递</div>
+                        <div class="service-item">中西成药房</div>
                     </div>
                 </div>
                 <div class="header-title">
@@ -26,7 +26,7 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item" data-field="patientInfoVisible">姓名： <span data-field="patientName">张三</span><span
-                        data-field="age">32岁</span><span data-field="gender">女</span>
+                        data-field="patientAge">32岁</span><span data-field="patientGender">女</span>
                 </div>
                 <div class="info-item" data-field="medicalRecordCodeVisible">诊号：<span
                         data-field="medicalRecordCode">0009292</span> <span data-field="visitType">初诊</span>
@@ -42,7 +42,7 @@
                 <div class="info-item" data-field="departmentVisible">科室: <span data-field="department">内科</span></div>
                 <div class="info-item" data-field="feeTypeVisible">费别: <span data-field="feeType">市医保(普通)职工</span></div>
                 <div class="info-item" data-field="phoneVisible">手机: <span data-field="phone">13900000000</span></div>
-                <div class="info-item info-item2" data-field="">诊断: <span data-field="">急性支气管炎，急性上呼吸道感染</span></div>
+                <div class="info-item extended" data-field="">诊断: <span data-field="">急性支气管炎，急性上呼吸道感染</span></div>
                 <div class="info-item"></div>
                 <div class="info-item" data-field="medicalInsuranceNumberVisible">医保号: <span
                         data-field="medicalInsuranceNumber">SG4348591</span></div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="info-item" data-field="jobVisible">职业: <span data-field="job">职员</span></div>
                 <div class="info-item"></div>
-                <div class="info-item info-item2" data-field="addressVisible">地址: <span
+                <div class="info-item extended" data-field="addressVisible">地址: <span
                         data-field="address">上海市闵行区申昆路1999号2号705</span></div>
             </div>
             <div class="divider"></div>

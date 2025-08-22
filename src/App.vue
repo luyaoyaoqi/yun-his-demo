@@ -14,7 +14,8 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
-          <RouterLink to="/select">Select</RouterLink>
+          <RouterLink to="/select">SelectList</RouterLink>
+          <RouterLink to="/selectGrid">SelectGrid</RouterLink>
           <RouterLink to="/input">Input</RouterLink>
           <RouterLink to="/calendar">Calendar</RouterLink>
           <RouterLink to="/timePicker">TimePicker</RouterLink>

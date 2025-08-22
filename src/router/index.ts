@@ -26,6 +26,14 @@ const router = createRouter({
       component: () => import('../views/SelectView.vue'),
     },
     {
+      path: '/selectGrid',
+      name: 'selectGrid',
+      // route level code-splitting
+      // this generates a separate chunk (Select.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SelectGrid.vue'),
+    },
+    {
       path: '/input',
       name: 'input',
       // route level code-splitting

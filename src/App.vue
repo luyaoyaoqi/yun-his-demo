@@ -70,7 +70,7 @@ header {
 
 .wrapper {
   width: 100%;
-  background: #fff;
+  background: var(--el-fill-color-blank);
 }
 
 .logo {

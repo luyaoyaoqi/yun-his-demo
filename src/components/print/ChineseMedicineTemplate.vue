@@ -244,6 +244,12 @@ const props = defineProps({
 
         &.col-6 {
             flex: 0 25%;
+
+            .price-unit,
+            .price-total,
+            .grams-total {
+                display: none;
+            }
         }
 
         &.col-8 {

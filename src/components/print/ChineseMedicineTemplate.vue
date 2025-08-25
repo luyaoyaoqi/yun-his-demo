@@ -282,9 +282,13 @@ const props = defineProps({
                 font-weight: 600;
             }
 
-            .grams-dose,
+            .grams-dose {
+                flex: 0 auto;
+            }
+
             .grams-total {
                 flex: 0 auto;
+                margin-left: 4pt;
             }
         }
 

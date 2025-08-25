@@ -71,88 +71,76 @@
         <template #main>
             <div class="prescription-label">Rp:</div>
             <div class="chinese-medicine-section-item" data-field="">
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">a-2-089</div>
-                        <div class="price-group">
-                            <span>¥0.02/g</span>，<span>共¥3.60</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.02/g</span></div>
+                        <div class="price-total">，<span>共¥3.60</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">当归</div>
-                        <div class="dose-group">
-                            <span>12g</span><span>/</span><span>36g</span>
-                        </div>
+                        <div class="grams-dose"><span>12g</span></div>
+                        <div class="grams-total"><span>/ 36g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">b-3-156</div>
-                        <div class="price-group">
-                            <span>¥0.05/g</span>，<span>共¥7.50</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.05/g</span></div>
+                        <div class="price-total">，<span>共¥7.50</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">黄芪</div>
-                        <div class="dose-group">
-                            <span>15g</span><span>/</span><span>45g</span>
-                        </div>
+                        <div class="grams-dose"><span>15g</span></div>
+                        <div class="grams-total"><span>/ 45g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">c-1-072</div>
-                        <div class="price-group">
-                            <span>¥0.04/g</span>，<span>共¥4.80</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.04/g</span></div>
+                        <div class="price-total">，<span>共¥4.80</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">白术</div>
-                        <div class="dose-group">
-                            <span>10g</span><span>/</span><span>30g</span>
-                        </div>
+                        <div class="grams-dose"><span>10g</span></div>
+                        <div class="grams-total"><span>/ 30g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">d-4-110</div>
-                        <div class="price-group">
-                            <span>¥0.06/g</span>，<span>共¥5.40</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.06/g</span></div>
+                        <div class="price-total">，<span>共¥5.40</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">防风</div>
-                        <div class="dose-group">
-                            <span>9g</span><span>/</span><span>27g</span>
-                        </div>
+                        <div class="grams-dose"><span>9g</span></div>
+                        <div class="grams-total"><span>/ 27g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">e-5-033</div>
-                        <div class="price-group">
-                            <span>¥0.03/g</span>，<span>共¥3.00</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.03/g</span></div>
+                        <div class="price-total">，<span>共¥3.80</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">甘草</div>
-                        <div class="dose-group">
-                            <span>10g</span><span>/</span><span>30g</span>
-                        </div>
+                        <div class="grams-dose"><span>10g</span></div>
+                        <div class="grams-total"><span>/ 30g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item detail">
+                <div class="medicine-item col-8">
                     <div class="medicine-header">
                         <div class="cabinet-number">f-2-095</div>
-                        <div class="price-group">
-                            <span>¥0.08/g</span>，<span>共¥9.60</span>
-                        </div>
+                        <div class="price-unit"><span>¥0.08/g</span></div>
+                        <div class="price-total">，<span>共¥9.60</span></div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">川芎</div>
-                        <div class="dose-group">
-                            <span>12g</span><span>/</span><span>36g</span>
-                        </div>
+                        <div class="grams-dose"><span>12g</span></div>
+                        <div class="grams-total"><span>/ 36g</span></div>
                     </div>
                 </div>
             </div>
@@ -160,7 +148,8 @@
                 <div class="usage-label">用法</div>
                 <div class="usage-separator">：</div>
                 <div class="usage-content" data-field="">
-                    <div class="usage-item">共 3 剂，6 味，单剂 68.00 g，总重 204.00 g</div>
+                    <div class="usage-item">共 3 剂，</div>
+                    <div class="usage-item">6 味，单剂 68.00 g，总重 204.00 g</div>
                     <div class="usage-item">煎服，1日1剂，1日2次，每次200ml，饭前30分钟服用</div>
                 </div>
             </div>
@@ -249,12 +238,15 @@ const props = defineProps({
     margin: 6pt 0;
 
     .medicine-item {
-        flex: 0 25%;
         margin-bottom: 16pt;
         display: flex;
         flex-direction: column;
 
-        &.detail {
+        &.col-6 {
+            flex: 0 25%;
+        }
+
+        &.col-8 {
             flex: 0 0 33.33%;
         }
 
@@ -266,8 +258,9 @@ const props = defineProps({
                 margin-right: 6pt;
             }
 
-            .price-group {
-                flex: 1 auto;
+            .price-unit,
+            .price-total {
+                flex: 0 auto;
             }
         }
 
@@ -281,8 +274,9 @@ const props = defineProps({
                 font-weight: 600;
             }
 
-            .dose-group {
-                flex: 1 auto;
+            .grams-dose,
+            .grams-total {
+                flex: 0 auto;
             }
         }
 
@@ -302,6 +296,7 @@ const props = defineProps({
 
     .usage-label {
         font-weight: 400;
+        flex: 0 0 auto;
     }
 
     .usage-separator {
@@ -310,12 +305,13 @@ const props = defineProps({
 
     .usage-content {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex: 1 auto;
         margin-bottom: -4pt;
+        flex-wrap: wrap;
 
         .usage-item {
-            flex: 1 auto;
+            flex: 0 auto;
             margin-bottom: 4pt;
         }
     }
@@ -332,6 +328,7 @@ const props = defineProps({
 
     .processing-label {
         font-weight: 400;
+        flex: 0 0 auto;
     }
 
     .processing-separator {
@@ -356,6 +353,7 @@ const props = defineProps({
 
     .delivery-label {
         font-weight: 400;
+        flex: 0 0 auto;
     }
 
     .delivery-separator {
@@ -386,6 +384,7 @@ const props = defineProps({
 
     .advice-label {
         font-weight: 400;
+        flex: 0 0 auto;
     }
 
     .advice-separator {
@@ -415,7 +414,8 @@ const props = defineProps({
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        .checkbox{
+
+        .checkbox {
             display: inline-block;
             border: 1pt solid #888;
             width: 8pt;

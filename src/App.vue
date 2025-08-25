@@ -1,6 +1,28 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { useRoute, RouterView } from 'vue-router'
 import zhCn from 'element-plus/es/locale/lang/zh-cn'
+import { computed, h } from 'vue'
+import { ArrowDown } from '@element-plus/icons-vue'
+
+const route = useRoute()
+
+const activeIndex = computed(() => {
+  return route.path
+})
+
+const handleSelect = (value: any) => {
+  console.log(value)
+}
+
+const ellipsisIcon = () => h(
+  'div',
+  { class: 'ellipsis-wrap' },
+  [
+    h('span', activeIndex.value.charAt(1).toUpperCase() + activeIndex.value.slice(2)),
+    h(ArrowDown, { size: 14 }) // 箭头图标
+  ]
+)
+
 </script>
 
 <template>
@@ -11,20 +33,27 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
       <div class="wrapper">
         <!-- <HelloWorld msg="You did it!" /> -->
 
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-          <RouterLink to="/select">SelectList</RouterLink>
-          <RouterLink to="/selectGrid">SelectGrid</RouterLink>
-          <RouterLink to="/input">Input</RouterLink>
-          <RouterLink to="/calendar">Calendar</RouterLink>
-          <RouterLink to="/timePicker">TimePicker</RouterLink>
-          <RouterLink to="/enhancedSelect">EnhancedSelect</RouterLink>
-          <RouterLink to="/dialog">Dialog</RouterLink>
-          <RouterLink to="/print">Print</RouterLink>
-          <RouterLink to="/autoComplete">AutoComplete</RouterLink>
-          <RouterLink to="/form">Form</RouterLink>
-        </nav>
+
+        <el-menu :default-active="activeIndex" mode="horizontal" router class="el-menu-demo" @select="handleSelect"
+          :ellipsis-icon="ellipsisIcon">
+          <template #ellipsis>
+            <div class="ellipsis-content">
+              111
+            </div>
+          </template>
+          <el-menu-item index="/">Home</el-menu-item>
+          <el-menu-item index="/about">About</el-menu-item>
+          <el-menu-item index="/select">SelectList</el-menu-item>
+          <el-menu-item index="/selectGrid">SelectGrid</el-menu-item>
+          <el-menu-item index="/input">Input</el-menu-item>
+          <el-menu-item index="/calendar">Calendar</el-menu-item>
+          <el-menu-item index="/timePicker">TimePicker</el-menu-item>
+          <el-menu-item index="/enhancedSelect">EnhancedSelect</el-menu-item>
+          <el-menu-item index="/dialog">Dialog</el-menu-item>
+          <el-menu-item index="/print">Print</el-menu-item>
+          <el-menu-item index="/autoComplete">AutoComplete</el-menu-item>
+          <el-menu-item index="/form">Form</el-menu-item>
+        </el-menu>
       </div>
     </header>
     <main>
@@ -33,10 +62,15 @@ import zhCn from 'element-plus/es/locale/lang/zh-cn'
   </el-config-provider>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 header {
   line-height: 1.5;
   max-height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  background: #fff;
 }
 
 .logo {
@@ -76,5 +110,50 @@ main {
   align-items: center;
   justify-content: center;
   margin: 24px;
+}
+
+.el-menu-demo.el-menu--horizontal {
+  // 内部最大项宽度-88px
+  padding-right: 100px;
+  padding-left: 50px;
+
+  :deep(.el-sub-menu) {
+
+    &:not(.is-active) {
+      .el-sub-menu__title {
+        .el-icon {
+          .ellipsis-wrap {
+            &::before {
+              content: 'More';
+            }
+
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .el-sub-menu__title {
+
+      .el-icon {
+        width: initial;
+
+        .ellipsis-wrap {
+          display: flex;
+          font-size: 14px;
+          font-style: normal;
+          align-items: center;
+
+          svg {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+
+  }
 }
 </style>

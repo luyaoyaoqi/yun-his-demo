@@ -37,15 +37,17 @@
             <div class="divider"></div>
             <div class="patient-detail-info">
                 <div class="info-item" data-field="">机构编码: <span data-field="">B11010500123</span></div>
-                <div class="info-item" data-field="">医生编码: <span data-field="">D110108005678</span></div>
+                <div class="info-item col-2-3" data-field="">医生编码: <span data-field="">D110108005678</span></div>
                 <div class="info-item"></div>
                 <div class="info-item" data-field="departmentVisible">科室: <span data-field="department">中医科</span></div>
                 <div class="info-item" data-field="feeTypeVisible">费别: <span data-field="feeType">城乡居民医保</span></div>
                 <div class="info-item" data-field="phoneVisible">手机: <span data-field="phone">13812345678</span></div>
-                <div class="info-item extended" data-field="">诊断: <span data-field="">慢性咽炎，高血压1级</span></div>
-                <div class="info-item"></div>
+
+                <div class="info-item col-1-2" data-field="">诊断: <span data-field="">急性支气管炎，急性上呼吸道感染</span></div>
+                <div class="info-item "></div>
                 <div class="info-item" data-field="medicalInsuranceNumberVisible">医保号: <span
                         data-field="medicalInsuranceNumber">BJ7890123</span></div>
+
                 <div class="info-item" data-field="idCardVisible">身份证: <span
                         data-field="idCard">11010519780615XXXX</span></div>
                 <div class="info-item" data-field="personalNumberVisible">个人编号: <span
@@ -61,7 +63,7 @@
                 </div>
                 <div class="info-item" data-field="jobVisible">职业: <span data-field="job">教师</span></div>
                 <div class="info-item"></div>
-                <div class="info-item extended" data-field="addressVisible">地址: <span
+                <div class="info-item col-1-2-3" data-field="addressVisible">地址: <span
                         data-field="address">北京市朝阳区建国路88号院3号楼1202</span></div>
             </div>
             <div class="divider"></div>
@@ -71,7 +73,7 @@
         <template #main>
             <div class="prescription-label">Rp:</div>
             <div class="chinese-medicine-section-item" data-field="">
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">a-2-089</div>
                         <div class="price-unit"><span>¥0.02/g</span></div>
@@ -83,7 +85,7 @@
                         <div class="grams-total"><span>/ 36g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">b-3-156</div>
                         <div class="price-unit"><span>¥0.05/g</span></div>
@@ -95,7 +97,7 @@
                         <div class="grams-total"><span>/ 45g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">c-1-072</div>
                         <div class="price-unit"><span>¥0.04/g</span></div>
@@ -107,7 +109,7 @@
                         <div class="grams-total"><span>/ 30g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">d-4-110</div>
                         <div class="price-unit"><span>¥0.06/g</span></div>
@@ -119,7 +121,7 @@
                         <div class="grams-total"><span>/ 27g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">e-5-033</div>
                         <div class="price-unit"><span>¥0.03/g</span></div>
@@ -131,7 +133,7 @@
                         <div class="grams-total"><span>/ 30g</span></div>
                     </div>
                 </div>
-                <div class="medicine-item col-8">
+                <div class="medicine-item col3">
                     <div class="medicine-header">
                         <div class="cabinet-number">f-2-095</div>
                         <div class="price-unit"><span>¥0.08/g</span></div>
@@ -242,7 +244,7 @@ const props = defineProps({
         display: flex;
         flex-direction: column;
 
-        &.col-6 {
+        &.col4 {
             flex: 0 25%;
 
             .price-unit,
@@ -252,7 +254,7 @@ const props = defineProps({
             }
         }
 
-        &.col-8 {
+        &.col3 {
             flex: 0 0 33.33%;
         }
 

@@ -50,9 +50,8 @@
                 <div class="info-item" data-field="nationalityVisible">民族: <span data-field="nationality">汉族</span>
                 </div>
                 <div class="info-item" data-field="jobVisible">职业: <span data-field="job">职员</span></div>
-                <div class="info-item extended" data-field="addressVisible">地址: <span
+                <div class="info-item col-1-2-3" data-field="addressVisible">地址: <span
                         data-field="address">上海市闵行区申昆路1999号2号705</span></div>
-                <div class="info-item"></div>
             </div>
             <div class="divider"></div>
         </template>

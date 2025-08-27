@@ -116,6 +116,7 @@ main {
   // 内部最大项宽度-88px
   padding-right: 100px;
   padding-left: 50px;
+  justify-content: center;
 
   :deep(.el-sub-menu) {
 

@@ -307,8 +307,7 @@ body {
     //默认尺寸
     width: 138mm;
     height: 200mm;
-    //默认边距
-    padding: 0mm;
+    box-sizing: border-box;
 
     // 纵向尺寸
     &.a5.portrait {

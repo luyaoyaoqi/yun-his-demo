@@ -313,6 +313,21 @@ body {
     &.a5.portrait {
         width: 138mm;
         height: 200mm;
+
+        .patient-basic-info,
+        .patient-detail-info {
+
+            .info-item {
+
+                &.row-three {
+                    flex-basis: 100%;
+                }
+
+                &.row-two {
+                    flex-basis: calc(66.67% - 6pt);
+                }
+            }
+        }
     }
 
     &.a4.portrait {
@@ -323,6 +338,21 @@ body {
     &.b6.portrait {
         width: 115mm;
         height: 166mm;
+
+        .patient-basic-info,
+        .patient-detail-info {
+
+            .info-item {
+
+                &.row-three {
+                    flex-basis: 100%;
+                }
+
+                &.row-two {
+                    flex-basis: calc(66.67% - 6pt);
+                }
+            }
+        }
     }
 
     &.letter.portrait {

@@ -146,7 +146,7 @@
                 <div class="advice-separator">：</div>
                 <div class="advice-content" data-field="medicalOrderList">
                     <div class="advice-item">1.多喝水，保持身体充足水分</div>
-                    <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div>
+                    <!-- <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div> -->
                 </div>
             </div>
             <div class="blank-section">

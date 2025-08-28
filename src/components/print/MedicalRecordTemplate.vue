@@ -34,7 +34,7 @@
                 <div class="info-item" data-field="departmentVisible">科室: <span data-field="department">内科</span></div>
                 <div class="info-item" data-field="feeTypeVisible">费别: <span data-field="feeType">市医保(普通)职工</span></div>
                 <div class="info-item" data-field="phoneVisible">手机: <span data-field="phone">13900000000</span></div>
-                <div class="info-item" data-field="idCardVisible">身份证: <span
+                <div class="info-item row-two" data-field="idCardVisible">身份证: <span
                         data-field="idCard">50000000000000000X</span></div>
                 <div class="info-item" data-field="personalNumberVisible">个人编号: <span
                         data-field="personalNumber">TK1203163</span></div>
@@ -50,7 +50,7 @@
                 <div class="info-item" data-field="nationalityVisible">民族: <span data-field="nationality">汉族</span>
                 </div>
                 <div class="info-item" data-field="jobVisible">职业: <span data-field="job">职员</span></div>
-                <div class="info-item col-1-2-3" data-field="addressVisible">地址: <span
+                <div class="info-item row-three" data-field="addressVisible">地址: <span
                         data-field="address">上海市闵行区申昆路1999号2号705</span></div>
             </div>
             <div class="divider"></div>

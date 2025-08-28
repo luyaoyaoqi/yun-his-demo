@@ -5,53 +5,70 @@
         <template #header>
             <div class="header">
                 <div class="header-left">
-                    <div class="qr-code" data-field="barcode">
+                    <div class="qr-code" data-visible="barcode" data-field="barcode">
                         <img src="./image/qr1.png" alt="条码"></img>
                     </div>
                 </div>
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
-                    <div class="title-sub" data-field="documentTitle">中药处方</div>
+                    <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div>
+                    <div class="title-sub" data-visible="documentType" data-field="documentType">中药处方</div>
                 </div>
                 <div class="header-right">
-                    <div class="qr-code" data-field="qrcode">
+                    <div class="qr-code" data-visible="qrcode" data-field="qrcode">
                         <img src="./image/qr2.png" alt="二维码"></img>
                     </div>
                 </div>
             </div>
+
             <div class="patient-basic-info">
-                <div class="info-item" data-field="patientInfoVisible">姓名：<span data-field="patientName">张三</span>
-                    <span data-field="patientAge">32岁</span><span data-field="patientGender">女</span>
+                <div class="info-item">
+                    姓名：
+                    <span data-field="patientName">张三</span>
+                    <span data-field="patientAge">32岁</span>
+                    <span data-field="patientGender">女</span>
                 </div>
-                <div class="info-item" data-field="medicalRecordCodeVisible">诊号：<span
-                        data-field="medicalRecordCode">0009292</span><span data-field="visitType">初诊</span>
+                <div class="info-item">
+                    诊号：
+                    <span data-field="medicalRecordCode">0009292</span>
+                    <span data-visible="visitType" data-field="visitType">初诊</span>
                 </div>
-                <div class="info-item" data-field="appointmentDateVisible">日期：<span
-                        data-field="appointmentDate">2021-12-15</span></div>
+                <div class="info-item">
+                    日期：
+                    <span data-field="visitDate">2021-12-15</span>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
-                <div class="info-item" data-field="departmentVisible">科室: <span data-field="department">内科</span></div>
-                <div class="info-item" data-field="feeTypeVisible">费别: <span data-field="feeType">市医保(普通)职工</span></div>
-                <div class="info-item" data-field="phoneVisible">手机: <span data-field="phone">13900000000</span></div>
-                <div class="info-item row-two" data-field="idCardVisible">身份证: <span
-                        data-field="idCard">50000000000000000X</span></div>
-                <div class="info-item" data-field="personalNumberVisible">个人编号: <span
-                        data-field="personalNumber">TK1203163</span></div>
-                <div class="info-item" data-field="medicalInsuranceNumberVisible">医保号: <span
-                        data-field="medicalInsuranceNumber">SG4348591</span></div>
-                <div class="info-item" data-field="archiveNumberVisible">档案号: <span
-                        data-field="archiveNumber">000881</span></div>
-                <div class="info-item" data-field="birthDateVisible">出生日期: <span
-                        data-field="birthDate">1999-12-15</span></div>
-                <div class="info-item" data-field="weightVisible">体重: <span data-field="weight">45kg</span></div>
-                <div class="info-item" data-field="maritalStatusVisible">婚否: <span data-field="maritalStatus">未婚</span>
+                <div class="info-item">科室: <span data-field="department">内科</span></div>
+                <div class="info-item">
+                    费别:
+                    <span data-visible="feeType" data-field="feeType">市医保(普通)</span>
+                    <span data-visible="patientType" data-field="patientType">职工</span>
                 </div>
-                <div class="info-item" data-field="nationalityVisible">民族: <span data-field="nationality">汉族</span>
+                <div class="info-item" data-visible="patientMobile">
+                    手机: <span data-field="patientMobile">13900000000</span>
                 </div>
-                <div class="info-item" data-field="jobVisible">职业: <span data-field="job">职员</span></div>
-                <div class="info-item row-three" data-field="addressVisible">地址: <span
-                        data-field="address">上海市闵行区申昆路1999号2号705</span></div>
+                <div class="info-item row-two" data-visible="idCard">
+                    身份证: <span data-field="idCard">50000000000000000X</span>
+                </div>
+                <div class="info-item" data-visible="personalNo">
+                    个人编号: <span data-field="personalNo">TK1203163</span>
+                </div>
+                <div class="info-item" data-visible="medicalInsuranceNo">
+                    医保号: <span data-field="medicalInsuranceNo">SG4348591</span>
+                </div>
+                <div class="info-item" data-visible="archiveNo">档案号: <span data-field="archiveNo">000881</span>
+                </div>
+                <div class="info-item" data-visible="birthDate">出生日期: <span data-field="birthDate">1999-12-15</span>
+                </div>
+                <div class="info-item" data-visible="weight">体重: <span data-field="weight">45kg</span></div>
+                <div class="info-item" data-visible="maritalStatus">婚否: <span data-field="maritalStatus">未婚</span></div>
+                <div class="info-item" data-visible="nationality">民族: <span data-field="nationality">汉族</span></div>
+                <div class="info-item" data-visible="job">职业: <span data-field="job">职员</span></div>
+                <div class="info-item row-three" data-visible="address">
+                    地址: <span data-field="address">上海市闵行区申昆路1999号2号705</span>
+                </div>
             </div>
             <div class="divider"></div>
         </template>
@@ -60,44 +77,44 @@
         <template #main>
             <div class="clinic-item">
                 <!-- label之间必须加空格，否咋打印不生效 -->
-                <div class="item-label" data-field="chiefComplaintVisible">主 诉</div>
+                <div class="item-label">主 诉</div>
                 <div class="item-separator">：</div>
                 <div class="item-content" data-field="chiefComplaint">咳嗽，夜咳，咽痛，咽干</div>
             </div>
-            <div class="clinic-item" data-field="presentHistoryVisible">
+            <div class="clinic-item">
                 <div class="item-label">现 病 史</div>
                 <div class="item-separator">：</div>
                 <div class="item-content" data-field="presentHistory">无</div>
             </div>
-            <div class="clinic-item" data-field="pastHistoryVisible">
+            <div class="clinic-item">
                 <div class="item-label">既 往 史</div>
                 <div class="item-separator">：</div>
                 <div class="item-content" data-field="pastHistory">既往体健</div>
             </div>
-            <div class="clinic-item" data-field="treatmentVisible">
+            <div class="clinic-item" data-visible="treatment">
                 <div class="item-label">处 置</div>
                 <div class="item-separator">：</div>
                 <div class="item-content" data-field="treatment"></div>
             </div>
-            <div class="treatment-item" data-field="treatmentList">
+            <div class="treatment-item" data-visible="treatment" data-field="treatmentList">
                 <div class="treatment-name">超敏C反应蛋白测定</div>
                 <div class="treatment-instruction">共一次</div>
             </div>
-            <div class="treatment-item" data-field="treatmentList">
+            <div class="treatment-item" data-visible="treatment" data-field="treatmentList">
                 <div class="treatment-name">三位一体单次</div>
                 <div class="treatment-instruction">每天1次，1天，共1次</div>
             </div>
-            <div class="patent-medicine-item" data-field="cpmList">
-                <div class="medicine-name">四季抗病毒合剂(120ml/瓶)</div>
+            <div class="patent-medicine-item" data-visible="treatment" data-field="cpmList">
+                <div class="medicine-name">四季抗病毒合剂<span data-visible="cpmSpec">(120ml/瓶)</span></div>
                 <div class="medicine-quantity">×1瓶</div>
-                <div class="medicine-dosage">每次5ml 每天1次</div>
+                <div class="medicine-dosage">每次5ml 每天1次<span data-visible="cpmUseDay">1天</span></div>
             </div>
-            <div class="patent-medicine-item" data-field="cpmList">
-                <div class="medicine-name">小柴胡颗粒(10g*10包/盒)</div>
+            <div class="patent-medicine-item" data-visible="treatment" data-field="cpmList">
+                <div class="medicine-name">小柴胡颗粒<span data-visible="cpmSpec">(10g*10包/盒)</span></div>
                 <div class="medicine-quantity">×1瓶</div>
-                <div class="medicine-dosage">每次5ml 每天1次</div>
+                <div class="medicine-dosage">每次5ml 每天1次<span data-visible="cpmUseDay">1天</span></div>
             </div>
-            <div class="infusion-section-item" data-field="infusionList">
+            <div class="infusion-section-item" data-visible="treatment" data-field="infusionList">
                 <div class="infusion-group">
                     <div class="infusion-item">
                         <div class="infusion-name">氯化钠注射液9%(生理盐水)2.25g*250ml/瓶</div>
@@ -113,7 +130,7 @@
                 <div class="infusion-bracket"></div>
                 <div class="infusion-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
             </div>
-            <div class="chinese-medicine-section-item" data-field="tcmList">
+            <div class="chinese-medicine-section-item" data-visible="treatment" data-field="tcmList">
                 <div class="medicine-item">桔梗6g</div>
                 <div class="medicine-item">黄芩6g</div>
                 <div class="medicine-item">知母6g</div>
@@ -124,10 +141,10 @@
                 <div class="medicine-item">白术6g</div>
                 <div class="medicine-summary" data-field="usage">共2剂，煎服，1日1剂 1日3次 每次150ml，饭后1小时服用</div>
             </div>
-            <div class="advice-section" data-field="medicalOrdersVisible">
+            <div class="advice-section" data-visible="medicalOrder">
                 <div class="advice-label">医 嘱</div>
                 <div class="advice-separator">：</div>
-                <div class="advice-content" data-field="medicalOrders">
+                <div class="advice-content" data-field="medicalOrderList">
                     <div class="advice-item">1.多喝水，保持身体充足水分</div>
                     <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div>
                 </div>
@@ -144,19 +161,23 @@
             <div class="divider"></div>
             <div class="footer">
                 <div class="doctor-info">
-                    <div class="info-item" data-field="doctorNameVisible">医生：<span data-field="doctorName">胡青牛</span>
+                    <div class="info-item">医生：<span data-field="doctorName">胡青牛</span></div>
+                    <div class="info-item" data-visible="amount">金额：<span data-field="amount">0.00</span></div>
+                    <div class="info-item" data-visible="printTime">
+                        打印时间：<span data-field="printTime">2025-08-15 11:11:07</span>
                     </div>
-                    <div class="info-item" data-field="amountVisible">金额：<span data-field="amount">0.00</span></div>
-                    <div class="info-item" data-field="printTimeVisible">打印时间：<span data-field="printTime">2025-08-15
-                            11:11:07</span></div>
                 </div>
                 <div class="footer-note">
-                    <div class="note-content" data-field="remark">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
+                    <div class="note-content" data-field="remark">
+                        除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。
+                    </div>
                     <div class="contact-info">
-                        <div class="contact-item" data-field="doctorPhoneVisible">电话：<span
-                                data-field="doctorPhone">13882100001</span></div>
-                        <div class="contact-item" data-field="doctorAddressVisible">地址：<span
-                                data-field="doctorAddress">惠民佳苑北路东南侧西部</span></div>
+                        <div class="contact-item" data-visible="doctorMobile">
+                            电话：<span data-field="doctorMobile">13882100001</span>
+                        </div>
+                        <div class="contact-item" data-visible="doctorAddress">
+                            地址：<span data-field="doctorAddress">惠民佳苑北路东南侧西部</span>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -5,46 +5,38 @@
         <template #header>
             <div class="header">
                 <div class="header-left">
-                    <div class="qr-code" data-visible="barcode" data-field="barcode">
-                        <img src="./image/qr1.png" alt="条码"></img>
+                    <div class="qr-code" data-field="barcode">
+                        <img data-visible="barcode" src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
                     </div>
                 </div>
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
                     <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div>
-                    <div class="title-sub" data-visible="documentType" data-field="documentType">中药处方</div>
+                    <div class="title-sub" data-visible="documentType" data-field="documentType">门诊病历</div>
                 </div>
                 <div class="header-right">
-                    <div class="qr-code" data-visible="qrcode" data-field="qrcode">
-                        <img src="./image/qr2.png" alt="二维码"></img>
+                    <div class="qr-code" data-field="qrcode">
+                        <img data-visible="qrcode" src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
                     </div>
                 </div>
             </div>
-
             <div class="patient-basic-info">
                 <div class="info-item">
-                    姓名：
-                    <span data-field="patientName">张三</span>
-                    <span data-field="patientAge">32岁</span>
-                    <span data-field="patientGender">女</span>
+                    姓名： <span data-field="patientName">张三</span><span data-field="patientAge">32岁</span><span
+                        data-field="patientGender">女</span>
                 </div>
                 <div class="info-item">
-                    诊号：
-                    <span data-field="medicalRecordCode">0009292</span>
-                    <span data-visible="visitType" data-field="visitType">初诊</span>
+                    诊号： <span data-field="medicalRecordCode">0009292</span><span data-visible="visitType"
+                        data-field="visitType">初诊</span>
                 </div>
-                <div class="info-item">
-                    日期：
-                    <span data-field="visitDate">2021-12-15</span>
-                </div>
+                <div class="info-item">日期： <span data-field="visitDate">2021-12-15</span></div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
                 <div class="info-item">科室: <span data-field="department">内科</span></div>
                 <div class="info-item">
-                    费别:
-                    <span data-visible="feeType" data-field="feeType">市医保(普通)</span>
-                    <span data-visible="patientType" data-field="patientType">职工</span>
+                    费别: <span data-visible="feeType" data-field="feeType">市医保(普通)</span><span data-visible="patientType"
+                        data-field="patientType">职工</span>
                 </div>
                 <div class="info-item" data-visible="patientMobile">
                     手机: <span data-field="patientMobile">13900000000</span>
@@ -58,8 +50,7 @@
                 <div class="info-item" data-visible="medicalInsuranceNo">
                     医保号: <span data-field="medicalInsuranceNo">SG4348591</span>
                 </div>
-                <div class="info-item" data-visible="archiveNo">档案号: <span data-field="archiveNo">000881</span>
-                </div>
+                <div class="info-item" data-visible="archiveNo">档案号: <span data-field="archiveNo">000881</span></div>
                 <div class="info-item" data-visible="birthDate">出生日期: <span data-field="birthDate">1999-12-15</span>
                 </div>
                 <div class="info-item" data-visible="weight">体重: <span data-field="weight">45kg</span></div>
@@ -145,8 +136,8 @@
                 <div class="advice-label">医 嘱</div>
                 <div class="advice-separator">：</div>
                 <div class="advice-content" data-field="medicalOrderList">
-                    <div class="advice-item">1.多喝水，保持身体充足水分</div>
-                    <!-- <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div> -->
+                    <div class="advice-item">1.多喝水</div>
+                    <div class="advice-item">2.饮食规律宜清淡，忌烟酒，忌辛辣荤腥</div>
                 </div>
             </div>
             <div class="blank-section">

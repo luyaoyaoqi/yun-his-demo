@@ -594,7 +594,7 @@ const exportHTML = () => {
 .print-container {
     display: flex;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 110px);
 
     .print-content {
         width: 100%;
@@ -609,9 +609,9 @@ const exportHTML = () => {
 
     .print-editor-box {
         padding: 20px;
-        background-color: #f5f5f5;
-        border-radius: 4px;
-        margin-bottom: 24px;
+        background-color: var(--el-fill-color-blank);
+        border: 1px solid var(--el-border-color);
+        border-radius: 12px;
         width: 320px;
         flex: 0 0 320px;
         display: flex;

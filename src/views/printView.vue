@@ -241,8 +241,8 @@ const createPrintPage = () => {
             <!DOCTYPE html>
             <html lang="zh-CN">
             <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 <title>打印预览 - 第${index + 1}页</title>
                 
                 ${cleanPrintStyle1}

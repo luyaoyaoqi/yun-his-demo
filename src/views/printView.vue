@@ -101,6 +101,7 @@ interface PrinterInfo {
 const printRef = ref<HTMLDivElement>();
 const iframeContent = ref<HTMLElement | null>(null);
 const printPages = ref<string[]>([]);
+const exportHTMLContent = ref('')
 
 // 常量
 const paddingDefault = 5;
@@ -174,6 +175,7 @@ const createPrintPage = () => {
     }
 
     // 获取所有子元素（即所有页面）
+
     const pageElements = Array.from(printElement.children).slice(1) as HTMLElement[];
 
     // @ts-ignore
@@ -252,7 +254,27 @@ const createPrintPage = () => {
             </body>
             </html>
         `;
+        
+        // 将单页内容添加到打印页面数组
         printPages.value.push(singlePageContent);
+
+        // 导出HTML内容
+        exportHTMLContent.value = `
+            <!DOCTYPE html>
+            <html lang="zh-CN">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">                
+                <title>打印预览 - 第${index + 1}页</title>
+                
+                ${cleanPrintStyle1}
+                ${cleanPrintStyle2}
+            </head>
+            <body>
+                ${Array.from(printElement.children)[0].outerHTML}
+            </body>
+            </html>
+        `;
     });
 
     nextTick(() => {
@@ -562,28 +584,39 @@ const exportHTML = () => {
     }
 
     // 创建一个包含所有页面的HTML文件
-    const allPagesHTML = printPages.value
-    allPagesHTML.forEach(pageHTML => {
-        // 创建下载链接
-        const blob = new Blob([pageHTML], { type: 'text/html;charset=utf-8' });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        // const now = new Date();
-        // const year = now.getFullYear();
-        // const month = String(now.getMonth() + 1).padStart(2, '0');
-        // const day = String(now.getDate()).padStart(2, '0');
-        // const hours = String(now.getHours()).padStart(2, '0');
-        // const minutes = String(now.getMinutes()).padStart(2, '0');
-        // const seconds = String(now.getSeconds()).padStart(2, '0');
-        // const localTimeString = `${year}${month}${day}-${hours}${minutes}${seconds}`;
-        // link.download = `${selectedTemplate.value}_${localTimeString}.html`;
-        link.download = `${selectedTemplate.value}.html`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(url);
-    })
+    // const allPagesHTML = printPages.value
+    // allPagesHTML.forEach(pageHTML => {
+    //     // 创建下载链接
+    //     const blob = new Blob([pageHTML], { type: 'text/html;charset=utf-8' });
+    //     const url = URL.createObjectURL(blob);
+    //     const link = document.createElement('a');
+    //     link.href = url;
+    //     const now = new Date();
+    //     const year = now.getFullYear();
+    //     const month = String(now.getMonth() + 1).padStart(2, '0');
+    //     const day = String(now.getDate()).padStart(2, '0');
+    //     const hours = String(now.getHours()).padStart(2, '0');
+    //     const minutes = String(now.getMinutes()).padStart(2, '0');
+    //     const seconds = String(now.getSeconds()).padStart(2, '0');
+    //     const localTimeString = `${year}${month}${day}-${hours}${minutes}${seconds}`;
+    //     link.download = `${selectedTemplate.value}_${localTimeString}.html`;
+    //     link.download = `${selectedTemplate.value}.html`;
+    //     document.body.appendChild(link);
+    //     link.click();
+    //     document.body.removeChild(link);
+    //     URL.revokeObjectURL(url);
+    // })
+
+    // 创建下载链接
+    const blob = new Blob([exportHTMLContent.value], { type: 'text/html;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${selectedTemplate.value}.html`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
 };
 </script>
 

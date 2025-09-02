@@ -121,7 +121,7 @@
                     </div>
                 </div>
                 <div class="infusion-bracket"></div>
-                <div class="infusion-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
+                <div class="infusion-instruction">每天1次 1天<br />静脉滴注60滴/分钟</div>
             </div>
             <div class="chinese-medicine-section-item" data-visible="treatment" data-field="tcmList">
                 <div class="medicine-item">桔梗6g</div>

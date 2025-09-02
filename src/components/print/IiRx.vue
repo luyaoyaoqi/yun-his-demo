@@ -117,7 +117,7 @@
                     </div>
                 </div>
                 <div class="infusion-bracket"></div>
-                <div class="infusion-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
+                <div class="infusion-instruction">每天1次 1天<br />静脉滴注60滴/分钟</div>
             </div>
             <div class="infusion-medicine-item">
                 <div class="group-index">②</div>
@@ -139,7 +139,7 @@
                     </div>
                 </div>
                 <div class="infusion-bracket"></div>
-                <div class="infusion-instruction">每天1次1天<br />静脉滴注60滴/分钟</div>
+                <div class="infusion-instruction">每天1次 1天<br />静脉滴注60滴/分钟</div>
             </div>
             <div class="delivery-section" data-visible="deliveryInfo">
                 <div class="delivery-label">快递</div>
@@ -257,6 +257,12 @@ const props = defineProps({
                     flex: 1 1 auto;
                     word-break: break-all;
                     margin-right: 12pt;
+                    font-weight: 600;
+
+                    .medicine-spec,
+                    .medicine-quantity {
+                        font-weight: 400;
+                    }
                 }
 
                 .usage {

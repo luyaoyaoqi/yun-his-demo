@@ -235,6 +235,8 @@ const props = defineProps({
 
     .group-index {
         margin-right: 4pt;
+        font-size: 12pt;
+        margin-top: -1pt;
     }
 
     .group {
@@ -243,14 +245,14 @@ const props = defineProps({
         flex-direction: column;
 
         .medicine-item {
-            margin-bottom: 10pt;
+            margin-bottom: 16pt;
             display: flex;
             flex-direction: column;
 
             .medicine-top {
                 display: flex;
                 font-size: 11pt;
-                margin-bottom: 4pt;
+                margin-bottom: 6pt;
 
                 .medicine-name {
                     margin-right: 6pt;
@@ -276,7 +278,7 @@ const props = defineProps({
             .medicine-middle {
                 display: flex;
                 font-size: 10pt;
-                margin-bottom: 4pt;
+                margin-bottom: 6pt;
 
                 .cabinet-number {
                     margin-right: 6pt;
@@ -295,7 +297,6 @@ const props = defineProps({
             .medicine-footer {
                 display: flex;
                 font-size: 10pt;
-                margin-bottom: 4pt;
 
                 .manufacturer {
                     margin-right: 6pt;

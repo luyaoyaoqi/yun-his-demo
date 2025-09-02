@@ -89,7 +89,7 @@
                 <div class="group">
                     <div class="medicine-item">
                         <div class="medicine-top">
-                            <div class="medicine-name">阿奇霉素颗粒<span></span></div>
+                            <div class="medicine-name">阿奇霉素颗粒<span class="product-name"></span></div>
                             <div class="medicine-spec">0.1g*6包/盒</div>
                             <div class="medicine-quantity">× <span>1包</span></div>
                             <div class="medicine-days">1天</div>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="medicine-item">
                         <div class="medicine-top">
-                            <div class="medicine-name">氨溴特罗口服溶液<span>(易坦静)</span></div>
+                            <div class="medicine-name">氨溴特罗口服溶液<span class="product-name">(易坦静)</span></div>
                             <div class="medicine-spec">60ml*60ml/瓶</div>
                             <div class="medicine-quantity">× <span>1瓶</span></div>
                             <div class="medicine-days">1天</div>
@@ -128,7 +128,7 @@
                 <div class="group">
                     <div class="medicine-item">
                         <div class="medicine-top">
-                            <div class="medicine-name">阿奇霉素颗粒<span></span></div>
+                            <div class="medicine-name">阿奇霉素颗粒<span class="product-name"></span></div>
                             <div class="medicine-spec">0.1g*6包/盒</div>
                             <div class="medicine-quantity">× <span>1包</span></div>
                             <div class="medicine-days">1天</div>

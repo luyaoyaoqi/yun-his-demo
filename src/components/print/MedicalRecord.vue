@@ -5,8 +5,9 @@
         <template #header>
             <div class="header">
                 <div class="header-left">
-                    <div class="qr-code" data-field="barcode">
-                        <img data-visible="barcode" src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
+                    <div class="qr-code">
+                        <img data-visible="barcode" data-field="barcode"
+                            src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
                     </div>
                 </div>
                 <div class="header-title">
@@ -15,8 +16,9 @@
                     <div class="title-sub" data-visible="documentType" data-field="documentType">门诊病历</div>
                 </div>
                 <div class="header-right">
-                    <div class="qr-code" data-field="qrcode">
-                        <img data-visible="qrcode" src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
+                    <div class="qr-code">
+                        <img data-visible="qrcode" data-field="qrcode"
+                            src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
                     </div>
                 </div>
             </div>

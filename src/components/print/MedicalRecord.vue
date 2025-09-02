@@ -311,9 +311,9 @@ const props = defineProps({
     .infusion-bracket {
         display: inline-block;
         flex: 0 0 2pt;
-        border: 1px solid#888;
+        border: 1pt solid#888;
         border-left: none;
-        margin: 6px;
+        margin: 6pt;
     }
 
 

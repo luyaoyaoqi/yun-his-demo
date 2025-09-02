@@ -9,7 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ChineseMedicineTemplate: typeof import('./src/components/print/ChineseMedicineTemplate.vue')['default']
-    copy: typeof import('./src/components/print/TcmRx copy.vue')['default']
+    copy: typeof import('./src/components/print/WmRx copy.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
@@ -35,6 +35,7 @@ declare module 'vue' {
     IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
+    IiRx: typeof import('./src/components/print/IiRx.vue')['default']
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MedicalRecord: typeof import('./src/components/print/MedicalRecord.vue')['default']
     MedicalRecordTemplate: typeof import('./src/components/print/MedicalRecordTemplate.vue')['default']

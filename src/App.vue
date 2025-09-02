@@ -53,6 +53,7 @@ const ellipsisIcon = () => h(
           <el-menu-item index="/print">Print</el-menu-item>
           <el-menu-item index="/autoComplete">AutoComplete</el-menu-item>
           <el-menu-item index="/form">Form</el-menu-item>
+          <el-menu-item index="/vchart">Vchart</el-menu-item>
         </el-menu>
       </div>
     </header>

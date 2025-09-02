@@ -13,6 +13,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.10",
     "@visactor/vchart": "^2.0.4",
+    "@visactor/vchart-svg-plugin": "^0.0.2",
     "element-plus": "^2.10.2",
     "pinia": "^3.0.1",
     "tailwindcss": "^4.1.10",

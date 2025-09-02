@@ -223,7 +223,7 @@ const props = defineProps({
 
 .prescription-label {
     font-size: 11pt;
-    margin-bottom: 10pt;
+    margin-bottom: 8pt;
 }
 
 .patent-medicine-item {
@@ -245,14 +245,14 @@ const props = defineProps({
         flex-direction: column;
 
         .medicine-item {
-            margin-bottom: 16pt;
+            margin-bottom: 10pt;
             display: flex;
             flex-direction: column;
 
             .medicine-top {
                 display: flex;
                 font-size: 11pt;
-                margin-bottom: 6pt;
+                margin-bottom: 4pt;
 
                 .medicine-name {
                     margin-right: 6pt;
@@ -278,7 +278,8 @@ const props = defineProps({
             .medicine-middle {
                 display: flex;
                 font-size: 10pt;
-                margin-bottom: 6pt;
+                margin-bottom: 4pt;
+                padding-left: 20pt;
 
                 .cabinet-number {
                     margin-right: 6pt;
@@ -297,6 +298,7 @@ const props = defineProps({
             .medicine-footer {
                 display: flex;
                 font-size: 10pt;
+                padding-left: 20pt;
 
                 .manufacturer {
                     margin-right: 6pt;

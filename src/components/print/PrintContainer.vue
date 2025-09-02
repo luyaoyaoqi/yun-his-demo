@@ -314,11 +314,8 @@ body {
         width: 138mm;
         height: 200mm;
 
-        .patient-basic-info,
-        .patient-detail-info {
-
+        :deep(.patient-detail-info,.patient-basic-info) {
             .info-item {
-
                 &.row-three {
                     flex-basis: 100%;
                 }

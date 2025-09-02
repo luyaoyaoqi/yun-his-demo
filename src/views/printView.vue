@@ -66,16 +66,19 @@ import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watchEffect 
 //引入模板
 import TcmRx from '@/components/print/TcmRx.vue';
 import WmRx from '@/components/print/WmRx.vue';
+import IiRx from '@/components/print/IiRx.vue';
 import MedicalRecord from '@/components/print/MedicalRecord.vue';
 
 const selectedTemplateOption = [
     { label: '中药处方模板', value: 'TcmRx' },
     { label: '成药处方模板', value: 'WmRx' },
+    { label: '输注处方模板', value: 'IiRx' },
     { label: '病历模板', value: 'MedicalRecord' }
 ]
 const printTemplateGroup = {
     TcmRx,
     WmRx,
+    IiRx,
     MedicalRecord
 }
 

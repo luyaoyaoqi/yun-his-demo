@@ -9,6 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ChineseMedicineTemplate: typeof import('./src/components/print/ChineseMedicineTemplate.vue')['default']
+    copy: typeof import('./src/components/print/TcmRx copy.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
@@ -45,5 +46,6 @@ declare module 'vue' {
     TextTooltip: typeof import('./src/components/TextTooltip.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
+    WmRx: typeof import('./src/components/print/WmRx.vue')['default']
   }
 }

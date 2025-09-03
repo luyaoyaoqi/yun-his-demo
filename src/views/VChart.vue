@@ -8,8 +8,21 @@
             </el-splitter-panel>
             <el-splitter-panel size="30%" :min="200">
                 <div class="editor-container">
+                    <el-form :model="chartConfig" label-position="top">
+                        <el-form-item label="选择图表配置">
+                            <el-select v-model="selectedChart" @change="handleChartChange">
+                                <el-option v-for="chart in chartOptions" :key="chart.value" :label="chart.label"
+                                    :value="chart.value" />
+                            </el-select>
+                        </el-form-item>
+                        <el-form-item label="图表宽度">
+                            <el-input-number v-model="chartConfig.width" :min="200" :max="2000" step="10" />
+                        </el-form-item>
+                        <el-form-item label="图表高度">
+                            <el-input-number v-model="chartConfig.height" :min="200" :max="2000" step="10" />
+                        </el-form-item>
+                    </el-form>
                     <el-button class="mb-6" type="primary" @click="getSvgContent">获取 SVG 内容</el-button>
-
                 </div>
             </el-splitter-panel>
         </el-splitter>
@@ -17,171 +30,112 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount, reactive, watch } from 'vue'
 import * as echarts from 'echarts'
-import type { ECharts, EChartsOption } from 'echarts'
+import type { ECharts } from 'echarts'
 import { ElMessage } from 'element-plus'
+
+// 图表配置选项
+const chartOptions = [
+    { label: '配置1 (demo)', value: 'demo' },
+    { label: '配置2 (demo2)', value: 'demo2' }
+]
+
+// 动态导入图表配置
+const loadChartOption = async (chartName: string) => {
+    try {
+        const module = await import(`@/components/echart/${chartName}.ts`)
+        return module.chartOption
+    } catch (error) {
+        console.error(`Failed to load chart option: ${chartName}`, error)
+        return null
+    }
+}
 
 // 图表容器引用
 const chartContainer = ref<HTMLDivElement | null>(null)
 // 图表实例
 let chartInstance: ECharts | null = null
 
-// 图表配置
-const chartOption: EChartsOption = {
-    // 添加动画效果
-    animation: true,
-    animationDuration: 1000,
-    animationEasing: 'cubicOut',
-    // 颜色设置
-    color: [
-        '#c23531',
-        '#2f4554',
-        '#61a0a8',
-        '#d48265',
-        '#91c7ae',
-        '#749f83',
-        '#ca8622',
-        '#bda29a',
-        '#6e7074',
-        '#546570',
-        '#c4ccd3'
-    ],
-
-    title: {
-        text: '2024年上半年销售数据',
-        show: true,
-        left: 'center',
-        textStyle: {
-            fontSize: 18,
-            fontWeight: 'bold',
-            color: '#333'
-        },
-        subtext: '单位：万元',
-        subtextStyle: {
-            color: '#666',
-            fontSize: 12
-        },
-        padding: [10, 0, 20, 0]
-    },
-
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'shadow'
-        },
-        backgroundColor: 'rgba(255, 255, 255, 0.9)',
-        borderColor: '#ccc',
-        borderWidth: 1,
-        textStyle: {
-            color: '#333'
-        },
-        // formatter: (params: any) => {
-        //     const item = params[0];
-        //     return `${item.name}<br/>销售额: ${item.value}万元`;
-        // }
-    },
-
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        top: '20%',
-        containLabel: true
-    },
-
-    xAxis: {
-        type: 'category',
-        data: ['一月', '二月', '三月', '四月', '五月', '六月'],
-        axisLabel: {
-            color: '#666',
-            fontSize: 12
-        },
-        axisLine: {
-            lineStyle: {
-                color: '#ddd'
-            }
-        },
-        axisTick: {
-            show: false
+// 从 localStorage 获取保存的配置或使用默认配置
+const getInitialChartSelection = () => {
+    const savedSelection = localStorage.getItem('vchart-selection')
+    if (savedSelection) {
+        try {
+            return savedSelection
+        } catch (e) {
+            console.error('解析保存的图表选择失败:', e)
         }
-    },
-
-    yAxis: {
-        type: 'value',
-        name: '销售额（万元）',
-        nameTextStyle: {
-            color: '#666',
-            fontSize: 12,
-            padding: [0, 0, 10, 0]
-        },
-        axisLabel: {
-            color: '#666',
-            fontSize: 12,
-            formatter: '{value}'
-        },
-        axisLine: {
-            lineStyle: {
-                color: '#ddd'
-            }
-        },
-        splitLine: {
-            lineStyle: {
-                type: 'dashed',
-                color: '#eee'
-            }
-        }
-    },
-
-    series: [{
-        data: [2000, 3000, 4500, 3200, 5100, 6200],
-        type: 'bar',
-        barWidth: '50%', // 设置柱子宽度
-        label: {
-            show: true,
-            position: 'top',
-            color: '#333',
-            fontSize: 12,
-            fontWeight: 'bold'
-        },
-        itemStyle: {
-            color: {
-                type: 'linear',
-                x: 0, y: 0, x2: 0, y2: 1,
-                colorStops: [
-                    { offset: 0, color: '#83bff6' },
-                    { offset: 0.5, color: '#188df0' },
-                    { offset: 1, color: '#188df0' }
-                ]
-            },
-            borderRadius: [4, 4, 0, 0] // 柱子顶部圆角
-        },
-        emphasis: {
-            itemStyle: {
-                color: {
-                    type: 'linear',
-                    x: 0, y: 0, x2: 0, y2: 1,
-                    colorStops: [
-                        { offset: 0, color: '#a3cfff' },
-                        { offset: 0.5, color: '#2396f0' },
-                        { offset: 1, color: '#2396f0' }
-                    ]
-                }
-            }
-        }
-    }]
+    }
+    return 'demo'
 }
 
+// 当前选中的图表配置
+const selectedChart = ref(getInitialChartSelection())
+
+// 从 localStorage 获取保存的尺寸配置或使用默认配置
+const getInitialChartConfig = () => {
+    const savedConfig = localStorage.getItem('vchart-config')
+    if (savedConfig) {
+        try {
+            return JSON.parse(savedConfig)
+        } catch (e) {
+            console.error('解析保存的图表配置失败:', e)
+        }
+    }
+    return {
+        width: 600,
+        height: 400
+    }
+}
+
+// 图表配置
+const chartConfig = reactive(getInitialChartConfig())
+
 // 初始化图表
-const initChart = () => {
+const initChart = async () => {
     if (chartContainer.value) {
+        // 销毁现有图表实例
+        if (chartInstance) {
+            chartInstance.dispose()
+        }
+
+        // 加载对应的图表配置
+        const chartOption = await loadChartOption(selectedChart.value)
+        if (!chartOption) {
+            ElMessage.error('加载图表配置失败')
+            return
+        }
+
         // 使用 SVG 渲染器
         chartInstance = echarts.init(chartContainer.value, null, {
             renderer: 'svg',
-            width: 600,
-            height: 400
+            width: chartConfig.width,
+            height: chartConfig.height
         })
         chartInstance.setOption(chartOption)
+    }
+}
+
+// 处理图表配置切换
+const handleChartChange = () => {
+    // 保存选择到 localStorage
+    localStorage.setItem('vchart-selection', selectedChart.value)
+    initChart()
+}
+
+// 更新图表尺寸
+const updateChartSize = () => {
+    if (chartInstance) {
+        chartInstance.resize({
+            width: chartConfig.width,
+            height: chartConfig.height
+        })
+        // 保存尺寸配置到 localStorage
+        localStorage.setItem('vchart-config', JSON.stringify({
+            width: chartConfig.width,
+            height: chartConfig.height
+        }))
     }
 }
 
@@ -216,6 +170,11 @@ const copySvgContent = async (svgContent: string) => {
     }
 }
 
+// 监听配置变化
+watch(() => chartConfig, () => {
+    updateChartSize()
+}, { deep: true })
+
 // 组件挂载时初始化图表
 onMounted(() => {
     initChart()
@@ -228,8 +187,6 @@ onBeforeUnmount(() => {
         chartInstance = null
     }
 })
-
-
 </script>
 
 <style scoped>
@@ -256,7 +213,6 @@ onBeforeUnmount(() => {
         background: #fff;
     }
 }
-
 
 .editor-container {
     padding: 20px;

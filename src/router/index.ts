@@ -105,6 +105,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/VChart.vue'),
     },
+    {
+      path: '/mddInput',
+      name: 'mddInput',
+      // route level code-splitting
+      // this generates a separate chunk (Input.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/MddInput.vue'),
+    },
   ],
 })
 

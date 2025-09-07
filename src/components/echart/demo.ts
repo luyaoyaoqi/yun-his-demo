@@ -1,7 +1,7 @@
 
 import type { EChartsOption } from 'echarts'
 // 图表配置
-export const chartOption: EChartsOption | { customWidth: number; customHeight: number } = {
+export const chartOption: EChartsOption = {
 
     // 添加动画效果
     animation: true,

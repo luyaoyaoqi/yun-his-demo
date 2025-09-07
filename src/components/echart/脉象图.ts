@@ -1,16 +1,15 @@
 import type { EChartsOption } from 'echarts'
 // 图表配置
-export const chartOption: EChartsOption | { customWidth: number; customHeight: number } = {
+export const chartOption: EChartsOption= {
 
     // 添加动画效果
     animation: true,
     animationDuration: 1000,
     animationEasing: 'cubicOut',
     // 颜色设置，对应轻压、中压、重压
-    color: ['#91c7ae', '#ca8622', '#c23531'],
+    color: ['#2ada9b', '#f7ba1e', '#fc726d'],
 
     title: {
-        text: '压力类型销售额趋势',
         show: true,
         left: 'center',
         textStyle: {
@@ -18,7 +17,7 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             fontWeight: 'bold',
             color: '#333'
         },
-        subtext: '单位：万元',
+        // subtext: '单位：万元',
         subtextStyle: {
             color: '#666',
             fontSize: 12
@@ -43,7 +42,7 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
         left: '3%',
         right: '4%',
         bottom: '3%',
-        top: '20%',
+        top: '36px',
         containLabel: true
     },
 
@@ -60,13 +59,21 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             }
         },
         axisTick: {
-            show: false
+            show: true,
+            alignWithLabel: true, // 关键设置：使刻度线与标签对齐
+            length: 5,
+            lineStyle: {
+                color: '#ddd'
+            }
+        },
+        splitLine: {
+            show: false,
         }
     },
 
     yAxis: {
         type: 'value',
-        name: '销售额（万元）',
+        name: '',
         nameTextStyle: {
             color: '#666',
             fontSize: 12,
@@ -77,23 +84,31 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             fontSize: 12,
             formatter: '{value}'
         },
+        // 横向网格线
         axisLine: {
+            show: true,
             lineStyle: {
-                color: '#ddd'
+                color: '#ddd',
+                width: 1,
             }
         },
+        // 去除 y 轴的刻度
+        axisTick: {
+            show: true
+        },
+        // 纵向网格线
         splitLine: {
             lineStyle: {
                 type: 'dashed',
                 color: '#eee'
             }
-        }
+        },
     },
 
     legend: {
         data: ['轻压', '中压', '重压'],
         left: 'center',
-        bottom: '10%',
+        top: '10px',
         textStyle: {
             color: '#666',
             fontSize: 12
@@ -108,12 +123,6 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             smooth: true,
             symbol: 'circle',
             symbolSize: 6,
-            itemStyle: {
-                color: '#91c7ae'
-            },
-            lineStyle: {
-                color: '#91c7ae'
-            }
         },
         {
             name: '中压',
@@ -122,12 +131,6 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             smooth: true,
             symbol: 'circle',
             symbolSize: 6,
-            itemStyle: {
-                color: '#ca8622'
-            },
-            lineStyle: {
-                color: '#ca8622'
-            }
         },
         {
             name: '重压',
@@ -136,12 +139,6 @@ export const chartOption: EChartsOption | { customWidth: number; customHeight: n
             smooth: true,
             symbol: 'circle',
             symbolSize: 6,
-            itemStyle: {
-                color: '#c23531'
-            },
-            lineStyle: {
-                color: '#c23531'
-            }
         }
     ]
 }

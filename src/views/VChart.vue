@@ -39,7 +39,8 @@ import { ElMessage } from 'element-plus'
 const chartOptions = [
     { label: 'demo', value: 'demo' },
     { label: '脉象图', value: '脉象图' },
-    { label: '加载动态图', value: '加载动态图' }
+    { label: '加载动态图', value: '加载动态图' },
+    { label: '加载动态图2', value: '加载动态图2' }
 ]
 
 // 动态导入图表配置

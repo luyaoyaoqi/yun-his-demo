@@ -129,10 +129,11 @@ const handleChartChange = () => {
 // 更新图表尺寸
 const updateChartSize = () => {
     if (chartInstance) {
-        chartInstance.resize({
-            width: chartConfig.width,
-            height: chartConfig.height
-        })
+        // chartInstance.resize({
+        //     width: chartConfig.width,
+        //     height: chartConfig.height
+        // })
+        initChart()
         // 保存尺寸配置到 localStorage
         localStorage.setItem('vchart-config', JSON.stringify({
             width: chartConfig.width,

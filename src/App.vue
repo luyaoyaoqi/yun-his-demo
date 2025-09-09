@@ -48,6 +48,7 @@ const ellipsisIcon = () => h(
           <el-menu-item index="/input">Input</el-menu-item>
           <el-menu-item index="/calendar">Calendar</el-menu-item>
           <el-menu-item index="/timePicker">TimePicker</el-menu-item>
+          <el-menu-item index="/datePicker">DatePicker</el-menu-item>
           <el-menu-item index="/enhancedSelect">EnhancedSelect</el-menu-item>
           <el-menu-item index="/dialog">Dialog</el-menu-item>
           <el-menu-item index="/print">Print</el-menu-item>

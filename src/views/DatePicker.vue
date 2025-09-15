@@ -1,8 +1,8 @@
 <template>
     <DatePickerAndSelect v-model:date="date" v-model:year="year" v-model:showElDatePicker="showElDatePicker" />
     <el-divider />
-    <el-date-picker popper-class="mdd-el-date-picker-popper" v-model="value2" type="daterange" unlink-panels
-        range-separator="To" start-placeholder="Start month" end-placeholder="End month" :shortcuts="shortcuts" />
+    <el-date-picker v-model="value2" type="daterange" unlink-panels range-separator="To" start-placeholder="Start month"
+        end-placeholder="End month" :shortcuts="shortcuts" />
 </template>
 
 <script setup>
@@ -40,7 +40,7 @@ const shortcuts = [
         },
     },
     {
-        text: '最近6个月',
+        text: '半年',
         value: () => {
             const end = new Date()
             const start = new Date()
@@ -51,24 +51,32 @@ const shortcuts = [
 ]
 </script>
 <style lang="less">
-.mdd-el-date-picker-popper {
-    .el-picker-panel__body-wrapper {
-        .el-picker-panel__sidebar {
-            width: 100%;
-            position: relative;
-            order: 2;
-            display: flex;
-            padding: 0 20px;
-            .el-picker-panel__shortcut{
-                width: fit-content;
-                padding: 0 0 8px;
-                margin-right: 24px;
-            }
-        }
+// .el-date-range-picker.has-sidebar {
+//     // width: initial;
 
-        .el-picker-panel__body {
-            margin-left: 0;
-        }
-    }
-}
+//     .el-picker-panel__body-wrapper {
+//         display: flex;
+//         flex-direction: column;
+
+//         .el-picker-panel__sidebar {
+//             width: 100%;
+//             position: relative;
+//             order: 2;
+//             display: flex;
+//             padding: 0 20px;
+//             border-top: 1px solid var(--el-datepicker-inner-border-color);
+//             border-right: none;
+
+//             .el-picker-panel__shortcut {
+//                 width: fit-content;
+//                 padding: 4px 0;
+//                 margin-right: 24px;
+//             }
+//         }
+
+//         .el-picker-panel__body {
+//             margin-left: 0;
+//         }
+//     }
+// }
 </style>

@@ -59,7 +59,9 @@
                 <div class="info-item" data-visible="patientMobile">
                     手机: <span data-field="patientMobile">13812345678</span>
                 </div>
-                <div class="info-item row-two">诊断: <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span></div>
+                <div class="info-item row-two">
+                    诊断: <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                </div>
                 <div class="info-item" data-visible="medicalInsuranceNo">
                     医保号: <span data-field="medicalInsuranceNo">BJ7890123</span>
                 </div>
@@ -457,29 +459,4 @@ const props = defineProps({
     }
 }
 
-.large-prescription {
-    font-size: 10pt;
-    display: flex;
-    justify-content: flex-end;
-
-    .title {
-        flex: 1 auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        .checkbox {
-            display: inline-block;
-            border: 1pt solid #888;
-            width: 8pt;
-            height: 8pt;
-            margin-right: 2pt;
-        }
-    }
-
-    .signature {
-        margin-left: 16pt;
-        flex: 0 100pt;
-    }
-}
 </style>

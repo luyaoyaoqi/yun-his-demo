@@ -68,18 +68,22 @@ import TcmRx from '@/components/print/TcmRx.vue';
 import WmRx from '@/components/print/WmRx.vue';
 import IiRx from '@/components/print/IiRx.vue';
 import MedicalRecord from '@/components/print/MedicalRecord.vue';
+import PTF from '@/components/print/PTF.vue';
 
 const selectedTemplateOption = [
     { label: '中药处方模板', value: 'TcmRx' },
     { label: '成药处方模板', value: 'WmRx' },
     { label: '输注处方模板', value: 'IiRx' },
-    { label: '病历模板', value: 'MedicalRecord' }
+    { label: '病历模板', value: 'MedicalRecord' },
+    { label: '治疗理疗单', value: 'PTF' },
 ]
+
 const printTemplateGroup = {
     TcmRx,
     WmRx,
     IiRx,
-    MedicalRecord
+    MedicalRecord,
+    PTF
 }
 
 // 类型定义

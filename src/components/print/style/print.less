@@ -89,7 +89,7 @@
     font-weight: 300;
 
     .info-item {
-        flex: 0 ;
+        flex: 0;
         margin-right: 6pt;
         margin-bottom: 6pt;
         word-break: break-all;
@@ -168,5 +168,31 @@
                 }
             }
         }
+    }
+}
+
+.large-prescription {
+    font-size: 10pt;
+    display: flex;
+    justify-content: flex-end;
+
+    .title {
+        flex: 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        .checkbox {
+            display: inline-block;
+            border: 1pt solid #888;
+            width: 8pt;
+            height: 8pt;
+            margin-right: 2pt;
+        }
+    }
+
+    .signature {
+        margin-left: 16pt;
+        flex: 0 100pt;
     }
 }

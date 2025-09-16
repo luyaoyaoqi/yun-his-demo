@@ -378,29 +378,4 @@ const props = defineProps({
     }
 }
 
-.large-prescription {
-    font-size: 10pt;
-    display: flex;
-    justify-content: flex-end;
-
-    .title {
-        flex: 1 auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-
-        .checkbox {
-            display: inline-block;
-            border: 1pt solid #888;
-            width: 8pt;
-            height: 8pt;
-            margin-right: 2pt;
-        }
-    }
-
-    .signature {
-        margin-left: 16pt;
-        flex: 0 100pt;
-    }
-}
 </style>

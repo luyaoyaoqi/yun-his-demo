@@ -32,7 +32,7 @@
                 </el-form-item>
 
                 <el-form-item label="边距" label-width="80px" label-position="left">
-                    <el-input-number v-model="paddingValue" :min="5" :max="50" :step="1" @change="updatePaddingStyle" />
+                    <el-input-number v-model="paddingValue" :min="0" :max="50" :step="1" @change="updatePaddingStyle" />
                 </el-form-item>
 
                 <el-form-item label="打印机" label-width="80px" label-position="left">
@@ -109,7 +109,7 @@ const iframeContent = ref<HTMLElement | null>(null);
 const printPages = ref<string[]>([]);
 
 // 常量
-const paddingDefault = 5;
+const paddingDefault = 0;
 const printDefaultSetting = {
     paperSize: 'a5',
     orientation: 'portrait',

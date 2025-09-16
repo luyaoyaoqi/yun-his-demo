@@ -124,10 +124,61 @@
                 <div class="blank-text">以下空白</div>
                 <div class="divider dashed"></div>
             </div>
+
         </template>
 
         <!-- 页脚内容 -->
         <template #footer>
+            <table class="signature-section">
+                <tr>
+                    <th>执行时间</th>
+                    <th>执行签名</th>
+                    <th>患者签名</th>
+                    <th>执行时间</th>
+                    <th>执行签名</th>
+                    <th>患者签名</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
             <div class="large-prescription" data-visible="patientSignature">
                 <div class="title">大额处方意见：<span class="checkbox"></span>同意</div>
                 <div class="signature">签名：</div>
@@ -234,6 +285,32 @@ const props = defineProps({
     .treatment-instruction {
         margin-left: 20pt;
         margin-bottom: 6pt;
+    }
+}
+
+.signature-section {
+    font-size: 10pt;
+    line-height: 1.2;
+    width: 100%;
+    margin-bottom: 6pt;
+    border-collapse: collapse;
+
+    tr {
+        height: 20pt;
+
+        th {
+            font-weight: 400;
+            border: 1px solid #888;
+        }
+
+        td {
+            border: 1px solid #888;
+        }
+    }
+
+    .row {
+        flex: 1 1 auto;
+        text-align: left;
     }
 }
 </style>

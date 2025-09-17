@@ -9,11 +9,12 @@
         </div>
         <div class="print-editor-box">
             <el-form>
-                <el-form-item label="打印模板" label-width="80px" label-position="left">
-                    <el-select v-model="selectedTemplate" placeholder="选择模板" @change="handlePaperSizeChange">
-                        <el-option v-for="option in selectedTemplateOption" :label="option.label" :value="option.value"
-                            :key="option.value" />
-                    </el-select>
+                <el-form-item label-position="left">
+                    <el-radio-group class="mdd-el-radio-group" v-model="selectedTemplate" @change="handlePaperSizeChange">
+                        <el-radio v-for="option in selectedTemplateOption" :label="option.value" :key="option.value">
+                            {{ option.label }}
+                        </el-radio>
+                    </el-radio-group>
                 </el-form-item>
                 <el-form-item label="纸张大小" label-width="80px" label-position="left">
                     <el-select v-model="printSetting.paperSize" placeholder="选择纸张大小" @change="handlePaperSizeChange">
@@ -61,7 +62,7 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, nextTick, onMounted, computed, onUnmounted, watchEffect } from 'vue';
+import { reactive, ref, nextTick, onMounted, watch, computed, onUnmounted, watchEffect } from 'vue';
 
 //引入模板
 import TcmRx from '@/components/print/TcmRx.vue';
@@ -71,10 +72,10 @@ import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
 
 const selectedTemplateOption = [
-    { label: '中药处方模板', value: 'TcmRx' },
-    { label: '成药处方模板', value: 'WmRx' },
-    { label: '输注处方模板', value: 'IiRx' },
-    { label: '病历模板', value: 'MedicalRecord' },
+    { label: '病历', value: 'MedicalRecord' },
+    { label: '成药处方', value: 'WmRx' },
+    { label: '中药处方', value: 'TcmRx' },
+    { label: '输注处方', value: 'IiRx' },
     { label: '治疗理疗单', value: 'PTF' },
 ]
 
@@ -144,7 +145,11 @@ const isPreview = ref(true);
 
 
 // 当前选中的模板
-const selectedTemplate = ref('');
+const selectedTemplate = ref('')
+
+watch(selectedTemplate, (newValue) => {
+    localStorage.setItem('selectedTemplate', newValue)
+})
 
 // 动态组件计算属性
 const printTemplateComponent = computed(() => {
@@ -393,7 +398,7 @@ let observer: MutationObserver | null = null;
 // let styleObservers: MutationObserver[] = [];
 
 onMounted(() => {
-    selectedTemplate.value = 'TcmRx';
+    selectedTemplate.value = localStorage.getItem('selectedTemplate') || 'TcmRx';
 
     // 获取打印机列表
     getPrinterList();
@@ -626,6 +631,15 @@ const exportHTML = () => {
         flex: 0 0 320px;
         display: flex;
         flex-direction: column;
+
+        .mdd-el-radio-group {
+            gap: 0 24px;
+
+            .el-radio {
+                flex: 1 0 120px;
+                margin-right: 0;
+            }
+        }
     }
 }
 

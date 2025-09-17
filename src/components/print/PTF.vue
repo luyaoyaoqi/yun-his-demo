@@ -64,60 +64,102 @@
 
         <!-- 主内容 -->
         <template #main>
-            <div class=" treatment-head">
-                <div class="name">项目</div>
-                <div class="price">单价</div>
-                <div class="unit">单位</div>
-                <div class="number">单次数量</div>
-                <div class="total-number">总数量</div>
-                <div class="days">天数</div>
-                <div class="amount">执行金额</div>
-                <div class="total-amount">总金额</div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-head signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">项目</div>
+                        <div class="price">单价</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="unit">单位</div>
+                        <div class="number">单次数量</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="total-number">总数量</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="days">天数</div>
+                        <!-- 标签在右侧显示 -->
+                        <div class="execute">执行/总次数</div>
+                        <div class="amount">执行金额</div>
+                        <div class="total-amount">总金额</div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature">时间/签名</div>
             </div>
-            <div class="treatment-item">
-                <div class="treatment-info">
-                    <div class="name">骨伤、颈腰整脊手法</div>
-                    <div class="price">100.00</div>
-                    <div class="unit">次</div>
-                    <div class="number"> </div>
-                    <div class="total-number">4</div>
-                    <div class="days">4天</div>
-                    <div class="amount"> </div>
-                    <div class="total-amount">100.00</div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-item signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">骨伤、颈腰整脊手法</div>
+                        <div class="price">100.00</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="unit">次</div>
+                        <div class="number"> </div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示 -->
+                        <div class="execute">4次</div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">100.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法： <span>2日1次，4天，共4次</span>
+                    </div>
                 </div>
-                <div class="treatment-instruction">
-                    用法： <span>2日1次，4天，共4次</span>
-                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
             </div>
-            <div class="treatment-item">
-                <div class="treatment-info">
-                    <div class="name">三位一体单次</div>
-                    <div class="price">168.00</div>
-                    <div class="unit">次</div>
-                    <div class="number"> </div>
-                    <div class="total-number">4</div>
-                    <div class="days">4天</div>
-                    <div class="amount"> </div>
-                    <div class="total-amount">168.00</div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-item signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">三位一体单次</div>
+                        <div class="price">168.00</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="unit">次</div>
+                        <div class="number"> </div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示 -->
+                        <div class="execute">4次</div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">168.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法： <span>2日1次，4天，共4次</span>
+                    </div>
                 </div>
-                <div class="treatment-instruction">
-                    用法： <span>2日1次，4天，共4次</span>
-                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
             </div>
-            <div class="treatment-item">
-                <div class="treatment-info">
-                    <div class="name">穴位埋线（普通）</div>
-                    <div class="price">35.00</div>
-                    <div class="unit">次</div>
-                    <div class="number"> </div>
-                    <div class="total-number">4</div>
-                    <div class="days">4天</div>
-                    <div class="amount"> </div>
-                    <div class="total-amount">35.00</div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-item signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">穴位埋线（普通）</div>
+                        <div class="price">35.00</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="unit">次</div>
+                        <div class="number"> </div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏 -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示 -->
+                        <div class="execute">4次</div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">35.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法： <span>2日1次，4天，共4次</span>
+                    </div>
                 </div>
-                <div class="treatment-instruction">
-                    用法： <span>2日1次，4天，共4次</span>
-                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
             </div>
             <div class="blank-section">
                 <div class="divider dashed"></div>
@@ -129,6 +171,7 @@
 
         <!-- 页脚内容 -->
         <template #footer>
+            <!-- 标签在下方 -->
             <table class="signature-section">
                 <tr>
                     <th>执行时间</th>
@@ -234,57 +277,119 @@ const props = defineProps({
 <style lang="less" scoped>
 @import './style/print.less';
 
-.treatment-info,
-.treatment-head {
+
+.treatment-head,
+.treatment-item {
     display: flex;
-    font-size: 10pt;
+    font-size: 9pt;
     line-height: 1.2;
-    margin-bottom: 6pt;
-    text-align: right;
+    padding-bottom: 6pt;
 
-    .name {
+    .treatment-info-box {
+        display: flex;
         flex: 1 1 auto;
-        text-align: left;
+        flex-direction: column;
+        overflow: hidden;
+
+        .treatment-info {
+            display: flex;
+            font-size: 10pt;
+            line-height: 1.2;
+            text-align: right;
+            align-items: center;
+
+            .name {
+                flex: 1 1 auto;
+                text-align: left;
+            }
+
+            .price {
+                flex: 0 0 46pt;
+            }
+
+            .unit {
+                flex: 0 0 30pt;
+            }
+
+            .number {
+                flex: 0 0 46pt;
+            }
+
+            .total-number {
+                flex: 0 0 40pt;
+            }
+
+
+            .days {
+                flex: 0 0 30pt;
+            }
+
+            .amount {
+                flex: 0 0 46pt;
+            }
+
+            .execute {
+                display: none;
+            }
+
+            .total-amount {
+                flex: 0 0 50pt;
+            }
+        }
+
+        .treatment-instruction {
+            margin-top: 4pt;
+            margin-left: 20pt;
+        }
     }
 
-    .price {
-        flex: 0 0 50pt;
-    }
-
-    .unit {
-        flex: 0 0 30pt;
-    }
-
-    .number {
-        flex: 0 0 50pt;
-    }
-
-    .total-number {
-        flex: 0 0 40pt;
-    }
-
-    .days {
-        flex: 0 0 30pt;
-    }
-
-    .amount {
-        flex: 0 0 50pt;
-    }
-
-    .total-amount {
-        flex: 0 0 50pt;
+    .signature {
+        display: none;
     }
 }
 
+.treatment-head,
 .treatment-item {
-    display: flex;
-    flex-direction: column;
-    font-size: 9pt;
-    line-height: 1.2;
 
-    .treatment-instruction {
-        margin-left: 20pt;
-        margin-bottom: 6pt;
+    &.signature-right {
+        padding: 0 6pt;
+        border: 1px solid #888;
+
+        &:first-child {
+            border-top: 1px solid #888 !important;
+        }
+
+        &+.signature-right {
+            border-top: none;
+        }
+
+        .treatment-info-box {
+            padding: 4pt 0;
+
+            .treatment-info {
+
+                .unit,
+                .total-number,
+                .days {
+                    display: none;
+                }
+
+                .execute {
+                    display: block;
+                    flex: 0 0 64pt;
+                }
+            }
+        }
+
+        .signature {
+            display: block;
+            flex: 0 0 40pt;
+            text-align: center;
+            border-left: 1px solid #888;
+            padding: 4pt 0 4pt 6pt;
+            margin-left: 6pt;
+        }
+
     }
 }
 

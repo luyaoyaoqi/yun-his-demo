@@ -36,11 +36,6 @@ const ellipsisIcon = () => h(
 
         <el-menu :default-active="activeIndex" mode="horizontal" router class="el-menu-demo" @select="handleSelect"
           :ellipsis-icon="ellipsisIcon">
-          <template #ellipsis>
-            <div class="ellipsis-content">
-              111
-            </div>
-          </template>
           <el-menu-item index="/">Home</el-menu-item>
           <el-menu-item index="/about">About</el-menu-item>
           <el-menu-item index="/select">SelectList</el-menu-item>

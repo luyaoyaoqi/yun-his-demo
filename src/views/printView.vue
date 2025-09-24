@@ -72,11 +72,11 @@ import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
 
 const selectedTemplateOption = [
-    { label: '病历', value: 'MedicalRecord' },
-    { label: '成药处方', value: 'WmRx' },
-    { label: '中药处方', value: 'TcmRx' },
-    { label: '输注处方', value: 'IiRx' },
-    { label: '治疗理疗单', value: 'PTF' },
+    { label: '病历 MedicalRecord', value: 'MedicalRecord' },
+    { label: '成药处方 WmRx', value: 'WmRx' },
+    { label: '中药处方 TcmRx', value: 'TcmRx' },
+    { label: '输注处方 IiRx', value: 'IiRx' },
+    { label: '治疗理疗单 PTF', value: 'PTF' },
 ]
 
 const printTemplateGroup = {
@@ -627,8 +627,8 @@ const exportHTML = () => {
         background-color: var(--el-fill-color-blank);
         border: 1px solid var(--el-border-color);
         border-radius: 12px;
-        width: 320px;
-        flex: 0 0 320px;
+        width: 400px;
+        flex: 0 0 400px;
         display: flex;
         flex-direction: column;
 

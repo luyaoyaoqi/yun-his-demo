@@ -69,6 +69,36 @@ header {
 .wrapper {
   width: 100%;
   background: var(--el-fill-color-blank);
+  --mdd-menu-bg-color: var(--el-color-primary-dark-2);
+  --el-menu-bg-color: var(--mdd-menu-bg-color);
+  --el-menu-hover-bg-color: var(--mdd-menu-bg-color);
+  --el-menu-text-color: var(--el-color-white);
+  --el-menu-active-color: var(--el-color-white);
+
+  .el-menu {
+    .el-menu-item {
+      padding: 0;
+      height: calc(var(--el-menu-horizontal-height) * 2 / 3);
+      margin: calc(var(--el-menu-horizontal-height) * 1 / 6) var(--el-menu-base-level-padding);
+      --el-transition-duration: 0ms;
+
+      &:hover:not(.is-active) {
+        background-color: rgba(255, 255, 255, 0.12);
+        padding: 0 var(--el-menu-base-level-padding);
+        margin: calc(var(--el-menu-horizontal-height) * 1 / 6) 0;
+        border-radius: calc(var(--el-border-radius-base) * 2);
+      }
+
+    }
+
+    :deep(.el-sub-menu) {
+      .el-sub-menu__title {
+        padding: 0;
+        height: calc(var(--el-menu-horizontal-height) * 2 / 3);
+        margin: calc(var(--el-menu-horizontal-height) * 1 / 6) var(--el-menu-base-level-padding);
+      }
+    }
+  }
 }
 
 .logo {

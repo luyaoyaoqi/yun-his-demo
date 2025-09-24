@@ -74,6 +74,7 @@ header {
   --el-menu-hover-bg-color: var(--mdd-menu-bg-color);
   --el-menu-text-color: var(--el-color-white);
   --el-menu-active-color: var(--el-color-white);
+  --el-menu-hover-text-color: var(--el-color-white);
 
   .el-menu {
     .el-menu-item {
@@ -89,14 +90,21 @@ header {
         border-radius: calc(var(--el-border-radius-base) * 2);
       }
 
+      &.is-active {
+        cursor: default;
+      }
+
     }
 
     :deep(.el-sub-menu) {
       .el-sub-menu__title {
+        cursor: default;
         padding: 0;
         height: calc(var(--el-menu-horizontal-height) * 2 / 3);
         margin: calc(var(--el-menu-horizontal-height) * 1 / 6) var(--el-menu-base-level-padding);
+        --el-transition-duration: 0ms;
       }
+
     }
   }
 }

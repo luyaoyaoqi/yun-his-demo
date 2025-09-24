@@ -281,7 +281,7 @@ const props = defineProps({
 .treatment-head,
 .treatment-item {
     display: flex;
-    font-size: 9pt;
+    font-size: 10pt;
     line-height: 1.2;
     padding-bottom: 6pt;
 
@@ -293,8 +293,6 @@ const props = defineProps({
 
         .treatment-info {
             display: flex;
-            font-size: 10pt;
-            line-height: 1.2;
             text-align: right;
             align-items: center;
 
@@ -325,7 +323,7 @@ const props = defineProps({
             }
 
             .amount {
-                flex: 0 0 46pt;
+                flex: 0 0 50pt;
             }
 
             .execute {
@@ -333,7 +331,7 @@ const props = defineProps({
             }
 
             .total-amount {
-                flex: 0 0 50pt;
+                flex: 0 0 46pt;
             }
         }
 
@@ -354,6 +352,7 @@ const props = defineProps({
     &.signature-right {
         padding: 0 6pt;
         border: 1px solid #888;
+        font-size: 9pt;
 
         &:first-child {
             border-top: 1px solid #888 !important;

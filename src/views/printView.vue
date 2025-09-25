@@ -156,6 +156,12 @@ watch(selectedTemplate, (newValue) => {
     localStorage.setItem('selectedTemplate', newValue)
 })
 
+// 新增：通过selectedTemplate的值在selectedTemplateOption中查找对应的label
+const getSelectedTemplateLabel = (selectedTemplate: string) => {
+    const selected = selectedTemplateOption.find(option => option.value === selectedTemplate);
+    return selected ? selected.label : '';
+}
+
 // 动态组件计算属性
 const printTemplateComponent = computed(() => {
     const components: Record<string, any> = printTemplateGroup
@@ -263,7 +269,7 @@ const createPrintPage = () => {
             <head>
                 <meta charset="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <title>打印预览 - 第${index + 1}页</title>
+                <title>${getSelectedTemplateLabel(selectedTemplate.value)} - 第${index + 1}页</title>
                 
                 ${cleanPrintStyle1}
                 ${cleanPrintStyle2}

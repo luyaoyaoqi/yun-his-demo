@@ -10,7 +10,8 @@
         <div class="print-editor-box">
             <el-form>
                 <el-form-item label-position="left">
-                    <el-radio-group class="mdd-el-radio-group" v-model="selectedTemplate" @change="handlePaperSizeChange">
+                    <el-radio-group class="mdd-el-radio-group" v-model="selectedTemplate"
+                        @change="handlePaperSizeChange">
                         <el-radio v-for="option in selectedTemplateOption" :label="option.value" :key="option.value">
                             {{ option.label }}
                         </el-radio>
@@ -70,22 +71,26 @@ import WmRx from '@/components/print/WmRx.vue';
 import IiRx from '@/components/print/IiRx.vue';
 import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
-
-const selectedTemplateOption = [
-    { label: '病历 MedicalRecord', value: 'MedicalRecord' },
-    { label: '成药处方 WmRx', value: 'WmRx' },
-    { label: '中药处方 TcmRx', value: 'TcmRx' },
-    { label: '输注处方 IiRx', value: 'IiRx' },
-    { label: '治疗理疗单 PTF', value: 'PTF' },
-]
+import IOF from '@/components/print/IOF.vue';
 
 const printTemplateGroup = {
     TcmRx,
     WmRx,
     IiRx,
     MedicalRecord,
-    PTF
+    PTF,
+    IOF,
 }
+
+// 选择模板
+const selectedTemplateOption = [
+    { label: '病历 MedicalRecord', value: 'MedicalRecord' },
+    { label: '成药处方 WmRx', value: 'WmRx' },
+    { label: '中药处方 TcmRx', value: 'TcmRx' },
+    { label: '输注处方 IiRx', value: 'IiRx' },
+    { label: '治疗理疗单 PTF', value: 'PTF' },
+    { label: '输注单预览 IOF', value: 'IOF' },
+]
 
 // 类型定义
 interface PaperSize {

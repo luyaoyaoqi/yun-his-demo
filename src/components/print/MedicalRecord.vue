@@ -291,6 +291,7 @@ const props = defineProps({
         flex-direction: column;
         flex: 1 auto;
         margin-bottom: -6pt;
+        overflow: hidden;
 
         .infusion-item {
             display: flex;

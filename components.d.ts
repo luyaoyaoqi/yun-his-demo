@@ -8,7 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/print/MedicalRecord copy.vue')['default']
+    copy: typeof import('./src/components/print/PTF copy.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -36,6 +36,7 @@ declare module 'vue' {
     ElTooltip: typeof import('element-plus/es')['ElTooltip']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IiRx: typeof import('./src/components/print/IiRx.vue')['default']
+    IOF: typeof import('./src/components/print/IOF.vue')['default']
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MedicalRecord: typeof import('./src/components/print/MedicalRecord.vue')['default']
     PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']

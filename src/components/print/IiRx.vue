@@ -89,7 +89,7 @@
                         <div class="medicine-top">
                             <div class="medicine-name">氯化钠注射液9%<span class="product-name">(生理盐水)</span>(<span
                                     class="medicine-spec">2.25g*250ml/瓶</span> × <span
-                                    class="medicine-quantity">1包</span>)</div>
+                                    class="medicine-quantity">1瓶</span>)</div>
                             <div class="usage"><span></span><span>续用</span></div>
                             <div class="medicine-quantity">250ml</div>
                         </div>
@@ -106,7 +106,7 @@
                                     class="medicine-spec">0.3g*2ml/支</span> × <span class="medicine-quantity">4支</span>)
                             </div>
                             <div class="usage"><span>皮试(+)</span><span></span></div>
-                            <div class="medicine-quantity">250ml</div>
+                            <div class="medicine-quantity">1.2g</div>
                         </div>
                         <div class="medicine-footer">
                             <div class="cabinet-number" data-visible="tcmCabinetNo">sc-22-2341</div>
@@ -240,6 +240,7 @@ const props = defineProps({
         display: flex;
         flex: 1 auto;
         flex-direction: column;
+        overflow: hidden;
 
         .medicine-item {
             margin-bottom: 10pt;
@@ -285,12 +286,14 @@ const props = defineProps({
 
                 .cabinet-number {
                     margin-right: 6pt;
-                    flex: 0 calc(50% - 6pt);
+                    flex: 0 0 auto;
+                    flex-basis: calc(50% - 6pt);
                 }
 
                 .manufacturer {
                     margin-right: 6pt;
-                    flex: 0 calc(50% - 6pt);
+                    flex: 0 0 auto;
+                    flex-basis: calc(50% - 6pt);
                 }
 
                 .price-unit,
@@ -380,5 +383,4 @@ const props = defineProps({
         }
     }
 }
-
 </style>

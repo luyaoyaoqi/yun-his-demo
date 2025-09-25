@@ -24,41 +24,44 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item">
-                    姓名：
-                    <span data-field="patientName">张三</span>
+                    姓名：<span data-field="patientName">张三</span>
                     <span data-field="patientGender">女</span>
                     <span data-field="patientAge">32岁</span>
                 </div>
                 <div class="info-item">
-                    诊号： <span data-field="medicalRecordCode">0009292</span><span data-visible="visitType"
-                        data-field="visitType">初诊</span>
+                    诊号：<span data-field="medicalRecordCode">0009292</span>
+                    <span data-visible="visitType" data-field="visitType">初诊</span>
                 </div>
-                <div class="info-item">日期： <span data-field="visitDate">2021-12-15</span></div>
+                <div class="info-item">
+                    日期：<span data-field="visitDate">2021-12-15</span>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
-                <div class="info-item">科室: <span data-field="department">内科</span></div>
                 <div class="info-item">
-                    费别: <span data-visible="feeType" data-field="feeType">市医保(普通)</span><span data-visible="patientType"
-                        data-field="patientType">职工</span>
+                    科室：<span data-field="department">内科</span>
+                </div>
+                <div class="info-item">
+                    费别：<span data-visible="feeType" data-field="feeType">市医保(普通)</span>
+                    <span data-visible="patientType" data-field="patientType">职工</span>
                 </div>
                 <div class="info-item" data-visible="patientMobile">
-                    手机: <span data-field="patientMobile">13900000000</span>
+                    手机：<span data-field="patientMobile">13900000000</span>
                 </div>
                 <div class="info-item row-two">
-                    诊断: <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                    诊断：<span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
                 </div>
                 <div class="info-item" data-visible="medicalInsuranceNo">
-                    医保号: <span data-field="medicalInsuranceNo">SG4348591</span>
+                    医保号：<span data-field="medicalInsuranceNo">SG4348591</span>
                 </div>
                 <div class="info-item row-two" data-visible="idCard">
-                    身份证: <span data-field="idCard">50000000000000000X</span>
+                    身份证：<span data-field="idCard">50000000000000000X</span>
                 </div>
                 <div class="info-item" data-visible="personalNo">
-                    个人编号: <span data-field="personalNo">TK1203163</span>
+                    个人编号：<span data-field="personalNo">TK1203163</span>
                 </div>
                 <div class="info-item" data-visible="archiveNo">
-                    档案号: <span data-field="archiveNo">000881</span>
+                    档案号：<span data-field="archiveNo">000881</span>
                 </div>
             </div>
             <div class="divider"></div>
@@ -72,14 +75,14 @@
                     <div class="treatment-info">
                         <div class="name">项目</div>
                         <div class="price">单价</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">单位</div>
                         <div class="number">单次数量</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：total-number -->
                         <div class="total-number">总数量</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：days -->
                         <div class="days">天数</div>
-                        <!-- 标签在右侧显示 -->
+                        <!-- 标签在右侧显示：execute -->
                         <div class="execute">执行/总次数</div>
                         <div class="amount">执行金额</div>
                         <div class="total-amount">总金额</div>
@@ -94,14 +97,14 @@
                     <div class="treatment-info">
                         <div class="name">骨伤、颈腰整脊手法</div>
                         <div class="price">100.00</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
                         <div class="number"> </div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：total-number -->
                         <div class="total-number">4</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：days -->
                         <div class="days">4天</div>
-                        <!-- 标签在右侧显示 -->
+                        <!-- 标签在右侧显示：execute -->
                         <div class="execute">4次</div>
                         <div class="amount"> </div>
                         <div class="total-amount">100.00</div>
@@ -119,14 +122,14 @@
                     <div class="treatment-info">
                         <div class="name">三位一体单次</div>
                         <div class="price">168.00</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
                         <div class="number"> </div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：total-number -->
                         <div class="total-number">4</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：days -->
                         <div class="days">4天</div>
-                        <!-- 标签在右侧显示 -->
+                        <!-- 标签在右侧显示：execute -->
                         <div class="execute">4次</div>
                         <div class="amount"> </div>
                         <div class="total-amount">168.00</div>
@@ -144,14 +147,14 @@
                     <div class="treatment-info">
                         <div class="name">穴位埋线（普通）</div>
                         <div class="price">35.00</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
                         <div class="number"> </div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：total-number -->
                         <div class="total-number">4</div>
-                        <!-- 标签在右侧隐藏 -->
+                        <!-- 标签在右侧隐藏：days -->
                         <div class="days">4天</div>
-                        <!-- 标签在右侧显示 -->
+                        <!-- 标签在右侧显示：execute -->
                         <div class="execute">4次</div>
                         <div class="amount"> </div>
                         <div class="total-amount">35.00</div>
@@ -225,7 +228,9 @@
                 </tr>
             </table>
             <div class="large-prescription" data-visible="patientSignature">
-                <div class="title">大额处方意见：<span class="checkbox"></span>同意</div>
+                <div class="title">
+                    大额处方意见：<span class="checkbox"></span>同意
+                </div>
                 <div class="signature">签名：</div>
             </div>
             <div class="divider"></div>
@@ -245,9 +250,7 @@
                     </div>
                 </div>
                 <div class="footer-note">
-                    <div class="note-content" data-field="remark">
-                        请按时按量执行，过期作废。治疗执行量请遵医嘱。
-                    </div>
+                    <div class="note-content" data-field="remark">请按时按量执行，过期作废。治疗执行量请遵医嘱。</div>
                     <div class="contact-info">
                         <div class="contact-item" data-visible="printTime">
                             打印时间：<span data-field="printTime">2023-06-28 09:45:33</span>

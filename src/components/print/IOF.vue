@@ -24,41 +24,42 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item">
-                    姓名：
-                    <span data-field="patientName">张三</span>
+                    姓名：<span data-field="patientName">张三</span>
                     <span data-field="patientGender">女</span>
                     <span data-field="patientAge">32岁</span>
                 </div>
                 <div class="info-item">
-                    诊号： <span data-field="medicalRecordCode">0009292</span><span data-visible="visitType"
-                        data-field="visitType">初诊</span>
+                    诊号：<span data-field="medicalRecordCode">0009292</span>
+                    <span data-visible="visitType" data-field="visitType">初诊</span>
                 </div>
-                <div class="info-item">日期：<span data-field="visitDate">2021-12-15</span></div>
+                <div class="info-item">
+                    日期：<span data-field="visitDate">2021-12-15</span>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
-                <div class="info-item">科室: <span data-field="department">内科</span></div>
+                <div class="info-item">科室：<span data-field="department">内科</span></div>
                 <div class="info-item">
-                    费别: <span data-visible="feeType" data-field="feeType">市医保(普通)</span><span data-visible="patientType"
-                        data-field="patientType">职工</span>
+                    费别：<span data-visible="feeType" data-field="feeType">市医保(普通)</span>
+                    <span data-visible="patientType" data-field="patientType">职工</span>
                 </div>
                 <div class="info-item" data-visible="patientMobile">
-                    手机: <span data-field="patientMobile">13900000000</span>
+                    手机：<span data-field="patientMobile">13900000000</span>
                 </div>
                 <div class="info-item row-two">
-                    诊断: <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                    诊断：<span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
                 </div>
                 <div class="info-item" data-visible="medicalInsuranceNo">
-                    医保号: <span data-field="medicalInsuranceNo">SG4348591</span>
+                    医保号：<span data-field="medicalInsuranceNo">SG4348591</span>
                 </div>
                 <div class="info-item row-two" data-visible="idCard">
-                    身份证: <span data-field="idCard">50000000000000000X</span>
+                    身份证：<span data-field="idCard">50000000000000000X</span>
                 </div>
                 <div class="info-item" data-visible="personalNo">
-                    个人编号: <span data-field="personalNo">TK1203163</span>
+                    个人编号：<span data-field="personalNo">TK1203163</span>
                 </div>
                 <div class="info-item" data-visible="archiveNo">
-                    档案号: <span data-field="archiveNo">000881</span>
+                    档案号：<span data-field="archiveNo">000881</span>
                 </div>
             </div>
             <div class="divider"></div>
@@ -89,36 +90,43 @@
                             <div class="group">
                                 <div class="medicine-item">
                                     <div class="medicine-top">
-                                        <div class="medicine-name">氯化钠注射液9%<span
-                                                class="product-name">(生理盐水)</span>(<span
-                                                class="medicine-spec">2.25g*250ml/瓶</span> × <span
-                                                class="medicine-quantity">1瓶</span>)</div>
+                                        <div class="medicine-name">
+                                            氯化钠注射液9%<span class="product-name">(生理盐水)</span>
+                                            (<span class="medicine-spec">2.25g*250ml/瓶</span>
+                                            × <span class="medicine-quantity">1瓶</span>)
+                                        </div>
                                         <div class="medicine-quantity">250ml</div>
                                     </div>
                                     <div class="medicine-footer">
-                                        <div class="manufacturer">厂家：<span>北京韩美</span>
+                                        <div class="manufacturer">
+                                            厂家：<span>北京韩美</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="medicine-item">
                                     <div class="medicine-top">
-                                        <div class="medicine-name">克林霉素磷酸酯注射液<span class="product-name"></span>(<span
-                                                class="medicine-spec">0.3g*2ml/支</span> × <span
-                                                class="medicine-quantity">4支</span>)
+                                        <div class="medicine-name">
+                                            克林霉素磷酸酯注射液<span class="product-name"></span>
+                                            (<span class="medicine-spec">0.3g*2ml/支</span>
+                                            × <span class="medicine-quantity">4支</span>)
                                         </div>
                                         <div class="medicine-quantity">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
-                                        <div class="manufacturer">厂家：<span>北京韩美</span></div>
+                                        <div class="manufacturer">
+                                            厂家：<span>北京韩美</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="infusion-bracket"></div>
                             <div class="infusion-instruction">
                                 <div class="infusion-content">
-                                    <span class="frequency">每天1次</span><span class="days">1天</span>
+                                    <span class="frequency">每天1次</span>
+                                    <span class="days">1天</span>
                                     <br />
-                                    <span class="method">静脉滴注</span><span class="speed">60滴/分钟</span>
+                                    <span class="method">静脉滴注</span>
+                                    <span class="speed">60滴/分钟</span>
                                 </div>
                             </div>
                         </div>
@@ -137,35 +145,43 @@
                             <div class="group">
                                 <div class="medicine-item">
                                     <div class="medicine-top">
-                                        <div class="medicine-name">葡萄糖氯化钠注射液<span class="product-name"></span>(<span
-                                                class="medicine-spec">12.5g*250ml/瓶</span> × <span
-                                                class="medicine-quantity">2瓶</span>)</div>
+                                        <div class="medicine-name">
+                                            葡萄糖氯化钠注射液<span class="product-name"></span>
+                                            (<span class="medicine-spec">12.5g*250ml/瓶</span>
+                                            × <span class="medicine-quantity">2瓶</span>)
+                                        </div>
                                         <div class="medicine-quantity">500ml</div>
                                     </div>
                                     <div class="medicine-footer">
-                                        <div class="manufacturer">厂家：<span>北京韩美</span>
+                                        <div class="manufacturer">
+                                            厂家：<span>北京韩美</span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="medicine-item">
                                     <div class="medicine-top">
-                                        <div class="medicine-name">维生素C注射液<span class="product-name"></span>(<span
-                                                class="medicine-spec">0.5g*2ml/支</span> × <span
-                                                class="medicine-quantity">3支</span>)
+                                        <div class="medicine-name">
+                                            维生素C注射液<span class="product-name"></span>
+                                            (<span class="medicine-spec">0.5g*2ml/支</span>
+                                            × <span class="medicine-quantity">3支</span>)
                                         </div>
-                                        <div class="medicine-quantity">15m</div>
+                                        <div class="medicine-quantity">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
-                                        <div class="manufacturer">厂家：<span>北京韩美</span></div>
+                                        <div class="manufacturer">
+                                            厂家：<span>北京韩美</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="infusion-bracket"></div>
                             <div class="infusion-instruction">
                                 <div class="infusion-content">
-                                    <span class="frequency">每天1次</span><span class="days">1天</span>
+                                    <span class="frequency">每天1次</span>
+                                    <span class="days">1天</span>
                                     <br />
-                                    <span class="method">静脉滴注</span><span class="speed">60滴/分钟</span>
+                                    <span class="method">静脉滴注</span>
+                                    <span class="speed">60滴/分钟</span>
                                 </div>
                             </div>
                         </div>
@@ -240,8 +256,12 @@
             <div class="divider"></div>
             <div class="footer">
                 <div class="doctor-info">
-                    <div class="info-item">医生：<span data-visible="doctorSignature" data-field="doctor">张仲景</span></div>
-                    <div class="info-item" data-visible="amount">金额：<span data-field="amount">33.90</span></div>
+                    <div class="info-item">
+                        医生：<span data-visible="doctorSignature" data-field="doctor">张仲景</span>
+                    </div>
+                    <div class="info-item" data-visible="amount">
+                        金额：<span data-field="amount">33.90</span>
+                    </div>
                     <div class="info-item" data-visible="auditor">
                         审核：<span data-visible="auditorSignature" data-field="auditor">李时珍</span>
                     </div>
@@ -253,9 +273,7 @@
                     </div>
                 </div>
                 <div class="footer-note">
-                    <div class="note-content" data-field="remark">
-                        请按时按量执行，过期作废。治疗执行量请遵医嘱。
-                    </div>
+                    <div class="note-content" data-field="remark">请按时按量执行，过期作废。治疗执行量请遵医嘱。</div>
                     <div class="contact-info">
                         <div class="contact-item" data-visible="printTime">
                             打印时间：<span data-field="printTime">2023-06-28 09:45:33</span>
@@ -456,6 +474,8 @@ const props = defineProps({
                         margin-left: 16pt;
 
                         .infusion-content {
+                            display: flex;
+
                             br {
                                 display: none;
                             }

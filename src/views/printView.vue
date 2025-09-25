@@ -85,8 +85,8 @@ const printTemplateGroup = {
 // 选择模板
 const selectedTemplateOption = [
     { label: '病历 MedicalRecord', value: 'MedicalRecord' },
-    { label: '成药处方 WmRx', value: 'WmRx' },
     { label: '中药处方 TcmRx', value: 'TcmRx' },
+    { label: '成药处方 WmRx', value: 'WmRx' },
     { label: '输注处方 IiRx', value: 'IiRx' },
     { label: '治疗理疗单 PTF', value: 'PTF' },
     { label: '输注单预览 IOF', value: 'IOF' },
@@ -121,7 +121,7 @@ const printPages = ref<string[]>([]);
 // 常量
 const paddingDefault = 0;
 const printDefaultSetting = {
-    paperSize: 'a5',
+    paperSize: 'a4',
     orientation: 'portrait',
     containerPaddingStyle: `padding: 0mm;`
 };

@@ -19,8 +19,7 @@
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
                     <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div>
                     <div class="title-sub" data-visible="documentType" data-field="documentType">
-                        处方笺
-                        <span data-visible="prescriptionType">(饮片)</span>
+                        处方笺<span data-visible="prescriptionType">(饮片)</span>
                     </div>
                 </div>
                 <div class="header-right">
@@ -32,8 +31,7 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item">
-                    姓名：
-                    <span data-field="patientName">李四</span>
+                    姓名：<span data-field="patientName">李四</span>
                     <span data-field="patientGender">男</span>
                     <span data-field="patientAge">45岁</span>
                 </div>
@@ -41,45 +39,60 @@
                     诊号：<span data-field="medicalRecordCode">0015678</span>
                     <span data-visible="visitType" data-field="visitType">复诊</span>
                 </div>
-                <div class="info-item">日期: <span data-field="visitDate">2023-06-28</span></div>
+                <div class="info-item">
+                    日期：<span data-field="visitDate">2023-06-28</span>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
                 <div class="info-item" data-visible="organizationMSC">
-                    机构编码: <span data-field="organizationMSC">B11010500123</span>
+                    机构编码：<span data-field="organizationMSC">B11010500123</span>
                 </div>
                 <div class="info-item row-two" data-visible="doctorMSC">
-                    医生编码: <span data-field="doctorMSC">D110108005678</span>
+                    医生编码：<span data-field="doctorMSC">D110108005678</span>
                 </div>
-                <div class="info-item">科室: <span data-field="department">中医科</span></div>
                 <div class="info-item">
-                    费别: <span data-visible="feeType" data-field="feeType">城乡居民医保</span>
+                    科室：<span data-field="department">中医科</span>
+                </div>
+                <div class="info-item">
+                    费别：<span data-visible="feeType" data-field="feeType">城乡居民医保</span>
                     <span data-visible="patientType" data-field="patientType">职工</span>
                 </div>
                 <div class="info-item" data-visible="patientMobile">
-                    手机: <span data-field="patientMobile">13812345678</span>
+                    手机：<span data-field="patientMobile">13812345678</span>
                 </div>
                 <div class="info-item row-two">
-                    诊断: <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                    诊断：<span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
                 </div>
                 <div class="info-item" data-visible="medicalInsuranceNo">
-                    医保号: <span data-field="medicalInsuranceNo">BJ7890123</span>
+                    医保号：<span data-field="medicalInsuranceNo">BJ7890123</span>
                 </div>
                 <div class="info-item row-two" data-visible="idCard">
-                    身份证: <span data-field="idCard">11010519780615XXXX</span>
+                    身份证：<span data-field="idCard">11010519780615XXXX</span>
                 </div>
                 <div class="info-item" data-visible="personalNo">
-                    个人编号: <span data-field="personalNo">GR9876543</span>
+                    个人编号：<span data-field="personalNo">GR9876543</span>
                 </div>
-                <div class="info-item" data-visible="archiveNo">档案号: <span data-field="archiveNo">D123456</span></div>
-                <div class="info-item" data-visible="birthDate">出生日期: <span data-field="birthDate">1978-06-15</span>
+                <div class="info-item" data-visible="archiveNo">
+                    档案号：<span data-field="archiveNo">D123456</span>
                 </div>
-                <div class="info-item" data-visible="weight">体重: <span data-field="weight">72kg</span></div>
-                <div class="info-item" data-visible="maritalStatus">婚否: <span data-field="maritalStatus">已婚</span></div>
-                <div class="info-item" data-visible="nationality">民族: <span data-field="nationality">满族</span></div>
-                <div class="info-item" data-visible="job">职业: <span data-field="job">教师</span></div>
+                <div class="info-item" data-visible="birthDate">
+                    出生日期：<span data-field="birthDate">1978-06-15</span>
+                </div>
+                <div class="info-item" data-visible="weight">
+                    体重：<span data-field="weight">72kg</span>
+                </div>
+                <div class="info-item" data-visible="maritalStatus">
+                    婚否：<span data-field="maritalStatus">已婚</span>
+                </div>
+                <div class="info-item" data-visible="nationality">
+                    民族：<span data-field="nationality">满族</span>
+                </div>
+                <div class="info-item" data-visible="job">
+                    职业：<span data-field="job">教师</span>
+                </div>
                 <div class="info-item row-three" data-visible="address">
-                    地址: <span data-field="address">北京市朝阳区建国路88号院3号楼1202</span>
+                    地址：<span data-field="address">北京市朝阳区建国路88号院3号楼1202</span>
                 </div>
             </div>
             <div class="divider"></div>
@@ -92,8 +105,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">a-2-089</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.02/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥3.60</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.02/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥3.60</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">当归</div>
@@ -106,8 +123,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">b-3-156</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.05/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥7.50</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.05/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥7.50</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">黄芪</div>
@@ -120,8 +141,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">c-1-072</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.04/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥4.80</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.04/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥4.80</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">白术</div>
@@ -134,8 +159,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">d-4-110</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.06/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥5.40</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.06/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥5.40</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">防风</div>
@@ -148,8 +177,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">e-5-033</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.03/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥3.80</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.03/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥3.80</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">甘草</div>
@@ -162,8 +195,12 @@
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
                         <div class="cabinet-number" data-visible="tcmCabinetNo">f-2-095</div>
-                        <div class="price-unit" data-visible="tcmPrice"><span>¥0.08/g</span></div>
-                        <div class="price-total" data-visible="tcmTotalAmount">，<span>共¥9.60</span></div>
+                        <div class="price-unit" data-visible="tcmPrice">
+                            <span>¥0.08/g</span>
+                        </div>
+                        <div class="price-total" data-visible="tcmTotalAmount">
+                            ，<span>共¥9.60</span>
+                        </div>
                     </div>
                     <div class="medicine-body">
                         <div class="medicine-name">川芎</div>
@@ -178,11 +215,13 @@
                 <div class="usage-label">用法</div>
                 <div class="usage-separator">：</div>
                 <div class="usage-content">
-                    <div class="usage-item">共<span data-field="tcmDosage"> 3 </span>剂，</div>
+                    <div class="usage-item">
+                        共<span data-field="tcmDosage"> 3 </span>剂，
+                    </div>
                     <div class="usage-item" data-visible="tcmTotalWeight">
-                        <span data-field="tcmMedicineCount">6</span> 味，单剂 <span data-field="tcmTotalDose">68.00</span>
-                        g，总重
-                        <span data-field="tcmTotalWeight">204.00</span> g，
+                        <span data-field="tcmMedicineCount">6</span> 味，
+                        单剂 <span data-field="tcmTotalDose">68.00</span> g，
+                        总重 <span data-field="tcmTotalWeight">204.00</span> g，
                     </div>
                     <div class="usage-item" data-field="tcmUsage">煎服，1日1剂，1日2次，每次200ml，饭前30分钟服用</div>
                 </div>
@@ -217,14 +256,20 @@
         <!-- 页脚内容 -->
         <template #footer>
             <div class="large-prescription" data-visible="patientSignature">
-                <div class="title">大额处方意见：<span class="checkbox"></span>同意</div>
+                <div class="title">
+                    大额处方意见：<span class="checkbox"></span>同意
+                </div>
                 <div class="signature">签名：</div>
             </div>
             <div class="divider"></div>
             <div class="footer">
                 <div class="doctor-info">
-                    <div class="info-item">医生：<span data-visible="doctorSignature" data-field="doctor">张仲景</span></div>
-                    <div class="info-item" data-visible="amount">金额：<span data-field="amount">33.90</span></div>
+                    <div class="info-item">
+                        医生：<span data-visible="doctorSignature" data-field="doctor">张仲景</span>
+                    </div>
+                    <div class="info-item" data-visible="amount">
+                        金额：<span data-field="amount">33.90</span>
+                    </div>
                     <div class="info-item" data-visible="auditor">
                         审核：<span data-visible="auditorSignature" data-field="auditor">李时珍</span>
                     </div>
@@ -236,9 +281,7 @@
                     </div>
                 </div>
                 <div class="footer-note">
-                    <div class="note-content" data-field="remark">
-                        除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。
-                    </div>
+                    <div class="note-content" data-field="remark">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
                     <div class="contact-info">
                         <div class="contact-item" data-visible="printTime">
                             打印时间：<span data-field="printTime">2023-06-28 09:45:33</span>
@@ -458,5 +501,4 @@ const props = defineProps({
         }
     }
 }
-
 </style>

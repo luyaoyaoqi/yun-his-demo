@@ -94,8 +94,11 @@
         margin-bottom: 6pt;
         word-break: break-all;
         flex-basis: calc(33.33% - 6pt);
+        display: flex;
+        white-space: nowrap;
 
         span {
+            white-space: wrap;
             &:not(:first-child) {
                 margin-left: 4px;
             }

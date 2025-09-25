@@ -123,9 +123,11 @@
                             <div class="medicine-name">
                                 氯化钠注射液9%
                                 <span class="product-name">(生理盐水)</span>
-                                (<span class="medicine-spec">2.25g*250ml/瓶</span>
+                                (
+                                <span class="medicine-spec">2.25g*250ml/瓶</span>
                                 ×
-                                <span class="medicine-quantity">1瓶</span>)
+                                <span class="medicine-quantity">1瓶</span>
+                                )
                             </div>
                             <div class="usage">
                                 <!-- 皮试 -->

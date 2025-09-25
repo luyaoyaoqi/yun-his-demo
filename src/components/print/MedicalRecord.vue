@@ -24,59 +24,75 @@
             </div>
             <div class="patient-basic-info">
                 <div class="info-item">
-                    姓名：<span data-field="patientName">张三</span>
+                    姓名：
+                    <span data-field="patientName">张三</span>
                     <span data-field="patientGender">女</span>
                     <span data-field="patientAge">32岁</span>
                 </div>
                 <div class="info-item">
-                    诊号：<span data-field="medicalRecordCode">0009292</span>
+                    诊号：
+                    <span data-field="medicalRecordCode">0009292</span>
                     <span data-visible="visitType" data-field="visitType">初诊</span>
                 </div>
                 <div class="info-item">
-                    日期：<span data-field="visitDate">2021-12-15</span>
+                    日期：
+                    <span data-field="visitDate">2021-12-15</span>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="patient-detail-info">
                 <div class="info-item">
-                    科室：<span data-field="department">内科</span>
+                    科室：
+                    <span data-field="department">内科</span>
                 </div>
                 <div class="info-item">
-                    费别：<span data-visible="feeType" data-field="feeType">市医保(普通)</span>
+                    费别：
+                    <span data-visible="feeType" data-field="feeType">市医保(普通)</span>
                     <span data-visible="patientType" data-field="patientType">职工</span>
                 </div>
                 <div class="info-item" data-visible="patientMobile">
-                    手机：<span data-field="patientMobile">13900000000</span>
+                    手机：
+                    <span data-field="patientMobile">13900000000</span>
                 </div>
                 <div class="info-item row-two" data-visible="idCard">
-                    身份证：<span data-field="idCard">50000000000000000X</span>
+                    身份证：
+                    <span data-field="idCard">50000000000000000X</span>
                 </div>
                 <div class="info-item" data-visible="personalNo">
-                    个人编号：<span data-field="personalNo">TK1203163</span>
+                    个人编号：
+                    <span data-field="personalNo">TK1203163</span>
                 </div>
                 <div class="info-item" data-visible="medicalInsuranceNo">
-                    医保号：<span data-field="medicalInsuranceNo">SG4348591</span>
+                    医保号：
+                    <span data-field="medicalInsuranceNo">SG4348591</span>
                 </div>
                 <div class="info-item" data-visible="archiveNo">
-                    档案号：<span data-field="archiveNo">000881</span>
+                    档案号：
+                    <span data-field="archiveNo">000881</span>
                 </div>
                 <div class="info-item" data-visible="birthDate">
-                    出生日期：<span data-field="birthDate">1999-12-15</span>
+                    出生日期：
+                    <span data-field="birthDate">1999-12-15</span>
                 </div>
                 <div class="info-item" data-visible="weight">
-                    体重：<span data-field="weight">45kg</span>
+                    体重：
+                    <span data-field="weight">45kg</span>
                 </div>
                 <div class="info-item" data-visible="maritalStatus">
-                    婚否：<span data-field="maritalStatus">未婚</span>
+                    婚否：
+                    <span data-field="maritalStatus">未婚</span>
                 </div>
                 <div class="info-item" data-visible="nationality">
-                    民族：<span data-field="nationality">汉族</span>
+                    民族：
+                    <span data-field="nationality">汉族</span>
                 </div>
                 <div class="info-item" data-visible="job">
-                    职业：<span data-field="job">职员</span>
+                    职业：
+                    <span data-field="job">职员</span>
                 </div>
                 <div class="info-item row-three" data-visible="address">
-                    地址：<span data-field="address">上海市闵行区申昆路1999号2号705</span>
+                    地址：
+                    <span data-field="address">上海市闵行区申昆路1999号2号705</span>
                 </div>
             </div>
             <div class="divider"></div>
@@ -115,20 +131,24 @@
             </div>
             <div class="patent-medicine-item" data-visible="treatment" data-field="cpmList">
                 <div class="medicine-name">
-                    四季抗病毒合剂<span data-visible="cpmSpec">(120ml/瓶)</span>
+                    四季抗病毒合剂
+                    <span data-visible="cpmSpec">(120ml/瓶)</span>
                 </div>
                 <div class="medicine-quantity">×1瓶</div>
                 <div class="medicine-dosage">
-                    每次5ml 每天1次<span data-visible="cpmUseDay">1天</span>
+                    每次5ml 每天1次
+                    <span data-visible="cpmUseDay">1天</span>
                 </div>
             </div>
             <div class="patent-medicine-item" data-visible="treatment" data-field="cpmList">
                 <div class="medicine-name">
-                    小柴胡颗粒<span data-visible="cpmSpec">(10g*10包/盒)</span>
+                    小柴胡颗粒
+                    <span data-visible="cpmSpec">(10g*10包/盒)</span>
                 </div>
                 <div class="medicine-quantity">×1瓶</div>
                 <div class="medicine-dosage">
-                    每次5ml 每天1次<span data-visible="cpmUseDay">1天</span>
+                    每次5ml 每天1次
+                    <span data-visible="cpmUseDay">1天</span>
                 </div>
             </div>
             <div class="infusion-section-item" data-visible="treatment" data-field="infusionList">
@@ -179,23 +199,28 @@
             <div class="footer">
                 <div class="doctor-info">
                     <div class="info-item">
-                        医生：<span data-field="doctorName">胡青牛</span>
+                        医生：
+                        <span data-field="doctorName">胡青牛</span>
                     </div>
                     <div class="info-item" data-visible="amount">
-                        金额：<span data-field="amount">0.00</span>
+                        金额：
+                        <span data-field="amount">0.00</span>
                     </div>
                     <div class="info-item" data-visible="printTime">
-                        打印时间：<span data-field="printTime">2025-08-15 11:11:07</span>
+                        打印时间：
+                        <span data-field="printTime">2025-08-15 11:11:07</span>
                     </div>
                 </div>
                 <div class="footer-note">
                     <div class="note-content" data-field="remark">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
                     <div class="contact-info">
                         <div class="contact-item" data-visible="doctorMobile">
-                            电话：<span data-field="doctorMobile">13882100001</span>
+                            电话：
+                            <span data-field="doctorMobile">13882100001</span>
                         </div>
                         <div class="contact-item" data-visible="doctorAddress">
-                            地址：<span data-field="doctorAddress">惠民佳苑北路东南侧西部</span>
+                            地址：
+                            <span data-field="doctorAddress">惠民佳苑北路东南侧西部</span>
                         </div>
                     </div>
                 </div>

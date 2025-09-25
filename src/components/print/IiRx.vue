@@ -30,8 +30,8 @@
                 <div class="info-item">
                     姓名：
                     <span data-field="patientName">李四</span>
-                    <span data-field="patientAge">45岁</span>
                     <span data-field="patientGender">男</span>
+                    <span data-field="patientAge">45岁</span>
                 </div>
                 <div class="info-item" data-visible="medicalRecordCode">
                     诊号：<span data-field="medicalRecordCode">0015678</span>

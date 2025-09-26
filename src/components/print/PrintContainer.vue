@@ -313,18 +313,6 @@ body {
     &.a5.portrait {
         width: 138mm;
         height: 200mm;
-
-        :deep(.patient-detail-info,.patient-basic-info) {
-            .info-item {
-                &.row-three {
-                    flex-basis: 100%;
-                }
-
-                &.row-two {
-                    flex-basis: calc(66.67% - 6pt);
-                }
-            }
-        }
     }
 
     &.a4.portrait {

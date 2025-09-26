@@ -183,10 +183,7 @@
                         医生：
                         <span data-field="doctorName">胡青牛</span>
                     </div>
-                    <div class="info-item" data-visible="amount">
-                        金额：
-                        <span data-field="amount">0.00</span>
-                    </div>
+                    <div class="info-item">盖章：</div>
                     <div class="info-item" data-visible="printTime">
                         打印时间：
                         <span data-field="printTime">2025-08-15 11:11:07</span>

@@ -72,6 +72,7 @@ import IiRx from '@/components/print/IiRx.vue';
 import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
 import IOF from '@/components/print/IOF.vue';
+import DC from '@/components/print/DC.vue';
 
 const printTemplateGroup = {
     TcmRx,
@@ -80,6 +81,7 @@ const printTemplateGroup = {
     MedicalRecord,
     PTF,
     IOF,
+    DC,
 }
 
 // 选择模板
@@ -90,6 +92,7 @@ const selectedTemplateOption = [
     { label: '输注处方 IiRx', value: 'IiRx' },
     { label: '治疗理疗单 PTF', value: 'PTF' },
     { label: '输注单预览 IOF', value: 'IOF' },
+    { label: '诊断证明书 DC', value: 'DC' },
 ]
 
 // 类型定义

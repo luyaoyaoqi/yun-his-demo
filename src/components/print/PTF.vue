@@ -177,6 +177,110 @@
                 <!-- 标签在右侧显示 -->
                 <div class="signature"></div>
             </div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-item signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">【套】综合调养套餐</div>
+                        <div class="price">100.00</div>
+                        <!-- 标签在右侧隐藏：unit -->
+                        <div class="unit">次</div>
+                        <div class="number"></div>
+                        <!-- 标签在右侧隐藏：total-number -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏：days -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示：execute -->
+                        <div class="execute"></div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">400.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法：
+                        <span>2日1次，4天，共4次</span>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
+            </div>
+            <!-- 标签在右侧添加signature-right，子项添加is-children -->
+            <div class="treatment-item is-children signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">1. 穴位贴敷</div>
+                        <div class="price">20.00</div>
+                        <!-- 标签在右侧隐藏：unit -->
+                        <div class="unit">次</div>
+                        <div class="number">1</div>
+                        <!-- 标签在右侧隐藏：total-number -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏：days -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示：execute -->
+                        <div class="execute"></div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">100.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法：
+                        <span>2日1次，4天，共4次</span>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
+            </div>
+            <!-- 标签在右侧添加signature-right，子项添加is-children -->
+            <div class="treatment-item is-children signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">2. 电针灸</div>
+                        <div class="price">60.00</div>
+                        <!-- 标签在右侧隐藏：unit -->
+                        <div class="unit">次</div>
+                        <div class="number">1</div>
+                        <!-- 标签在右侧隐藏：total-number -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏：days -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示：execute -->
+                        <div class="execute"></div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">300.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法：
+                        <span>2日1次，4天，共4次</span>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
+            </div>
+            <!-- 标签在右侧添加signature-right，子项添加is-children -->
+            <div class="treatment-item is-children signature-right">
+                <div class="treatment-info-box">
+                    <div class="treatment-info">
+                        <div class="name">3. 推拿</div>
+                        <div class="price">60.00</div>
+                        <!-- 标签在右侧隐藏：unit -->
+                        <div class="unit">次</div>
+                        <div class="number">1</div>
+                        <!-- 标签在右侧隐藏：total-number -->
+                        <div class="total-number">4</div>
+                        <!-- 标签在右侧隐藏：days -->
+                        <div class="days">4天</div>
+                        <!-- 标签在右侧显示：execute -->
+                        <div class="execute"></div>
+                        <div class="amount"> </div>
+                        <div class="total-amount">100.00</div>
+                    </div>
+                    <div class="treatment-instruction">
+                        用法：
+                        <span>2日1次，4天，共4次</span>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示 -->
+                <div class="signature"></div>
+            </div>
             <div class="blank-section">
                 <div class="divider dashed"></div>
                 <div class="blank-text">以下空白</div>
@@ -411,7 +515,18 @@ const props = defineProps({
             padding: 4pt 0 4pt 6pt;
             margin-left: 6pt;
         }
+    }
 
+    &.is-children {
+        .treatment-info-box {
+            .treatment-info {
+                padding-left: 16pt;
+            }
+
+            .treatment-instruction {
+                display: none;
+            }
+        }
     }
 }
 

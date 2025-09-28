@@ -15,8 +15,18 @@ body {
 
   main {
     margin: 0 !important;
+
     .print-editor-box {
       display: none !important;
     }
   }
+}
+
+/* 隐藏下拉箭头 */
+.el-popper__arrow {
+  display: none;
+}
+
+.el-popper {
+  margin-top: -8px;
 }

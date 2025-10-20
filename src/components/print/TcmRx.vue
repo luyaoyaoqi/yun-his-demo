@@ -6,7 +6,6 @@
             <div class="header">
                 <div class="header-left">
                     <div class="qr-code">
-                        <!-- 默认条码 -->
                         <img data-visible="barcode" data-field="barcode"
                             src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
                     </div>
@@ -19,14 +18,13 @@
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
                     <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div>
-                    <div class="title-sub" data-visible="documentType" data-field="documentType">
-                        处方笺
-                        <span data-visible="prescriptionType">(饮片)</span>
+                    <div class="title-sub" data-visible="documentType">
+                        <span data-field="documentType" data-visible="documentType">中医处方笺</span>
+                        <span data-visible="prescriptionType" data-field="prescriptionType">(饮片)</span>
                     </div>
                 </div>
                 <div class="header-right">
                     <div class="qr-code">
-                        <!-- 默认二维码 -->
                         <img data-visible="qrcode" data-field="qrcode"
                             src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
                     </div>

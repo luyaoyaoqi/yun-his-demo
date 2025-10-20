@@ -6,7 +6,6 @@
             <div class="header">
                 <div class="header-left">
                     <div class="qr-code" data-field="barcode">
-                        <!-- 默认条码 -->
                         <img data-visible="barcode" src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
                     </div>
                     <div class="service">
@@ -21,7 +20,6 @@
                 </div>
                 <div class="header-right">
                     <div class="qr-code" data-field="qrcode">
-                        <!-- 默认二维码 -->
                         <img data-visible="qrcode" src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
                     </div>
                 </div>

@@ -12,7 +12,6 @@
                 </div>
                 <div class="header-right">
                     <div class="qr-code">
-                        <!-- 默认二维码 -->
                         <img data-visible="qrcode" data-field="qrcode"
                             src="https://qaweb.macrocura.com/yunhis/qrcode.png" alt="二维码" />
                     </div>

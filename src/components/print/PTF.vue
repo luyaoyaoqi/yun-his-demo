@@ -79,7 +79,7 @@
         <!-- 主内容 -->
         <template #main>
             <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-head signature-right">
+            <div class="treatment-head">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">项目</div>
@@ -101,7 +101,7 @@
                 <div class="signature">时间/签名</div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item signature-right">
+            <div class="treatment-item">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">骨伤、颈腰整脊手法</div>
@@ -127,7 +127,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item signature-right">
+            <div class="treatment-item">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">三位一体单次</div>
@@ -152,7 +152,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item signature-right">
+            <div class="treatment-item">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">穴位埋线（普通）</div>
@@ -178,7 +178,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item signature-right">
+            <div class="treatment-item">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">【套】综合调养套餐</div>
@@ -204,7 +204,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children signature-right">
+            <div class="treatment-item is-children">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">1. 穴位贴敷</div>
@@ -230,7 +230,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children signature-right">
+            <div class="treatment-item is-children">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">2. 电针灸</div>
@@ -256,7 +256,7 @@
                 <div class="signature"></div>
             </div>
             <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children signature-right">
+            <div class="treatment-item is-children">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
                         <div class="name">3. 推拿</div>
@@ -293,54 +293,58 @@
         <template #footer>
             <!-- 标签在下方 -->
             <table class="signature-section">
-                <tr>
-                    <th>执行时间</th>
-                    <th>执行签名</th>
-                    <th>患者签名</th>
-                    <th>执行时间</th>
-                    <th>执行签名</th>
-                    <th>患者签名</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>执行时间</th>
+                        <th>执行签名</th>
+                        <th>患者签名</th>
+                        <th>执行时间</th>
+                        <th>执行签名</th>
+                        <th>患者签名</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
             </table>
             <div class="large-prescription" data-visible="patientSignature">
                 <div class="title">

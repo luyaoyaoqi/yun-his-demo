@@ -81,7 +81,7 @@
         <!-- 主内容 -->
         <template #main>
             <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-head signature-right">
+            <div class="infusion-head">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
                         <!-- 标签在右侧显示 -->
@@ -95,7 +95,7 @@
                 <div class="signature">时间/签名</div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-item signature-right">
+            <div class="infusion-item">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
                         <div class="infusion-medicine-item">
@@ -160,7 +160,7 @@
                 <div class="signature"></div>
                 <div class="signature"></div>
             </div>
-            <div class="infusion-item signature-right">
+            <div class="infusion-item">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
                         <div class="infusion-medicine-item">
@@ -237,54 +237,58 @@
         <template #footer>
             <!-- 标签在下方 -->
             <table class="signature-section">
-                <tr>
-                    <th>执行时间</th>
-                    <th>执行签名</th>
-                    <th>患者签名</th>
-                    <th>执行时间</th>
-                    <th>执行签名</th>
-                    <th>患者签名</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>执行时间</th>
+                        <th>执行签名</th>
+                        <th>患者签名</th>
+                        <th>执行时间</th>
+                        <th>执行签名</th>
+                        <th>患者签名</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
             </table>
             <div class="divider"></div>
             <div class="footer">

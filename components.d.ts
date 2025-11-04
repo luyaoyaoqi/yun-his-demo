@@ -10,8 +10,11 @@ declare module 'vue' {
   export interface GlobalComponents {
     ChargeReceipt: typeof import('./src/components/print/ChargeReceipt.vue')['default']
     copy: typeof import('./src/components/print/IiRx copy.vue')['default']
+    CRT: typeof import('./src/components/print/CRT.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     DC: typeof import('./src/components/print/DC.vue')['default']
+    DispensingReceipt: typeof import('./src/components/print/DispensingReceipt.vue')['default']
+    DRT: typeof import('./src/components/print/DRT.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']

@@ -101,7 +101,7 @@ const selectedTemplateOption = [
     { label: '输注单预览 IOF', value: 'IOF' },
     { label: '诊断证明书 DC', value: 'DC' },
     { label: '收费小票 CRT', value: 'CRT' },
-    { label: '收费小票 DRT', value: 'DRT' },
+    { label: '发药小票 DRT', value: 'DRT' },
 ]
 
 // 类型定义

@@ -8,6 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ChargeReceipt: typeof import('./src/components/print/ChargeReceipt.vue')['default']
     copy: typeof import('./src/components/print/IiRx copy.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     DC: typeof import('./src/components/print/DC.vue')['default']

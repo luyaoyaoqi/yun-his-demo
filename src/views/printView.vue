@@ -76,7 +76,7 @@ import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
 import IOF from '@/components/print/IOF.vue';
 import DC from '@/components/print/DC.vue';
-import Receipt from '@/components/print/Receipt.vue';
+import ChargeReceipt from '@/components/print/ChargeReceipt.vue';
 
 const printTemplateGroup = {
     TcmRx,
@@ -86,7 +86,7 @@ const printTemplateGroup = {
     PTF,
     IOF,
     DC,
-    Receipt,
+    ChargeReceipt,
 }
 
 // 选择模板
@@ -98,7 +98,7 @@ const selectedTemplateOption = [
     { label: '治疗理疗单 PTF', value: 'PTF' },
     { label: '输注单预览 IOF', value: 'IOF' },
     { label: '诊断证明书 DC', value: 'DC' },
-    { label: '收费小票 Receipt', value: 'Receipt' },
+    { label: '收费小票 ChargeReceipt', value: 'ChargeReceipt' },
 ]
 
 // 类型定义

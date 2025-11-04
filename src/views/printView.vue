@@ -23,6 +23,9 @@
                         <el-option label="A5" value="a5" />
                         <el-option label="B6" value="b6" />
                         <el-option label="Letter" value="letter" />
+                        <el-option label="热敏小票 (80mm)" value="thermal80" />
+                        <el-option label="热敏小票 (58mm)" value="thermal58" />
+                        <el-option label="热敏小票 (100mm)" value="thermal100" />
                     </el-select>
                 </el-form-item>
 
@@ -73,6 +76,7 @@ import MedicalRecord from '@/components/print/MedicalRecord.vue';
 import PTF from '@/components/print/PTF.vue';
 import IOF from '@/components/print/IOF.vue';
 import DC from '@/components/print/DC.vue';
+import Receipt from '@/components/print/Receipt.vue';
 
 const printTemplateGroup = {
     TcmRx,
@@ -82,6 +86,7 @@ const printTemplateGroup = {
     PTF,
     IOF,
     DC,
+    Receipt,
 }
 
 // 选择模板
@@ -93,6 +98,7 @@ const selectedTemplateOption = [
     { label: '治疗理疗单 PTF', value: 'PTF' },
     { label: '输注单预览 IOF', value: 'IOF' },
     { label: '诊断证明书 DC', value: 'DC' },
+    { label: '收费小票 Receipt', value: 'Receipt' },
 ]
 
 // 类型定义
@@ -124,7 +130,7 @@ const printPages = ref<string[]>([]);
 // 常量
 const paddingDefault = 0;
 const printDefaultSetting = {
-    paperSize: 'a4',
+    paperSize: 'thermal80',
     orientation: 'portrait',
     containerPaddingStyle: `padding: 0mm;`
 };
@@ -133,7 +139,10 @@ const paperSizeMap: Record<string, PaperSize> = {
     'a4': { width: 210, height: 297, name: 'A4' },
     'a5': { width: 148, height: 210, name: 'A5' },
     'b6': { width: 125, height: 176, name: 'B6' },
-    'letter': { width: 216, height: 279, name: 'Letter' }
+    'letter': { width: 216, height: 279, name: 'Letter' },
+    'thermal80': { width: 80, height: 0, name: '热敏小票 (80mm)' },
+    'thermal58': { width: 58, height: 0, name: '热敏小票 (58mm)' },
+    'thermal100': { width: 100, height: 0, name: '热敏小票 (100mm)' },
 };
 
 // 打印设置
@@ -206,6 +215,27 @@ const createPrintPage = () => {
 
     const pageElements = Array.from(printElement.children).slice(1) as HTMLElement[];
 
+    //根据paperSizeMap[printSetting.paperSize].height是否等于0，如果等于0，就获取第一个pageElement的宽度和高度的比例，然后根据paperSizeMap[printSetting.paperSize].width，重新给高度复制
+    if (paperSizeMap[printSetting.paperSize].height === 0 && pageElements.length > 0) {
+        // 获取第一个页面元素的实际宽高
+        const firstPageElement = pageElements[0];
+        const firstPageWidth = firstPageElement.offsetWidth;
+        const firstPageHeight = firstPageElement.offsetHeight;
+
+        // 计算宽高比
+        if (firstPageWidth > 0 && firstPageHeight > 0) {
+            const aspectRatio = firstPageHeight / firstPageWidth;
+
+            // 根据当前纸张宽度和宽高比计算高度
+            const currentPaperWidth = paperSizeMap[printSetting.paperSize].width;
+            const calculatedHeight = Math.round(currentPaperWidth * aspectRatio);
+
+            // 更新paperSizeMap中对应纸张的高度
+            paperSizeMap[printSetting.paperSize].height = calculatedHeight;
+        }
+        // console.log('paperSizeMap[printSetting.paperSize].height', paperSizeMap[printSetting.paperSize].height);
+    }
+
     // @ts-ignore
     const printStyle1 = Array.from(document.querySelectorAll('style[data-vite-dev-id*="PrintContainer.vue"]')).slice(1).map(el => el.outerHTML).join('\n') || '';
     // @ts-ignore
@@ -218,6 +248,7 @@ const createPrintPage = () => {
     pageElements.forEach((pageElement, index) => {
         // 创建一个清理后的元素副本
         const cleanPageElement = pageElement.cloneNode(true) as HTMLElement;
+
 
         // 移除所有 data-v- 开头的属性
         const allElements = [cleanPageElement, ...Array.from(cleanPageElement.querySelectorAll('*'))];
@@ -314,7 +345,7 @@ const createPrintPage = () => {
                 // 取两者的最小值作为最终缩放比例
                 const finalRatio = Math.min(heightRatio, widthRatio);
                 if (finalRatio < 1) {
-                    iframeContent.value.style.zoom = finalRatio.toFixed(2).toString();
+                    iframeContent.value.style.zoom = finalRatio < 0.5 ? '0.5' : finalRatio.toFixed(2).toString();
                 }
             };
         });

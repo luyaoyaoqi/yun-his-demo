@@ -305,8 +305,8 @@ body {
     display: flex;
     flex-direction: column;
     //默认尺寸
-    width: 138mm;
-    height: 200mm;
+    // width: 138mm;
+    // height: 200mm;
     box-sizing: border-box;
 
     // 纵向尺寸
@@ -364,6 +364,22 @@ body {
     &.letter.landscape {
         width: 269mm;
         height: 206mm;
+    }
+
+    //热敏小票相关样式
+    &.thermal80 {
+        width: 80mm;
+        height: auto;
+    }
+
+    &.thermal58 {
+        width: 58mm;
+        height: auto;
+    }
+
+    &.thermal100 {
+        width: 100mm;
+        height: auto;
     }
 
     .print-header {

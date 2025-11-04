@@ -8,7 +8,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./src/components/print/MedicalRecord copy.vue')['default']
+    copy: typeof import('./src/components/print/IiRx copy.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     DC: typeof import('./src/components/print/DC.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
@@ -45,6 +45,7 @@ declare module 'vue' {
     PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']
     PTF: typeof import('./src/components/print/PTF.vue')['default']
     PTTx: typeof import('./src/components/print/PTTx.vue')['default']
+    Receipt: typeof import('./src/components/print/Receipt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TcmRx: typeof import('./src/components/print/TcmRx.vue')['default']

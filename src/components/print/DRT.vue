@@ -223,6 +223,10 @@
                         收费员：
                         <span data-visible="dispatcherSignature" data-field="dispatcher">张龙</span>
                     </div>
+                    <div class="info-item" data-visible="amount">
+                        金额：
+                        <span data-field="amount">33.90</span>
+                    </div>
                     <div class="info-item" data-visible="auditor">
                         审核：
                         <span data-visible="auditorSignature" data-field="auditor"></span>

@@ -370,17 +370,17 @@ body {
 
     //热敏小票相关样式
     &.thermal80 {
-        width: 80mm;
+        width: 74mm;
         height: auto;
     }
 
     &.thermal58 {
-        width: 58mm;
+        width: 52mm;
         height: auto;
     }
 
     &.thermal100 {
-        width: 100mm;
+        width: 94mm;
         height: auto;
     }
 

@@ -133,7 +133,7 @@ const printPages = ref<string[]>([]);
 // 常量
 const paddingDefault = 0;
 const printDefaultSetting = {
-    paperSize: 'thermal80',
+    paperSize: 'a5',
     orientation: 'portrait',
     containerPaddingStyle: `padding: 0mm;`
 };
@@ -143,9 +143,9 @@ const paperSizeMap: Record<string, PaperSize> = {
     'a5': { width: 148, height: 210, name: 'A5' },
     'b6': { width: 125, height: 176, name: 'B6' },
     'letter': { width: 216, height: 279, name: 'Letter' },
-    'thermal80': { width: 80, height: 0, name: '热敏小票 (80mm)' },
-    'thermal58': { width: 58, height: 0, name: '热敏小票 (58mm)' },
-    'thermal100': { width: 100, height: 0, name: '热敏小票 (100mm)' },
+    'thermal80': { width: 74, height: 0, name: '热敏小票 (80mm)' },
+    'thermal58': { width: 52, height: 0, name: '热敏小票 (58mm)' },
+    'thermal100': { width: 94, height: 0, name: '热敏小票 (100mm)' },
 };
 
 // 打印设置

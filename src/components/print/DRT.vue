@@ -5,12 +5,20 @@
         <template #header>
             <div class="header">
                 <div class="header-title">
-                    <div class="title-main" data-field="organizationName">上海脉景工作室</div>
-                    <!-- <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div> -->
+                    <div class="big-mark">
+                        <span>加工</span>
+                        <span>快递</span>
+                    </div>
                     <div class="title-qr" data-field="barcode">
                         <img data-visible="barcode" src="https://qaweb.macrocura.com/yunhis/barcode.png" alt="条码" />
                     </div>
-                    <div class="title-sub" data-visible="documentType" data-field="documentType">收费单</div>
+                    <div class="picking-time">
+                        <span>09-23 17:00</span>
+                        <span>取药</span>
+                    </div>
+                    <div class="title-main" data-field="organizationName">上海脉景工作室</div>
+                    <!-- <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div> -->
+                    <div class="title-sub" data-visible="documentType" data-field="documentType">发药单</div>
                 </div>
             </div>
             <div class="receipt-detail-info">
@@ -24,89 +32,96 @@
                     手机：
                     <span data-field="patientMobile">13812345678</span>
                 </div>
-                <div class="info-item" data-visible="idCard">
-                    身份证：
-                    <span data-field="idCard">11010519780615XXXX</span>
-                </div>
                 <div class="info-item" data-visible="medicalRecordCode">
                     诊号：
                     <span data-field="medicalRecordCode">0015678</span>
                     <!-- <span data-visible="visitType" data-field="visitType">复诊</span> -->
                 </div>
                 <div class="info-item">
+                    科室：
+                    <span data-field="department">内科</span>
+                </div>
+                <div class="info-item">
                     医生：
                     <span data-visible="doctorSignature" data-field="doctor">张仲景</span>
                 </div>
                 <div class="info-item">
-                    开单人：
-                    <span>孙思邈</span>
+                    诊断：
+                    <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
                 </div>
             </div>
         </template>
 
         <!-- 主内容 -->
         <template #main>
-            <!-- 项目名一行显示加label-line-1 -->
-            <div class="receipt-detail-info label-line-1">
 
-                <!-- 挂号费 -->
-                <div class="registration-fee">
-                    <div class="divider dashed"></div>
-                    <div class="info-item">
-                        <span class="label">诊费</span>
-                        <span class="times">1次</span>
-                        <span class="total-prices">10.00</span>
-                    </div>
-                </div>
-
-                <!-- 治疗理疗 -->
-                <div class="treatment-and-therapy">
-                    <div class="divider dashed"></div>
-                    <!-- 治疗理疗:合并 -->
-                    <div class="info-item">
-                        <span class="label">治疗理疗费</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
-                    <!-- 治疗理疗:单项 -->
-                    <div class="info-item">
-                        <span class="label">拔罐</span>
-                        <span class="unit-price">25.00</span>
-                        <span class="times">1次</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
-                </div>
-
+            <div class="receipt-detail-info">
                 <!-- 中西成药 -->
                 <div class="chinese-and-western-medicine">
                     <div class="divider dashed"></div>
-                    <!-- 中西成药:合并 -->
-                    <div class="info-item">
-                        <span class="label">中西成药费</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
                     <!-- 中西成药:单项 -->
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">双丹膏</span>
-                            <span class="unit-price">1.00</span>
-                            <span class="times">1粒</span>
-                            <span class="total-prices">1.00</span>
+                            <div class="name">
+                                <span>双丹膏</span>
+                                <span class="specification">2粒/盒</span>
+                            </div>
+                            <span class="times">1瓶</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">2粒/盒</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>每次1粒，1日1次</span>
+                            </div>
                             <div class="child-info">厂家：</div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">感冒灵颗粒</span>
-                            <span class="unit-price">10.00</span>
+                            <div class="name">
+                                <span>感冒灵颗粒</span>
+                                <span class="specification">10袋/盒</span>
+                            </div>
                             <span class="times">1盒</span>
-                            <span class="total-prices">10.00</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">10袋/盒</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>每次1袋，1日2次</span>
+                            </div>
                             <div class="child-info">厂家：</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 材料 -->
+                <div class="chinese-and-western-medicine">
+                    <div class="divider dashed"></div>
+                    <!-- 材料:单项 -->
+                    <div class="info-item-group">
+                        <div class="info-item">
+                            <div class="name">
+                                <span>医用材料1</span>
+                                <span class="specification">2片/盒</span>
+                            </div>
+                            <span class="times">1瓶</span>
+                        </div>
+                        <div class="info-item-child">
+                            <span class="child-info"> b-2-2018 </span>
+                            <span class="child-info">厂家：</span>
+                        </div>
+                    </div>
+                    <div class="info-item-group">
+                        <div class="info-item">
+                            <div class="name">
+                                <span>医用材料2</span>
+                                <span class="specification">2片/盒</span>
+                            </div>
+                            <span class="times">1盒</span>
+                        </div>
+                        <div class="info-item-child">
+                            <span class="child-info"> b-2-2018 </span>
+                            <span class="child-info">厂家：</span>
                         </div>
                     </div>
                 </div>
@@ -114,125 +129,85 @@
                 <!-- 中药 -->
                 <div class="chinese-medicine">
                     <div class="divider dashed"></div>
-                    <!-- 中药:合并 -->
-                    <div class="info-item">
-                        <span class="label">中药费</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
                     <!-- 中药:单项 -->
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">柴胡</span>
-                            <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
-                            <span class="total-prices">10.00</span>
+                            <span class="name">柴胡</span>
+                            <span class="times">10g</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">黄芩</span>
-                            <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
-                            <span class="total-prices">10.00</span>
+                            <span class="name">黄芩</span>
+                            <span class="times">10g</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">生姜</span>
-                            <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
-                            <span class="total-prices">10.00</span>
+                            <span class="name">生姜</span>
+                            <span class="times">10g</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
-                            <span class="label">大枣</span>
-                            <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
-                            <span class="total-prices">10.00</span>
+                            <span class="name">大枣</span>
+                            <span class="times">10g</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>b-2-2018</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <!-- 中药：药量 -->
                     <div class="info-item">
-                        <span>共4剂，118.66 ，6味 </span>
-                        <span>（单剂6g，总重24g）</span>
+                        <span>共</span>
+                        <span class="big-number">4</span>
+                        <span>剂</span>
+                        <span>（6味单剂6g，总重24g）</span>
                     </div>
                     <!-- 中药：用法 -->
                     <div class="info-item">
-                        1日2剂 1日3次 每次150ml
+                        <span class="label">【用法】</span>
+                        <span>煎服 1日1剂 1日3次 每次150ml 饭后服用</span>
+                    </div>
+                    <!-- 中药：加工 -->
+                    <div class="info-item">
+                        <span class="label">【加工】</span>2
+                        <span>器煎药（普通） 1剂煎4袋，共 8 袋，联系人 19090909090 ，备注： 煎焦弃用</span>
                     </div>
                 </div>
 
-                <!-- 材料 -->
-                <div class="chinese-and-western-medicine">
+                <!-- 快递信息 -->
+                <div class="express-info">
                     <div class="divider dashed"></div>
-                    <!-- 材料:合并 -->
-                    <div class="info-item">
-                        <span class="label">材料费</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
-                    <!-- 材料:单项 -->
-                    <div class="info-item">
-                        <span class="label">医用材料1</span>
-                        <span class="unit-price">1.00</span>
-                        <span class="times">1片</span>
-                        <span class="total-prices">1.00</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">医用材料2</span>
-                        <span class="unit-price">1.00</span>
-                        <span class="times">1片</span>
-                        <span class="total-prices">1.00</span>
-                    </div>
-                </div>
-
-                <!-- 其他 -->
-                <div class="chinese-and-western-medicine">
-                    <div class="divider dashed"></div>
-                    <!-- 其他:合并 -->
-                    <div class="info-item">
-                        <span class="label">其他费用</span>
-                        <span class="total-prices">25.00</span>
-                    </div>
-                    <!-- 其他:单项 -->
-                    <div class="info-item">
-                        <span class="label">其他1</span>
-                        <span class="unit-price">1.00</span>
-                        <span class="times">1片</span>
-                        <span class="total-prices">1.00</span>
-                    </div>
-                </div>
-
-                <!-- 收银信息 -->
-                <div class="cashier-info">
-                    <div class="divider dashed"></div>
-                    <div class="info-item">
-                        <span class="label">合计：</span>
-                        <span class="total-prices">325.00</span>
-                    </div>
-                    <div class="info-item big-label">
-                        <span class="label">应付：</span>
-                        <span class="total-prices">325.00</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="label">实付（支付宝）：</span>
-                        <span class="total-prices">325.00</span>
+                    <div class="info-item-group">
+                        <div class="info-item">
+                            <span class="name">【快递】顺丰/寄付</span>
+                        </div>
+                        <div class="info-item-child">
+                            <div class="child-info">张龙 15800000000</div>
+                            <div class="child-info">上海市闵行区申昆路1999号2号楼705</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -248,13 +223,29 @@
                         收费员：
                         <span data-visible="dispatcherSignature" data-field="dispatcher">张龙</span>
                     </div>
+                    <div class="info-item" data-visible="auditor">
+                        审核：
+                        <span data-visible="auditorSignature" data-field="auditor"></span>
+                    </div>
                     <div class="info-item" data-visible="dispatcher">
-                        收费时间：
-                        <span>2021-12-15 10:10:10</span>
+                        调配：
+                        <span data-visible="dispatcherSignature" data-field="dispatcher">孙思邈</span>
+                    </div>
+                    <div class="info-item" data-visible="issueOperator">
+                        核发：
+                        <span data-visible="issueOperatorSignature" data-field="issueOperator">华佗</span>
                     </div>
                     <div class="info-item" data-visible="dispatcher">
                         打印时间：
                         <span>2021-12-15 10:15:15</span>
+                    </div>
+                    <div class="info-item" data-visible="address">
+                        地址：
+                        <span data-field="address">上海市闵行区申昆路1999号2号楼705</span>
+                    </div>
+                    <div class="info-item" data-visible="clinicPhone">
+                        电话：
+                        <span data-field="clinicPhone">021-87278292</span>
                     </div>
                 </div>
                 <!-- 公告提示 -->
@@ -292,33 +283,50 @@ const props = defineProps({
 <style lang="less" scoped>
 @import './style/print.less';
 
-.title-qr {
-    margin-top: 4pt;
-    display: flex;
+.header-title {
+    position: relative;
 
-    img {
-        width: 160pt;
-        height: 32pt;
+    .big-mark{
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        left: 0pt;
+        top: 0pt;
+        font-size: 13pt;
+        font-weight: 600;
+        line-height: 1.3;
     }
-}
 
+    .title-qr {
+        margin-top: 4pt;
+        display: flex;
 
-.receipt-detail-info {
-    font-size: 10pt;
-    line-height: 1.2;
-    font-weight: 300;
-
-    &.label-line-1 {
-        .label {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+        img {
+            width: 100pt;
+            height: 32pt;
         }
     }
 
+    .picking-time {
+        font-size: 9pt;
+        width: 100%;
+
+        span {
+            &:not(:first-child) {
+                margin-left: 4px;
+            }
+        }
+    }
+}
+
+.receipt-detail-info {
+    font-size: 9pt;
+    line-height: 1.2;
+    font-weight: 300;
+    margin-bottom: 4pt;
+
     .info-item {
-        flex: 0;
-        margin-top: 6pt;
+        margin-top: 4pt;
         word-break: break-all;
         flex-basis: 100%;
         display: flex;
@@ -327,28 +335,26 @@ const props = defineProps({
             margin-bottom: 0;
         }
 
-        &.big-label {
-            font-size: 11pt;
-            font-weight: 400;
-        }
-
         span {
             white-space: wrap;
 
             &:not(:first-child) {
                 margin-left: 4px;
             }
+
+            &.big-number {
+                font-size: 12pt;
+            }
         }
 
         .label {
-            flex: 2 1 auto;
-            flex-basis: 64pt;
+            white-space: nowrap;
         }
 
-        .unit-price {
-            flex: 0 0 auto;
-            text-align: right;
-            flex-basis: 40pt;
+        .name {
+            flex: 2 1 auto;
+            flex-basis: 64pt;
+
         }
 
         .times {
@@ -357,11 +363,6 @@ const props = defineProps({
             flex-basis: 28pt;
         }
 
-        .total-prices {
-            flex: 0 0 auto;
-            text-align: right;
-            flex-basis: 40pt;
-        }
     }
 
     .info-item-group {
@@ -371,14 +372,25 @@ const props = defineProps({
             .child-info {
                 margin-top: 2pt;
                 display: flex;
+                justify-content: space-between;
             }
         }
     }
+
+    .footer-info {
+        .info-item {
+            margin-top: 2pt;
+        }
+    }
+
+    .warn-info {
+        font-weight: 300;
+        font-size: 12pt;
+        text-align: center;
+    }
 }
 
-.warn-info {
-    font-weight: 300;
-    font-size: 12pt;
-    text-align: center;
+.divider {
+    margin: 4pt 0;
 }
 </style>

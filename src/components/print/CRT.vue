@@ -43,12 +43,12 @@
                 </div>
             </div>
         </template>
-
+        
         <!-- 主内容 -->
         <template #main>
             <!-- 项目名一行显示加label-line-1 -->
             <div class="receipt-detail-info label-line-1">
-
+                
                 <!-- 挂号费 -->
                 <div class="registration-fee">
                     <div class="divider dashed"></div>
@@ -58,9 +58,9 @@
                         <span class="total-prices">10.00</span>
                     </div>
                 </div>
-
+                
                 <!-- 治疗理疗 -->
-                <div class="treatment-and-therapy">
+                <div class="treatment-and-therapy ">
                     <div class="divider dashed"></div>
                     <!-- 治疗理疗:合并 -->
                     <div class="info-item">
@@ -75,7 +75,7 @@
                         <span class="total-prices">25.00</span>
                     </div>
                 </div>
-
+                
                 <!-- 中西成药 -->
                 <div class="chinese-and-western-medicine">
                     <div class="divider dashed"></div>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- 中药 -->
                 <div class="chinese-medicine">
                     <div class="divider dashed"></div>
@@ -124,48 +124,56 @@
                         <div class="info-item">
                             <span class="label">柴胡</span>
                             <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
+                            <span class="times">15g</span>
                             <span class="total-prices">10.00</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>厂家：</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="info-item-group">
+                    <div class="info-item-group ">
                         <div class="info-item">
                             <span class="label">黄芩</span>
                             <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
+                            <span class="times">15g</span>
                             <span class="total-prices">10.00</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>厂家：</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
                             <span class="label">生姜</span>
                             <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
+                            <span class="times">15g</span>
                             <span class="total-prices">10.00</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>厂家：</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <div class="info-item-group">
                         <div class="info-item">
                             <span class="label">大枣</span>
                             <span class="unit-price">0.10</span>
-                            <span class="times">100g</span>
+                            <span class="times">15g</span>
                             <span class="total-prices">10.00</span>
                         </div>
                         <div class="info-item-child">
-                            <div class="child-info">代煎</div>
-                            <div class="child-info">厂家：</div>
+                            <div class="child-info">
+                                <span>厂家：</span>
+                                <span>[代煎]</span>
+                            </div>
                         </div>
                     </div>
                     <!-- 中药：药量 -->
@@ -178,7 +186,7 @@
                         1日2剂 1日3次 每次150ml
                     </div>
                 </div>
-
+                
                 <!-- 材料 -->
                 <div class="chinese-and-western-medicine">
                     <div class="divider dashed"></div>
@@ -201,9 +209,9 @@
                         <span class="total-prices">1.00</span>
                     </div>
                 </div>
-
+                
                 <!-- 其他 -->
-                <div class="chinese-and-western-medicine">
+                <div class="chinese-and-western-medicine ">
                     <div class="divider dashed"></div>
                     <!-- 其他:合并 -->
                     <div class="info-item">
@@ -218,7 +226,7 @@
                         <span class="total-prices">1.00</span>
                     </div>
                 </div>
-
+                
                 <!-- 收银信息 -->
                 <div class="cashier-info">
                     <div class="divider dashed"></div>
@@ -226,7 +234,7 @@
                         <span class="label">合计：</span>
                         <span class="total-prices">325.00</span>
                     </div>
-                    <div class="info-item big-label">
+                    <div class="info-item big-info">
                         <span class="label">应付：</span>
                         <span class="total-prices">325.00</span>
                     </div>
@@ -237,12 +245,12 @@
                 </div>
             </div>
         </template>
-
+        
         <!-- 页脚内容 -->
         <template #footer>
             <div class="receipt-detail-info">
                 <!-- 页尾信息 -->
-                <div class="footer-info">
+                <div class="footer-info ">
                     <div class="divider dashed"></div>
                     <div class="info-item" data-visible="dispatcher">
                         收费员：
@@ -263,8 +271,8 @@
                     <div class="info-item" data-field="remark">除主诊医师特别注明外，处方仅当日有效。按卫生部规定，药房药品一经发出，不得退换。</div>
                 </div>
                 <!-- 退换提醒 -->
+                <div class="divider dashed"></div>
                 <div class="warn-info">
-                    <div class="divider dashed"></div>
                     <div>药品离柜，概不退换</div>
                 </div>
             </div>
@@ -297,16 +305,16 @@ const props = defineProps({
     display: flex;
 
     img {
-        width: 160pt;
+        width: 100pt;
         height: 32pt;
     }
 }
 
-
 .receipt-detail-info {
-    font-size: 10pt;
+    font-size: 9pt;
     line-height: 1.2;
     font-weight: 300;
+    // margin-bottom: 4pt;
 
     &.label-line-1 {
         .label {
@@ -317,8 +325,7 @@ const props = defineProps({
     }
 
     .info-item {
-        flex: 0;
-        margin-top: 6pt;
+        margin-top: 4pt;
         word-break: break-all;
         flex-basis: 100%;
         display: flex;
@@ -327,7 +334,7 @@ const props = defineProps({
             margin-bottom: 0;
         }
 
-        &.big-label {
+        &.big-info {
             font-size: 11pt;
             font-weight: 400;
         }
@@ -371,14 +378,25 @@ const props = defineProps({
             .child-info {
                 margin-top: 2pt;
                 display: flex;
+                justify-content: space-between;
             }
         }
     }
+
+    .footer-info {
+        .info-item {
+            margin-top: 2pt;
+        }
+    }
+
+    .warn-info {
+        font-weight: 300;
+        font-size: 12pt;
+        text-align: center;
+    }
 }
 
-.warn-info {
-    font-weight: 300;
-    font-size: 12pt;
-    text-align: center;
+.divider {
+    margin: 4pt 0;
 }
 </style>

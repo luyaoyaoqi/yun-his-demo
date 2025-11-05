@@ -58,8 +58,10 @@ const originalFooterContent = ref<Node[]>([]);
 
 // 判断是否需要分页
 const isPaginationNeeded = (element: HTMLElement, offsetTop: number): boolean => {
-    if (!element) return false;
-    return element.offsetTop + element.offsetHeight > offsetTop;
+    // 添加一些安全边距，避免刚好临界的情况
+    const safetyMargin = 2; // 2px的安全边距
+    if (!element) return false;192
+    return element.offsetTop + element.offsetHeight > offsetTop + safetyMargin;
 };
 
 // 提取分页逻辑为独立函数

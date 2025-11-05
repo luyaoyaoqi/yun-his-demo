@@ -344,6 +344,8 @@ const props = defineProps({
 
             &.big-number {
                 font-size: 12pt;
+                position: relative;
+                top: -2pt;
             }
         }
 

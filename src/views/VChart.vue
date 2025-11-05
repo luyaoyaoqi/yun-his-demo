@@ -40,7 +40,9 @@ const chartOptions = [
     { label: 'demo', value: 'demo' },
     { label: '脉象图', value: '脉象图' },
     { label: '加载动态图', value: '加载动态图' },
-    { label: '加载动态图2', value: '加载动态图2' }
+    { label: '加载动态图2', value: '加载动态图2' },
+    { label: '收入分布图', value: '收入分布图' },
+    { label: '收款方式图', value: '收款方式图' },
 ]
 
 // 动态导入图表配置

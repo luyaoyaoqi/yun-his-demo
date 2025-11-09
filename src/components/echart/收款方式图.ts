@@ -75,7 +75,7 @@ export const chartOption: EChartsOption = {
       itemStyle: {
         borderRadius: 4,
         borderColor: "#fff",
-        borderWidth: 3,
+        borderWidth: 2,
       },
       label: {
         show: false,

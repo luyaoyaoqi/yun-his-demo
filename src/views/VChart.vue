@@ -10,19 +10,38 @@
                 <div class="editor-container">
                     <el-form :model="chartConfig" label-position="top">
                         <el-form-item label="选择图表配置">
-                            <el-select v-model="selectedChart" @change="handleChartChange">
-                                <el-option v-for="chart in chartOptions" :key="chart.value" :label="chart.label"
-                                    :value="chart.value" />
-                            </el-select>
+                            <el-radio-group v-model="selectedChart" @change="handleChartChange">
+                                <el-radio 
+                                    v-for="chart in chartOptions" 
+                                    :key="chart.value" 
+                                    :label="chart.value"
+                                    class="mb-2 block"
+                                >
+                                    {{ chart.label }}
+                                </el-radio>
+                            </el-radio-group>
                         </el-form-item>
                         <el-form-item label="图表宽度">
-                            <el-input-number v-model="chartConfig.width" :min="200" :max="2000" step="10" />
+                            <el-slider 
+                                v-model="chartConfig.width" 
+                                :min="200" 
+                                :max="2000" 
+                                :step="10" 
+                                show-input
+                            />
                         </el-form-item>
                         <el-form-item label="图表高度">
-                            <el-input-number v-model="chartConfig.height" :min="200" :max="2000" step="10" />
+                            <el-slider 
+                                v-model="chartConfig.height" 
+                                :min="200" 
+                                :max="2000" 
+                                :step="10" 
+                                show-input
+                            />
                         </el-form-item>
                     </el-form>
                     <el-button class="mb-6" type="primary" @click="getSvgContent">获取 SVG 内容</el-button>
+                    <el-button class="mb-6 ml-4" type="success" @click="downloadSvg">下载 SVG</el-button>
                 </div>
             </el-splitter-panel>
         </el-splitter>
@@ -151,7 +170,18 @@ const getSvgContent = async () => {
             // 获取图表的 SVG 内容
             const svgDom = chartInstance.getDom().querySelector('svg')
             if (svgDom) {
-                const svgContent = new XMLSerializer().serializeToString(svgDom)
+                // 克隆SVG以避免修改原始元素
+                const clonedSvg = svgDom.cloneNode(true) as SVGSVGElement
+                
+                // 修复文本位置问题
+                const textElements = clonedSvg.querySelectorAll('text')
+                textElements.forEach(text => {
+                    // 添加alignment-baseline属性确保正确对齐
+                    text.setAttribute('alignment-baseline', 'bottom')
+                })
+                
+                // 序列化修复后的SVG
+                const svgContent = new XMLSerializer().serializeToString(clonedSvg)
                 await copySvgContent(svgContent)
             } else {
                 ElMessage.error('未找到 SVG 元素')

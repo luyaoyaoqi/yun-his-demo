@@ -64,7 +64,7 @@ export const chartOption: EChartsOption = {
   legend: {
     type: 'scroll',
     orient: 'vertical',
-    left: "55%",
+    left: "56%",
     top: "middle", 
     textStyle: {
       color: "#606266",
@@ -93,7 +93,7 @@ export const chartOption: EChartsOption = {
       itemStyle: {
         borderRadius: 4,
         borderColor: "#fff",
-        borderWidth: 3,
+        borderWidth: 2,
       },
       label: {
         show: false,

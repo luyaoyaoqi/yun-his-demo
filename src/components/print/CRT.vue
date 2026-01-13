@@ -95,6 +95,7 @@
                         <div class="info-item-child">
                             <div class="child-info">2粒/盒</div>
                             <div class="child-info">厂家：</div>
+                            <div class="child-info">追溯码：40000000002000000001</div>
                         </div>
                     </div>
                     <div class="info-item-group">
@@ -107,6 +108,7 @@
                         <div class="info-item-child">
                             <div class="child-info">10袋/盒</div>
                             <div class="child-info">厂家：</div>
+                            <div class="child-info">追溯码：40000000002000000002</div>
                         </div>
                     </div>
                 </div>

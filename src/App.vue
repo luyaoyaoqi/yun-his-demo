@@ -70,14 +70,14 @@ header {
 .wrapper {
   width: 100%;
   background: var(--el-fill-color-blank);
+
+  .el-menu {
   --mdd-menu-bg-color: var(--el-color-primary-dark-2);
   --el-menu-bg-color: var(--mdd-menu-bg-color);
   --el-menu-hover-bg-color: var(--mdd-menu-bg-color);
   --el-menu-text-color: var(--el-color-white);
   --el-menu-active-color: var(--el-color-white);
   --el-menu-hover-text-color: var(--el-color-white);
-
-  .el-menu {
     .el-menu-item {
       padding: 0;
       height: calc(var(--el-menu-horizontal-height) * 2 / 3);

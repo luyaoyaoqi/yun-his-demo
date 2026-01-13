@@ -74,6 +74,7 @@
                                 <span>每次1粒，1日1次</span>
                             </div>
                             <div class="child-info">厂家：</div>
+                            <div class="child-info">追溯码：40000000002000000001</div>
                         </div>
                     </div>
                     <div class="info-item-group">
@@ -90,6 +91,7 @@
                                 <span>每次1袋，1日2次</span>
                             </div>
                             <div class="child-info">厂家：</div>
+                            <div class="child-info">追溯码：40000000002000000001</div>
                         </div>
                     </div>
                 </div>

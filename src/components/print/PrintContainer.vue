@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, nextTick, defineProps, watch, useSlots, watchEffect } from 'vue';
+import { ref, onMounted, nextTick, watch, useSlots, watchEffect } from 'vue';
 
 const slots = useSlots();
 

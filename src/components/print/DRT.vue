@@ -199,6 +199,15 @@
                     </div>
                 </div>
 
+                <!-- 医嘱 -->
+                <div class="advice">
+                    <div class="divider dashed"></div>
+                    <div class="info-item">
+                        <span class="label">【医嘱】</span>
+                        <span>禁食生冷、辛辣等刺激性食物。禁食生冷、辛辣等刺激性食物。禁食生冷、辛辣等刺激性食物。</span>
+                    </div>
+                </div>
+
                 <!-- 快递信息 -->
                 <div class="express-info">
                     <div class="divider dashed"></div>

@@ -264,6 +264,7 @@ const props = defineProps({
         display: inline-block;
         text-align: justify;
         text-align-last: justify;
+        flex-shrink: 0;
     }
 
     .item-content {
@@ -411,6 +412,7 @@ const props = defineProps({
         display: inline-block;
         text-align: justify;
         text-align-last: justify;
+        flex-shrink: 0;
     }
 
     .advice-separator {
@@ -418,12 +420,10 @@ const props = defineProps({
     }
 
     .advice-content {
-        display: flex;
-        flex-direction: column;
-        flex: 1 auto;
+        flex: 1 1 auto;
 
         .advice-item {
-            flex: 1 auto;
+            width: 100%;
             margin-bottom: 4pt;
         }
     }

@@ -568,6 +568,12 @@ const setupAndPrint = () => {
 
     const paper = paperSizeMap[printSetting.paperSize];
 
+    // 对于标准纸张类型，使用标准名称以便LODOP正确识别
+    let paperName = paper.name;
+    if (['a4', 'a5', 'b6', 'letter'].includes(printSetting.paperSize)) {
+        paperName = printSetting.paperSize.toUpperCase();
+    }
+
     // 初始化打印任务
     LODOP.PRINT_INITA(0, 0, `${paper.width}mm`, `${paper.height}mm`, "打印任务");
     console.log('打印任务已初始化', `${paper.width}mm`, `${paper.height}mm`);
@@ -577,14 +583,24 @@ const setupAndPrint = () => {
         LODOP.SET_PRINTER_INDEX(selectedPrinter.value);
     }
 
-    // 设置纸张和方向
+    // 设置纸张和方向 - 使用标准纸张尺寸
     if (paper) {
-        if (printSetting.orientation === 'landscape') {
-            // 横向
-            LODOP.SET_PRINT_PAGESIZE(2, `${paper.width}mm`, `${paper.height}mm`, paper.name);
+        // 对于A5等标准纸张，使用LODOP内置的纸张类型，而不是自定义尺寸
+        if (['a4', 'a5', 'b6', 'letter'].includes(printSetting.paperSize)) {
+            if (printSetting.orientation === 'landscape') {
+                // 横向 - 使用内置纸张类型
+                LODOP.SET_PRINT_PAGESIZE(2, 0, 0, paperName);
+            } else {
+                // 纵向 - 使用内置纸张类型
+                LODOP.SET_PRINT_PAGESIZE(1, 0, 0, paperName);
+            }
         } else {
-            // 纵向
-            LODOP.SET_PRINT_PAGESIZE(1, `${paper.width}mm`, `${paper.height}mm`, paper.name);
+            // 对于非标准纸张，使用自定义尺寸
+            if (printSetting.orientation === 'landscape') {
+                LODOP.SET_PRINT_PAGESIZE(2, `${paper.width}mm`, `${paper.height}mm`, paperName);
+            } else {
+                LODOP.SET_PRINT_PAGESIZE(1, `${paper.width}mm`, `${paper.height}mm`, paperName);
+            }
         }
     }
 
@@ -608,9 +624,6 @@ const setupAndPrint = () => {
             LODOP.ADD_PRINT_HTM(0, 0, "100%", "100%", htmlContent);
         }
     });
-
-    // 开启全页缩放
-    LODOP.SET_PRINT_MODE("KEEP_ASPECT_RATIO", true);
 
     // 根据开关决定是预览还是直接打印
     if (isPreview.value) {

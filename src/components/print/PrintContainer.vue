@@ -296,10 +296,6 @@ body {
     font-family: Microsoft YaHei, 微软雅黑;
 }
 
-.mj-hidden {
-    display: none !important;
-}
-
 // 模板大小不包含不可打印区域5mm,预览补充相应边距,配置边距显示最小为5mm
 .mj-print-page {
     position: relative;

@@ -80,8 +80,63 @@
 
         <!-- 主内容 -->
         <template #main>
+            <!-- 项目组 -->
             <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-head">
+            <div class="treatment-head signature-right2">
+                <div class="treatment-medicine-box">
+                    <div class="treatment-medicine">
+                        <!-- 标签在右侧显示 -->
+                        <div class="name">医嘱内容</div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示:3个签名 -->
+                <div class="signature">时间/签名</div>
+            </div>
+            <!-- 标签在右侧添加signature-right -->
+            <div class="treatment-item signature-right2">
+                <div class="treatment-medicine-box">
+                    <div class="treatment-medicine">
+                        <div class="treatment-medicine-content">
+                            <div class="group">
+                                <div class="medicine-item">
+                                    <div class="medicine-top">
+                                        <div class="medicine-name">针灸</div>
+                                        <div class="medicine-quantity">0/2根</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="treatment-bracket"></div>
+                            <div class="treatment-instruction"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示:1个签名 -->
+                <div class="signature"></div>
+            </div>
+            <div class="treatment-item signature-right2">
+                <div class="treatment-medicine-box">
+                    <div class="treatment-medicine">
+                        <div class="treatment-medicine-content">
+                            <div class="group">
+                                <div class="medicine-item">
+                                    <div class="medicine-top">
+                                        <div class="medicine-name">补牙</div>
+                                        <div class="medicine-quantity">0/2次</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="treatment-bracket"></div>
+                            <div class="treatment-instruction"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示:1个签名 -->
+                <div class="signature"></div>
+            </div>
+
+            <!-- 输注组 -->
+            <!-- 标签在右侧添加signature-right -->
+            <div class="infusion-head signature-right2">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
                         <!-- 标签在右侧显示 -->
@@ -95,10 +150,12 @@
                 <div class="signature">时间/签名</div>
             </div>
             <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-item">
+            <div class="infusion-item signature-right2">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
-                        <div class="infusion-medicine-item">
+                        <!-- 其他类型加: infusion-other -->
+                        <div class="infusion-medicine-content">
+                            <!-- 没有组号，不显示 -->
                             <div class="group-index">①</div>
                             <div class="group">
                                 <div class="medicine-item">
@@ -112,6 +169,8 @@
                                             <span class="medicine-quantity">1瓶</span>
                                             )
                                         </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test">皮试()</div>
                                         <div class="medicine-quantity">250ml</div>
                                     </div>
                                     <div class="medicine-footer">
@@ -132,6 +191,8 @@
                                             <span class="medicine-quantity">4支</span>
                                             )
                                         </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test mj-hidden">皮试()</div>
                                         <div class="medicine-quantity">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
@@ -145,6 +206,7 @@
                             <div class="infusion-bracket"></div>
                             <div class="infusion-instruction">
                                 <div class="infusion-content">
+                                    <span class="dose"></span>
                                     <span class="frequency">每天1次</span>
                                     <span class="days">1天</span>
                                     <br />
@@ -160,10 +222,12 @@
                 <div class="signature"></div>
                 <div class="signature"></div>
             </div>
-            <div class="infusion-item">
+            <div class="infusion-item signature-right2">
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
-                        <div class="infusion-medicine-item">
+                        <!-- 其他类型加: infusion-other -->
+                        <div class="infusion-medicine-content">
+                            <!-- 没有组号，不显示 -->
                             <div class="group-index">②</div>
                             <div class="group">
                                 <div class="medicine-item">
@@ -177,6 +241,8 @@
                                             <span class="medicine-quantity">2瓶</span>
                                             )
                                         </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test mj-hidden">皮试()</div>
                                         <div class="medicine-quantity">500ml</div>
                                     </div>
                                     <div class="medicine-footer">
@@ -197,6 +263,8 @@
                                             <span class="medicine-quantity">3支</span>
                                             )
                                         </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test mj-hidden">皮试()</div>
                                         <div class="medicine-quantity">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
@@ -210,6 +278,7 @@
                             <div class="infusion-bracket"></div>
                             <div class="infusion-instruction">
                                 <div class="infusion-content">
+                                    <span class="dose"></span>
                                     <span class="frequency">每天1次</span>
                                     <span class="days">1天</span>
                                     <br />
@@ -225,7 +294,107 @@
                 <div class="signature"></div>
                 <div class="signature"></div>
             </div>
-            <div class="blank-section">
+            <div class="infusion-item signature-right2">
+                <div class="infusion-medicine-box">
+                    <div class="infusion-medicine">
+                        <!-- 其他类型加: infusion-other -->
+                        <div class="infusion-medicine-content infusion-other">
+                            <!-- 没有组号，不显示 -->
+                            <div class="group-index"></div>
+                            <div class="group">
+                                <div class="medicine-item">
+                                    <div class="medicine-top">
+                                        <div class="medicine-name">
+                                            鼻炎喷雾
+                                            <span class="product-name"></span>
+                                            (
+                                            <span class="medicine-spec">1瓶/瓶</span>
+                                            ×
+                                            <span class="medicine-quantity">1瓶</span>
+                                            )
+                                        </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test"></div>
+                                        <div class="medicine-quantity"></div>
+                                    </div>
+                                    <div class="medicine-footer">
+                                        <div class="manufacturer">
+                                            厂家：
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infusion-bracket"></div>
+                            <div class="infusion-instruction">
+                                <div class="infusion-content">
+                                    <span class="dose">每次1瓶</span>
+                                    <span class="frequency">每天1次</span>
+                                    <span class="days">7天</span>
+                                    <br />
+                                    <span class="method">滴鼻</span>
+                                    <span class="speed"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示:3个签名 -->
+                <div class="signature"></div>
+                <div class="signature"></div>
+                <div class="signature"></div>
+            </div>
+            <div class="infusion-item signature-right2">
+                <div class="infusion-medicine-box">
+                    <div class="infusion-medicine">
+                        <!-- 其他类型加: infusion-other -->
+                        <div class="infusion-medicine-content infusion-other">
+                            <!-- 没有组号，不显示 -->
+                            <div class="group-index"></div>
+                            <div class="group">
+                                <div class="medicine-item">
+                                    <div class="medicine-top">
+                                        <div class="medicine-name">
+                                            鼻炎喷雾
+                                            <span class="product-name"></span>
+                                            (
+                                            <span class="medicine-spec">1瓶/瓶</span>
+                                            ×
+                                            <span class="medicine-quantity">1瓶</span>
+                                            )
+                                        </div>
+                                        <!-- 皮试没有不显示 -->
+                                        <div class="medicine-test"></div>
+                                        <div class="medicine-quantity">1瓶</div>
+                                    </div>
+                                    <div class="medicine-footer">
+                                        <div class="manufacturer">
+                                            厂家：
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infusion-bracket"></div>
+                            <div class="infusion-instruction">
+                                <div class="infusion-content">
+                                    <span class="dose">每次1瓶</span>
+                                    <span class="frequency">每天1次</span>
+                                    <span class="days">7天</span>
+                                    <br />
+                                    <span class="method">滴鼻</span>
+                                    <span class="speed"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 标签在右侧显示:3个签名 -->
+                <div class="signature"></div>
+                <div class="signature"></div>
+                <div class="signature"></div>
+            </div>
+            <div class="blank-section signature-right2">
                 <div class="divider dashed"></div>
                 <div class="blank-text">以下空白</div>
                 <div class="divider dashed"></div>
@@ -236,7 +405,7 @@
         <!-- 页脚内容 -->
         <template #footer>
             <!-- 标签在下方 -->
-            <table class="signature-section">
+            <table class="signature-section mj-hidden">
                 <thead>
                     <tr>
                         <th>执行时间</th>
@@ -348,6 +517,147 @@ const props = defineProps({
 <style lang="less" scoped>
 @import './style/print.less';
 
+.treatment-head,
+.treatment-item {
+    display: flex;
+    font-size: 10pt;
+    line-height: 1.2;
+    padding-bottom: 6pt;
+
+    .treatment-medicine-box {
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        overflow: hidden;
+
+        .treatment-medicine {
+            display: flex;
+            align-items: center;
+
+            .name {
+                display: none;
+            }
+
+            .treatment-medicine-content {
+                display: flex;
+                font-weight: 400;
+                width: 100%;
+
+                .group {
+                    display: flex;
+                    flex: 3 1 300pt;
+                    flex-direction: column;
+                    overflow: hidden;
+
+                    .medicine-item {
+                        display: flex;
+                        flex-direction: column;
+
+                        .medicine-top {
+                            display: flex;
+
+                            .medicine-name {
+                                margin-right: 6pt;
+                                flex: 1 1 auto;
+                                word-break: break-all;
+                                margin-right: 12pt;
+                                font-weight: 600;
+
+                                .medicine-quantity {
+                                    font-weight: 400;
+                                }
+                            }
+
+                            .medicine-test {
+                                flex: 0 auto;
+                                white-space: nowrap;
+                                margin-right: 4pt;
+                            }
+
+                            .medicine-quantity {
+                                flex: 0 auto;
+                                white-space: nowrap;
+                            }
+                        }
+                    }
+                }
+
+
+                .treatment-bracket {
+                    display: inline-block;
+                    flex: 0 0 2pt;
+                    border-left: none;
+                    margin: 6pt;
+                }
+
+
+                .treatment-instruction {
+                    flex: 1 0 100pt;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+        }
+    }
+
+    .signature {
+        display: none;
+    }
+
+    &.signature-right {
+        padding: 0 6pt;
+        border: 1px solid #888;
+        font-size: 9pt;
+
+        &:first-child {
+            border-top: 1px solid #888 !important;
+        }
+
+        &+.treatment-item {
+            border-top: none;
+        }
+
+        .treatment-medicine-box {
+            padding: 4pt 0;
+
+            .treatment-medicine {
+                .name {
+                    flex: 1 1 auto;
+                    text-align: left;
+                    display: block;
+                }
+
+                .treatment-medicine-content {
+                    flex-wrap: wrap;
+
+                    .group {
+                        flex: 1 calc(100% - 20pt);
+                    }
+
+                    .treatment-bracket {
+                        display: none;
+                    }
+
+                    .treatment-instruction {
+                        margin-left: 16pt;
+                    }
+
+                }
+            }
+        }
+
+        .signature {
+            display: block;
+            flex: 0 0 144pt;
+            text-align: center;
+            border-left: 1px solid #888;
+            padding: 4pt 0 4pt 6pt;
+            margin-left: 6pt;
+        }
+
+    }
+}
 
 .infusion-head,
 .infusion-item {
@@ -374,7 +684,7 @@ const props = defineProps({
                 display: none;
             }
 
-            .infusion-medicine-item {
+            .infusion-medicine-content {
                 display: flex;
                 font-weight: 400;
                 width: 100%;
@@ -386,12 +696,12 @@ const props = defineProps({
 
                 .group {
                     display: flex;
-                    flex: 1 auto;
+                    flex: 3 1 300pt;
                     flex-direction: column;
                     overflow: hidden;
 
                     .medicine-item {
-                        margin-bottom: 10pt;
+                        margin-bottom: 6pt;
                         display: flex;
                         flex-direction: column;
 
@@ -410,6 +720,12 @@ const props = defineProps({
                                 .medicine-quantity {
                                     font-weight: 400;
                                 }
+                            }
+
+                            .medicine-test {
+                                flex: 0 auto;
+                                white-space: nowrap;
+                                margin-right: 4pt;
                             }
 
                             .medicine-quantity {
@@ -449,13 +765,61 @@ const props = defineProps({
 
 
                 .infusion-instruction {
-                    flex: 0 0 auto;
+                    flex: 1 0 100pt;
                     display: flex;
                     align-items: center;
 
                     .infusion-content {
+                        .dose {
+                            display: none;
+                        }
+
                         >span:not(:last-child) {
                             margin-right: 4pt;
+                        }
+                    }
+                }
+
+                &.infusion-other {
+                    .group-index {
+                        display: none;
+                    }
+
+                    .group {
+                        .medicine-item {
+
+                            .medicine-top {
+                                margin-bottom: 0;
+
+                                .medicine-test,
+                                .medicine-quantity {
+                                    display: none;
+                                }
+                            }
+
+                            .medicine-footer {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .infusion-bracket {
+                        visibility: hidden;
+                    }
+
+                    .infusion-instruction {
+                        flex-wrap: wrap;
+                        align-items: flex-start;
+
+                        .infusion-content {
+                            white-space: nowrap;
+                            .dose {
+                                display: inline;
+                            }
+
+                            br {
+                                display: none;
+                            }
                         }
                     }
                 }
@@ -468,10 +832,6 @@ const props = defineProps({
     .signature {
         display: none;
     }
-}
-
-.infusion-head,
-.infusion-item {
 
     &.signature-right {
         padding: 0 6pt;
@@ -482,7 +842,7 @@ const props = defineProps({
             border-top: 1px solid #888 !important;
         }
 
-        &+.signature-right {
+        &+.infusion-item {
             border-top: none;
         }
 
@@ -502,7 +862,7 @@ const props = defineProps({
                     display: block;
                 }
 
-                .infusion-medicine-item {
+                .infusion-medicine-content {
                     flex-wrap: wrap;
 
                     .group {
@@ -522,10 +882,6 @@ const props = defineProps({
                             br {
                                 display: none;
                             }
-
-                            .method {
-                                order: -1;
-                            }
                         }
 
                     }
@@ -543,6 +899,22 @@ const props = defineProps({
             margin-left: 6pt;
         }
 
+    }
+}
+
+.treatment-head,
+.infusion-head {
+    padding-bottom: 0;
+}
+
+.treatment-item+.infusion-head {
+    &:not(.signature-right) {
+        border-top: 1pt dashed #888;
+        padding-bottom: 6pt;
+    }
+
+    &.signature-right {
+        margin-top: 6pt;
     }
 }
 

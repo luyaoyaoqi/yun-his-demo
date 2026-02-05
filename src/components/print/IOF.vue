@@ -13,7 +13,7 @@
                 <div class="header-title">
                     <div class="title-main" data-field="organizationName">上海脉景工作室</div>
                     <div class="title-sub" data-visible="documentTitle" data-field="documentTitle">黄煌传承工作室</div>
-                    <div class="title-sub" data-visible="documentType" data-field="documentType">输液注射单</div>
+                    <div class="title-sub" data-visible="documentType" data-field="documentType">{{ data.title }}</div>
                 </div>
                 <div class="header-right">
                     <div class="qr-code">
@@ -81,8 +81,9 @@
         <!-- 主内容 -->
         <template #main>
             <!-- 项目组 -->
-            <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-head signature-right2">
+            <div class="treatment-head" :class="data.signatureRight && data.signatureShow ? 'signature-right' : ''"
+                v-if="data.treatmentDataShow">
+                <!-- 上方标签在右侧添加signature-right -->
                 <div class="treatment-medicine-box">
                     <div class="treatment-medicine">
                         <!-- 标签在右侧显示 -->
@@ -92,51 +93,37 @@
                 <!-- 标签在右侧显示:3个签名 -->
                 <div class="signature">时间/签名</div>
             </div>
-            <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item signature-right2">
-                <div class="treatment-medicine-box">
-                    <div class="treatment-medicine">
-                        <div class="treatment-medicine-content">
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">针灸</div>
-                                        <div class="medicine-quantity">0/2根</div>
+            <template v-if="data.treatmentDataShow">
+                <template v-for="item in data.treatmentData" :key="item.medicineName">
+                    <div class="treatment-item"
+                        :class="data.signatureRight && data.signatureShow ? 'signature-right' : ''">
+                        <!-- 上方标签在右侧添加signature-right -->
+                        <div class="treatment-medicine-box">
+                            <div class="treatment-medicine">
+                                <div class="treatment-medicine-content">
+                                    <div class="group">
+                                        <div class="medicine-item">
+                                            <div class="medicine-top">
+                                                <div class="medicine-name">{{ item.medicineName }}</div>
+                                                <div class="medicine-quantity">{{ item.medicineQuantity }}</div>
+                                            </div>
+                                        </div>
                                     </div>
+                                    <div class="treatment-bracket"></div>
+                                    <div class="treatment-instruction"></div>
                                 </div>
                             </div>
-                            <div class="treatment-bracket"></div>
-                            <div class="treatment-instruction"></div>
                         </div>
+                        <!-- 标签在右侧显示:1个签名 -->
+                        <div class="signature"></div>
                     </div>
-                </div>
-                <!-- 标签在右侧显示:1个签名 -->
-                <div class="signature"></div>
-            </div>
-            <div class="treatment-item signature-right2">
-                <div class="treatment-medicine-box">
-                    <div class="treatment-medicine">
-                        <div class="treatment-medicine-content">
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">补牙</div>
-                                        <div class="medicine-quantity">0/2次</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="treatment-bracket"></div>
-                            <div class="treatment-instruction"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 标签在右侧显示:1个签名 -->
-                <div class="signature"></div>
-            </div>
+                </template>
+            </template>
 
             <!-- 输注组 -->
-            <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-head signature-right2">
+            <div class="infusion-head" :class="data.signatureRight && data.signatureShow ? 'signature-right' : ''"
+                v-if="data.infusionData.length > 0">
+                <!-- 上方标签在右侧添加signature-right -->
                 <div class="infusion-medicine-box">
                     <div class="infusion-medicine">
                         <!-- 标签在右侧显示 -->
@@ -149,263 +136,73 @@
                 <div class="signature">时间/签名</div>
                 <div class="signature">时间/签名</div>
             </div>
-            <!-- 标签在右侧添加signature-right -->
-            <div class="infusion-item signature-right2">
-                <div class="infusion-medicine-box">
-                    <div class="infusion-medicine">
-                        <!-- 其他类型加: infusion-other -->
-                        <div class="infusion-medicine-content">
-                            <!-- 没有组号，不显示 -->
-                            <div class="group-index">①</div>
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            氯化钠注射液9%
-                                            <span class="product-name">(生理盐水)</span>
-                                            (
-                                            <span class="medicine-spec">2.25g*250ml/瓶</span>
-                                            ×
-                                            <span class="medicine-quantity">1瓶</span>
-                                            )
+            <template
+                v-for="item in data.infusionData.filter((item: any) => data.infusionDataShowOther || !item.isOther)"
+                :key="item.groupIndex">
+                <div class="infusion-item" :class="data.signatureRight && data.signatureShow ? 'signature-right' : ''">
+                    <!-- 上方标签在右侧添加signature-right -->
+                    <div class="infusion-medicine-box">
+                        <div class="infusion-medicine">
+                            <!-- 其他类型加: infusion-other -->
+                            <div class="infusion-medicine-content" :class="item.isOther ? 'infusion-other' : ''">
+                                <!-- 没有组号，不显示 -->
+                                <div class="group-index" :class="!item.groupIndex ? 'mj-hidden' : ''">
+                                    {{ item.groupIndex }}</div>
+                                <div class="group">
+                                    <template v-for="child in item.groupChildren">
+                                        <div class="medicine-item">
+                                            <div class="medicine-top">
+                                                <div class="medicine-name">
+                                                    {{ child.medicine.info.name }}
+                                                    <span class="product-name">{{ child.medicine.info.productName
+                                                    }}</span>
+                                                    (
+                                                    <span class="medicine-spec">{{ child.medicine.info.spec }}</span>
+                                                    ×
+                                                    <span class="medicine-quantity">{{ child.medicine.info.quantity
+                                                    }}</span>
+                                                    )
+                                                </div>
+                                                <!-- 皮试没有不显示 -->
+                                                <div class="medicine-test">{{ child.medicine.test }}</div>
+                                                <div class="medicine-dosage">{{ child.medicine.dosage }}</div>
+                                            </div>
+                                            <div class="medicine-footer">
+                                                <div class="manufacturer">
+                                                    厂家：
+                                                    <span>{{ child.medicine.manufacturer }}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test">皮试()</div>
-                                        <div class="medicine-dosage">250ml</div>
-                                    </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span>北京韩美</span>
-                                        </div>
-                                    </div>
+                                    </template>
                                 </div>
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            克林霉素磷酸酯注射液
-                                            <span class="product-name"></span>
-                                            (
-                                            <span class="medicine-spec">0.3g*2ml/支</span>
-                                            ×
-                                            <span class="medicine-quantity">4支</span>
-                                            )
-                                        </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-dosage">1.2g</div>
+                                <div class="infusion-bracket"></div>
+                                <div class="infusion-instruction">
+                                    <div class="infusion-content">
+                                        <span class="dose">{{ item.instruction.dose }}</span>
+                                        <span class="frequency">{{ item.instruction.frequency }}</span>
+                                        <span class="days">{{ item.instruction.days }}</span>
+                                        <br />
+                                        <span class="method">{{ item.instruction.method }}</span>
+                                        <span class="speed">{{ item.instruction.speed }}</span>
                                     </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span>北京韩美</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="infusion-bracket"></div>
-                            <div class="infusion-instruction">
-                                <div class="infusion-content">
-                                    <span class="dose"></span>
-                                    <span class="frequency">每天1次</span>
-                                    <span class="days">1天</span>
-                                    <br />
-                                    <span class="method">静脉滴注</span>
-                                    <span class="speed">60滴/分钟</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 标签在右侧显示:3个签名 -->
+                    <div class="signature"></div>
+                    <div class="signature"></div>
+                    <div class="signature"></div>
                 </div>
-                <!-- 标签在右侧显示:3个签名 -->
-                <div class="signature"></div>
-                <div class="signature"></div>
-                <div class="signature"></div>
-            </div>
-            <div class="infusion-item signature-right2">
-                <div class="infusion-medicine-box">
-                    <div class="infusion-medicine">
-                        <!-- 其他类型加: infusion-other -->
-                        <div class="infusion-medicine-content">
-                            <!-- 没有组号，不显示 -->
-                            <div class="group-index">②</div>
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            葡萄糖氯化钠注射液
-                                            <span class="product-name"></span>
-                                            (
-                                            <span class="medicine-spec">12.5g*250ml/瓶</span>
-                                            ×
-                                            <span class="medicine-quantity">2瓶</span>
-                                            )
-                                        </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-dosage">500ml</div>
-                                    </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span>北京韩美</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            维生素C注射液
-                                            <span class="product-name"></span>
-                                            (
-                                            <span class="medicine-spec">0.5g*2ml/支</span>
-                                            ×
-                                            <span class="medicine-quantity">3支</span>
-                                            )
-                                        </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-dosage">1.2g</div>
-                                    </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span>北京韩美</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="infusion-bracket"></div>
-                            <div class="infusion-instruction">
-                                <div class="infusion-content">
-                                    <span class="dose"></span>
-                                    <span class="frequency">每天1次</span>
-                                    <span class="days">1天</span>
-                                    <br />
-                                    <span class="method">静脉滴注</span>
-                                    <span class="speed">60滴/分钟</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 标签在右侧显示:3个签名 -->
-                <div class="signature"></div>
-                <div class="signature"></div>
-                <div class="signature"></div>
-            </div>
-            <div class="infusion-item signature-right2">
-                <div class="infusion-medicine-box">
-                    <div class="infusion-medicine">
-                        <!-- 其他类型加: infusion-other -->
-                        <div class="infusion-medicine-content infusion-other">
-                            <!-- 没有组号，不显示 -->
-                            <div class="group-index"></div>
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            鼻炎喷雾
-                                            <span class="product-name"></span>
-                                            (
-                                            <span class="medicine-spec">1瓶/瓶</span>
-                                            ×
-                                            <span class="medicine-quantity">1瓶</span>
-                                            )
-                                        </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test"></div>
-                                        <div class="medicine-dosage"></div>
-                                    </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="infusion-bracket"></div>
-                            <div class="infusion-instruction">
-                                <div class="infusion-content">
-                                    <span class="dose">每次1瓶</span>
-                                    <span class="frequency">每天1次</span>
-                                    <span class="days">7天</span>
-                                    <br />
-                                    <span class="method">滴鼻</span>
-                                    <span class="speed"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 标签在右侧显示:3个签名 -->
-                <div class="signature"></div>
-                <div class="signature"></div>
-                <div class="signature"></div>
-            </div>
-            <div class="infusion-item signature-right2">
-                <div class="infusion-medicine-box">
-                    <div class="infusion-medicine">
-                        <!-- 其他类型加: infusion-other -->
-                        <div class="infusion-medicine-content infusion-other">
-                            <!-- 没有组号，不显示 -->
-                            <div class="group-index"></div>
-                            <div class="group">
-                                <div class="medicine-item">
-                                    <div class="medicine-top">
-                                        <div class="medicine-name">
-                                            鼻炎喷雾
-                                            <span class="product-name"></span>
-                                            (
-                                            <span class="medicine-spec">1瓶/瓶</span>
-                                            ×
-                                            <span class="medicine-quantity">1瓶</span>
-                                            )
-                                        </div>
-                                        <!-- 皮试没有不显示 -->
-                                        <div class="medicine-test"></div>
-                                        <div class="medicine-dosage">1瓶</div>
-                                    </div>
-                                    <div class="medicine-footer">
-                                        <div class="manufacturer">
-                                            厂家：
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="infusion-bracket"></div>
-                            <div class="infusion-instruction">
-                                <div class="infusion-content">
-                                    <span class="dose">每次1瓶</span>
-                                    <span class="frequency">每天1次</span>
-                                    <span class="days">7天</span>
-                                    <br />
-                                    <span class="method">滴鼻</span>
-                                    <span class="speed"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 标签在右侧显示:3个签名 -->
-                <div class="signature"></div>
-                <div class="signature"></div>
-                <div class="signature"></div>
-            </div>
-            <div class="blank-section signature-right2">
-                <div class="divider dashed"></div>
-                <div class="blank-text">以下空白</div>
-                <div class="divider dashed"></div>
-            </div>
+            </template>
 
         </template>
 
         <!-- 页脚内容 -->
         <template #footer>
             <!-- 标签在下方 -->
-            <table class="signature-section mj-hidden">
+            <table class="signature-section" :class="data.signatureShow && !data.signatureRight ? '' : 'mj-hidden'">
                 <thead>
                     <tr>
                         <th>执行时间</th>
@@ -498,8 +295,6 @@
 </template>
 
 <script lang="ts" setup>
-import { fa } from 'element-plus/es/locales.mjs';
-
 
 // 定义 props
 const props = defineProps({
@@ -513,10 +308,102 @@ const props = defineProps({
         type: String
     }
 });
+let data: any = {};
 
-const data = {
+// 初始测试
+// data = {
+//     title: '输液注射单',
+//     signatureRight: false,
+//     signatureShow: true,
+//     treatmentDataShow: true,
+//     infusionDataShowOther: true,
+//     treatmentData: [{
+//         medicineName: '针灸',
+//         medicineQuantity: '0/2根'
+//     }, {
+//         medicineName: '补牙',
+//         medicineQuantity: '0/2次'
+//     }],
+//     infusionData: [{
+//         isOther: false,
+//         groupIndex: '①',
+//         groupChildren: [{
+//             medicine: {
+//                 info: {
+//                     name: '氯化钠注射液9%',
+//                     productName: '(生理盐水)',
+//                     spec: '2.25g*250ml/瓶',
+//                     quantity: '1瓶',
+//                 },
+//                 test: '皮试()',
+//                 dosage: '250ml',
+//                 manufacturer: '北京韩美'
+//             },
+//         }, {
+//             medicine: {
+//                 info: {
+//                     name: '克林霉素磷酸酯注射液',
+//                     productName: '',
+//                     spec: '0.3g*2ml/支',
+//                     quantity: '4支',
+//                 },
+//                 test: '',
+//                 dosage: '1.2g',
+//                 manufacturer: '北京韩美'
+//             },
+//         }],
+//         instruction: {
+//             dose: '',
+//             frequency: '每天1次',
+//             days: '1天',
+//             method: '静脉滴注',
+//             speed: '60滴/分钟'
+//         }
+//     }, {
+//         isOther: false,
+//         groupIndex: '②',
+//         groupChildren: [{
+//             medicine: {
+//                 info: {
+//                     name: '葡萄糖氯化钠注射液',
+//                     productName: '',
+//                     spec: '12.5g*250ml/瓶',
+//                     quantity: '2瓶',
+//                 },
+//                 test: '',
+//                 dosage: '500ml',
+//                 manufacturer: '北京韩美'
+//             },
+//         }, {
+//             medicine: {
+//                 info: {
+//                     name: '维生素C注射液',
+//                     productName: '',
+//                     spec: '0.5g*2ml/支',
+//                     quantity: '3支',
+//                 },
+//                 test: '',
+//                 dosage: '1.2g',
+//                 manufacturer: '北京韩美'
+//             },
+//         }],
+//         instruction: {
+//             dose: '',
+//             frequency: '每天1次',
+//             days: '1天',
+//             method: '静脉滴注',
+//             speed: '60滴/分钟'
+//         }
+//     }],
+// }
+
+// 输液注射单：成药处方
+data = {
+    title: '输液注射单',
     signatureRight: false,
     signatureShow: true,
+    treatmentDataShow: true,
+    infusionDataShowOther: true,
     treatmentData: [{
         medicineName: '针灸',
         medicineQuantity: '0/2根'
@@ -525,7 +412,8 @@ const data = {
         medicineQuantity: '0/2次'
     }],
     infusionData: [{
-        groupIndex: '①',
+        isOther: false,
+        groupIndex: '',
         groupChildren: [{
             medicine: {
                 info: {
@@ -538,28 +426,40 @@ const data = {
                 dosage: '250ml',
                 manufacturer: '北京韩美'
             },
-        },{
+        }],
+        instruction: {
+            dose: '',
+            frequency: '每天1次',
+            days: '1天',
+            method: '静脉滴注',
+            speed: '60滴/分钟'
+        }
+    }, {
+        isOther: true,
+        groupIndex: '',
+        groupChildren: [{
             medicine: {
                 info: {
-                    name: '克林霉素磷酸酯注射液',
+                    name: '鼻炎喷雾',
                     productName: '',
-                    spec: '0.3g*2ml/支',
-                    quantity: '4支',
+                    spec: '1瓶/瓶',
+                    quantity: '1瓶',
                 },
                 test: '',
-                dosage: '1.2g',
-                manufacturer: '北京韩美'
+                dosage: '',
+                manufacturer: ''
             },
         }],
-        instruction:{
-            dose:'',
-            frequency:'每天1次',
-            days:'1天',
-            method:'静脉滴注',
-            speed:'60滴/分钟'
+        instruction: {
+            dose: '每次1瓶',
+            frequency: '每天1次',
+            days: '7天',
+            method: '滴鼻',
+            speed: ''
         }
-    },{
-        groupIndex: '②',
+    }, {
+        isOther: false,
+        groupIndex: '',
         groupChildren: [{
             medicine: {
                 info: {
@@ -572,25 +472,13 @@ const data = {
                 dosage: '500ml',
                 manufacturer: '北京韩美'
             },
-        },{
-            medicine: {
-                info: {
-                    name: '维生素C注射液',
-                    productName: '',
-                    spec: '0.5g*2ml/支',
-                    quantity: '3支',
-                },
-                test: '',
-                dosage: '1.2g',
-                manufacturer: '北京韩美'
-            },
         }],
-        instruction:{
-            dose:'',
-            frequency:'每天1次',
-            days:'1天',
-            method:'静脉滴注',
-            speed:'60滴/分钟'
+        instruction: {
+            dose: '',
+            frequency: '每天1次',
+            days: '1天',
+            method: '静脉滴注',
+            speed: '60滴/分钟'
         }
     }],
 }
@@ -903,6 +791,10 @@ const data = {
 
                             br {
                                 display: none;
+                            }
+
+                            .method {
+                                order: -1;
                             }
                         }
                     }

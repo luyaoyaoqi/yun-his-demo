@@ -481,7 +481,30 @@ data = {
             method: '静脉滴注',
             speed: '60滴/分钟'
         }
-    }],
+    }, {
+        isOther: true,
+        groupIndex: '',
+        groupChildren: [{
+            medicine: {
+                info: {
+                    name: '鼻炎喷雾',
+                    productName: '',
+                    spec: '1瓶/瓶',
+                    quantity: '1瓶',
+                },
+                test: '',
+                dosage: '',
+                manufacturer: ''
+            },
+        }],
+        instruction: {
+            dose: '每次1瓶',
+            frequency: '每天1次',
+            days: '7天',
+            method: '滴鼻',
+            speed: ''
+        }
+    },],
 }
 
 //注射单
@@ -739,7 +762,7 @@ data = {
 
         .signature {
             display: block;
-            flex: 0 0 144pt;
+            flex: 0 0 145pt;
             text-align: center;
             border-left: 1px solid #888;
             padding: 4pt 0 4pt 6pt;

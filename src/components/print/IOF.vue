@@ -171,7 +171,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test">皮试()</div>
-                                        <div class="medicine-quantity">250ml</div>
+                                        <div class="medicine-dosage">250ml</div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -193,7 +193,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-quantity">1.2g</div>
+                                        <div class="medicine-dosage">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -243,7 +243,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-quantity">500ml</div>
+                                        <div class="medicine-dosage">500ml</div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -265,7 +265,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test mj-hidden">皮试()</div>
-                                        <div class="medicine-quantity">1.2g</div>
+                                        <div class="medicine-dosage">1.2g</div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -315,7 +315,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test"></div>
-                                        <div class="medicine-quantity"></div>
+                                        <div class="medicine-dosage"></div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -365,7 +365,7 @@
                                         </div>
                                         <!-- 皮试没有不显示 -->
                                         <div class="medicine-test"></div>
-                                        <div class="medicine-quantity">1瓶</div>
+                                        <div class="medicine-dosage">1瓶</div>
                                     </div>
                                     <div class="medicine-footer">
                                         <div class="manufacturer">
@@ -498,6 +498,8 @@
 </template>
 
 <script lang="ts" setup>
+import { fa } from 'element-plus/es/locales.mjs';
+
 
 // 定义 props
 const props = defineProps({
@@ -511,6 +513,87 @@ const props = defineProps({
         type: String
     }
 });
+
+const data = {
+    signatureRight: false,
+    signatureShow: true,
+    treatmentData: [{
+        medicineName: '针灸',
+        medicineQuantity: '0/2根'
+    }, {
+        medicineName: '补牙',
+        medicineQuantity: '0/2次'
+    }],
+    infusionData: [{
+        groupIndex: '①',
+        groupChildren: [{
+            medicine: {
+                info: {
+                    name: '氯化钠注射液9%',
+                    productName: '(生理盐水)',
+                    spec: '2.25g*250ml/瓶',
+                    quantity: '1瓶',
+                },
+                test: '皮试()',
+                dosage: '250ml',
+                manufacturer: '北京韩美'
+            },
+        },{
+            medicine: {
+                info: {
+                    name: '克林霉素磷酸酯注射液',
+                    productName: '',
+                    spec: '0.3g*2ml/支',
+                    quantity: '4支',
+                },
+                test: '',
+                dosage: '1.2g',
+                manufacturer: '北京韩美'
+            },
+        }],
+        instruction:{
+            dose:'',
+            frequency:'每天1次',
+            days:'1天',
+            method:'静脉滴注',
+            speed:'60滴/分钟'
+        }
+    },{
+        groupIndex: '②',
+        groupChildren: [{
+            medicine: {
+                info: {
+                    name: '葡萄糖氯化钠注射液',
+                    productName: '',
+                    spec: '12.5g*250ml/瓶',
+                    quantity: '2瓶',
+                },
+                test: '',
+                dosage: '500ml',
+                manufacturer: '北京韩美'
+            },
+        },{
+            medicine: {
+                info: {
+                    name: '维生素C注射液',
+                    productName: '',
+                    spec: '0.5g*2ml/支',
+                    quantity: '3支',
+                },
+                test: '',
+                dosage: '1.2g',
+                manufacturer: '北京韩美'
+            },
+        }],
+        instruction:{
+            dose:'',
+            frequency:'每天1次',
+            days:'1天',
+            method:'静脉滴注',
+            speed:'60滴/分钟'
+        }
+    }],
+}
 
 </script>
 
@@ -574,7 +657,7 @@ const props = defineProps({
                                 margin-right: 4pt;
                             }
 
-                            .medicine-quantity {
+                            .medicine-dosage {
                                 flex: 0 auto;
                                 white-space: nowrap;
                             }
@@ -728,7 +811,7 @@ const props = defineProps({
                                 margin-right: 4pt;
                             }
 
-                            .medicine-quantity {
+                            .medicine-dosage {
                                 flex: 0 auto;
                                 white-space: nowrap;
                             }
@@ -792,7 +875,7 @@ const props = defineProps({
                                 margin-bottom: 0;
 
                                 .medicine-test,
-                                .medicine-quantity {
+                                .medicine-dosage {
                                     display: none;
                                 }
                             }
@@ -813,6 +896,7 @@ const props = defineProps({
 
                         .infusion-content {
                             white-space: nowrap;
+
                             .dose {
                                 display: inline;
                             }

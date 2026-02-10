@@ -155,12 +155,12 @@
                                                 <div class="medicine-name">
                                                     {{ child.medicine.info.name }}
                                                     <span class="product-name">{{ child.medicine.info.productName
-                                                        }}</span>
+                                                    }}</span>
                                                     (
                                                     <span class="medicine-spec">{{ child.medicine.info.spec }}</span>
                                                     ×
                                                     <span class="medicine-quantity">{{ child.medicine.info.quantity
-                                                        }}</span>
+                                                    }}</span>
                                                     )
                                                 </div>
                                                 <!-- 皮试没有不显示 -->
@@ -182,7 +182,7 @@
                                         <span class="dose">{{ item.instruction.dose }}</span>
                                         <span class="frequency">{{ item.instruction.frequency }}</span>
                                         <span class="days">{{ item.instruction.days }}</span>
-                                        <br />
+                                        <span class="br"></span>
                                         <span class="method">{{ item.instruction.method }}</span>
                                         <span class="speed">{{ item.instruction.speed }}</span>
                                     </div>
@@ -899,6 +899,12 @@ data = {
                             order: 3;
                         }
 
+                        .br {
+                            order: 3;
+                            width: 100%;
+                            height: 0;
+                        }
+
                         .method {
                             order: 4;
                         }
@@ -955,7 +961,7 @@ data = {
                                 display: inline;
                             }
 
-                            br {
+                            .br {
                                 display: none;
                             }
 
@@ -1027,7 +1033,7 @@ data = {
                                 order: 0;
                             }
 
-                            br {
+                            .br {
                                 display: none;
                             }
                         }

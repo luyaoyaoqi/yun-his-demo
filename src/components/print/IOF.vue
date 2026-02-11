@@ -762,7 +762,7 @@ data = {
 
         .signature {
             display: block;
-            flex: 0 0 145pt;
+            flex: 0 0 152pt;
             text-align: center;
             border-left: 1px solid #888;
             padding: 4pt 0 4pt 6pt;
@@ -849,7 +849,6 @@ data = {
 
                         .medicine-footer {
                             display: flex;
-                            font-size: 10pt;
                             padding-left: 12pt;
                             flex-wrap: wrap;
 
@@ -1046,7 +1045,7 @@ data = {
 
         .signature {
             display: block;
-            flex: 0 0 40pt;
+            flex: 0 0 42pt;
             text-align: center;
             border-left: 1px solid #888;
             padding: 4pt 0 4pt 6pt;

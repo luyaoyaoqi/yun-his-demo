@@ -1046,6 +1046,7 @@ data = {
         .signature {
             display: block;
             flex: 0 0 42pt;
+            white-space: nowrap;
             text-align: center;
             border-left: 1px solid #888;
             padding: 4pt 0 4pt 6pt;

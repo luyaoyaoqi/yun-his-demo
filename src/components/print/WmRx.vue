@@ -136,11 +136,15 @@
                         <div class="medicine-middle">
                             <div class="cabinet-number" data-visible="tcmCabinetNo">a-2-089</div>
                             <div class="usage">
-                                用法：
-                                <span>每次0.1g</span>
-                                <span>每天1次</span>
-                                <span>口服</span>
+                                <span class="usage-content">用法：每次0.1g，每天1次，口服</span>
+                                <span class="cpm-remark">
+                                    <span>
+                                        (注备注备注备注备注备注注备注备注备注备注备注注备注备注备注备注备注注备注备注备注备注备注注备注备注备注备注备注)
+                                    </span>
+                                    <span class="overflow-bg"></span>
+                                </span>
                             </div>
+
                         </div>
                         <div class="medicine-footer">
                             <div class="manufacturer">
@@ -383,15 +387,28 @@ const props = defineProps({
 
                 .cabinet-number {
                     margin-right: 6pt;
-                    flex: 0 20%;
+                    flex: 0 0 20%;
                 }
 
                 .usage {
-                    flex: 0 auto;
+                    flex: 0 1 80%;
+                    display: flex;
+                    flex-wrap: wrap;
 
-                    >span {
+                    .usage-content {
                         margin-right: 4pt;
                     }
+
+                    .cpm-remark {
+                        max-height: 24pt;
+                        overflow: hidden;
+
+                        .overflow-bg {
+                            display: block;
+                            background: #fff;
+                        }
+                    }
+
                 }
             }
 

@@ -386,7 +386,7 @@ body {
 
     .print-main {
         flex: 1 1 auto;
-        overflow: hidden;
+        height: 0;
 
         &:deep(>div:first-child) {
             padding-top: 0;

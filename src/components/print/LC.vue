@@ -1,0 +1,253 @@
+<template>
+    <PrintContainer :paperSize="props.paperSize" :orientation="props.orientation"
+        :containerPaddingStyle="props.containerPaddingStyle">
+        <!-- 页眉内容 -->
+        <template #header>
+            <div class="header">
+                <div class="header-title">
+                    <div class="title-main" data-field="organizationName">上海脉景工作室</div>
+                    <div class="title-sub" data-visible="documentType" data-field="documentType">收费清单</div>
+                </div>
+            </div>
+            <div class="patient-detail-info">
+                <div class="info-item">
+                    <span>姓名：</span>
+                    <span data-field="patientName">张三</span>
+                </div>
+                <div class="info-item">
+                    <span>医生：</span>
+                    <span data-visible="doctorSignature" data-field="doctor">张仲景</span>
+                </div>
+                <div class="info-item">
+                    <span>科室：</span>
+                    <span data-field="department">内科</span>
+                </div>
+                <div class="info-item row-two">
+                    <span>诊断：</span>
+                    <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                </div>
+                <div class="info-item" data-visible="archiveNo">
+                    <span>病历号：</span>
+                    <span data-field="archiveNo">000881</span>
+                </div>
+                <div class="info-item row-three" data-visible="idCard">
+                    <span>身份证：</span>
+                    <span data-field="idCard">3100**********3100</span>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="table-row table-header">
+                <span class="name">项目名称</span>
+                <span class="trace-code">追溯码</span>
+                <span class="unit">单位</span>
+                <span class="price">单价</span>
+                <span class="quantity">数量</span>
+                <span class="amount">金额</span>
+            </div>
+            <div class="divider"></div>
+        </template>
+
+        <!-- 主内容 -->
+        <template #main>
+            <div class="table-row table-row-item">
+                <span class="name">挂号费</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">次</span>
+                <span class="price">10.00</span>
+                <span class="quantity">1</span>
+                <span class="amount">10.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊阿莫西林胶囊阿莫西林胶囊阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="table-row table-row-item">
+                <span class="name">阿莫西林胶囊</span>
+                <span class="trace-code">
+                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">000000000000000000000</span>
+                </span>
+                <span class="unit">盒</span>
+                <span class="price">10.00</span>
+                <span class="quantity">2</span>
+                <span class="amount">20.00</span>
+            </div>
+            <div class="blank-section">
+                <div class="divider dashed"></div>
+                <div class="blank-text">以下空白</div>
+                <div class="divider dashed"></div>
+            </div>
+        </template>
+
+        <!-- 页脚内容 -->
+        <template #footer>
+            <div class="divider"></div>
+            <div class="footer">
+                <div class="doctor-info">
+                    <div class="info-item">
+                        <span>费用合计：</span>
+                        <span data-field="totalFee">¥100</span>
+                    </div>
+                    <div class="info-item">
+                        <span>收费员：</span>
+                        <span data-field="chargePerson">张三</span>
+                    </div>
+                    <div class="info-item">
+                        <span>收费时间：</span>
+                        <span data-field="chargeTime">2025-08-15 11:11:07</span>
+                    </div>
+                    <div class="info-item">
+                        <span>收费单位：</span>
+                        <span data-field="chargeUnit">上海脉景工作室</span>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <div class="info-item">
+                        <span>患者签字：</span>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </PrintContainer>
+</template>
+
+<script lang="ts" setup>
+
+// 定义 props
+const props = defineProps({
+    paperSize: {
+        type: String
+    },
+    orientation: {
+        type: String
+    },
+    containerPaddingStyle: {
+        type: String
+    }
+});
+
+</script>
+
+<style lang="less" scoped>
+@import './style/print.less';
+
+.table-row {
+    display: flex;
+    font-size: 10pt;
+    line-height: 1.2;
+    font-weight: 400;
+
+    &.table-header {
+        >span {
+            margin-bottom: 0;
+        }
+    }
+
+    >span {
+        margin-right: 6pt;
+        margin-bottom: 6pt;
+        word-break: break-all;
+        flex: 0 0 auto;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .name {
+        flex-grow: 1;
+        width: 0;
+    }
+
+    .trace-code {
+        min-width: 124pt;
+        flex-basis: 30%;
+        display: flex;
+        flex-direction: column;
+        // display: none;
+    }
+
+    .unit {
+        text-align: right;
+        flex-basis: 6%;
+        min-width: 24pt;
+    }
+
+    .price {
+        text-align: right;
+        flex-basis: 12%;
+        min-width: 40pt;
+    }
+
+    .quantity {
+        text-align: right;
+        flex-basis: 6%;
+        min-width: 24pt;
+    }
+
+    .amount {
+        text-align: right;
+        flex-basis: 12%;
+        min-width: 40pt;
+    }
+}
+
+.footer {
+    .doctor-info {
+        flex-wrap: wrap;
+    }
+}
+</style>

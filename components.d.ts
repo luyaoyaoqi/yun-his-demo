@@ -9,7 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ChargeReceipt: typeof import('./src/components/print/ChargeReceipt.vue')['default']
-    copy: typeof import('./src/components/print/IiRx copy.vue')['default']
+    copy: typeof import('./src/components/print/DC copy.vue')['default']
     CRT: typeof import('./src/components/print/CRT.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     DC: typeof import('./src/components/print/DC.vue')['default']
@@ -45,6 +45,7 @@ declare module 'vue' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     IiRx: typeof import('./src/components/print/IiRx.vue')['default']
     IOF: typeof import('./src/components/print/IOF.vue')['default']
+    LC: typeof import('./src/components/print/LC.vue')['default']
     MaxPrecisionInputNumber: typeof import('./src/components/MaxPrecisionInputNumber.vue')['default']
     MedicalRecord: typeof import('./src/components/print/MedicalRecord.vue')['default']
     PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']

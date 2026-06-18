@@ -78,6 +78,7 @@ import IOF from '@/components/print/IOF.vue';
 import DC from '@/components/print/DC.vue';
 import CRT from '@/components/print/CRT.vue';
 import DRT from '@/components/print/DRT.vue';
+import LC from '@/components/print/LC.vue';
 
 const printTemplateGroup = {
     TcmRx,
@@ -89,6 +90,7 @@ const printTemplateGroup = {
     DC,
     CRT,
     DRT,
+    LC,
 }
 
 // 选择模板
@@ -102,6 +104,7 @@ const selectedTemplateOption = [
     { label: '诊断证明书 DC', value: 'DC' },
     { label: '收费小票 CRT', value: 'CRT' },
     { label: '发药小票 DRT', value: 'DRT' },
+    { label: '收费清单 LC', value: 'LC' },
 ]
 
 // 类型定义

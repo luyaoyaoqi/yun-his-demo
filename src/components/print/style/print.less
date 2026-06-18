@@ -101,7 +101,6 @@
         word-break: break-all;
         flex-basis: calc(33.33% - 6pt);
         display: flex;
-        white-space: nowrap;
 
         &.row-three {
             flex-basis: 100%;
@@ -112,9 +111,11 @@
         }
 
         span {
-            white-space: wrap;
+            &:first-child {
+                white-space: nowrap;
+            }
 
-            &:not(:first-child) {
+            &:last-child {
                 margin-left: 4px;
             }
         }

@@ -60,7 +60,7 @@
                 <span class="amount">25.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">头孢克洛缓释片0.375g×6片</span>
+                <span class="name">头孢克洛缓释片</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86901234567890123456</span>
                 </span>
@@ -70,7 +70,7 @@
                 <span class="amount">65.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">盐酸氨溴索口服溶液100ml:0.3g</span>
+                <span class="name">盐酸氨溴索口服溶液</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86905678901234567890</span>
                 </span>
@@ -80,7 +80,7 @@
                 <span class="amount">18.60</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">布洛芬缓释胶囊0.3g×20粒</span>
+                <span class="name">布洛芬缓释胶囊</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86902345678901234567</span>
                 </span>
@@ -90,7 +90,7 @@
                 <span class="amount">15.80</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">复方甘草片100片</span>
+                <span class="name">复方甘草片</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86903456789012345678</span>
                     <span class="trace-code-item">86903456789012345679</span>
@@ -101,7 +101,7 @@
                 <span class="amount">17.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">蓝芩口服液10ml×12支</span>
+                <span class="name">蓝芩口服液</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86904567890123456789</span>
                 </span>
@@ -111,7 +111,7 @@
                 <span class="amount">42.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">愈创甘油醚片0.2g×24片</span>
+                <span class="name">愈创甘油醚片</span>
                 <span class="trace-code">
                     <span class="trace-code-item">86906789012345678901</span>
                 </span>

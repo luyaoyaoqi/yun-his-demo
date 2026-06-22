@@ -52,78 +52,73 @@
             <div class="table-row table-row-item">
                 <span class="name">挂号费</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">—</span>
                 </span>
                 <span class="unit">次</span>
-                <span class="price">10.00</span>
+                <span class="price">25.00</span>
                 <span class="quantity">1</span>
-                <span class="amount">10.00</span>
+                <span class="amount">25.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊阿莫西林胶囊阿莫西林胶囊阿莫西林胶囊</span>
+                <span class="name">头孢克洛缓释片0.375g×6片</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86901234567890123456</span>
                 </span>
                 <span class="unit">盒</span>
-                <span class="price">10.00</span>
+                <span class="price">32.50</span>
                 <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="amount">65.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊</span>
+                <span class="name">盐酸氨溴索口服溶液100ml:0.3g</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86905678901234567890</span>
                 </span>
-                <span class="unit">盒</span>
-                <span class="price">10.00</span>
-                <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="unit">瓶</span>
+                <span class="price">18.60</span>
+                <span class="quantity">1</span>
+                <span class="amount">18.60</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊</span>
+                <span class="name">布洛芬缓释胶囊0.3g×20粒</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86902345678901234567</span>
                 </span>
                 <span class="unit">盒</span>
-                <span class="price">10.00</span>
-                <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="price">15.80</span>
+                <span class="quantity">1</span>
+                <span class="amount">15.80</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊</span>
+                <span class="name">复方甘草片100片</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86903456789012345678</span>
+                    <span class="trace-code-item">86903456789012345679</span>
                 </span>
-                <span class="unit">盒</span>
-                <span class="price">10.00</span>
+                <span class="unit">瓶</span>
+                <span class="price">8.50</span>
                 <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="amount">17.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊</span>
+                <span class="name">蓝芩口服液10ml×12支</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86904567890123456789</span>
                 </span>
                 <span class="unit">盒</span>
-                <span class="price">10.00</span>
-                <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="price">42.00</span>
+                <span class="quantity">1</span>
+                <span class="amount">42.00</span>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">阿莫西林胶囊</span>
+                <span class="name">愈创甘油醚片0.2g×24片</span>
                 <span class="trace-code">
-                    <span class="trace-code-item">000000000000000000000</span>
-                    <span class="trace-code-item">000000000000000000000</span>
+                    <span class="trace-code-item">86906789012345678901</span>
                 </span>
                 <span class="unit">盒</span>
-                <span class="price">10.00</span>
-                <span class="quantity">2</span>
-                <span class="amount">20.00</span>
+                <span class="price">12.30</span>
+                <span class="quantity">1</span>
+                <span class="amount">12.30</span>
             </div>
             <div class="blank-section">
                 <div class="divider dashed"></div>
@@ -139,7 +134,7 @@
                 <div class="doctor-info">
                     <div class="info-item">
                         <span>费用合计：</span>
-                        <span data-field="totalFee">¥100</span>
+                        <span data-field="totalFee">¥195.70</span>
                     </div>
                     <div class="info-item">
                         <span>收费员：</span>

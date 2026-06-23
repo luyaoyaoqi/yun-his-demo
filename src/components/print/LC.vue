@@ -5,8 +5,10 @@
         <template #header>
             <div class="header">
                 <div class="header-title">
-                    <div class="title-main" data-field="organizationName">上海脉景工作室</div>
-                    <div class="title-sub" data-visible="documentType" data-field="documentType">收费清单</div>
+                    <div class="title-main">
+                        <span data-field="organizationName">上海脉景工作室</span>
+                        <span>收费清单</span>
+                    </div>
                 </div>
             </div>
             <div class="patient-detail-info">
@@ -22,27 +24,29 @@
                     <span>科室：</span>
                     <span data-field="department">内科</span>
                 </div>
-                <div class="info-item row-two">
+                <div class="info-item">
                     <span>诊断：</span>
-                    <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
+                    <span data-field="diagnosis">急性支气管炎</span>
                 </div>
                 <div class="info-item" data-visible="archiveNo">
                     <span>病历号：</span>
                     <span data-field="archiveNo">000881</span>
                 </div>
-                <div class="info-item row-three" data-visible="idCard">
+                <div class="info-item" data-visible="idCard">
                     <span>身份证：</span>
-                    <span data-field="idCard">3100**********3100</span>
+                    <span data-field="idCard">3100********3100</span>
                 </div>
             </div>
             <div class="divider"></div>
             <div class="table-row table-header">
-                <span class="name">项目名称</span>
-                <span class="trace-code">追溯码</span>
-                <span class="unit">单位</span>
-                <span class="price">单价</span>
-                <span class="quantity">数量</span>
-                <span class="amount">金额</span>
+                <div class="name-row">
+                    <span class="name">项目名称</span>
+                    <span class="trace-code">追溯码</span>
+                    <span class="unit">单位</span>
+                    <span class="price">单价</span>
+                    <span class="quantity">数量</span>
+                    <span class="amount">金额</span>
+                </div>
             </div>
             <div class="divider"></div>
         </template>
@@ -50,81 +54,141 @@
         <!-- 主内容 -->
         <template #main>
             <div class="table-row table-row-item">
-                <span class="name">挂号费</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">—</span>
-                </span>
-                <span class="unit">次</span>
-                <span class="price">25.00</span>
-                <span class="quantity">1</span>
-                <span class="amount">25.00</span>
+                <div class="name-row">
+                    <span class="name">挂号费</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">次</span>
+                    <span class="price">25.00</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">25.00</span>
+                </div>
+                <div class="trace-code-row mj-hidden">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">头孢克洛缓释片</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86901234567890123456</span>
-                </span>
-                <span class="unit">盒</span>
-                <span class="price">32.50</span>
-                <span class="quantity">2</span>
-                <span class="amount">65.00</span>
+                <div class="name-row">
+                    <span class="name">头孢克洛缓释片</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">盒</span>
+                    <span class="price">15.80</span>
+                    <span class="quantity">4</span>
+                    <span class="amount">15.80</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">盐酸氨溴索口服溶液</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86905678901234567890</span>
-                </span>
-                <span class="unit">瓶</span>
-                <span class="price">18.60</span>
-                <span class="quantity">1</span>
-                <span class="amount">18.60</span>
+                <div class="name-row">
+                    <span class="name">阿莫西林胶囊</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">盒</span>
+                    <span class="price">12.50</span>
+                    <span class="quantity">2</span>
+                    <span class="amount">25.00</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86909876543210987654</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86909876543210987654</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">布洛芬缓释胶囊</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86902345678901234567</span>
-                </span>
-                <span class="unit">盒</span>
-                <span class="price">15.80</span>
-                <span class="quantity">1</span>
-                <span class="amount">15.80</span>
+                <div class="name-row">
+                    <span class="name">布洛芬缓释胶囊</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">盒</span>
+                    <span class="price">18.60</span>
+                    <span class="quantity">3</span>
+                    <span class="amount">55.80</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86905555666677778889</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86905555666677778889</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86905555666677778889</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">复方甘草片</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86903456789012345678</span>
-                    <span class="trace-code-item">86903456789012345679</span>
-                </span>
-                <span class="unit">瓶</span>
-                <span class="price">8.50</span>
-                <span class="quantity">2</span>
-                <span class="amount">17.00</span>
+                <div class="name-row">
+                    <span class="name">复方甘草片</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">瓶</span>
+                    <span class="price">8.90</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">8.90</span>
+                </div>
+                <div class="trace-code-row mj-hidden">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86901111222233334445</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">蓝芩口服液</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86904567890123456789</span>
-                </span>
-                <span class="unit">盒</span>
-                <span class="price">42.00</span>
-                <span class="quantity">1</span>
-                <span class="amount">42.00</span>
+                <div class="name-row">
+                    <span class="name">盐酸氨溴索口服液</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">瓶</span>
+                    <span class="price">22.40</span>
+                    <span class="quantity">2</span>
+                    <span class="amount">44.80</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86906666777788889990</span>
+                        <span>、</span>
+                        <span class="trace-code-item">86906666777788889990</span>
+                    </span>
+                </div>
             </div>
             <div class="table-row table-row-item">
-                <span class="name">愈创甘油醚片</span>
-                <span class="trace-code">
-                    <span class="trace-code-item">86906789012345678901</span>
-                </span>
-                <span class="unit">盒</span>
-                <span class="price">12.30</span>
-                <span class="quantity">1</span>
-                <span class="amount">12.30</span>
+                <div class="name-row">
+                    <span class="name">中药饮片-金银花</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">g</span>
+                    <span class="price">0.35</span>
+                    <span class="quantity">60</span>
+                    <span class="amount">21.00</span>
+                </div>
+                <div class="trace-code-row mj-hidden">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86903333444455556667</span>
+                    </span>
+                </div>
             </div>
-            <div class="blank-section">
-                <div class="divider dashed"></div>
-                <div class="blank-text">以下空白</div>
-                <div class="divider dashed"></div>
-            </div>
+
         </template>
 
         <!-- 页脚内容 -->
@@ -184,60 +248,96 @@ const props = defineProps({
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
+    flex-direction: column;
+    
 
     &.table-header {
-        >span {
+        .name-row>span {
             margin-bottom: 0;
         }
     }
 
-    >span {
-        margin-right: 6pt;
-        margin-bottom: 6pt;
-        word-break: break-all;
-        flex: 0 0 auto;
+    .name-row {
+        display: flex;
+        width: 100%;
+        overflow: hidden;
 
-        &:last-child {
-            margin-right: 0;
+        >span {
+            margin-right: 6pt;
+            margin-bottom: 6pt;
+            word-break: break-all;
+            flex: 0 0 auto;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .name {
+            flex-grow: 1;
+            width: 0;
+        }
+
+        .trace-code {
+            flex-basis: 28%;
+            display: flex;
+            flex-wrap: wrap;
+            // display: none;
+        }
+
+        .unit {
+            text-align: right;
+            flex-basis: 6%;
+            min-width: 24pt;
+        }
+
+        .price {
+            text-align: right;
+            flex-basis: 12%;
+            min-width: 40pt;
+        }
+
+        .quantity {
+            text-align: right;
+            flex-basis: 6%;
+            min-width: 24pt;
+        }
+
+        .amount {
+            text-align: right;
+            flex-basis: 12%;
+            min-width: 40pt;
         }
     }
 
-    .name {
-        flex-grow: 1;
-        width: 0;
-    }
-
-    .trace-code {
-        min-width: 124pt;
-        flex-basis: 30%;
+    .trace-code-row {
         display: flex;
-        flex-direction: column;
+        width: 100%;
         // display: none;
+
+        >span {
+            margin-right: 6pt;
+            margin-bottom: 6pt;
+            word-break: break-all;
+            flex: 0 0 auto;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .name {
+            flex-grow: 1;
+            width: 0;
+        }
+
+        .trace-code {
+            flex-basis: calc(64% + 24pt);
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
 
-    .unit {
-        text-align: right;
-        flex-basis: 6%;
-        min-width: 24pt;
-    }
-
-    .price {
-        text-align: right;
-        flex-basis: 12%;
-        min-width: 40pt;
-    }
-
-    .quantity {
-        text-align: right;
-        flex-basis: 6%;
-        min-width: 24pt;
-    }
-
-    .amount {
-        text-align: right;
-        flex-basis: 12%;
-        min-width: 40pt;
-    }
 }
 
 .footer {

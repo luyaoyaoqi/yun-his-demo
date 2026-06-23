@@ -55,6 +55,11 @@
                     <el-switch v-model="isPreview" active-text="预览" inactive-text="打印" />
                 </el-form-item>
 
+                <el-form-item label="页脚上移" label-width="80px" label-position="left">
+                    <el-switch v-model="isFooterUp" active-text="是" inactive-text="否" />
+                </el-form-item>
+
+
                 <el-form-item>
                     <el-button type="primary" @click="print">打印任务</el-button>
                     <el-button @click="resetSettings">重置</el-button>
@@ -95,7 +100,7 @@ const printTemplateGroup = {
 
 // 选择模板
 const selectedTemplateOption = [
-    { label: '病历 MedicalRecord', value: 'MedicalRecord' },
+    { label: '病历 MedicalRecord', value: 'MedicalRecord', },
     { label: '中药处方 TcmRx', value: 'TcmRx' },
     { label: '成药处方 WmRx', value: 'WmRx' },
     { label: '输注处方 IiRx', value: 'IiRx' },
@@ -166,6 +171,16 @@ const selectedPrinter = ref('');
 const printerList = ref<PrinterInfo[]>([]);
 const isPreview = ref(true);
 
+// 如果页脚上移，就给body添加一个类
+const isFooterUp = ref(false);
+const footerUpClass = `
+        <style type="text/css">
+            .mj-print-page .print-main {
+                flex-grow:0;
+                height: auto;
+            }
+        </style>
+        `
 
 // 当前选中的模板
 const selectedTemplate = ref('')
@@ -193,12 +208,19 @@ const updatePaddingStyle = (value: number | null) => {
     setTimeout(createPrintPage, 100);
 };
 
+//监听isFooterUp变化
+watch(isFooterUp, () => {
+    // 更新打印页面
+    setTimeout(createPrintPage, 100);
+})
+
 // 重置设置
 const resetSettings = () => {
     printSetting.paperSize = printDefaultSetting.paperSize;
     printSetting.orientation = printDefaultSetting.orientation;
     printSetting.containerPaddingStyle = printDefaultSetting.containerPaddingStyle;
     paddingValue.value = paddingDefault;
+    isFooterUp.value = true;
 
     // 更新打印页面
     setTimeout(createPrintPage, 100);
@@ -302,7 +324,6 @@ const createPrintPage = () => {
             cleanPrintStyle2 = cleanPrintStyle2.replace(/data-vite-dev-id="[^"]*"/g, '');
         }
 
-
         const singlePageContent = `
             <!DOCTYPE html>
             <html lang="zh-CN">
@@ -313,6 +334,7 @@ const createPrintPage = () => {
                 
                 ${cleanPrintStyle1}
                 ${cleanPrintStyle2}
+                ${isFooterUp.value ? footerUpClass : ''}
             </head>
             <body>
                 ${cleanPageElement.outerHTML}

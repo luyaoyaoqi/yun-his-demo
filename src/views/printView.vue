@@ -176,7 +176,7 @@ const isFooterUp = ref(false);
 const footerUpClass = `
         <style type="text/css">
             .mj-print-page .print-main {
-                flex-grow:0;
+                flex:0 0 auto;
                 height: auto;
             }
         </style>

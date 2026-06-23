@@ -282,7 +282,7 @@ const props = defineProps({
             flex-basis: 28%;
             display: flex;
             flex-wrap: wrap;
-            // display: none;
+            display: none;
         }
 
         .unit {
@@ -313,7 +313,7 @@ const props = defineProps({
     .trace-code-row {
         display: flex;
         width: 100%;
-        // display: none;
+        display: none;
 
         >span {
             margin-right: 6pt;

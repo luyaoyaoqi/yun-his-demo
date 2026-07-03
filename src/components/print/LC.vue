@@ -243,12 +243,14 @@ const props = defineProps({
 <style lang="less" scoped>
 @import './style/print.less';
 
+
 .table-row {
     display: flex;
     font-size: 10pt;
     line-height: 1.2;
     font-weight: 400;
     flex-direction: column;
+    flex: 0 0 auto;
     
 
     &.table-header {
@@ -282,7 +284,7 @@ const props = defineProps({
             flex-basis: 28%;
             display: flex;
             flex-wrap: wrap;
-            display: none;
+            // display: none;
         }
 
         .unit {
@@ -313,7 +315,7 @@ const props = defineProps({
     .trace-code-row {
         display: flex;
         width: 100%;
-        display: none;
+        // display: none;
 
         >span {
             margin-right: 6pt;

@@ -76,6 +76,23 @@
                     </div>
                 </div>
                 
+                <!-- 套餐 -->
+                <div class="treatment-package">
+                    <div class="divider dashed"></div>
+                    <!-- 套餐:合并 -->
+                    <div class="info-item">
+                        <span class="label">套餐费</span>
+                        <span class="total-prices">100.00</span>
+                    </div>
+                    <!-- 套餐:单项 -->
+                    <div class="info-item">
+                        <span class="label">【套餐】综合调养套餐</span>
+                        <span class="unit-price">100.00</span>
+                        <span class="times">1次</span>
+                        <span class="total-prices">100.00</span>
+                    </div>
+                </div>
+                
                 <!-- 中西成药 -->
                 <div class="chinese-and-western-medicine">
                     <div class="divider dashed"></div>

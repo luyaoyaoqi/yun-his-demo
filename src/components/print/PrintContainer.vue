@@ -60,7 +60,7 @@ const originalFooterContent = ref<Node[]>([]);
 const isPaginationNeeded = (element: HTMLElement, offsetTop: number): boolean => {
     // 添加一些安全边距，避免刚好临界的情况
     const safetyMargin = 2; // 2px的安全边距
-    if (!element) return false;192
+    if (!element) return false;
     return element.offsetTop + element.offsetHeight > offsetTop + safetyMargin;
 };
 
@@ -366,18 +366,30 @@ body {
 
     //热敏小票相关样式
     &.thermal80 {
-        width: 74mm;
+        width: 80mm;
         height: auto;
+
+        .print-main {
+            height: auto;
+        }
     }
 
     &.thermal58 {
         width: 52mm;
         height: auto;
+
+        .print-main {
+            height: auto;
+        }
     }
 
     &.thermal100 {
         width: 94mm;
         height: auto;
+
+        .print-main {
+            height: auto;
+        }
     }
 
     .print-header {

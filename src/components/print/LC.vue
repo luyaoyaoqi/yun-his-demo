@@ -188,6 +188,69 @@
                     </span>
                 </div>
             </div>
+            <!-- 套餐加is-package -->
+            <div class="table-row table-row-item is-package">
+                <div class="name-row">
+                    <span class="name">【套餐】综合调养套餐</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">次</span>
+                    <span class="price">100.00</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">100.00</span>
+                </div>
+            </div>
+            <!-- 子项目加is-child -->
+            <div class="table-row table-row-item is-child">
+                <div class="name-row">
+                    <span class="name"><span class="treatment-child-number">1</span>穴位贴敷</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">次</span>
+                    <span class="price">20.00</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">20.00</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86901234567890123456</span>
+                    </span>
+                </div>
+            </div>
+            <div class="table-row table-row-item is-child">
+                <div class="name-row">
+                    <span class="name"><span class="treatment-child-number">2</span>电针灸</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">次</span>
+                    <span class="price">60.00</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">60.00</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86909876543210987654</span>
+                    </span>
+                </div>
+            </div>
+            <div class="table-row table-row-item is-child">
+                <div class="name-row">
+                    <span class="name"><span class="treatment-child-number">3</span>推拿</span>
+                    <span class="trace-code"></span>
+                    <span class="unit">次</span>
+                    <span class="price">20.00</span>
+                    <span class="quantity">1</span>
+                    <span class="amount">20.00</span>
+                </div>
+                <div class="trace-code-row">
+                    <span class="name"></span>
+                    <span class="trace-code">
+                        <span>追溯码： </span>
+                        <span class="trace-code-item">86905555666677778889</span>
+                    </span>
+                </div>
+            </div>
 
         </template>
 
@@ -251,7 +314,7 @@ const props = defineProps({
     font-weight: 400;
     flex-direction: column;
     flex: 0 0 auto;
-    
+
 
     &.table-header {
         .name-row>span {
@@ -340,6 +403,19 @@ const props = defineProps({
         }
     }
 
+    &.is-package {
+
+        &~.is-child {
+            .name-row {
+                .name {
+                    padding-left: 16pt;
+                    .treatment-child-number {
+                        margin-right: 4pt;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .footer {

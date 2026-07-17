@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>经方 - 中医经典方剂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* 新中式极简配色 */
+      --bg-primary: #FAF8F5;
+      --bg-secondary: #F5F2ED;
+      --bg-card: rgba(255, 255, 255, 0.7);
+      --bg-card-solid: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.6);
+
+      /* 赭石 - 主色调 */
+      --ochre: #C67B4E;
+      --ochre-light: #D4A07A;
+      --ochre-dark: #A6613A;
+
+      /* 竹青 - 辅助色 */
+      --bamboo: #6B8E7D;
+      --bamboo-light: #8BA899;
+      --bamboo-dark: #527563;
+
+      /* 墨色 */
+      --ink: #2C2C2C;
+      --ink-light: #5A5A5A;
+      --ink-lighter: #8A8A8A;
+
+      /* 浅色点缀 */
+      --cream: #F8F5F0;
+      --warm-gray: #E8E4DF;
+      --border: rgba(198, 123, 78, 0.15);
+
+      /* 深色模式 */
+      --dark-bg: #1A1814;
+      --dark-bg-secondary: #252118;
+      --dark-card: rgba(45, 40, 32, 0.8);
+      --dark-text: #E8E4DF;
+      --dark-text-secondary: #A09A8F;
+
+      /* 字体 */
+      --font-serif: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      --font-sans: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+      /* 圆角 */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+
+      /* 阴影 */
+      --shadow-sm: 0 2px 8px rgba(44, 44, 44, 0.04);
+      --shadow-md: 0 4px 16px rgba(44, 44, 44, 0.06);
+      --shadow-lg: 0 8px 32px rgba(44, 44, 44, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 暗色模式 */
+    body.dark-mode {
+      --bg-primary: var(--dark-bg);
+      --bg-secondary: var(--dark-bg-secondary);
+      --bg-card: var(--dark-card);
+      --bg-card-solid: #2D2820;
+      --bg-glass: rgba(45, 40, 32, 0.7);
+      --cream: #2D2820;
+      --warm-gray: #3A3428;
+      --border: rgba(198, 123, 78, 0.2);
+      --ink: #E8E4DF;
+      --ink-light: #A09A8F;
+      --ink-lighter: #706B5F;
+    }
+
+    /* App Container */
+    .app-container {
+      max-width: 430px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--bg-primary);
+      position: relative;
+    }
+
+    /* Screen Management */
+    .screen {
+      display: none;
+      min-height: 100vh;
+      padding-bottom: 100px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Header */
+    .header {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background: var(--bg-primary);
+      z-index: 100;
+    }
+
+    .header-left h1 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 2px;
+    }
+
+    .header-left .subtitle {
+      font-size: 12px;
+      color: var(--ink-lighter);
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .icon-btn:hover {
+      background: var(--cream);
+      transform: scale(1.05);
+    }
+
+    .icon-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--ink);
+    }
+
+    /* Search Bar */
+    .search-bar {
+      margin: 0 20px 24px;
+      position: relative;
+    }
+
+    .search-bar input {
+      width: 100%;
+      height: 48px;
+      padding: 0 48px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      backdrop-filter: blur(10px);
+      font-size: 15px;
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+
+    .search-bar input::placeholder {
+      color: var(--ink-lighter);
+    }
+
+    .search-bar input:focus {
+      outline: none;
+      border-color: var(--ochre);
+      box-shadow: 0 0 0 3px rgba(198, 123, 78, 0.1);
+    }
+
+    .search-bar .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      stroke: var(--ink-lighter);
+    }
+
+    /* Section Title */
+    .section-title {
+      padding: 0 20px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title h2 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title h2::before {
+      content: '';
+      width: 3px;
+      height: 18px;
+      background: var(--ochre);
+      border-radius: 2px;
+    }
+
+    .section-title .more {
+      font-size: 13px;
+      color: var(--ochre);
+      cursor: pointer;
+    }
+
+    /* Main Entry Cards */
+    .entry-grid {
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .entry-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .entry-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .entry-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .entry-card:hover::before {
+      opacity: 1;
+    }
+
+    .entry-card.ochre::before { background: var(--ochre); }
+    .entry-card.bamboo::before { background: var(--bamboo); }
+    .entry-card.ink::before { background: var(--ink-light); }
+    .entry-card.cream::before { background: var(--warm-gray); }
+
+    .entry-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .entry-card.ochre .entry-icon { background: rgba(198, 123, 78, 0.12); }
+    .entry-card.bamboo .entry-icon { background: rgba(107, 142, 125, 0.12); }
+    .entry-card.ink .entry-icon { background: rgba(44, 44, 44, 0.08); }
+    .entry-card.cream .entry-icon { background: rgba(107, 142, 125, 0.12); }
+
+    .entry-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .entry-card.ochre .entry-icon svg { stroke: var(--ochre); }
+    .entry-card.bamboo .entry-icon svg { stroke: var(--bamboo); }
+    .entry-card.ink .entry-icon svg { stroke: var(--ink-light); }
+    .entry-card.cream .entry-icon svg { stroke: var(--bamboo); }
+
+    .entry-card h3 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .entry-card p {
+      font-size: 12px;
+      color: var(--ink-lighter);
+      line-height: 1.5;
+    }
+
+    /* Formula List */
+    .formula-list {
+      padding: 0 20px;
+    }
+
+    .formula-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .formula-card:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .formula-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--cream) 0%, var(--warm-gray) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .formula-avatar span {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ochre-dark);
+    }
+
+    .formula-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .formula-info h4 {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .formula-info .herbs {
+      font-size: 12px;
+      color: var(--ink-lighter);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .formula-info .tags {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .tag {
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(198, 123, 78, 0.1);
+      color: var(--ochre);
+    }
+
+    .formula-arrow {
+      width: 20px;
+      height: 20px;
+      stroke: var(--ink-lighter);
+    }
+
+    /* ========== Formula Detail Page ========== */
+    .detail-header {
+      padding: 20px;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--bg-primary) 100%);
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--ink-light);
+    }
+
+    .formula-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: 4px;
+    }
+
+    .formula-subtitle {
+      font-size: 14px;
+      color: var(--ink-lighter);
+    }
+
+    .formula-subtitle span {
+      margin-right: 12px;
+    }
+
+    .detail-section {
+      padding: 20px;
+    }
+
+    .detail-section-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-section-title::before {
+      content: '';
+      width: 3px;
+      height: 16px;
+      background: var(--bamboo);
+      border-radius: 2px;
+    }
+
+    .quote-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .quote-card::before {
+      content: '"';
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-family: var(--font-serif);
+      font-size: 48px;
+      color: var(--ochre);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .quote-text {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--ink);
+      padding-left: 20px;
+    }
+
+    .quote-source {
+      font-size: 12px;
+      color: var(--ink-lighter);
+      margin-top: 12px;
+      padding-left: 20px;
+    }
+
+    /* Herb Grid */
+    .herb-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .herb-item {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .herb-item:hover {
+      background: var(--cream);
+      border-color: var(--ochre);
+    }
+
+    .herb-item h4 {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .herb-item .dose {
+      font-size: 13px;
+      color: var(--ochre);
+    }
+
+    .herb-item .properties {
+      font-size: 11px;
+      color: var(--ink-lighter);
+      margin-top: 4px;
+    }
+
+    /* Info Card */
+    .info-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .info-row {
+      display: flex;
+      margin-bottom: 12px;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-label {
+      width: 70px;
+      font-size: 13px;
+      color: var(--ink-lighter);
+      flex-shrink: 0;
+    }
+
+    .info-value {
+      flex: 1;
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* Annotation */
+    .annotation-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .annotation-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .annotation-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      color: var(--ochre);
+    }
+
+    .annotation-author h4 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .annotation-author span {
+      font-size: 12px;
+      color: var(--ink-lighter);
+    }
+
+    .annotation-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--ink-light);
+    }
+
+    /* ========== Diagnosis Page ========== */
+    .diagnosis-header {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(180deg, var(--cream) 0%, var(--bg-primary) 100%);
+    }
+
+    .progress-indicator {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .progress-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--warm-gray);
+      transition: all 0.3s ease;
+    }
+
+    .progress-dot.active {
+      background: var(--ochre);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .progress-dot.completed {
+      background: var(--bamboo);
+    }
+
+    .diagnosis-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .diagnosis-subtitle {
+      font-size: 14px;
+      color: var(--ink-lighter);
+    }
+
+    .diagnosis-content {
+      padding: 20px;
+    }
+
+    .meridian-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .meridian-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 2px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 16px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .meridian-card:hover,
+    .meridian-card.selected {
+      border-color: var(--ochre);
+      background: rgba(198, 123, 78, 0.05);
+    }
+
+    .meridian-card.selected {
+      border-width: 2px;
+    }
+
+    .meridian-icon {
+      width: 40px;
+      height: 40px;
+      margin: 0 auto 10px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 18px;
+    }
+
+    .meridian-card[data-meridian="taiyang"] .meridian-icon { background: rgba(198, 123, 78, 0.15); color: var(--ochre); }
+    .meridian-card[data-meridian="yangming"] .meridian-icon { background: rgba(198, 123, 78, 0.2); color: var(--ochre-dark); }
+    .meridian-card[data-meridian="shaoyang"] .meridian-icon { background: rgba(107, 142, 125, 0.15); color: var(--bamboo); }
+    .meridian-card[data-meridian="taiyin"] .meridian-icon { background: rgba(107, 142, 125, 0.2); color: var(--bamboo-dark); }
+    .meridian-card[data-meridian="shaoyin"] .meridian-icon { background: rgba(44, 44, 44, 0.1); color: var(--ink-light); }
+    .meridian-card[data-meridian="jueyin"] .meridian-icon { background: rgba(44, 44, 44, 0.15); color: var(--ink); }
+
+    .meridian-card h4 {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .meridian-card p {
+      font-size: 10px;
+      color: var(--ink-lighter);
+    }
+
+    /* Symptom Checklist */
+    .symptom-section {
+      margin-bottom: 24px;
+    }
+
+    .symptom-section h3 {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .symptom-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .symptom-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .symptom-item:hover {
+      background: var(--cream);
+    }
+
+    .symptom-item.selected {
+      border-color: var(--bamboo);
+      background: rgba(107, 142, 125, 0.08);
+    }
+
+    .symptom-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid var(--warm-gray);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .symptom-item.selected .symptom-checkbox {
+      background: var(--bamboo);
+      border-color: var(--bamboo);
+    }
+
+    .symptom-checkbox svg {
+      width: 14px;
+      height: 14px;
+      stroke: white;
+      opacity: 0;
+    }
+
+    .symptom-item.selected .symptom-checkbox svg {
+      opacity: 1;
+    }
+
+    .symptom-text h4 {
+      font-size: 14px;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .symptom-text p {
+      font-size: 12px;
+      color: var(--ink-lighter);
+    }
+
+    /* Action Button */
+    .action-btn {
+      width: 100%;
+      height: 52px;
+      background: var(--ochre);
+      border: none;
+      border-radius: var(--radius-lg);
+      color: white;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-top: 20px;
+    }
+
+    .action-btn:hover {
+      background: var(--ochre-dark);
+      transform: translateY(-1px);
+    }
+
+    .action-btn:disabled {
+      background: var(--warm-gray);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .action-btn.secondary {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--ink);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn-group .action-btn {
+      flex: 1;
+      margin-top: 0;
+    }
+
+    /* ========== Medical Record Page ========== */
+    .record-header {
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .record-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .record-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .action-icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .action-icon-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--ink-light);
+    }
+
+    .action-icon-btn:hover {
+      background: var(--cream);
+    }
+
+    .template-tabs {
+      padding: 0 20px;
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .template-tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .template-tab {
+      padding: 8px 16px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--ink-light);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .template-tab.active {
+      background: var(--ochre);
+      border-color: var(--ochre);
+      color: white;
+    }
+
+    .form-section {
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      color: var(--ink-lighter);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .form-label .required {
+      color: var(--ochre);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg-card);
+      font-size: 15px;
+      color: var(--ink);
+      transition: all 0.2s ease;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--ochre);
+    }
+
+    .form-input::placeholder {
+      color: var(--ink-lighter);
+    }
+
+    textarea.form-input {
+      min-height: 120px;
+      resize: vertical;
+      font-family: var(--font-sans);
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    /* Formula Selector */
+    .formula-selector {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .formula-selector:hover {
+      border-color: var(--ochre);
+    }
+
+    .formula-selector-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .formula-selector-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .formula-selector-icon span {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      color: var(--ochre);
+    }
+
+    .formula-selector h4 {
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .formula-selector p {
+      font-size: 12px;
+      color: var(--ink-lighter);
+    }
+
+    .formula-selector svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--ink-lighter);
+    }
+
+    /* Tags Input */
+    .tags-input-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      min-height: 48px;
+      cursor: text;
+    }
+
+    .tags-input-container:focus-within {
+      border-color: var(--ochre);
+    }
+
+    .tag-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(198, 123, 78, 0.1);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--ochre);
+    }
+
+    .tag-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--ochre);
+      cursor: pointer;
+    }
+
+    .tags-input {
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      color: var(--ink);
+      min-width: 80px;
+      flex: 1;
+    }
+
+    .tags-input:focus {
+      outline: none;
+    }
+
+    /* ========== Bottom Navigation ========== */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      padding: 8px 20px;
+      padding-bottom: max(8px, env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: space-around;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .nav-item svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--ink-lighter);
+      transition: all 0.2s ease;
+    }
+
+    .nav-item span {
+      font-size: 11px;
+      color: var(--ink-lighter);
+      transition: all 0.2s ease;
+    }
+
+    .nav-item.active svg {
+      stroke: var(--ochre);
+    }
+
+    .nav-item.active span {
+      color: var(--ochre);
+      font-weight: 500;
+    }
+
+    .nav-item:hover {
+      background: rgba(198, 123, 78, 0.05);
+    }
+
+    /* Dark mode toggle hint */
+    .mode-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink-lighter);
+    }
+
+    .toggle-switch {
+      width: 44px;
+      height: 24px;
+      background: var(--warm-gray);
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    body.dark-mode .toggle-switch {
+      background: var(--ochre);
+    }
+
+    body.dark-mode .toggle-switch::after {
+      left: 22px;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--warm-gray);
+      border-radius: 2px;
+    }
+
+    /* iOS Safe Area */
+    @supports (padding: max(0px)) {
+      .bottom-nav {
+        padding-bottom: max(8px, env(safe-area-inset-bottom));
+      }
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .loading {
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    /* Result Card for Diagnosis */
+    .result-card {
+      background: linear-gradient(135deg, var(--cream) 0%, var(--bg-card-solid) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    .result-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(107, 142, 125, 0.15);
+      border-radius: var(--radius-lg);
+      font-size: 12px;
+      color: var(--bamboo);
+      margin-bottom: 16px;
+    }
+
+    .result-formula-name {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .result-formula-origin {
+      font-size: 13px;
+      color: var(--ink-lighter);
+      margin-bottom: 20px;
+    }
+
+    .result-analysis {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .result-analysis h4 {
+      font-size: 13px;
+      color: var(--ink-lighter);
+      margin-bottom: 10px;
+    }
+
+    .result-analysis p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .result-symptoms {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .result-symptom-tag {
+      padding: 6px 12px;
+      background: rgba(198, 123, 78, 0.1);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--ochre);
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .empty-state svg {
+      width: 80px;
+      height: 80px;
+      stroke: var(--warm-gray);
+      margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      font-size: 14px;
+      color: var(--ink-lighter);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <!-- ========== 首页 ========== -->
+    <div id="home-screen" class="screen active">
+      <div class="header">
+        <div class="header-left">
+          <h1>经方</h1>
+          <p class="subtitle">丙午年五月十二</p>
+        </div>
+        <div class="header-right">
+          <div class="mode-toggle">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <div class="toggle-switch" onclick="toggleDarkMode()"></div>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </div>
+          <div class="icon-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="M21 21l-4.35-4.35"/>
+        </svg>
+        <input type="text" placeholder="搜索经方、药材、症状…">
+      </div>
+
+      <!-- 四大入口 -->
+      <div class="entry-grid">
+        <div class="entry-card ochre" onclick="navigateTo('diagnosis-screen')">
+          <div class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <path d="M9 12h6M12 9v6M12 3a9 9 0 1 0 9 9"/>
+            </svg>
+          </div>
+          <h3>今日辨证</h3>
+          <p>六经八纲分步问诊</p>
+        </div>
+        <div class="entry-card bamboo" onclick="navigateTo('formula-screen')">
+          <div class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>常用经方</h3>
+          <p>伤寒金匮经典方剂</p>
+        </div>
+        <div class="entry-card ink" onclick="navigateTo('record-screen')">
+          <div class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>我的笔记</h3>
+          <p>临床医案记录归档</p>
+        </div>
+        <div class="entry-card cream" onclick="showToast('学习功能开发中')">
+          <div class="entry-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </div>
+          <h3>学习</h3>
+          <p>条文诵读讲座打卡</p>
+        </div>
+      </div>
+
+      <!-- 常用经方列表 -->
+      <div class="section-title">
+        <h2>经典经方</h2>
+        <span class="more" onclick="navigateTo('formula-screen')">查看全部</span>
+      </div>
+      <div class="formula-list">
+        <div class="formula-card" onclick="navigateTo('formula-detail-screen')">
+          <div class="formula-avatar">
+            <span>桂</span>
+          </div>
+          <div class="formula-info">
+            <h4>桂枝汤</h4>
+            <p class="herbs">桂枝 · 芍药 · 生姜 · 大枣 · 炙甘草</p>
+            <div class="tags">
+              <span class="tag">太阳病</span>
+              <span class="tag">解表</span>
+            </div>
+          </div>
+          <svg class="formula-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+
+        <div class="formula-card" onclick="navigateTo('formula-detail-screen')">
+          <div class="formula-avatar">
+            <span>麻</span>
+          </div>
+          <div class="formula-info">
+            <h4>麻黄汤</h4>
+            <p class="herbs">麻黄 · 桂枝 · 杏仁 · 炙甘草</p>
+            <div class="tags">
+              <span class="tag">太阳病</span>
+              <span class="tag">发汗</span>
+            </div>
+          </div>
+          <svg class="formula-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+
+        <div class="formula-card" onclick="navigateTo('formula-detail-screen')">
+          <div class="formula-avatar">
+            <span>小</span>
+          </div>
+          <div class="formula-info">
+            <h4>小柴胡汤</h4>
+            <p class="herbs">柴胡 · 黄芩 · 人参 · 半夏 · 炙甘草 · 生姜 · 大枣</p>
+            <div class="tags">
+              <span class="tag">少阳病</span>
+              <span class="tag">和解</span>
+            </div>
+          </div>
+          <svg class="formula-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+
+        <div class="formula-card" onclick="navigateTo('formula-detail-screen')">
+          <div class="formula-avatar">
+            <span>四</span>
+          </div>
+          <div class="formula-info">
+            <h4>四逆汤</h4>
+            <p class="herbs">附子 · 干姜 · 炙甘草</p>
+            <div class="tags">
+              <span class="tag">少阴病</span>
+              <span class="tag">回阳</span>
+            </div>
+          </div>
+          <svg class="formula-arrow" viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 经方详情页 ========== -->
+    <div id="formula-detail-screen" class="screen">
+      <div class="detail-header">
+        <div class="back-btn" onclick="navigateTo('home-screen')">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          返回
+        </div>
+        <h1 class="formula-title">桂枝汤</h1>
+        <p class="formula-subtitle">
+          <span>《伤寒论》</span>
+          <span>太阳病 · 解表剂</span>
+        </p>
+      </div>
+
+      <!-- 条文原文 -->
+      <div class="detail-section">
+        <div class="detail-section-title">条文原文</div>
+        <div class="quote-card">
+          <p class="quote-text">
+            太阳中风，阳浮而阴弱，阳浮者热自发，阴弱者汗自出，啬啬恶寒，淅淅恶风，翕翕发热，鼻鸣干呕者，桂枝汤主之。
+          </p>
+          <p class="quote-source">—— 《伤寒论》第12条</p>
+        </div>
+      </div>
+
+      <!-- 组成药材 -->
+      <div class="detail-section">
+        <div class="detail-section-title">组成药材</div>
+        <div class="herb-grid">
+          <div class="herb-item">
+            <h4>桂枝</h4>
+            <p class="dose">三两（9g）</p>
+            <p class="properties">辛、甘，温 · 心、肺、膀胱</p>
+          </div>
+          <div class="herb-item">
+            <h4>芍药</h4>
+            <p class="dose">三两（9g）</p>
+            <p class="properties">苦、酸，微寒 · 肝、脾</p>
+          </div>
+          <div class="herb-item">
+            <h4>生姜</h4>
+            <p class="dose">三两（9g）</p>
+            <p class="properties">辛，温 · 脾、肺、胃</p>
+          </div>
+          <div class="herb-item">
+            <h4>大枣</h4>
+            <p class="dose">十二枚（擘）</p>
+            <p class="properties">甘，温 · 脾、胃</p>
+          </div>
+          <div class="herb-item">
+            <h4>炙甘草</h4>
+            <p class="dose">二两（6g）</p>
+            <p class="properties">甘，平 · 心、肺、脾、胃</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 煎服法 -->
+      <div class="detail-section">
+        <div class="detail-section-title">煎服方法</div>
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-label">煎法</span>
+            <span class="info-value">水七升，微火煮取三升，去滓</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">服法</span>
+            <span class="info-value">适寒温，服一升。服已须臾，啜热稀粥一升余，以助药力</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">禁忌</span>
+            <span class="info-value">禁生冷、黏滑、肉面、五辛、酒酪、臭恶等物</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">覆衣</span>
+            <span class="info-value">温覆令一时许，遍身漐漐微似有汗者益佳</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 主治功用 -->
+      <div class="detail-section">
+        <div class="detail-section-title">主治功用</div>
+        <div class="info-card">
+          <div class="info-row">
+            <span class="info-label">功效</span>
+            <span class="info-value">解肌发表，调和营卫</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">主治</span>
+            <span class="info-value">外感风寒表虚证。头痛发热，汗出恶风，鼻鸣干呕，苔白不渴，脉浮缓或浮弱</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">病机</span>
+            <span class="info-value">卫强营弱，营卫不和</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 名家注解 -->
+      <div class="detail-section">
+        <div class="detail-section-title">名家注解</div>
+        <div class="annotation-card">
+          <div class="annotation-author">
+            <div class="annotation-avatar">成</div>
+            <div>
+              <h4>成无己</h4>
+              <span>金元 · 《注解伤寒论》</span>
+            </div>
+          </div>
+          <p class="annotation-text">
+            桂枝为君药，解肌发表，散外感风寒；芍药为臣药，益阴敛营，固外泄之营阴；生姜辛温，助桂枝解表，且能止呕；大枣甘平，助芍药益阴和营；甘草调和诸药，为使药。五药合用，共奏解肌发表、调和营卫之功。
+          </p>
+        </div>
+        <div class="annotation-card">
+          <div class="annotation-author">
+            <div class="annotation-avatar">柯</div>
+            <div>
+              <h4>柯韵伯</h4>
+              <span>清 · 《伤寒来苏集》</span>
+            </div>
+          </div>
+          <p class="annotation-text">
+            桂枝汤为仲景群方之魁，乃滋阴和阳、调和营卫、解肌发汗之总方也。凡头痛发热、汗出恶风者，此方主之。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 辨证问诊页 ========== -->
+    <div id="diagnosis-screen" class="screen">
+      <div class="diagnosis-header">
+        <div class="back-btn" onclick="navigateTo('home-screen')">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          返回
+        </div>
+        <div class="progress-indicator">
+          <div class="progress-dot active"></div>
+          <div class="progress-dot"></div>
+          <div class="progress-dot"></div>
+        </div>
+        <h1 class="diagnosis-title">六经辨证</h1>
+        <p class="diagnosis-subtitle">请选择您目前最主要的感受</p>
+      </div>
+
+      <div class="diagnosis-content">
+        <!-- 六经选择 -->
+        <div class="meridian-grid">
+          <div class="meridian-card" data-meridian="taiyang" onclick="selectMeridian(this)">
+            <div class="meridian-icon">阳</div>
+            <h4>太阳病</h4>
+            <p>头项强痛</p>
+          </div>
+          <div class="meridian-card" data-meridian="yangming" onclick="selectMeridian(this)">
+            <div class="meridian-icon">明</div>
+            <h4>阳明病</h4>
+            <p>身大热</p>
+          </div>
+          <div class="meridian-card" data-meridian="shaoyang" onclick="selectMeridian(this)">
+            <div class="meridian-icon">少</div>
+            <h4>少阳病</h4>
+            <p>寒热往来</p>
+          </div>
+          <div class="meridian-card" data-meridian="taiyin" onclick="selectMeridian(this)">
+            <div class="meridian-icon">阴</div>
+            <h4>太阴病</h4>
+            <p>腹满吐利</p>
+          </div>
+          <div class="meridian-card" data-meridian="shaoyin" onclick="selectMeridian(this)">
+            <div class="meridian-icon">少</div>
+            <h4>少阴病</h4>
+            <p>脉微细</p>
+          </div>
+          <div class="meridian-card" data-meridian="jueyin" onclick="selectMeridian(this)">
+            <div class="meridian-icon">厥</div>
+            <h4>厥阴病</h4>
+            <p>寒热错杂</p>
+          </div>
+        </div>
+
+        <!-- 症状选择 -->
+        <div class="symptom-section">
+          <h3>请勾选您的症状（可多选）</h3>
+          <div class="symptom-list">
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>发热</h4>
+                <p>体温升高，额头或身体发热</p>
+              </div>
+            </div>
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>恶风</h4>
+                <p>怕吹风，见风则不适</p>
+              </div>
+            </div>
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>汗出</h4>
+                <p>不自觉出汗，或动则汗出</p>
+              </div>
+            </div>
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>头痛</h4>
+                <p>头部疼痛或昏沉</p>
+              </div>
+            </div>
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>鼻鸣</h4>
+                <p>鼻塞或鼻子不通气</p>
+              </div>
+            </div>
+            <div class="symptom-item" onclick="toggleSymptom(this)">
+              <div class="symptom-checkbox">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <div class="symptom-text">
+                <h4>干呕</h4>
+                <p>有呕吐感但无物吐出</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="action-btn" onclick="showDiagnosisResult()">开始辨证分析</button>
+      </div>
+
+      <!-- 辨证结果（隐藏） -->
+      <div id="diagnosis-result" style="display: none;">
+        <div class="result-card">
+          <div class="result-badge">辨证结果</div>
+          <h2 class="result-formula-name">桂枝汤</h2>
+          <p class="result-formula-origin">《伤寒论》太阳病经典方剂</p>
+
+          <div class="result-analysis">
+            <h4>辨证分析</h4>
+            <p>根据您选择的症状（发热、恶风、汗出、头痛、鼻鸣），符合太阳中风证的基本特征。太阳中风证的病机为"卫强营弱"，即外邪袭表，卫气浮盛于外，故见发热；卫气失固，营阴外泄，故见汗出；邪气郁滞，经脉不利，故见头痛。</p>
+          </div>
+
+          <div class="result-symptoms">
+            <span class="result-symptom-tag">发热</span>
+            <span class="result-symptom-tag">恶风</span>
+            <span class="result-symptom-tag">汗出</span>
+            <span class="result-symptom-tag">头痛</span>
+            <span class="result-symptom-tag">鼻鸣</span>
+          </div>
+        </div>
+
+        <div class="form-section" style="margin-top: 20px;">
+          <button class="action-btn" onclick="navigateTo('formula-detail-screen')">查看完整方解</button>
+          <button class="action-btn secondary" onclick="resetDiagnosis()">重新辨证</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 医案编辑页 ========== -->
+    <div id="record-screen" class="screen">
+      <div class="record-header">
+        <h1 class="record-title">新建医案</h1>
+        <div class="record-actions">
+          <div class="action-icon-btn" title="导出PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div class="action-icon-btn" title="保存">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+              <polyline points="17 21 17 13 7 13 7 21"/>
+              <polyline points="7 3 7 8 15 8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-tabs">
+        <div class="template-tab active">初诊记录</div>
+        <div class="template-tab">复诊记录</div>
+        <div class="template-tab">医案整理</div>
+        <div class="template-tab">学习笔记</div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">
+          <span class="required">*</span> 患者信息
+        </label>
+        <div class="form-row">
+          <input type="text" class="form-input" placeholder="姓名/化名">
+          <input type="text" class="form-input" placeholder="年龄">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">就诊日期</label>
+        <input type="date" class="form-input" value="2026-07-07">
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">选用经方</label>
+        <div class="formula-selector">
+          <div class="formula-selector-left">
+            <div class="formula-selector-icon">
+              <span>桂</span>
+            </div>
+            <div>
+              <h4>桂枝汤</h4>
+              <p>太阳病 · 解表剂</p>
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">
+          <span class="required">*</span> 主诉
+        </label>
+        <textarea class="form-input" placeholder="请简要描述患者主要不适症状及持续时间"></textarea>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">四诊信息</label>
+        <textarea class="form-input" placeholder="望闻问切记录：面色、舌象、脉象、声音、二便等" style="min-height: 100px;"></textarea>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">辨证分析</label>
+        <textarea class="form-input" placeholder="六经辨证、八纲辨证的分析过程" style="min-height: 100px;"></textarea>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">处方加减</label>
+        <textarea class="form-input" placeholder="原方基础上做了哪些调整及理由" style="min-height: 80px;"></textarea>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">医嘱</label>
+        <textarea class="form-input" placeholder="煎服方法、饮食禁忌、调护建议等" style="min-height: 80px;"></textarea>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">标签</label>
+        <div class="tags-input-container" onclick="document.querySelector('.tags-input').focus()">
+          <div class="tag-item">
+            太阳病
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </div>
+          <div class="tag-item">
+            外感
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </div>
+          <input type="text" class="tags-input" placeholder="添加标签">
+        </div>
+      </div>
+
+      <div class="form-section" style="padding-bottom: 40px;">
+        <button class="action-btn">保存医案</button>
+      </div>
+    </div>
+
+    <!-- ========== 底部导航 ========== -->
+    <nav class="bottom-nav">
+      <div class="nav-item active" onclick="navigateTo('home-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>首页</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('formula-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+        <span>经方</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('diagnosis-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <path d="M9 12h6M12 9v6M12 3a9 9 0 1 0 9 9"/>
+        </svg>
+        <span>辨证</span>
+      </div>
+      <div class="nav-item" onclick="navigateTo('record-screen')">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        <span>笔记</span>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+    // 页面导航
+    function navigateTo(screenId) {
+      // 隐藏所有页面
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+      });
+
+      // 显示目标页面
+      const targetScreen = document.getElementById(screenId);
+      if (targetScreen) {
+        targetScreen.classList.add('active');
+      }
+
+      // 更新导航状态
+      updateNavState(screenId);
+
+      // 滚动到顶部
+      window.scrollTo(0, 0);
+    }
+
+    // 更新导航状态
+    function updateNavState(screenId) {
+      const navItems = document.querySelectorAll('.nav-item');
+      const navMap = {
+        'home-screen': 0,
+        'formula-screen': 1,
+        'diagnosis-screen': 2,
+        'record-screen': 3
+      };
+
+      navItems.forEach((item, index) => {
+        if (index === navMap[screenId]) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+    }
+
+    // 深色模式切换
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    // 初始化深色模式
+    if (localStorage.getItem('darkMode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
+
+    // 六经选择
+    function selectMeridian(element) {
+      document.querySelectorAll('.meridian-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      element.classList.add('selected');
+    }
+
+    // 症状选择
+    function toggleSymptom(element) {
+      element.classList.toggle('selected');
+    }
+
+    // 显示辨证结果
+    function showDiagnosisResult() {
+      const selectedSymptoms = document.querySelectorAll('.symptom-item.selected');
+      const selectedMeridian = document.querySelector('.meridian-card.selected');
+
+      if (!selectedMeridian) {
+        showToast('请先选择六经病证');
+        return;
+      }
+
+      document.querySelector('.diagnosis-content').style.display = 'none';
+      document.querySelector('.progress-indicator').innerHTML = `
+        <div class="progress-dot completed"></div>
+        <div class="progress-dot completed"></div>
+        <div class="progress-dot active"></div>
+      `;
+      document.querySelector('.diagnosis-title').textContent = '辨证完成';
+      document.querySelector('.diagnosis-subtitle').textContent = '根据您提供的信息，分析结果如下';
+      document.getElementById('diagnosis-result').style.display = 'block';
+    }
+
+    // 重置辨证
+    function resetDiagnosis() {
+      document.getElementById('diagnosis-result').style.display = 'none';
+      document.querySelector('.diagnosis-content').style.display = 'block';
+      document.querySelector('.progress-indicator').innerHTML = `
+        <div class="progress-dot active"></div>
+        <div class="progress-dot"></div>
+        <div class="progress-dot"></div>
+      `;
+      document.querySelector('.diagnosis-title').textContent = '六经辨证';
+      document.querySelector('.diagnosis-subtitle').textContent = '请选择您目前最主要的感受';
+
+      document.querySelectorAll('.meridian-card').forEach(card => {
+        card.classList.remove('selected');
+      });
+      document.querySelectorAll('.symptom-item').forEach(item => {
+        item.classList.remove('selected');
+      });
+    }
+
+    // Toast提示
+    function showToast(message) {
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(44, 44, 44, 0.9);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        z-index: 10000;
+        animation: fadeIn 0.3s ease;
+      `;
+      toast.textContent = message;
+      document.body.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 2000);
+    }
+
+    // 模板切换
+    document.querySelectorAll('.template-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        document.querySelectorAll('.template-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    // 搜索功能模拟
+    document.querySelector('.search-bar input').addEventListener('focus', function() {
+      this.placeholder = '输入关键词搜索经方…';
+    });
+
+    document.querySelector('.search-bar input').addEventListener('blur', function() {
+      this.placeholder = '搜索经方、药材、症状…';
+    });
+  </script>
+</body>
+</html>

@@ -123,11 +123,77 @@
             </div>
             <div class="treatment-item" data-visible="treatment" data-field="treatmentList">
                 <div class="treatment-name">超敏C反应蛋白测定</div>
-                <div class="treatment-instruction">共一次</div>
+                <div class="treatment-instruction">1次</div>
             </div>
             <div class="treatment-item" data-visible="treatment" data-field="treatmentList">
                 <div class="treatment-name">三位一体单次</div>
-                <div class="treatment-instruction">每天1次，1天，共1次</div>
+                <div class="treatment-instruction">1次</div>
+            </div>
+            <!-- 套餐项添加 is-package -->
+            <div class="treatment-item is-package" data-visible="treatmentPackage" data-field="treatmentPackageList">
+                <div class="treatment-name">【套餐】综合调养套餐</div>
+                <div class="treatment-instruction">1次</div>
+            </div>
+            <!-- 套餐子项添加 is-child -->
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">1</span>穴位贴敷</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">2</span>电针灸</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">3</span>推拿</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">1</span>穴位贴敷</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">2</span>电针灸</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">3</span>推拿</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">1</span>穴位贴敷</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">2</span>电针灸</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">3</span>推拿</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">1</span>穴位贴敷</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">2</span>电针灸</div>
+                <div class="treatment-instruction">10次</div>
+            </div>
+            <div class="treatment-item is-child" data-visible="treatmentPackageChild"
+                data-field="treatmentPackageChildList">
+                <div class="treatment-name"><span class="treatment-child-number">3</span>推拿</div>
+                <div class="treatment-instruction">10次</div>
             </div>
             <div class="patent-medicine-item" data-visible="treatment" data-field="cpmList">
                 <div class="medicine-name">
@@ -168,14 +234,41 @@
                 <div class="infusion-instruction">每天1次 1天<br />静脉滴注60滴/分钟</div>
             </div>
             <div class="chinese-medicine-section-item" data-visible="treatment" data-field="tcmList">
-                <div class="medicine-item">桔梗6g</div>
-                <div class="medicine-item">黄芩6g</div>
-                <div class="medicine-item">知母6g</div>
-                <div class="medicine-item">赤芍6g</div>
-                <div class="medicine-item">玄参6g</div>
-                <div class="medicine-item">连翘6g</div>
-                <div class="medicine-item">桔梗6g</div>
-                <div class="medicine-item">白术6g</div>
+                <div class="medicine-item">
+                    <span class="medicine-name">桔梗桔梗桔梗</span>
+                    <span class="medicine-amount">999g</span>
+                    <span class="medicine-method">先煎半小时</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">黄芩黄芩</span>
+                    <span class="medicine-amount">86g</span>
+                    <span class="medicine-method">先煎</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">桔梗</span>
+                    <span class="medicine-amount">100g</span>
+                    <span class="medicine-method">先煎半小时</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">赤芍</span>
+                    <span class="medicine-amount">6g</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">玄参</span>
+                    <span class="medicine-amount">6g</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">连翘</span>
+                    <span class="medicine-amount">6g</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">桔梗</span>
+                    <span class="medicine-amount">6g</span>
+                </div>
+                <div class="medicine-item">
+                    <span class="medicine-name">白术</span>
+                    <span class="medicine-amount">6g</span>
+                </div>
                 <div class="medicine-summary" data-field="usage">共2剂，煎服，1日1剂 1日3次 每次150ml，饭后1小时服用</div>
             </div>
             <div class="advice-section" data-visible="medicalOrder">
@@ -297,8 +390,36 @@ const props = defineProps({
     .treatment-instruction {
         flex: 0 0 auto;
     }
-}
 
+    .treatment-child-number {
+        display: none;
+    }
+
+    &.is-child {
+        &+.is-child {
+            border-top: none;
+            padding-top: 0;
+        }
+    }
+
+    &.is-package {
+        display: flex;
+
+        &~.is-child {
+            border-top: none;
+            padding-top: 0;
+
+            .treatment-name {
+                padding-left: 16pt;
+
+                .treatment-child-number {
+                    display: inline-block;
+                    margin-right: 4pt;
+                }
+            }
+        }
+    }
+}
 
 .patent-medicine-item {
     display: flex;
@@ -390,6 +511,26 @@ const props = defineProps({
     .medicine-item {
         flex: 0 25%;
         margin-bottom: 6pt;
+        display: flex;
+
+        .medicine-name {
+            flex: 0 1 auto;
+            margin-right: 2%;
+        }
+
+        .medicine-amount {
+            flex: 0 1 auto;
+            margin-right: 2pt;
+            white-space: nowrap;
+        }
+
+        .medicine-method {
+            flex: 0 1 auto;
+            margin-right: 2pt;
+            min-width: calc(33% - 2pt);
+            font-size: 8pt;
+            line-height: 1.5;
+        }
     }
 
     .medicine-summary {

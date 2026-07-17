@@ -177,11 +177,11 @@
                 <!-- 标签在右侧显示 -->
                 <div class="signature"></div>
             </div>
-            <!-- 标签在右侧添加signature-right -->
-            <div class="treatment-item">
+            <!-- 标签在右侧添加signature-right ，套餐项添加 is-package -->
+            <div class="treatment-item is-package">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
-                        <div class="name">【套】综合调养套餐</div>
+                        <div class="name">【套餐】综合调养套餐</div>
                         <div class="price">100.00</div>
                         <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
@@ -203,11 +203,11 @@
                 <!-- 标签在右侧显示 -->
                 <div class="signature"></div>
             </div>
-            <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children">
+            <!-- 标签在右侧添加signature-right，子项添加is-child -->
+            <div class="treatment-item is-child">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
-                        <div class="name">1. 穴位贴敷</div>
+                        <div class="name"><span class="treatment-child-number">1</span>穴位贴敷</div>
                         <div class="price">20.00</div>
                         <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
@@ -229,11 +229,11 @@
                 <!-- 标签在右侧显示 -->
                 <div class="signature"></div>
             </div>
-            <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children">
+            <!-- 标签在右侧添加signature-right，子项添加is-child -->
+            <div class="treatment-item is-child">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
-                        <div class="name">2. 电针灸</div>
+                        <div class="name"><span class="treatment-child-number">2</span>电针灸</div>
                         <div class="price">60.00</div>
                         <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
@@ -255,11 +255,11 @@
                 <!-- 标签在右侧显示 -->
                 <div class="signature"></div>
             </div>
-            <!-- 标签在右侧添加signature-right，子项添加is-children -->
-            <div class="treatment-item is-children">
+            <!-- 标签在右侧添加signature-right，子项添加is-child -->
+            <div class="treatment-item is-child">
                 <div class="treatment-info-box">
                     <div class="treatment-info">
-                        <div class="name">3. 推拿</div>
+                        <div class="name"><span class="treatment-child-number">3</span>推拿</div>
                         <div class="price">60.00</div>
                         <!-- 标签在右侧隐藏：unit -->
                         <div class="unit">次</div>
@@ -469,6 +469,7 @@ const props = defineProps({
         .treatment-instruction {
             margin-top: 4pt;
             margin-left: 20pt;
+            display: none;
         }
     }
 
@@ -521,14 +522,26 @@ const props = defineProps({
         }
     }
 
-    &.is-children {
-        .treatment-info-box {
-            .treatment-info {
-                padding-left: 16pt;
-            }
+    .treatment-child-number {
+        display: none;
+    }
 
-            .treatment-instruction {
-                display: none;
+    &.is-package {
+
+        &~.is-child {
+            .treatment-info-box {
+                .treatment-info {
+                    padding-left: 16pt;
+
+                    .treatment-child-number {
+                        display: inline-block;
+                        margin-right: 4pt;
+                    }
+                }
+
+                .treatment-instruction {
+                    display: none;
+                }
             }
         }
     }

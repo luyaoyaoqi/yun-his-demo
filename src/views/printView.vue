@@ -83,6 +83,7 @@ import IOF from '@/components/print/IOF.vue';
 import DC from '@/components/print/DC.vue';
 import CRT from '@/components/print/CRT.vue';
 import DRT from '@/components/print/DRT.vue';
+import RRT from '@/components/print/RRT.vue';
 import LC from '@/components/print/LC.vue';
 
 const printTemplateGroup = {
@@ -95,6 +96,7 @@ const printTemplateGroup = {
     DC,
     CRT,
     DRT,
+    RRT,
     LC,
 }
 
@@ -109,6 +111,7 @@ const selectedTemplateOption = [
     { label: '诊断证明书 DC', value: 'DC' },
     { label: '收费小票 CRT', value: 'CRT' },
     { label: '发药小票 DRT', value: 'DRT' },
+    { label: '挂号小票 RRT', value: 'RRT' },
     { label: '收费清单 LC', value: 'LC' },
 ]
 

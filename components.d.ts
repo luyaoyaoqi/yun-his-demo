@@ -54,6 +54,7 @@ declare module 'vue' {
     Receipt: typeof import('./src/components/print/Receipt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    RRT: typeof import('./src/components/print/RRT.vue')['default']
     TcmRx: typeof import('./src/components/print/TcmRx.vue')['default']
     TextTooltip: typeof import('./src/components/TextTooltip.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']

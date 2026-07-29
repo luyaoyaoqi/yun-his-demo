@@ -68,7 +68,7 @@
                     诊断：
                     <span data-field="diagnosis">急性支气管炎，急性上呼吸道感染</span>
                 </div>
-                <div class="info-item" data-visible="medicalInsuranceNo">
+                <!-- <div class="info-item" data-visible="medicalInsuranceNo">
                     医保号：
                     <span data-field="medicalInsuranceNo">BJ7890123</span>
                 </div>
@@ -107,21 +107,26 @@
                 <div class="info-item row-three" data-visible="address">
                     地址：
                     <span data-field="address">北京市朝阳区建国路88号院3号楼1202</span>
-                </div>
+                </div> -->
             </div>
             <div class="divider"></div>
         </template>
 
         <!-- 主内容 -->
         <template #main>
-            <div class="prescription-label">Rp:</div>
+            <div class="prescription-label">
+                <span>Rp:</span>
+                <!-- 接上页 -->
+                <span class="prev-page">（接上页）</span>
+            </div>
+
             <div class="infusion-medicine-item">
                 <div class="group-index">①</div>
                 <div class="group">
                     <div class="medicine-item">
                         <div class="medicine-top">
                             <div class="medicine-name">
-                                氯化钠注射液9%
+                                氯化钠注射液12%
                                 <span class="product-name">(生理盐水)</span>
                                 (
                                 <span class="medicine-spec">2.25g*250ml/瓶</span>
@@ -183,6 +188,100 @@
                             </div>
                         </div>
                     </div>
+                    <div class="medicine-item">
+                        <div class="medicine-top">
+                            <div class="medicine-name">
+                                葡萄糖注射液<span class="product-name"></span>
+                                (
+                                <span class="medicine-spec">5g*100ml/袋</span>
+                                ×
+                                <span class="medicine-quantity">2袋</span>
+                                )
+                            </div>
+                            <div class="usage">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="medicine-quantity">200ml</div>
+                        </div>
+                        <div class="medicine-footer">
+                            <div class="cabinet-number" data-visible="tcmCabinetNo">sc-22-2343</div>
+                            <div class="manufacturer">
+                                厂家：
+                                <span>北京韩美</span>
+                            </div>
+                            <div class="price-unit" data-visible="tcmPrice">
+                                <span>¥0.01/包</span>
+                            </div>
+                            <div class="price-total" data-visible="tcmTotalAmount">
+                                ，
+                                <span>共¥1.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medicine-item">
+                        <div class="medicine-top">
+                            <div class="medicine-name">
+                                维生素C注射液<span class="product-name"></span>
+                                (
+                                <span class="medicine-spec">0.5g*1支</span>
+                                ×
+                                <span class="medicine-quantity">2支</span>
+                                )
+                            </div>
+                            <div class="usage">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="medicine-quantity">1.0g</div>
+                        </div>
+                        <div class="medicine-footer">
+                            <div class="cabinet-number" data-visible="tcmCabinetNo">sc-22-2344</div>
+                            <div class="manufacturer">
+                                厂家：
+                                <span>北京韩美</span>
+                            </div>
+                            <div class="price-unit" data-visible="tcmPrice">
+                                <span>¥0.01/包</span>
+                            </div>
+                            <div class="price-total" data-visible="tcmTotalAmount">
+                                ，
+                                <span>共¥1.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="medicine-item">
+                        <div class="medicine-top">
+                            <div class="medicine-name">
+                                氯化钾注射液<span class="product-name"></span>
+                                (
+                                <span class="medicine-spec">1g*1支</span>
+                                ×
+                                <span class="medicine-quantity">1支</span>
+                                )
+                            </div>
+                            <div class="usage">
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="medicine-quantity">1.0g</div>
+                        </div>
+                        <div class="medicine-footer">
+                            <div class="cabinet-number" data-visible="tcmCabinetNo">sc-22-2345</div>
+                            <div class="manufacturer">
+                                厂家：
+                                <span>北京韩美</span>
+                            </div>
+                            <div class="price-unit" data-visible="tcmPrice">
+                                <span>¥0.01/包</span>
+                            </div>
+                            <div class="price-total" data-visible="tcmTotalAmount">
+                                ，
+                                <span>共¥1.00</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="infusion-bracket"></div>
                 <div class="infusion-instruction">
@@ -249,6 +348,13 @@
                     <div class="advice-item">1. 忌生冷油腻，注意休息</div>
                     <div class="advice-item">2. 按时服药，定期复查血压</div>
                 </div>
+            </div>
+            <!-- 接下页 -->
+            <div class="next-page mj-hidden">（接下页）</div>
+            <div class="blank-section">
+                <div class="divider dashed"></div>
+                <div class="blank-text">以下空白</div>
+                <div class="divider dashed"></div>
             </div>
         </template>
 
@@ -387,6 +493,7 @@ const props = defineProps({
                 flex-wrap: wrap;
 
                 .cabinet-number {
+                    display: none;
                     margin-right: 6pt;
                     flex: 0 0 auto;
                     flex-basis: calc(50% - 6pt);

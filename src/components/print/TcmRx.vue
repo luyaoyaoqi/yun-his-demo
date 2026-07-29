@@ -124,12 +124,13 @@
             <div class="chinese-medicine-section-item" data-field="tcmList">
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
+                        <div class="medicine-method">[先煎半小时]</div>
                         <div class="cabinet-number" data-visible="tcmCabinetNo">a-2-089</div>
                         <div class="price-unit" data-visible="tcmPrice">
                             <span>¥0.02/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥3.60</span>
                         </div>
                     </div>
@@ -143,12 +144,13 @@
                 </div>
                 <div class="medicine-item one-third">
                     <div class="medicine-header">
+                        <div class="medicine-method">[先煎]</div>
                         <div class="cabinet-number" data-visible="tcmCabinetNo">b-3-156</div>
                         <div class="price-unit" data-visible="tcmPrice">
                             <span>¥0.05/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥7.50</span>
                         </div>
                     </div>
@@ -167,7 +169,7 @@
                             <span>¥0.04/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥4.80</span>
                         </div>
                     </div>
@@ -186,7 +188,7 @@
                             <span>¥0.06/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥5.40</span>
                         </div>
                     </div>
@@ -205,7 +207,7 @@
                             <span>¥0.03/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥3.80</span>
                         </div>
                     </div>
@@ -224,7 +226,7 @@
                             <span>¥0.08/g</span>
                         </div>
                         <div class="price-total" data-visible="tcmTotalAmount">
-                            ，
+                            <span>，</span>
                             <span>共¥9.60</span>
                         </div>
                     </div>
@@ -378,14 +380,26 @@ const props = defineProps({
         .medicine-header {
             display: flex;
             font-size: 8pt;
+            flex-wrap: wrap;
 
-            .cabinet-number {
-                margin-right: 6pt;
+            .medicine-method {
+                margin-right: 4pt;
+                flex: 0 1 auto;
+                min-width: calc(20% - 4pt);
             }
 
-            .price-unit,
+            .cabinet-number {
+                margin-right: 4pt;
+                flex: 0 1 auto;
+            }
+
+            .price-unit {
+                flex: 0 1 auto;
+            }
+
             .price-total {
-                flex: 0 auto;
+                flex: 0 1 auto;
+                margin-right: 4pt;
             }
         }
 

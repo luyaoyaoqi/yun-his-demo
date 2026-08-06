@@ -79,7 +79,7 @@
                 <div class="footer-info">
                     <div class="divider dashed"></div>
                     <div class="info-item" data-visible="operator">
-                        <span class="label">操作员：</span>
+                        <span class="label">收费员：</span>
                         <span data-visible="operatorSignature" data-field="operator">令狐冲</span>
                     </div>
                     <div class="info-item" data-visible="appointmentDate">

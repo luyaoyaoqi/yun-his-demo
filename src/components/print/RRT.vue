@@ -51,7 +51,7 @@
                         <span data-field="visitTime">12:00~13:00</span>
                     </div>
                     <div class="info-item" data-visible="visitRemark">
-                        <span class="label">就诊备注：</span>
+                        <span class="label">备注：</span>
                         <span data-field="visitRemark"></span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                         <span data-visible="operatorSignature" data-field="operator">令狐冲</span>
                     </div>
                     <div class="info-item" data-visible="appointmentDate">
-                        <span class="label">预约日期：</span>
+                        <span class="label">创建日期：</span>
                         <span data-field="appointmentDate">2019-12-10</span>
                     </div>
                     <div class="info-item">
@@ -165,7 +165,10 @@ const props = defineProps({
             white-space: wrap;
 
             &:not(:first-child) {
-                margin-left: 4px;
+                margin-right: 4px;
+            }
+            &:last-child {
+                margin-right: 0;
             }
 
             &.big-number {
@@ -176,8 +179,7 @@ const props = defineProps({
 
         .label {
             white-space: nowrap;
-            flex: 2 1 auto;
-            flex-basis: 64pt;
+            flex: 0 0 auto;
         }
 
         .pay-type {
@@ -189,6 +191,14 @@ const props = defineProps({
             flex: 0 0 auto;
             text-align: right;
             flex-basis: 40pt;
+        }
+    }
+
+    .cashier-info {
+        .info-item {
+            .label {
+                flex: 2 1 auto;
+            }
         }
     }
 

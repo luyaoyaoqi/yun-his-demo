@@ -8,16 +8,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ChargeReceipt: typeof import('./src/components/print/ChargeReceipt.vue')['default']
-    copy: typeof import('./src/components/print/DC copy.vue')['default']
     CRT: typeof import('./src/components/print/CRT.vue')['default']
     DatePickerAndSelect: typeof import('./src/components/DatePickerAndSelect.vue')['default']
     DC: typeof import('./src/components/print/DC.vue')['default']
-    DispensingReceipt: typeof import('./src/components/print/DispensingReceipt.vue')['default']
     DRT: typeof import('./src/components/print/DRT.vue')['default']
     ElAutocomplete: typeof import('element-plus/es')['ElAutocomplete']
     ElButton: typeof import('element-plus/es')['ElButton']
-    ElButtonGroup: typeof import('element-plus/es')['ElButtonGroup']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
     ElCascader: typeof import('element-plus/es')['ElCascader']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
@@ -50,8 +46,6 @@ declare module 'vue' {
     MedicalRecord: typeof import('./src/components/print/MedicalRecord.vue')['default']
     PrintContainer: typeof import('./src/components/print/PrintContainer.vue')['default']
     PTF: typeof import('./src/components/print/PTF.vue')['default']
-    PTTx: typeof import('./src/components/print/PTTx.vue')['default']
-    Receipt: typeof import('./src/components/print/Receipt.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     RRT: typeof import('./src/components/print/RRT.vue')['default']

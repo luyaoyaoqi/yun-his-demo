@@ -41,7 +41,6 @@
                         </el-form-item>
                     </el-form>
                     <el-button class="mb-6" type="primary" @click="getSvgContent">获取 SVG 内容</el-button>
-                    <el-button class="mb-6 ml-4" type="success" @click="downloadSvg">下载 SVG</el-button>
                 </div>
             </el-splitter-panel>
         </el-splitter>

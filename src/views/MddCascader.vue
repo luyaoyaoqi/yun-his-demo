@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
 
-const value = ref([])
+const value = ref<string[]>([])
 const cascader = ref()
 
 const props = {

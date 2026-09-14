@@ -31,5 +31,7 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0'
-  }
+  },
+  // GitHub Pages 项目页 = https://luyaoyaoqi.github.io/yun-his-demo/
+  base: '/yun-his-demo/'
 })
